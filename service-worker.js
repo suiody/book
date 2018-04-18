@@ -21,15 +21,15 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "f46e1a7c17d9789379e75f5063531187"
+    "revision": "f9ad0fd7791392e8b3dbb7341db5351f"
   },
   {
     "url": "ai-ml/index.html",
-    "revision": "12d086134179a751883ff41b7671fc59"
+    "revision": "d60fc8b5f4bae0ec21360b89489db5cb"
   },
   {
-    "url": "assets/css/5.styles.b91153f2.css",
-    "revision": "231cbd041123079ec179e90adac4f778"
+    "url": "assets/css/5.styles.ebe5f93c.css",
+    "revision": "9a6d11d1ee563404e2027dc636e91890"
   },
   {
     "url": "assets/img/search.83621669.svg",
@@ -56,24 +56,24 @@ self.__precacheManifest = [
     "revision": "84ee74ff47e6c0842abdb52e74cfe539"
   },
   {
-    "url": "assets/js/app.e0be8653.js",
-    "revision": "8cd15b7ea9958233f7c8be14a440e62b"
+    "url": "assets/js/app.c0967505.js",
+    "revision": "64df87b9087987d9bb94fa3b76b920a7"
   },
   {
     "url": "ethik/index.html",
-    "revision": "a75a0f04f19c9dac0e6b422c2f8f6ef8"
+    "revision": "b7712987b5f45ca7447b7b92a4a6f54b"
   },
   {
     "url": "guide/ethik.html",
-    "revision": "23771bea212fb3d3249f3bbddedb3589"
+    "revision": "38f85a987e5f8424edc972ef308b0337"
   },
   {
     "url": "guide/index.html",
-    "revision": "0dfa1732dfcf92e31c3e7c117afb0e3b"
+    "revision": "2a361d1e19e8cc52abad6a8a75c17576"
   },
   {
     "url": "index.html",
-    "revision": "71aa8f853a689e61ef390a925b59924f"
+    "revision": "1859bfebd7c490d5d7ec145c510c4e94"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
