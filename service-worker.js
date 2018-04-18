@@ -21,14 +21,14 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "f9ad0fd7791392e8b3dbb7341db5351f"
+    "revision": "80c71ee88fef877819b904b07eba4ebb"
   },
   {
     "url": "ai-ml/index.html",
-    "revision": "d60fc8b5f4bae0ec21360b89489db5cb"
+    "revision": "8bc959032bb44d4037847de9987d8ac4"
   },
   {
-    "url": "assets/css/5.styles.ebe5f93c.css",
+    "url": "assets/css/8.styles.ebce3281.css",
     "revision": "9a6d11d1ee563404e2027dc636e91890"
   },
   {
@@ -36,44 +36,68 @@ self.__precacheManifest = [
     "revision": "83621669651b9a3d4bf64d1a670ad856"
   },
   {
-    "url": "assets/js/0.f5ae3ccb.js",
-    "revision": "8cdeff81739eeeceb3bff77d0f22715f"
+    "url": "assets/js/0.70daa90a.js",
+    "revision": "2402b9607438f0dc73d2e5bf95532601"
   },
   {
-    "url": "assets/js/1.93f1ccf6.js",
-    "revision": "d02042b1a2f45f2581fb80f9fa1f156c"
+    "url": "assets/js/1.2d6a636c.js",
+    "revision": "d9024a5111f7be25bf3d48999594ec82"
   },
   {
-    "url": "assets/js/2.bffea407.js",
-    "revision": "c853c51716f7612768592a514c9e61b8"
+    "url": "assets/js/2.18640894.js",
+    "revision": "62fbe21cf40c148275b13457734ab4a0"
   },
   {
-    "url": "assets/js/3.f03478c0.js",
-    "revision": "0c3946203d7c190eac2a96311132a308"
+    "url": "assets/js/3.76d120d2.js",
+    "revision": "addec872899b6369872193514846b38d"
   },
   {
-    "url": "assets/js/4.890be526.js",
-    "revision": "84ee74ff47e6c0842abdb52e74cfe539"
+    "url": "assets/js/4.cac5ff0d.js",
+    "revision": "bd0160fc465103ce31a7d9657879eb72"
   },
   {
-    "url": "assets/js/app.c0967505.js",
-    "revision": "64df87b9087987d9bb94fa3b76b920a7"
+    "url": "assets/js/5.e64f79b6.js",
+    "revision": "44a1280b8fbea3b49334db3e069cdf16"
+  },
+  {
+    "url": "assets/js/6.f927390c.js",
+    "revision": "32e82f9d9f4c1f40cf29ce32cb5e5869"
+  },
+  {
+    "url": "assets/js/7.83c6bcf1.js",
+    "revision": "c2f5ae2c213486cfe81075cbf6088f6e"
+  },
+  {
+    "url": "assets/js/app.e0cdfb7d.js",
+    "revision": "687c873d9e3b9cd502ac10f5ae81392f"
+  },
+  {
+    "url": "cloud/index.html",
+    "revision": "0f6c1e4aefd9094277f0dd0b2311dfc8"
+  },
+  {
+    "url": "digitalisierung/index.html",
+    "revision": "34711ddb9a1b772c4de8db5531e1dc3a"
   },
   {
     "url": "ethik/index.html",
-    "revision": "b7712987b5f45ca7447b7b92a4a6f54b"
+    "revision": "f9a3b26956d2ef8e2593415d0229aec6"
   },
   {
-    "url": "guide/ethik.html",
-    "revision": "38f85a987e5f8424edc972ef308b0337"
-  },
-  {
-    "url": "guide/index.html",
-    "revision": "2a361d1e19e8cc52abad6a8a75c17576"
+    "url": "fullstack/index.html",
+    "revision": "7a11a1320d7bac8afcde46a094b91c64"
   },
   {
     "url": "index.html",
-    "revision": "1859bfebd7c490d5d7ec145c510c4e94"
+    "revision": "e8ca208454cd7efbf18c19c554525375"
+  },
+  {
+    "url": "kurs/index.html",
+    "revision": "9b93f9388c58c34606a7ea0f6a051eaa"
+  },
+  {
+    "url": "vr-ai/index.html",
+    "revision": "d772f197cfe9616f51b7bf267b0bc410"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
