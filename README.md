@@ -5,6 +5,8 @@
 
 Fork this repo and clone your fork
 
+!! VuePress requires Node.js >= 8 !!
+
 ``` bash 
 
 # move into book folder
