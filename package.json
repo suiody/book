@@ -1,0 +1,16 @@
+{
+  "name": "sgse-book",
+  "version": "0.0.1",
+  "description": "The course material for SGSE18 at FH Bielefeld Campus Minden",
+  "main": "index.js",
+  "scripts": {
+    "test": "vuepress build docs",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vuepress": "^0.5.1"
+  }
+}
