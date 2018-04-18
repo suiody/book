@@ -21,11 +21,11 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "80c71ee88fef877819b904b07eba4ebb"
+    "revision": "0093d5a6382ea58d5de610c9f8aa20ee"
   },
   {
     "url": "ai-ml/index.html",
-    "revision": "8bc959032bb44d4037847de9987d8ac4"
+    "revision": "cd817d5f0c41974c8f3368445acf4392"
   },
   {
     "url": "assets/css/8.styles.ebce3281.css",
@@ -64,40 +64,40 @@ self.__precacheManifest = [
     "revision": "32e82f9d9f4c1f40cf29ce32cb5e5869"
   },
   {
-    "url": "assets/js/7.83c6bcf1.js",
-    "revision": "c2f5ae2c213486cfe81075cbf6088f6e"
+    "url": "assets/js/7.d28ab770.js",
+    "revision": "9088389fce7972487df141cc9f396063"
   },
   {
-    "url": "assets/js/app.e0cdfb7d.js",
-    "revision": "687c873d9e3b9cd502ac10f5ae81392f"
+    "url": "assets/js/app.673d494d.js",
+    "revision": "4cdc60b5c6b025d19db307e3b83aac5a"
   },
   {
     "url": "cloud/index.html",
-    "revision": "0f6c1e4aefd9094277f0dd0b2311dfc8"
+    "revision": "fbefb2adfb0d44ac2a149cdafbdadab1"
   },
   {
     "url": "digitalisierung/index.html",
-    "revision": "34711ddb9a1b772c4de8db5531e1dc3a"
+    "revision": "6269fa8a5ff6ee4f2109c48c90bc78f9"
   },
   {
     "url": "ethik/index.html",
-    "revision": "f9a3b26956d2ef8e2593415d0229aec6"
+    "revision": "0ac7219e615fa37a17019ac542e7fff6"
   },
   {
     "url": "fullstack/index.html",
-    "revision": "7a11a1320d7bac8afcde46a094b91c64"
+    "revision": "6416171a55bd907dd76cbcd1462227a7"
   },
   {
     "url": "index.html",
-    "revision": "e8ca208454cd7efbf18c19c554525375"
+    "revision": "0ea9c9a84c5d53ca6cbd3cdc60237bd3"
   },
   {
     "url": "kurs/index.html",
-    "revision": "9b93f9388c58c34606a7ea0f6a051eaa"
+    "revision": "d50a5aae8334830c8e92849a4d483add"
   },
   {
     "url": "vr-ai/index.html",
-    "revision": "d772f197cfe9616f51b7bf267b0bc410"
+    "revision": "9b36d6bbbf1f0c9adebe19b0b34d2fca"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
