@@ -21,15 +21,15 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "0093d5a6382ea58d5de610c9f8aa20ee"
+    "revision": "1cad02711461c45db32532e6e4988638"
   },
   {
     "url": "ai-ml/index.html",
-    "revision": "cd817d5f0c41974c8f3368445acf4392"
+    "revision": "770690884c30c0e0fdb83c43596e07b3"
   },
   {
-    "url": "assets/css/8.styles.ebce3281.css",
-    "revision": "9a6d11d1ee563404e2027dc636e91890"
+    "url": "assets/css/8.styles.d6faa884.css",
+    "revision": "333b0ca4a32ca055894c0b84d16642df"
   },
   {
     "url": "assets/img/search.83621669.svg",
@@ -68,36 +68,36 @@ self.__precacheManifest = [
     "revision": "9088389fce7972487df141cc9f396063"
   },
   {
-    "url": "assets/js/app.673d494d.js",
-    "revision": "4cdc60b5c6b025d19db307e3b83aac5a"
+    "url": "assets/js/app.e13b38a1.js",
+    "revision": "90ecaf96eff250a7a902d85fb399534a"
   },
   {
     "url": "cloud/index.html",
-    "revision": "fbefb2adfb0d44ac2a149cdafbdadab1"
+    "revision": "8881382aa97820498ca334c4ea1e5175"
   },
   {
     "url": "digitalisierung/index.html",
-    "revision": "6269fa8a5ff6ee4f2109c48c90bc78f9"
+    "revision": "ff03e0316d85939c0de07f8901b158d8"
   },
   {
     "url": "ethik/index.html",
-    "revision": "0ac7219e615fa37a17019ac542e7fff6"
+    "revision": "4a83ff6723d9493e9d40ed88a6639961"
   },
   {
     "url": "fullstack/index.html",
-    "revision": "6416171a55bd907dd76cbcd1462227a7"
+    "revision": "f6dea2296d6fb9f6761d852e50870360"
   },
   {
     "url": "index.html",
-    "revision": "0ea9c9a84c5d53ca6cbd3cdc60237bd3"
+    "revision": "ad18365dc09ab3d221698e34ad6f80e0"
   },
   {
     "url": "kurs/index.html",
-    "revision": "d50a5aae8334830c8e92849a4d483add"
+    "revision": "e54613378c8d01f0374636c3e37dcc06"
   },
   {
     "url": "vr-ai/index.html",
-    "revision": "9b36d6bbbf1f0c9adebe19b0b34d2fca"
+    "revision": "2324b8cdc009767f83a429eee31c2ebd"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
