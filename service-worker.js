@@ -21,14 +21,14 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "1cad02711461c45db32532e6e4988638"
+    "revision": "93e980f724578735d84667484c63c3ba"
   },
   {
     "url": "ai-ml/index.html",
-    "revision": "770690884c30c0e0fdb83c43596e07b3"
+    "revision": "9bcd270cf693e3874457c8c6858d893d"
   },
   {
-    "url": "assets/css/8.styles.d6faa884.css",
+    "url": "assets/css/9.styles.3beec657.css",
     "revision": "333b0ca4a32ca055894c0b84d16642df"
   },
   {
@@ -36,68 +36,76 @@ self.__precacheManifest = [
     "revision": "83621669651b9a3d4bf64d1a670ad856"
   },
   {
-    "url": "assets/js/0.70daa90a.js",
-    "revision": "2402b9607438f0dc73d2e5bf95532601"
+    "url": "assets/js/0.a12b224f.js",
+    "revision": "36bfb84d9a82d0d106f894fa4f463e05"
   },
   {
-    "url": "assets/js/1.2d6a636c.js",
-    "revision": "d9024a5111f7be25bf3d48999594ec82"
+    "url": "assets/js/1.94bef7e4.js",
+    "revision": "5c8fa8d23187146e2decc666bd6c914e"
   },
   {
-    "url": "assets/js/2.18640894.js",
-    "revision": "62fbe21cf40c148275b13457734ab4a0"
+    "url": "assets/js/2.25dbfa05.js",
+    "revision": "ed7e5198971ad488ddc57fd168b7888e"
   },
   {
-    "url": "assets/js/3.76d120d2.js",
-    "revision": "addec872899b6369872193514846b38d"
+    "url": "assets/js/3.739d5909.js",
+    "revision": "52c4431ee5bd378e680201d946a03aa8"
   },
   {
-    "url": "assets/js/4.cac5ff0d.js",
-    "revision": "bd0160fc465103ce31a7d9657879eb72"
+    "url": "assets/js/4.6235fd24.js",
+    "revision": "79e27b6627572b5b49a9efb53395a6f6"
   },
   {
-    "url": "assets/js/5.e64f79b6.js",
-    "revision": "44a1280b8fbea3b49334db3e069cdf16"
+    "url": "assets/js/5.bfbf8875.js",
+    "revision": "fcf160b6dd955280f9743f5372785f4a"
   },
   {
-    "url": "assets/js/6.f927390c.js",
-    "revision": "32e82f9d9f4c1f40cf29ce32cb5e5869"
+    "url": "assets/js/6.80ca2617.js",
+    "revision": "f98b4bc85942c6fef2d5f89d8e8be0c0"
   },
   {
-    "url": "assets/js/7.d28ab770.js",
-    "revision": "9088389fce7972487df141cc9f396063"
+    "url": "assets/js/7.ad416a03.js",
+    "revision": "72b7482664ed81577c9a6eb03dccacac"
   },
   {
-    "url": "assets/js/app.e13b38a1.js",
-    "revision": "90ecaf96eff250a7a902d85fb399534a"
+    "url": "assets/js/8.28be9d1a.js",
+    "revision": "d17c6f15c81592457cb1afa5105c44c8"
+  },
+  {
+    "url": "assets/js/app.d8d492a0.js",
+    "revision": "0c4225ae4c76f349571144542b7407c2"
   },
   {
     "url": "cloud/index.html",
-    "revision": "8881382aa97820498ca334c4ea1e5175"
+    "revision": "fe96dc5c002e29627bc8469bad919ef4"
   },
   {
     "url": "digitalisierung/index.html",
-    "revision": "ff03e0316d85939c0de07f8901b158d8"
+    "revision": "2490227d0faa5a78dafe3cc868e9bdc3"
   },
   {
     "url": "ethik/index.html",
-    "revision": "4a83ff6723d9493e9d40ed88a6639961"
+    "revision": "b3ebfb391ffe2c2f4b22d00df6e2e19f"
   },
   {
     "url": "fullstack/index.html",
-    "revision": "f6dea2296d6fb9f6761d852e50870360"
+    "revision": "9af263737e194bdb5040bf19167845d6"
   },
   {
     "url": "index.html",
-    "revision": "ad18365dc09ab3d221698e34ad6f80e0"
+    "revision": "e4920d06a1e4b6e43a2966075651fd06"
   },
   {
     "url": "kurs/index.html",
-    "revision": "e54613378c8d01f0374636c3e37dcc06"
+    "revision": "98b67a8a5619cb9e80af6969461246b3"
+  },
+  {
+    "url": "reactiv-programming/index.html",
+    "revision": "862396cbcf83e51b7296909e22039693"
   },
   {
     "url": "vr-ai/index.html",
-    "revision": "2324b8cdc009767f83a429eee31c2ebd"
+    "revision": "1b11f74f1d66fe2d2e902160e0514d0f"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
