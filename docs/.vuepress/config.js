@@ -25,8 +25,8 @@ module.exports = {
       '/fullstack/',
       '/vr-ai/',
       '/ethik/',
-      '/ai-ml/'
-      
+      '/ai-ml/',
+      '/reactiv-programming/'
     ]
   }
 }
