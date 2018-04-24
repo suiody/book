@@ -26,7 +26,8 @@ module.exports = {
       '/vr-ai/',
       '/ethik/',
       '/ai-ml/',
-      '/reactiv-programming/'
+      '/reactiv-programming/',
+      '/streaming-architectures/'
     ]
   }
 }
