@@ -27,6 +27,7 @@ module.exports = {
       '/ethik/',
       '/ai-ml/',
       '/reactiv-programming/',
+      '/streaming-architectures/'
       '/embedded/'
     ]
   }
