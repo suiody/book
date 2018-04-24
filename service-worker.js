@@ -21,14 +21,14 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "93e980f724578735d84667484c63c3ba"
+    "revision": "b333a0016d0721ba8961a43802ea9197"
   },
   {
     "url": "ai-ml/index.html",
-    "revision": "9bcd270cf693e3874457c8c6858d893d"
+    "revision": "f7b4766a016e3ea397d94ed512620954"
   },
   {
-    "url": "assets/css/9.styles.3beec657.css",
+    "url": "assets/css/10.styles.df391d28.css",
     "revision": "333b0ca4a32ca055894c0b84d16642df"
   },
   {
@@ -36,76 +36,84 @@ self.__precacheManifest = [
     "revision": "83621669651b9a3d4bf64d1a670ad856"
   },
   {
-    "url": "assets/js/0.a12b224f.js",
-    "revision": "36bfb84d9a82d0d106f894fa4f463e05"
+    "url": "assets/js/0.041f035c.js",
+    "revision": "3a0e4bedf6b4f1215a594fc03c296790"
   },
   {
-    "url": "assets/js/1.94bef7e4.js",
-    "revision": "5c8fa8d23187146e2decc666bd6c914e"
+    "url": "assets/js/1.72c9278d.js",
+    "revision": "d9d1f96f95a0eb371eda34e20edd7488"
   },
   {
-    "url": "assets/js/2.25dbfa05.js",
-    "revision": "ed7e5198971ad488ddc57fd168b7888e"
+    "url": "assets/js/2.a20468b6.js",
+    "revision": "24dd9eb0c35dba7a13d8a64a6816c12c"
   },
   {
-    "url": "assets/js/3.739d5909.js",
-    "revision": "52c4431ee5bd378e680201d946a03aa8"
+    "url": "assets/js/3.ccc81fd0.js",
+    "revision": "4f389ca453f6dadbe5930476cdcf902f"
   },
   {
-    "url": "assets/js/4.6235fd24.js",
-    "revision": "79e27b6627572b5b49a9efb53395a6f6"
+    "url": "assets/js/4.e89213b4.js",
+    "revision": "9f4550fe3ba5efe98d5ce90444f64ade"
   },
   {
-    "url": "assets/js/5.bfbf8875.js",
-    "revision": "fcf160b6dd955280f9743f5372785f4a"
+    "url": "assets/js/5.a3b98079.js",
+    "revision": "ae8bbdab068adfe025d0dfa9df8d0a05"
   },
   {
-    "url": "assets/js/6.80ca2617.js",
-    "revision": "f98b4bc85942c6fef2d5f89d8e8be0c0"
+    "url": "assets/js/6.baba5a65.js",
+    "revision": "b55ecc6c81bacfabe04b4bdaaf9c2212"
   },
   {
-    "url": "assets/js/7.ad416a03.js",
-    "revision": "72b7482664ed81577c9a6eb03dccacac"
+    "url": "assets/js/7.292861c9.js",
+    "revision": "f3c1fb0aaef460b4c8651ce7fbd99727"
   },
   {
-    "url": "assets/js/8.28be9d1a.js",
-    "revision": "d17c6f15c81592457cb1afa5105c44c8"
+    "url": "assets/js/8.d9055fe0.js",
+    "revision": "fb7f805012a0021354e9fa330ced8e2d"
   },
   {
-    "url": "assets/js/app.d8d492a0.js",
-    "revision": "0c4225ae4c76f349571144542b7407c2"
+    "url": "assets/js/9.af57291e.js",
+    "revision": "dd3b6edd9c3997dc58639b5e0d734868"
+  },
+  {
+    "url": "assets/js/app.0440f4c4.js",
+    "revision": "08d4175b5b35d55aae667be5944e278d"
   },
   {
     "url": "cloud/index.html",
-    "revision": "fe96dc5c002e29627bc8469bad919ef4"
+    "revision": "4fe7ba3cf74d86ad54ba07f2cd826725"
   },
   {
     "url": "digitalisierung/index.html",
-    "revision": "2490227d0faa5a78dafe3cc868e9bdc3"
+    "revision": "32284f15fb4dd62bd3bfcb8942780a79"
+  },
+  {
+    "url": "embedded/index.html",
+    "revision": "0fe5dbb2fe6c1a4c86b9ee76eba77829"
   },
   {
     "url": "ethik/index.html",
-    "revision": "b3ebfb391ffe2c2f4b22d00df6e2e19f"
+    "revision": "22cc0bc3af81aa7a78ca611ee561ff55"
   },
   {
     "url": "fullstack/index.html",
-    "revision": "9af263737e194bdb5040bf19167845d6"
+    "revision": "7274abfb6a11e51fec29ccc901b8f0a1"
   },
   {
     "url": "index.html",
-    "revision": "e4920d06a1e4b6e43a2966075651fd06"
+    "revision": "c56a1cef6f7e0f36c5dc926aa69a0df1"
   },
   {
     "url": "kurs/index.html",
-    "revision": "98b67a8a5619cb9e80af6969461246b3"
+    "revision": "9e644dec1798be83e622d3263a53a694"
   },
   {
     "url": "reactiv-programming/index.html",
-    "revision": "862396cbcf83e51b7296909e22039693"
+    "revision": "37a54301e8920c6e2db3d771e017373f"
   },
   {
     "url": "vr-ai/index.html",
-    "revision": "1b11f74f1d66fe2d2e902160e0514d0f"
+    "revision": "97b1156e6c9cae8f44013b4f3a651ff6"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
