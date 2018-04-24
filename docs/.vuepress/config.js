@@ -22,6 +22,7 @@ module.exports = {
     sidebar: [
       '/digitalisierung/',
       '/cloud/',
+	  '/microservices/',
       '/fullstack/',
       '/vr-ai/',
       '/ethik/',
