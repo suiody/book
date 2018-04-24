@@ -28,6 +28,7 @@ module.exports = {
       '/ai-ml/',
       '/reactiv-programming/',
       '/streaming-architectures/'
+      '/embedded/'
     ]
   }
 }
