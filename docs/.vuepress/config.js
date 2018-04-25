@@ -13,7 +13,7 @@ module.exports = {
     repo: 'SGSE18/book',
     editLinks: true,
     docsDir: 'docs',
-	sidebarDepth: 4,
+	sidebarDepth: 2,
     nav: [
       {
         text: 'Kursmaterial',
@@ -27,8 +27,8 @@ module.exports = {
 	  {
         title: 'Fullstack',
         children: [
-			  '/fullstack/frontend/',
-			  '/fullstack/backend/',
+		  '/fullstack/frontend/',
+		  '/fullstack/backend/',
         ]
       },
       '/vr-ai/',
