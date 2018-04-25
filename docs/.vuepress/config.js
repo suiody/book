@@ -25,7 +25,7 @@ module.exports = {
       '/cloud/',
 	  '/microservices/',
 	  {
-        title: 'Fullstack',
+        title: 'Fullstack Development',
         children: [
 		  '/fullstack/frontend/',
 		  '/fullstack/backend/',
