@@ -1,10 +1,16 @@
 ---
 home: true
+actionText: Jetzt lesen →
+actionLink: /kurs/
 ---
 
 [![Build Status](https://travis-ci.org/SGSE18/book.svg?branch=master)](https://travis-ci.org/SGSE18/book)
 
-## Inhaltsverzeichnis
+
+
+## Alternatives Inhaltsverzeichnis
+
+Bleibt erstmal temporär hier, ansonsten reicht die Sidebar Navigation
 
 ### Grundlagen
 
