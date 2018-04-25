@@ -13,6 +13,7 @@ module.exports = {
     repo: 'SGSE18/book',
     editLinks: true,
     docsDir: 'docs',
+	sidebarDepth: 2,
     nav: [
       {
         text: 'Kursmaterial',
@@ -22,11 +23,20 @@ module.exports = {
     sidebar: [
       '/digitalisierung/',
       '/cloud/',
-      '/fullstack/',
+	  '/microservices/',
+	  {
+        title: 'Fullstack Development',
+        children: [
+		  '/fullstack/frontend/',
+		  '/fullstack/backend/',
+        ]
+      },
       '/vr-ai/',
       '/ethik/',
       '/ai-ml/',
-      '/reactiv-programming/'
-    ]
+      '/reactiv-programming/',
+      '/streaming-architectures/',
+      '/embedded/'
+    ],
   }
 }
