@@ -22,6 +22,7 @@ module.exports = {
     ],
     sidebar: [
       '/digitalisierung/',
+	  '/blockchain/',
       '/cloud/',
 	  '/microservices/',
 	  {
