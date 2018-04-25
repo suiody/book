@@ -4,6 +4,8 @@
 
 
 Fork this repo and clone your fork
+You may need to clear your browser cache if changes are still not visible, after TravisCI successfully built your commit.
+(maybe a "feature" of the serviceworker)
 
 !! VuePress requires Node.js >= 8 !!
 
