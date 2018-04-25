@@ -11,7 +11,7 @@ module.exports = {
   serviceWorker: true,
   themeConfig: {
     repo: 'SGSE18/book',
-    editLinks: true,
+    editLinks: false,
     docsDir: 'docs',
 	sidebarDepth: 2,
     nav: [
@@ -23,18 +23,18 @@ module.exports = {
     sidebar: [
       '/digitalisierung/',
       '/cloud/',
-	  '/microservices/',
-	  {
+	    '/microservices/',
+	    {
         title: 'Fullstack Development',
         children: [
-		  '/fullstack/frontend/',
-		  '/fullstack/backend/',
+		      '/fullstack/frontend/',
+		      '/fullstack/backend/',
         ]
       },
-      '/vr-ai/',
+      '/vr-ar/',
       '/ethik/',
       '/ai-ml/',
-      '/reactiv-programming/',
+      '/reactive-programming/',
       '/streaming-architectures/',
       '/embedded/'
     ],
