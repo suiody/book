@@ -1,6 +1,8 @@
 # Blockchain
 ## Grundlagen
 ### Kryptographie
+*Patrick Vogt*
+
 Dieses Unterkapitel soll einen Überblick über eine Reihe von wichtigen Kryptographie-Themen in Bezug auf Blockchains bieten.
 ...
 
@@ -105,8 +107,10 @@ Letztere Signaturen beinhalten zusätzlich zum Namen und Testschlüssel weitere 
 
 
 ## Literaturverzeichnis
+
+<a name="ref_baum14">[BAUM14]</a>: Baumann, Ulrike ; Franz, Elke ; Pfitzmann, Andreas: Kryptographische Systeme. Berlin : Springer Vieweg, 2014, ISBN: 978-3-642-45332-8 
+
 <a name="ref_kuesters11">[KÜST11]</a>: Küsters, Ralf ; Wilke, Thomas: Moderne Kryptographie : Eine Einführung. 1. Aufl. Wiesbaden : Vieweg + Teubner, 2011, ISBN: 978-3-519-00509-4
 
 <a name="ref_paar16">[PAAR16]</a>: Paar, Christof ; Pelzl, Jan: Kryptografie verständlich : Ein Lehrbuch für Studierende und Anwender. Berlin, Heidelberg : Springer Vieweg, 2016, ISBN: 978-3-662-49296-3
 
-<a name="ref_baum14">[BAUM14]</a>: Baumann, Ulrike ; Franz, Elke ; Pfitzmann, Andreas: Kryptographische Systeme. Berlin : Springer Vieweg, 2014 (eXamen.press) 
