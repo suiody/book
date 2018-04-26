@@ -8,12 +8,12 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: `/logo.png` }]
   ],
-  serviceWorker: true,
+  serviceWorker: false,
   themeConfig: {
     repo: 'SGSE18/book',
     editLinks: false,
     docsDir: 'docs',
-	sidebarDepth: 2,
+	  sidebarDepth: 2,
     nav: [
       {
         text: 'Kursmaterial',
@@ -21,23 +21,67 @@ module.exports = {
       }
     ],
     sidebar: [
-      '/digitalisierung/',
-	  '/blockchain/',
-      '/cloud/',
-	    '/microservices/',
+      {
+        title: 'Grundlagen',
+        children: [
+		      '/digitalisierung/',
+          '/cloud/',
+          '/dezentralisierung/'
+        ]
+      },
+      {
+        title: 'Continuous Software Engineering',
+        children: [
+		      '/continuous-software-engineering/'
+        ]
+      },
+      {
+        title: 'Architekturen',
+        children: [
+          '/microservices/',
+          '/streaming-architectures/'
+        ]
+      },
 	    {
         title: 'Fullstack Development',
         children: [
-		      '/fullstack/frontend/',
-		      '/fullstack/backend/',
+          '/fullstack/frontend/',
+          '/reactive-programming/',
+	  '/fullstack/backend/',
         ]
       },
-      '/vr-ar/',
-      '/ethik/',
-      '/ai-ml/',
-      '/reactive-programming/',
-      '/streaming-architectures/',
-      '/embedded/'
+      {
+        title: 'AI - machine learning',
+        children: [
+          '/ai-ml/overview/',
+          '/ai-ml/ai/',
+          '/ai-ml/ml/',
+          '/ai-ml/nn/',
+          '/ai-ml/gan/',
+          '/ethik/'
+        ]
+      },
+      {
+        title: 'Embedded',
+        children: [
+          '/embedded/'
+        ]
+      },
+      {
+        title: 'VR / AR',
+        children: [
+          '/vr-ar/'
+        ]
+      },
+      {
+        title: 'Blockchain',
+        children: [
+          '/blockchain/grundlagen/',
+	  '/blockchain/technologie/',
+	  '/blockchain/usecases/',
+	  '/blockchain/plattformen/'
+        ]
+      }
     ],
   }
 }
