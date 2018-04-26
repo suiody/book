@@ -8,7 +8,7 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: `/logo.png` }]
   ],
-  serviceWorker: true,
+  serviceWorker: false,
   themeConfig: {
     repo: 'SGSE18/book',
     editLinks: false,
@@ -47,7 +47,7 @@ module.exports = {
         children: [
           '/fullstack/frontend/',
           '/reactive-programming/',
-		      '/fullstack/backend/',
+	  '/fullstack/backend/',
         ]
       },
       {
@@ -72,7 +72,16 @@ module.exports = {
         children: [
           '/vr-ar/'
         ]
-      }     
+      },
+      {
+        title: 'Blockchain',
+        children: [
+          '/blockchain/grundlagen/',
+	  '/blockchain/technologie/',
+	  '/blockchain/usecases/',
+	  '/blockchain/plattformen/'
+        ]
+      }
     ],
   }
 }
