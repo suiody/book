@@ -1,14 +1,12 @@
 # Grundlagen
 
-
-
-## Kryptographie
+## Kryptographie --->WIP<---
 Autor: Patrick Vogt
 
-Dieses Unterkapitel soll einen Überblick über eine Reihe von wichtigen Kryptographie-Themen in Bezug auf Blockchains bieten.
 ...
 
-### Einige Begriffe und Grundsätze der Kryptographie
+### Einige wichtige Begriffe und Grundsätze der Kryptographie
+Autor: Patrick Vogt
 
 *CIA-Schutzziele*
 * **C**onfidentiality (Vertraulichkeit): Informationen sind nur autorisierten Personen zugänglich
@@ -26,10 +24,27 @@ Bei authentischen Informationen ist sichergestellt, dass sie von der angegebenen
 Personen geprüft wird, sondern auch bei IT-Komponenten oder Anwendungen.
 
 https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/Glossar/glossar_node.html
-#### Kerckhoffs Prinzip
+
+**Prinzip von Kerkhoffs**
+
+Ein wichtiger Grundsatz der Kryptographie wurde 1883 von Auguste Kerkchoffs von Nieuwenhof (* 1835, † 1903) festgestellt. In seiner Schrift beschrieb er das folgende Prinzip:
+
+>Die Sicherheit eines Kryptosystems liegt allein in der Schwierigkeit, den Schlüssel zu finden – sie darf nicht auf der Geheimhaltung des Systems beruhen. <a>[[BAUM14]](#ref_baum14)</a>
+
+Alle heutzutage gängigen Verschlüsselungsverfahren folgen diesem Grundsatz. 
 
 ### Hash Funktionen
+Autor: Patrick Vogt
+
+Hash Funktionen bilden einen wichtigen Bestandteil innerhalb der Kryptographie. Dort berechnen Sie aus einer gegebenen Nachricht einen sogenannten *Hashwert* fester Länge. Aus kryptografischer Sicht können Hashwerte als eine Prüfsumme gesehen werden. 
+Es handelt sich im Prinzip um eine Art "Einwegfunktion". Der Weg vom Definitionsbereich hin zum Bildbereich ist einfach durchführbar, die Rückrichtung ist jedoch schwer. So können Hash Funktionen auch z.B. für das Speichern von Passwörtern verwendet werden, sodass innerhalb der Datenbank das Passwort nicht als Klartext sondern als Hashwert hinterlegt wird.   <a>[[PAAR16]](#ref_paar16)</a>
+
+Aufgrund des eingeschränkten Bildbereichs (begrenzte Anzahl an Zeichen) und des unbegrenzten Definitionsbereichs kann es zu *Kollisionen* kommen (unterschiedliche nachrichten führen zu dem gleichen Hashwert). 
+
+...
+
 ### Verschlüsselung
+Autor: Patrick Vogt
 #### Verschlüsselungsarten
 
 *Symmetrische Verschlüsselung*
@@ -66,6 +81,7 @@ dechiffrieren. Der große Vorteil dieses Verfahrens liegt darin, dass der öffen
 Der private Schlüssel sollte dementsprechend nur dem jeweiligen Empfänger bekannt sein und von ihm geheim gehalten werden. Da die Schlüssel jeweils von nur einem Teilnehmer abhängig sind, steigt die Anzahl der Schlüssel bei steigender Anzahl an Teilnehmern nicht quadratisch, wie bei der symmetrischen Verschlüsselung, sondern linear.
 
 ### Digitale Signaturen
+Autor: Patrick Vogt
 
 Ähnlich wie herkömmliche (analoge) Signaturen sollen digitale Signaturen sicherstellen, dass eine Nachricht bzw. ein Dokument wirklich von dem Absender/Signierer stammt, der vorgibt das Dokument abgeschickt zu haben.
 Eine Verschlüsselung der Daten erfolgt bei der Signierung nicht, wenngleich eine zusätzliche Verschlüsselung der signierten Nachricht durchaus üblich ist.
@@ -101,11 +117,14 @@ Letztere Signaturen beinhalten zusätzlich zum Namen und Testschlüssel weitere 
 
 
 ### PKI
+Autor: Patrick Vogt
 ### MAC
+Autor: Patrick Vogt
 
 
 
 ### Algorithmen
+Autor: Patrick Vogt
 
 ### Zero knowledge Proofs 
 
