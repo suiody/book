@@ -7,14 +7,13 @@ Autor: Patrick Vogt
 
 ### Einige wichtige Begriffe und Grundsätze der Kryptographie
 Autor: Patrick Vogt
-
+... 
 *CIA-Schutzziele*
 * **C**onfidentiality (Vertraulichkeit): Informationen sind nur autorisierten Personen zugänglich
 * **I**ntegrity (Integrität): Informationen sind korrekt, aktuell und vollständig
 * **A**vailability (Verfügbarkeit): Informationen sind berechtigten Personen dort und dann zugänglich, wo und wann diese die Informationen benötigen
 
  <a>[[BAUM14]](#ref_baum14)</a>
- 
 
 >Unter **Verbindlichkeit** werden die Sicherheitsziele Authentizität und Nichtabstreitbarkeit zusammengefasst. Bei der Übertragung von Informationen bedeutet dies, dass die Informationsquelle 
 ihre Identität bewiesen hat und der Empfang der Nachricht nicht in Abrede gestellt werden kann.
@@ -23,6 +22,7 @@ ihre Identität bewiesen hat und der Empfang der Nachricht nicht in Abrede geste
 Bei authentischen Informationen ist sichergestellt, dass sie von der angegebenen Quelle erstellt wurden. Der Begriff wird nicht nur verwendet, wenn die Identität von 
 Personen geprüft wird, sondern auch bei IT-Komponenten oder Anwendungen.
 
+...
 https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/Glossar/glossar_node.html
 
 **Prinzip von Kerkhoffs**
@@ -60,6 +60,7 @@ Es wird somit ein Kommunikationskanal benötigt, in dem die Teilnehmer ihren Sch
 Ebenso ist zu erwähnen, dass die Anzahl der benötigten Schlüssel mit der Anzahl der Kommunikationspartner drastisch steigt. Damit N Teilnehmer sicher miteinander kommunizieren können, werden 
 **N(N-1)/2** Schlüssel benötigt <a>[[KÜST11]](#ref_kuesters11)</a>.
 Als Vorteil ist unter anderem die hohe Geschwindigkeit für das Ver- und Entschlüsseln der Daten zu nennen, da diese Verfahren meist auf effizienten Operationen (z.B. XOR) beruhen.
+
 http://www.kryptowissen.de/symmetrische-verschluesselung.html 
 
 ![sym_encryption](./images/sym_verschl2.png "Symmetrische Verschlüsselung")
@@ -96,9 +97,7 @@ Dokument wird an den Empfänger gesendet.  Die Signatur wird mithilfe des öffen
 auf das Dokument an und vergleicht sein Ergebnise mit der empfangenen Signatur. Stimmen die beiden Hashwerte überein wurde der Text mit sehr hoher Wahrscheinlichkeit von der angegebenen Person signiert und nicht verändert. 
 
 Im Gegensatz zu anderen (auf symmetrischen Verfahren basierenden) Signaturverfahren kann der Empfänger der Nachricht jedem - der ebenfalls den öffentlichen Schlüssel des Signierers kennt - beweisen, dass dieser die Nachricht verfasst hat.
-Solche digitalen Signaturverfahren können deshalb auch zur juristischen Beweisführung verwendet werden.
-
-<a>[[PAAR16]](#ref_paar16)</a>
+Solche digitalen Signaturverfahren können deshalb auch zur juristischen Beweisführung verwendet werden <a>[[PAAR16]](#ref_paar16)</a>.
 
 Anforderungen an die Verwendung von digitalen Signaturen werden in Deutschland im Signaturgesetz (SigG) bzw. in der Signaturverordnung (SigV) angegeben.
 Hier werden drei verschiedene Arten von elektronischen Signaturen unterschieden, <a>[[BAUM14]](#ref_baum14)</a>:
@@ -123,8 +122,7 @@ Im Wesentlichen wird mithilfe eines symmetrischen Schlüssels *k* und der Nachri
 
 >m = MAC<sub>k</sub>(x)
 
-Auf diese Art und Weise soll sichergestellt werden, dass die Nachricht auf dem Weg zum Empfänger nicht verändert wurde
-<a>[[PAAR16]](#ref_paar16)</a>.
+Auf diese Art und Weise soll sichergestellt werden, dass die Nachricht auf dem Weg zum Empfänger nicht verändert wurde <a>[[PAAR16]](#ref_paar16)</a>.
 
 Der gesamte Vorgang läuft prinzipiell wie bei digitalen Signaturen ab:
 
@@ -140,6 +138,7 @@ Bei Verfahren, die auf asymmetrischen Methodiken beruhen, muss sichergestellt we
 
 Public Key Infrastructures verwalten und verteilen die Schlüssel und Zertifikate. 
 
+...
 ### Algorithmen
 Autor: Patrick Vogt
 
