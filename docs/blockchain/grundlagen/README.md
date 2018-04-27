@@ -114,12 +114,6 @@ und Identität des entsprechenden Teilnehmers muss durch ein zum Zeitpunkt der E
 
 Letztere Signaturen beinhalten zusätzlich zum Namen und Testschlüssel weitere Details (z.B. das Erzeugungsdatum und Gültigkeit des Zertifikats) <a>[[BAUM14]](#ref_baum14)</a>.
 
-
-
-### PKI
-Autor: Patrick Vogt
-
-
 ### Message Authentication Code (MAC)
 Autor: Patrick Vogt
 
@@ -138,6 +132,13 @@ Der gesamte Vorgang läuft prinzipiell wie bei digitalen Signaturen ab:
 [Bildquelle](https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/MAC.svg/661px-MAC.svg.png)
 
 Der Sender bildet mithilfe des gemeinsamen Schlüssels und der Nachricht eine Prüfsumme und verschickt die Nachricht mit angehängter Prüfsumme. Der Empfänger führt den gleichen Vorgang durch und prüft seine berechnete Prüfsumme mit der erhaltenen. 
+
+### Public Key Infrastructure (PKI)
+Autor: Patrick Vogt
+
+Bei Verfahren, die auf asymmetrischen Methodiken beruhen, muss sichergestellt werden, dass ein bestimmter öffentlicher Schlüssel wirklich einer gewissen Person gehört. Die Gültigkeit dieser *Schlüsselbindung* wird von *Zerzifizierungsstellen* (*certification authorities, CA*), mithilfe von Zertifikaten (*cetificates*), bestätigt <a>[[KÜST11]](#ref_kuesters11)</a>. 
+
+Public Key Infrastructures verwalten und verteilen die Schlüssel und Zertifikate. 
 
 ### Algorithmen
 Autor: Patrick Vogt
