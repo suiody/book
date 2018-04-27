@@ -8,7 +8,7 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: `/logo.png` }]
   ],
-  serviceWorker: true,
+  serviceWorker: false,
   themeConfig: {
     repo: 'SGSE18/book',
     editLinks: false,
@@ -47,13 +47,17 @@ module.exports = {
         children: [
           '/fullstack/frontend/',
           '/reactive-programming/',
-		      '/fullstack/backend/',
+	  '/fullstack/backend/',
         ]
       },
       {
         title: 'AI - machine learning',
         children: [
-          '/ai-ml/',
+          '/ai-ml/overview/',
+          '/ai-ml/ai/',
+          '/ai-ml/ml/',
+          '/ai-ml/nn/',
+          '/ai-ml/gan/',
           '/ethik/'
         ]
       },
@@ -68,7 +72,16 @@ module.exports = {
         children: [
           '/vr-ar/'
         ]
-      }     
+      },
+      {
+        title: 'Blockchain',
+        children: [
+          '/blockchain/grundlagen/',
+	  '/blockchain/technologie/',
+	  '/blockchain/usecases/',
+	  '/blockchain/plattformen/'
+        ]
+      }
     ],
   }
 }
