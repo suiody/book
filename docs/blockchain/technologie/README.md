@@ -31,7 +31,10 @@ In jeder Blockchain gibt es einen besonderen Block. Den sogenannten „genesis b
 
 Die Aufgabe von Blöcken ist es Transaktionen innerhalb der Blockchain zu bündeln. Diese Blöcke werden dann mit unterschiedlichsten Verfahren auf alle Netzwerkknoten verteilt. Ein Block lässt sich in einen „block header“ und den „block body“ unterteilen. Der Block header enthält Metainformationen über den Block selbst, Elternblock und die Transaktionen. 
 
-[Bild Blockchain und Block Header]
+![blockchain_example_blocks](./images/blockchain_example_blocks.png "Beispielhafter Aufbau von drei Blöcken.")
+Abbildung entnommen aus <a>[[ZHENG17]](#ref_Zheng17)</a>
+![blockchain_header_body](./images/blockchain_header_body.png "Aufbau eines einzelnen Blocks.")
+Abbildung entnommen aus <a>[[ZHENG17]](#ref_Zheng17)</a>
 
 Wie in der Abbildung zu sehen ist besteht der Block aus unterschiedlichen Elementen. Der Header unterteilt sich in die folgenden sechs Teile:
 
@@ -44,7 +47,7 @@ Wie in der Abbildung zu sehen ist besteht der Block aus unterschiedlichen Elemen
 
 Im body des Blocks befindet sich ein Zähler für die Anzahl der Transaktionen des Blockes. Zusätzlich lassen sich die Transaktionen selbst dort finden. Der genaue Aufbau einer Transaktion wird in anderen Abschnitten erläutert.
 
-<a>[[BAUM14]](#ref_baum14)</a>
+<a>[[ZHENG17]](#ref_Zheng17)</a>
 
 ## Crypto-Economics
 
