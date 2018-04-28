@@ -44,7 +44,7 @@ Wie in der Abbildung zu sehen ist besteht der Block aus unterschiedlichen Elemen
 
 Im body des Blocks befindet sich ein Zähler für die Anzahl der Transaktionen des Blockes. Zusätzlich lassen sich die Transaktionen selbst dort finden. Der genaue Aufbau einer Transaktion wird in anderen Abschnitten erläutert.
 
-<a name="ref_Zheng17">[ZHENG17]</a>
+<a>[[BAUM14]](#ref_baum14)</a>
 
 ## Crypto-Economics
 
