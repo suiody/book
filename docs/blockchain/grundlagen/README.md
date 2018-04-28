@@ -25,7 +25,7 @@ Personen geprüft wird, sondern auch bei IT-Komponenten oder Anwendungen.
 ...
 https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/Glossar/glossar_node.html
 
-**Prinzip von Kerkhoffs**
+**Kerckhoffs’ Prinzip**
 
 Ein wichtiger Grundsatz der Kryptographie wurde 1883 von Auguste Kerkchoffs von Nieuwenhof (* 1835, † 1903) festgestellt. In seiner Schrift beschrieb er das folgende Prinzip:
 
