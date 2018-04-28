@@ -44,7 +44,7 @@ Wie in der Abbildung zu sehen ist besteht der Block aus unterschiedlichen Elemen
 
 Im body des Blocks befindet sich ein Zähler für die Anzahl der Transaktionen des Blockes. Zusätzlich lassen sich die Transaktionen selbst dort finden. Der genaue Aufbau einer Transaktion wird in anderen Abschnitten erläutert.
 
- <a name="Zheng17">[ZHENG17]</a>
+<a name="ref_Zheng17">[ZHENG17]</a>
 
 ## Crypto-Economics
 
@@ -75,4 +75,4 @@ betriebswirtschaftlich
 
 ## Literaturverzeichnis
 
-<a name="Zheng17">[ZHENG17]</a>: Zheng, Zibin ; Xie, Shaoan ; Dai, Hongning ; Chen, Xiangping ; Wang, Huaimin : An Overview of Blockchain Technology: Architecture, Consensus, and Future Trends. Honolulu, HI, USA : IEEE International Congress on Big Data, 2017, ISBN: 978-1-5386-1996-4
+<a name="ref_Zheng17">[ZHENG17]</a>: Zheng, Zibin ; Xie, Shaoan ; Dai, Hongning ; Chen, Xiangping ; Wang, Huaimin : An Overview of Blockchain Technology: Architecture, Consensus, and Future Trends. Honolulu, HI, USA : IEEE International Congress on Big Data, 2017, ISBN: 978-1-5386-1996-4
