@@ -72,4 +72,8 @@ Autoren: Mario Cichonczyk und Martin Teuber
 
 Konsequenzen
 Sozial-wissenschaftlich
-betriebswirtschaftlich
+#### Ökonomische Implikationen
+Autor: Mario Cichonczyk
+##### Intermediation
+##### Wertschöpfungstransparenz
+##### Wirtschaftsautomation - M2M Transaktionen
