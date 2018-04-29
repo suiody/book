@@ -61,6 +61,11 @@ Soweit möglich, wird bei DevOps automatisiert, bspw. mithilfe von Unit-Tsts, ge
 ## Tools
 
 ### Docker
+
+#### Definition
+
+Docker ist ein Tool zur Containerisierung von Software. Dabei wird die Software mit allen ihren Abhängigkeiten (z.b. Bibliotheken) in ein Image gepackt. Dieses Image kann dann von einem standardisierten Container ausgeführt werden.
+
 	Begriffe
 		Images
 			Eine Abbild der Software und deren Abhängigkeiten.
