@@ -1,3 +1,4 @@
+Author: Lukas S.
 # Internet of Things (IOT)
 ---
 ## Einleutung
@@ -58,9 +59,9 @@ Multi-layer Frameworks (ex: Alljoyn, IoTivity, Weave, Homekit)
 	- http://eprints.bournemouth.ac.uk/24345/1/2016_globecom.pdf
 	- https://www.postscapes.com/internet-of-things-protocols/
 - Schnittstelle Cloud-Computing
-		- Principles for Engineering IoT Cloud Systems 
-		- Hong-Linh Truong and Schahram Dustdar, Vienna University of Technology, 2015
-		- https://pdfs.semanticscholar.org/02ce/5c709f11e005e12c6fab7bbace6fb13dc9e1.pdf
+	- Principles for Engineering IoT Cloud Systems 
+	- Hong-Linh Truong and Schahram Dustdar, Vienna University of Technology, 2015
+	- https://pdfs.semanticscholar.org/02ce/5c709f11e005e12c6fab7bbace6fb13dc9e1.pdf
 - Kabellose Sensornetzwerke (WSN)
 	- Wireless sensor networks
 	- IF Akyildiz, MC Vuran - 2010
