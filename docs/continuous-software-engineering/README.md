@@ -1,8 +1,8 @@
-# Continuous Software Engeneering
+# Continuous Software Engineering
 
 ## Definition
 
-"Continuous Software Engeneering" beschreibt eine Möglichkeit der iterativen Softwareentwicklung ung fokussiert sich auf den Prozess der Auslieferung an den Benutzer. Continuous Software Engeneering unterstützt den agilen Softwareentwicklungsprozess.
+"Continuous Software Engineering" beschreibt eine Möglichkeit der iterativen Softwareentwicklung ung fokussiert sich auf den Prozess der Auslieferung an den Benutzer. Continuous Software Engineering unterstützt den agilen Softwareentwicklungsprozess.
 
 ## Agile Softwareentwicklung
 
