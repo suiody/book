@@ -41,7 +41,7 @@ Um Feedback möglichst schnell zum Entwickler zu bekommen, wird bei DevOps ein B
 Soweit möglich, wird bei DevOps automatisiert, bspw. mithilfe von Unit-Tsts, getestet. Jedesmal wenn aus dem Quellccode ein neuer Build erstellt wird, werden automatisierten Tests ausgeführt und deren Ergebnisse an den Entwickler weitergeleitet.
 
 
-## Agile Workflows
+## Workflows
 
 	Continuous Delivery
 		Continuous Integration
@@ -65,15 +65,22 @@ Soweit möglich, wird bei DevOps automatisiert, bspw. mithilfe von Unit-Tsts, ge
 
 Docker ist ein Tool zur Containerisierung von Software. Dabei wird die Software mit allen ihren Abhängigkeiten (z.b. Bibliotheken) in ein Image gepackt. Dieses Image kann dann von einem standardisierten Container ausgeführt werden.
 
-	Begriffe
-		Images
-			Eine Abbild der Software und deren Abhängigkeiten.
-		Container
-			Ein Container ist eine laufende Instanz eines Images.
-		Layer
-			Ein Layer ist ein Set von änderungen innerhalb eines Images.
-		Dockerfile eine textuelle, ausfürbare Beschreibung des Images
-			Das Dockerfile ist
+Die Docker-Laufzeitumgebung ist an Linux angelehnt. Es stehen dem Entwickler somit alle die Funktionen von Linux zur Verfügung. Docker selbst ist ebenfalls Linux-Software und damit standardmäßig nur unter Linux lauffähig. Soll Docker unter Windows oder Mac OS ausgeführt werden, muss ein Linux-System in einer virtuellen Maschine genutzt werden.
+
+#### Begriffe
+
+##### Image
+
+Ein Image ist ein Abbild der Software mit ihren Abhängigkeiten.
+
+##### Layer
+
+Ein Layer ist ein Set von Änderungen innerhalb eines Image. Für jede Änderung wird im Image ein neues Layer angelegt.
+
+##### Container
+
+Ein Container ist die laufende Instanz eines Images. Container bieten eine standardisierte Laufzeitumgebung für Images.
+
 	keine Virtualisierung
 	Linux-basiert
 	Tools
