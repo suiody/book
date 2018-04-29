@@ -54,10 +54,9 @@ Soweit möglich, wird bei DevOps automatisiert, bspw. mithilfe von Unit-Tsts, ge
 		Möglichkeiten zur Verbesserung werden identifiziert und umgesetzt
 	Continuous Integration
 		Continuous Delivery als Weiterentwicklung
-		
 
 	Definition und Abgrenzung
-	
+
 ## Tools
 
 ### Docker
@@ -84,8 +83,8 @@ Docker ist ein Tool zur Containerisierung von Software. Dabei wird die Software 
 	Containerisierung vs Virtualisierung
 	Anwendung gebündelt mit Abhängigkeiten
 	Sicherheit
-	
-	
+
+
 ### JIRA
 
 ### Jenkine
