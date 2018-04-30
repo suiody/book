@@ -247,10 +247,41 @@ Organisation den Verlauf der Blockchain manipulieren.
 
 ## Dezentrale Anwendungen
 
-* DApps, Web 3.0
-
-
 Autor: Patrick Starzynski 
+
+### DApps
+
+#### Definition
+Dezentrale Anwendungen (DApps) stellen eine Möglichkeit für die Umsetzung skalierbarer Applikationen durch die Blockchain-Technologie dar.
+Während konventionelle Anwendung maßgeblich durch einzelne Anbieter betrieben werden, werden DApps auf einer Vielzahl von Anwendern verteilt.
+Durch die Verteilung werden die Anwenderdaten nicht zentralisiert gespeichert und verwaltet, wodurch durch das Peer-to-Peer-Modell ein bspw. serverbedingter Ausfall
+verhindert werden kann. 
+Dabei muss eine dezentrale Anwendung vier grundlegende Kriterien erfüllen:
+1. Die Anwendung muss quelloffen und autonom funktionsfähig sein. 
+2. Die Daten und Protokolle der Operationen müssen kryptografisch mittels einer dezentralen und
+öffentlichen Blockchain gespeichert werden.
+3. Die Applikation muss kryptografische Token nutzen, die zum Zugang zur Anwendung genutzt werden. Dabei werden die Miner, die zur Tokengenerierung beigetragen haben entsprechend entlohnt.
+4. Die Anwendung muss die genutzten Token unter Berücksichtigung kryptografischer Algorithmen und Konsensverfahren, z.B. durch Proof of Work, generieren können.
+
+Durch das Einhalten dieser Kriterien wird eine Kontrolle durch ein einzelnes Gremium, wie z.B. ein Unternehmen, verhindert.
+
+#### Klassen
+Zur Klassifizierung von dezentralen Anwendungen werden drei verschiedene Typen berücksichtigt. 
+1. Type I Anwendungen nutzen eine eigene Blockchain, darunter fallen auch die sogenannten Altcoins, die durch Forks des Bitcoins entstanden sind.
+2. Type II Anwendungen sind Protokolle die die Blockchain einer Type I Anwendung nutzen. Jedoch werden die Token für die Nutzung der Anwendung benötigt. So sind Type II Anwendungen aufbauend auf Type I Anwendungen.
+3. Type III Anwendungen nutzen die Protokolle einer Type II Anwendung. 
+
+#### Entwicklung einer dezentralen Anwendung
+
+Die Entwicklung einer dezentralen Anwendung wird üblicherweise in drei Teilschritte gegliedert:
+1. Es wird ein Whitepaper veröffentlicht, dass die Funktionalitäten und Mechanismen der Anwendung beschreibt.
+2. Initiale Token werden verteilt. Des Weiteren wird, wie z.B. beim Bitcoin, eine Software veröffentlicht, die als Referenzprogramm zum Minen genutzt werden kann.
+3. Die Besitzanteile der Anwendung werden verbreitet, durch diese Verbreitung wird die Anwendung zunehmend dezentralisiert.
+
+### Web 3.0
+
+
+
 
 ## Literaturverzeichnis
 
