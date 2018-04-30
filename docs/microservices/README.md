@@ -8,6 +8,7 @@ Hinzufügen oder Abschalten eines Dienstes sollte keine Auswirkungen auf die Arb
 Bild 1 zeigt einen möglichen Aufbau von Microservices. Jedem Dienst entspricht eine Funktionalität. Einige Dienste haben eigene Datenbanken, andere greifen auf eine gemeinsame Datenbank zu.
 
 ![Bild 1: Architektur](./images/architecture.png)
+
 _Abbildung 1. Architektur_
 
 Vorraussetzungen für Microservices sind:
@@ -26,16 +27,19 @@ Einige häufig anzutreffende Entwürfen von Remote Calls sind Direct Call, Gatew
 __Direct Call__
 
 ![Bild 2: Direct call](./images/direct_call_pattern.png)
+
 _Abbildung 2. Direct Call_
 
 __Gateway__
 
 ![Bild 3: Gateway](./images/gateway_pattern.png)
+
 _Abbildung 3. Gateway_
 
 __Message-bus__
 
 ![Bild 4: Message Bus](./images/message_bus_pattern.png)
+
 _Abbildung 3. Message-bus_
 
 Eine der Hauptaufgaben von Microservices ist eine Minimierung von Einflüssen im Falle einer möglichen Schnittstellenänderung.([Nami2014], S 26.)
