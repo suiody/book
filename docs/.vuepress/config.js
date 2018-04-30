@@ -24,7 +24,7 @@ module.exports = {
       {
         title: 'Grundlagen',
         children: [
-		      '/digitalisierung/',
+		  '/digitalisierung/',
           '/cloud/',
           '/dezentralisierung/'
         ]
@@ -32,7 +32,7 @@ module.exports = {
       {
         title: 'Continuous Software Engineering',
         children: [
-		      '/continuous-software-engineering/'
+	      '/continuous-software-engineering/'
         ]
       },
       {
@@ -47,7 +47,7 @@ module.exports = {
         children: [
           '/fullstack/frontend/',
           '/reactive-programming/',
-	  '/fullstack/backend/',
+		  '/fullstack/backend/',
         ]
       },
       {
@@ -77,9 +77,9 @@ module.exports = {
         title: 'Blockchain',
         children: [
           '/blockchain/grundlagen/',
-	  '/blockchain/technologie/',
-	  '/blockchain/usecases/',
-	  '/blockchain/plattformen/'
+		  '/blockchain/technologie/',
+		  '/blockchain/usecases/',
+		  '/blockchain/plattformen/'
         ]
       }
     ],

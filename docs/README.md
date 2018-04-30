@@ -41,4 +41,8 @@ Bleibt erstmal temporär hier, ansonsten reicht die Sidebar Navigation
 
 ### [VR / AR](/vr-ar/)
 
-
+### Blockchain
+*  [Grundlagen](/blockchain/grundlagen/)
+*  [Technologie](/blockchain/technologie/)
+*  [Use Cases](/blockchain/usecases/)
+*  [Plattformen](/blockchain/plattformen/)
