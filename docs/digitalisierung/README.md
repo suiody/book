@@ -1,11 +1,45 @@
 # Digitalisierung
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+# Digitalisierung - Anwendungsfelder und Forschungsziele
 
-## Allgemeines
+# Virtuelle Realität in Medien und Technik
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+# Verarbeitung von Videodaten
 
-## weiteres
+# Audiocodecs
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+# Digitaler Rundfunk
+
+# (5G-Datentransport mit Höchstgeschwindigkeit)
+
+# Industrial Data Space
+
+# (Forschungsprojekt EMOIO)
+
+# Fraunhofer-Allianz Generative Fertigung
+
+# Future Work Lab
+
+# Cyber-Physische Systeme
+
+# Leitprojekt "Go Beyond 4.0"
+
+# Kognitive Systeme und Robotik
+
+# Fraunhofer-Allianz Big Data
+
+# Safety und Security
+
+# Ausfallsichere Systeme
+
+# (Blockchain)
+
+# E-Health
+
+# Smart Energy
+
+# Advanced Software Engineering
+
+# Automatisiertes Fahren
+
+
