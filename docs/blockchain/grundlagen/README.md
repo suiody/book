@@ -1,31 +1,38 @@
 # Grundlagen
 
-## Kryptographie --->WIP<---
+## Kryptographie
 Autor: Patrick Vogt
 
 ...
 
 ### Einige wichtige Begriffe und Grundsätze der Kryptographie
 Autor: Patrick Vogt
-... 
-*CIA-Schutzziele*
+
+**CIA-Schutzziele**
+
+Das Akronym *CIA* ergibt sich aus den folgenden drei Begriffen,  <a>[[BAUM14]](#ref_baum14)</a>:
+
 * **C**onfidentiality (Vertraulichkeit): Informationen sind nur autorisierten Personen zugänglich
 * **I**ntegrity (Integrität): Informationen sind korrekt, aktuell und vollständig
 * **A**vailability (Verfügbarkeit): Informationen sind berechtigten Personen dort und dann zugänglich, wo und wann diese die Informationen benötigen
 
- <a>[[BAUM14]](#ref_baum14)</a>
+**Authentizität**
 
->Unter **Verbindlichkeit** werden die Sicherheitsziele Authentizität und Nichtabstreitbarkeit zusammengefasst. Bei der Übertragung von Informationen bedeutet dies, dass die Informationsquelle 
-ihre Identität bewiesen hat und der Empfang der Nachricht nicht in Abrede gestellt werden kann.
+Das Sicherheitsziel Authentizität gewährleistet, dass ein Kommunikationspartner wirklich derjenige ist, der er vorgibt zu sein. Sind Daten oder Informationen authentisch, so ist deren Herkunft gewiss.
 
->Mit dem Begriff **Authentizität** wird die Eigenschaft bezeichnet, die gewährleistet, dass ein Kommunikationspartner tatsächlich derjenige ist, der er vorgibt zu sein. 
-Bei authentischen Informationen ist sichergestellt, dass sie von der angegebenen Quelle erstellt wurden. Der Begriff wird nicht nur verwendet, wenn die Identität von 
-Personen geprüft wird, sondern auch bei IT-Komponenten oder Anwendungen.
+**Nichtabstreitbarkeit**
 
-...
-https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/Glossar/glossar_node.html
+Ebenso wichtig ist der Begriff der *Nichtabstreitbarkeit*. Diese gewährleistet eine Nachweisbarkeit gegenüber Dritten, sodass der Versand und Empfang einer Nachricht bzw. von Daten/Informationen bewiesen werden kann. Hieraus ergeben sich zwei Unterkategorien:
 
-**Prinzip von Kerkhoffs**
+* Nichtabstreitbarkeit der Herkunft: verhindert ein nachträgliche Abstreiten des **Versands** einer Nachricht
+
+* Nichtabstreitbarkeit des Erhalts: verhindert ein nachträgliche Abstreiten des **Erhaltens** einer Nachricht
+
+**Verbindlichkeit**
+
+Der Begriff der Verbindlichkeit kombiniert Authentizität mit Nichtabstreitbarkeit. Im Falle der Datenübertragung heißt das, dass der Absender seine Identität bewiesen hat und der Empfang der Nachricht nicht abgetritten werden kann, <a>[[BSI18]](#ref_bsi18)</a>.
+
+**Kerckhoffs’ Prinzip**
 
 Ein wichtiger Grundsatz der Kryptographie wurde 1883 von Auguste Kerkchoffs von Nieuwenhof (* 1835, † 1903) festgestellt. In seiner Schrift beschrieb er das folgende Prinzip:
 
@@ -37,7 +44,7 @@ Alle heutzutage gängigen Verschlüsselungsverfahren folgen diesem Grundsatz.
 Autor: Patrick Vogt
 
 Hash Funktionen bilden einen wichtigen Bestandteil innerhalb der Kryptographie. Dort berechnen Sie aus einer gegebenen Nachricht einen sogenannten *Hashwert* fester Länge. Aus kryptografischer Sicht können Hashwerte als eine Prüfsumme gesehen werden. 
-Es handelt sich im Prinzip um eine Art "Einwegfunktion". Der Weg vom Definitionsbereich hin zum Bildbereich ist einfach durchführbar, die Rückrichtung ist jedoch schwer. So können Hash Funktionen auch z.B. für das Speichern von Passwörtern verwendet werden, sodass innerhalb der Datenbank das Passwort nicht als Klartext sondern als Hashwert hinterlegt wird.   <a>[[PAAR16]](#ref_paar16)</a>
+Es handelt sich im Prinzip um eine Art "Einwegfunktion". Der Weg vom Definitionsbereich hin zum Bildbereich ist einfach durchführbar, die Rückrichtung ist jedoch schwer. So können Hash Funktionen auch z.B. für das Speichern von Passwörtern verwendet werden, sodass innerhalb der Datenbank das Passwort nicht als Klartext sondern als Hashwert hinterlegt wird, <a>[[PAAR16]](#ref_paar16)</a>.
 
 Aufgrund des eingeschränkten Bildbereichs (begrenzte Anzahl an Zeichen) und des unbegrenzten Definitionsbereichs kann es zu *Kollisionen* kommen (unterschiedliche nachrichten führen zu dem gleichen Hashwert). 
 
@@ -59,9 +66,8 @@ Problematisch ist hierbei, dass Sender und Empfänger den gemeinsamen Schlüssel
 Es wird somit ein Kommunikationskanal benötigt, in dem die Teilnehmer ihren Schlüssel auf sichere Art und Weise austauschen können, siehe nachfolgende Abbildung.
 Ebenso ist zu erwähnen, dass die Anzahl der benötigten Schlüssel mit der Anzahl der Kommunikationspartner drastisch steigt. Damit N Teilnehmer sicher miteinander kommunizieren können, werden 
 **N(N-1)/2** Schlüssel benötigt <a>[[KÜST11]](#ref_kuesters11)</a>.
-Als Vorteil ist unter anderem die hohe Geschwindigkeit für das Ver- und Entschlüsseln der Daten zu nennen, da diese Verfahren meist auf effizienten Operationen (z.B. XOR) beruhen.
-
-http://www.kryptowissen.de/symmetrische-verschluesselung.html 
+Als Vorteil ist unter anderem die hohe Geschwindigkeit für das Ver- und Entschlüsseln der Daten zu nennen, da diese Verfahren meist auf effizienten Operationen (z.B. XOR) beruhen , <a>[[STOP18]](#ref_stop18)</a>.
+ 
 
 ![sym_encryption](./images/sym_verschl2.png "Symmetrische Verschlüsselung")
 Abbildung entnommen aus <a>[[BAUM14]](#ref_baum14)</a>
@@ -148,10 +154,36 @@ Autor: Lukas Stuckstette
 
 
 ## Distributed Ledger vs. Datenbanken
-
 Autor: Tim Jastrzembski
 
-Abgrenzung zu Datenbanken
+### Exkurs: Datenbank <a>[[GREE15]](#ref_gree15)</a> <a>[[BEGE18]](#ref_bege18)</a>
+Allgemein kann man eine Datenbank als eine organisierte Sammlung von elektronischen Daten interpretieren, welche von einem Datenbankmanagementsystem (DBMS) zentral verwaltet werden. 
+Dabei sollen hierbei viele Datensätze effizient, konsistent und dauerhaft verwaltet werden können. Zudem können Datenbanken logische Zusammenhänge zwischen den einzelnen Daten abbilden. 
+Beispielsweise können sie in Tabellen abgebildet werden, wobei jede Reihe eine Entität und jede Spalte ein Attribut, welches die Entität beschreibt, darstellt. 
+Zur Manipulation der Datenbanken sind Transaktionen notwendig. Dabei beinhaltet eine Transaktion ein oder mehrere Manipulationen der Datenbank (Datensatz anlegen, ändern oder löschen). 
+Bei der Ausführung der Transaktion wird sie auf ihre Richtigkeit überprüft und entweder als ganzes oder gar nicht ausgeführt (getreu dem ACID-(bei RDBs) bzw. dem BASE-Theorem (bei NoSQL-DBs) <a>[[WIKI18]](#ref_wiki18)</a>). Die Richtigkeit wird u.a. durch Regeln wie Unique Keys, Forein keys oder Check constraints. 
+Wichtig dabei ist, dass die Datenbank nach jeder Transaktion einen validen Zustand erreicht und entsprechend konsistente Daten beinhaltet.	
+
+### Distributed Ledger Technologie (DLT) <a>[[METZ18]](#ref_metz18)</a>
+Blockchain basiert auf der Distributed Ledger Technologie, welche das Verarbeiten und Speichern von Daten ermöglicht.
+Sie kann auch als eine dezentrale Datenbank verstanden werden, da sie im Gegensatz zu herkömmlichen verteilten (zentralen) Datenbanken gemeinsame Zugriffsrechte für mehrere Netzwerkteilnehmer auf Datensätze erlaubt, was eine zentrale Instanz zur Datenverwaltung überflüssig macht. 
+Die Datenänderungen werden per Transaktion an die anderen Teilnehmer geschickt, wobei diese entscheiden können, ob die Transaktion für gültig erklärt wird oder nicht.  
+Bezüglich der Zugangsmöglichkeiten lassen sich die Ledgers folgend unterteilen:
+
+| Zugangsmöglichkeit |   |
+| --- | --- |
+| Unpermissioned Ledger | Diese Ledger sind am bekanntesten (z.B. durch Bitcoin). Sie sind prinzipiell für alle zugänglich und erfordern keine Authentifizierung. Entsprechend wird PoW als Konsensveriante eingesetzt, sodass kein Vertrauen zwischen den Teilnehmern notwendig ist. |
+| Permissioned Legder | Bei diesen Ledgern  müssen sich die Teilnehmer registriert sein und entsprechende Auflagen(z.B. bzgl. Vertrauen) erfüllen, damit sie an dem Konsens teilnehmen dürfen. Dadurch können PoS oder PBFT-Mechanismen eingesetzt werden, welche im Gegensatz zu PoW  Rechenkapazitäten sparen.|
+
+### Abgrenzung zu Datenbanken
+
+Prinzipiell sind Distributed Ledger verteilte Datenbanken, welchen Nutzern, die kein richtiges Vertrauen ineinander haben, einen Konsens über den Inhalt und der Verwaltung der Datenbank ermöglichen. <a>[[BROW16]](#ref_brow16)</a> <a>[[COLA18]](#ref_cola18)</a>
+Im Gegensatz verwalten verteilte Datenbanken im herkömmlichen Sinne ihre Daten zentral und synchonisieren die Daten auf den verschiedenen Standorten periodisch. <a>[[ITWI18]](#ref_itwi18)</a> 
+
+| ![Verschiedene Typologien](./images/distributed-database.png) | ![Verschiedene Typologien](./images/decentralised-database.png) |
+| --- | --- |
+| verteilte Datenbank <a>[[BROW16]](#ref_brow16)</a> | distributed Ledger <a>[[BROW16]](#ref_brow16)</a> |
+
 
 ## Verteilte Systeme
 
@@ -241,17 +273,70 @@ Organisation den Verlauf der Blockchain manipulieren.
 
 ## Dezentrale Anwendungen
 
-* DApps, Web 3.0
-
-
 Autor: Patrick Starzynski 
+
+### DApps
+
+#### Definition
+Dezentrale Anwendungen (DApps) stellen eine Möglichkeit für die Umsetzung skalierbarer Applikationen durch die Blockchain-Technologie dar.
+Während konventionelle Anwendung maßgeblich durch einzelne Anbieter betrieben werden, werden DApps auf einer Vielzahl von Anwendern verteilt.
+Durch die Verteilung werden die Anwenderdaten nicht zentralisiert gespeichert und verwaltet, wodurch durch das Peer-to-Peer-Modell ein bspw. serverbedingter Ausfall
+verhindert werden kann. 
+Dabei muss eine dezentrale Anwendung vier grundlegende Kriterien erfüllen:
+1. Die Anwendung muss quelloffen und autonom funktionsfähig sein. 
+2. Die Daten und Protokolle der Operationen müssen kryptografisch mittels einer dezentralen und
+öffentlichen Blockchain gespeichert werden.
+3. Die Applikation muss kryptografische Token nutzen, die zum Zugang zur Anwendung genutzt werden. Dabei werden die Miner, die zur Tokengenerierung beigetragen haben entsprechend entlohnt.
+4. Die Anwendung muss die genutzten Token unter Berücksichtigung kryptografischer Algorithmen und Konsensverfahren, z.B. durch Proof of Work, generieren können.
+
+Durch das Einhalten dieser Kriterien wird eine Kontrolle durch ein einzelnes Gremium, wie z.B. ein Unternehmen, verhindert.
+
+#### Klassen
+Zur Klassifizierung von dezentralen Anwendungen werden drei verschiedene Typen berücksichtigt. 
+1. Type I Anwendungen nutzen eine eigene Blockchain, darunter fallen auch die sogenannten Altcoins, die durch Forks des Bitcoins entstanden sind.
+2. Type II Anwendungen sind Protokolle die die Blockchain einer Type I Anwendung nutzen. Jedoch werden die Token für die Nutzung der Anwendung benötigt. So sind Type II Anwendungen aufbauend auf Type I Anwendungen.
+3. Type III Anwendungen nutzen die Protokolle einer Type II Anwendung. 
+
+#### Entwicklung einer dezentralen Anwendung
+
+Die Entwicklung einer dezentralen Anwendung wird üblicherweise in drei Teilschritte gegliedert:
+1. Es wird ein Whitepaper veröffentlicht, dass die Funktionalitäten und Mechanismen der Anwendung beschreibt.
+2. Initiale Token werden verteilt. Des Weiteren wird, wie z.B. beim Bitcoin, eine Software veröffentlicht, die als Referenzprogramm zum Minen genutzt werden kann.
+3. Die Besitzanteile der Anwendung werden verbreitet, durch diese Verbreitung wird die Anwendung zunehmend dezentralisiert.
+
+### Web 3.0
+
+
+
 
 ## Literaturverzeichnis
 
 <a name="ref_baum14">[BAUM14]</a>: Baumann, Ulrike ; Franz, Elke ; Pfitzmann, Andreas: Kryptographische Systeme. Berlin : Springer Vieweg, 2014, ISBN: 978-3-642-45332-8 
 
+<a name="ref_bsi18">[BSI18]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI) - Referat B 23, Cyber-Sicherheit für den Bürger und Öffentlichkeitsarbeit: IT-Sicherheit: 4 Glossar und Begriffsdefinitionen. Bonn, 2018 URL: https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/Glossar/glossar_node.html (abgerufen am 29.04.2018)
+
 <a name="ref_kuesters11">[KÜST11]</a>: Küsters, Ralf ; Wilke, Thomas: Moderne Kryptographie : Eine Einführung. 1. Aufl. Wiesbaden : Vieweg + Teubner, 2011, ISBN: 978-3-519-00509-4
 
 <a name="ref_paar16">[PAAR16]</a>: Paar, Christof ; Pelzl, Jan: Kryptografie verständlich : Ein Lehrbuch für Studierende und Anwender. Berlin, Heidelberg : Springer Vieweg, 2016, ISBN: 978-3-662-49296-3
+
+
+<a name="ref_stop18">[STOP18]</a>: Stobitzer, Christian: Symmetrische Verschlüsselung. Karlsruhe. URL: http://www.kryptowissen.de/symmetrische-verschluesselung.html (abgerufen am 27.04.2018)
+
+
+<a name="ref_gree15">[GREE15]</a>: Greenspan, Gideon: Private blockchains are more than “just” shared databases.  URL: https://www.multichain.com/blog/2015/10/private-blockchains-shared-databases/ (abgerufen am 29.04.2018)
+
+<a name="ref_bege18">[BEGE18]</a>: Begerow, Markus: Datenbank – Was ist eine Datenbank?  URL: http://www.datenbanken-verstehen.de/datenbank-grundlagen/datenbank/ (abgerufen am 29.04.2018)
+
+<a name="ref_wiki18">[WIKI18]</a>: Wikipedia, ACID   URL: https://de.wikipedia.org/wiki/ACID (abgerufen am 29.04.2018)
+
+<a name="ref_thom16">[THOM16]</a>: Thompson, Collin : Private Blockchain or Database?  URL: https://www.linkedin.com/pulse/private-blockchain-database-collin-thompson (abgerufen am 29.04.2018)
+
+<a name="ref_metz18">[METZ18]</a>: Metzger, Jochen: Distributed Ledger Technologie (DLT)  URL: https://wirtschaftslexikon.gabler.de/definition/distributed-ledger-technologie-dlt-54410 (abgerufen am 29.04.2018)
+
+<a name="ref_brow16">[BROW16]</a>: Brown, Richard 'Gendal' : On Distributed Databases and Distributed Ledgers  URL: https://gendal.me/2016/11/08/on-distributed-databases-and-distributed-ledgers/ (abgerufen am 29.04.2018)
+
+<a name="ref_itwi18">[ITWI18]</a>: itwissen.info: Verteilte Datenbank  URL: https://www.itwissen.info/Verteilte-Datenbank-distributed-database-DDB.html?query=Datenbank (abgerufen am 29.04.2018)
+
+<a name="ref_cola18">[COLA18]</a>: Complexity Labs: Distributed Ledger  URL: https://www.youtube.com/watch?v=Cqk7PN8f8gM (abgerufen am 29.04.2018)
 
 
