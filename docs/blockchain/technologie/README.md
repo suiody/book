@@ -101,6 +101,42 @@ Autor: Fynn Klöpper
 Angriffsszenarios (Sybil attack, 51%-Attack)
 Skalierung (-sprobleme)
 
+Quellen:
+https://www.freehaven.net/anonbib/cache/sybil.pdf
+
+#### Angriffsszenarien
+
+##### Sybil Attacke
+
+###### Definition
+Eine Sybil-Attacke beschreibt eine Art des Angriffs auf eine Blockchain, bei der eine schadhafte Entität mehrere Identitäten vorgibt, um einen substantiellen Teil des Systems zu kontrollieren und so die Sicherheit der Redundanz zu komprimieren.
+
+Für Peer-to-Peer-Systeme ist es essentiell, dass Daten redundant gespeichert werden. Durch die Redundanz der Speicherung derselben Daten auf verschiedenen Entitäten kann so die Integrität der Daten sichergestellt werden. Weiterhin setzen viele P2P-Systeme auf die Fragmentierung der Daten, um sich gegen Datenlecks abzusichern.
+   
+Falls das System scheitert Identitäten zu Entitäten zu mappen, kann nun eine Entität mehrere Identitäten vortäuschen und von dem System mehrmals Daten oder zusammenhängende Daten zugewiesen bekommen. Hierdurch wäre die Redundanz, als auch die Fragmentierung der Daten komprimiert. 
+###### Lösungsansätze
+
+Mit Identifizierungs-Authorität:
+- VeriSign
+- CFS
+- SFS
+- EMBASSY
+- ICANN / Wave Systems
+
+
+Ohne Identifzierungs-Authorität:
+
+Ein Schutz ohne dedizierte Identifizierungs-Authorität stellt sich als äußerst schwierig heraus.
+Oftmals fällt der erste Gedanke auf ein System, bei dem ältere, etablierte Identitäten neue Identitäten kollektiv verifizieren. Dieser Lösungsansatz geht allerdings davon aus, dass die erste Generation von Identitäten vertrauenswürdig ist, welche bereits durch eine Sybil-Attacke komprimiert sein könnte und somit den weiteren Verlauf der Kette unsicher macht.  
+
+##### 51%-Attack
+
+###### Definition
+
+###### Lösungsansätze
+
+#### Skalierung (-sprobleme)
+
 
 ### Ökonomische und gesellschaftliche Herausforderungen
 
