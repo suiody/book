@@ -154,10 +154,36 @@ Autor: Lukas Stuckstette
 
 
 ## Distributed Ledger vs. Datenbanken
-
 Autor: Tim Jastrzembski
 
-Abgrenzung zu Datenbanken
+### Exkurs: Datenbank <a>[[GREE15]](#ref_gree15)</a> <a>[[BEGE18]](#ref_bege18)</a>
+Allgemein kann man eine Datenbank als eine organisierte Sammlung von elektronischen Daten interpretieren, welche von einem Datenbankmanagementsystem (DBMS) zentral verwaltet werden. 
+Dabei sollen hierbei viele Datensätze effizient, konsistent und dauerhaft verwaltet werden können. Zudem können Datenbanken logische Zusammenhänge zwischen den einzelnen Daten abbilden. 
+Beispielsweise können sie in Tabellen abgebildet werden, wobei jede Reihe eine Entität und jede Spalte ein Attribut, welches die Entität beschreibt, darstellt. 
+Zur Manipulation der Datenbanken sind Transaktionen notwendig. Dabei beinhaltet eine Transaktion ein oder mehrere Manipulationen der Datenbank (Datensatz anlegen, ändern oder löschen). 
+Bei der Ausführung der Transaktion wird sie auf ihre Richtigkeit überprüft und entweder als ganzes oder gar nicht ausgeführt (getreu dem ACID-(bei RDBs) bzw. dem BASE-Theorem (bei NoSQL-DBs) <a>[[WIKI18]](#ref_wiki18)</a>). Die Richtigkeit wird u.a. durch Regeln wie Unique Keys, Forein keys oder Check constraints. 
+Wichtig dabei ist, dass die Datenbank nach jeder Transaktion einen validen Zustand erreicht und entsprechend konsistente Daten beinhaltet.	
+
+### Distributed Ledger Technologie (DLT) <a>[[METZ18]](#ref_metz18)</a>
+Blockchain basiert auf der Distributed Ledger Technologie, welche das Verarbeiten und Speichern von Daten ermöglicht.
+Sie kann auch als eine dezentrale Datenbank verstanden werden, da sie im Gegensatz zu herkömmlichen verteilten (zentralen) Datenbanken gemeinsame Zugriffsrechte für mehrere Netzwerkteilnehmer auf Datensätze erlaubt, was eine zentrale Instanz zur Datenverwaltung überflüssig macht. 
+Die Datenänderungen werden per Transaktion an die anderen Teilnehmer geschickt, wobei diese entscheiden können, ob die Transaktion für gültig erklärt wird oder nicht.  
+Bezüglich der Zugangsmöglichkeiten lassen sich die Ledgers folgend unterteilen:
+
+| Zugangsmöglichkeit |   |
+| --- | --- |
+| Unpermissioned Ledger | Diese Ledger sind am bekanntesten (z.B. durch Bitcoin). Sie sind prinzipiell für alle zugänglich und erfordern keine Authentifizierung. Entsprechend wird PoW als Konsensveriante eingesetzt, sodass kein Vertrauen zwischen den Teilnehmern notwendig ist. |
+| Permissioned Legder | Bei diesen Ledgern  müssen sich die Teilnehmer registriert sein und entsprechende Auflagen(z.B. bzgl. Vertrauen) erfüllen, damit sie an dem Konsens teilnehmen dürfen. Dadurch können PoS oder PBFT-Mechanismen eingesetzt werden, welche im Gegensatz zu PoW  Rechenkapazitäten sparen.|
+
+### Abgrenzung zu Datenbanken
+
+Prinzipiell sind Distributed Ledger verteilte Datenbanken, welchen Nutzern, die kein richtiges Vertrauen ineinander haben, einen Konsens über den Inhalt und der Verwaltung der Datenbank ermöglichen. <a>[[BROW16]](#ref_brow16)</a> <a>[[COLA18]](#ref_cola18)</a>
+Im Gegensatz verwalten verteilte Datenbanken im herkömmlichen Sinne ihre Daten zentral und synchonisieren die Daten auf den verschiedenen Standorten periodisch. <a>[[ITWI18]](#ref_itwi18)</a> 
+
+| ![Verschiedene Typologien](./images/distributed-database.png) | ![Verschiedene Typologien](./images/decentralised-database.png) |
+| --- | --- |
+| verteilte Datenbank <a>[[BROW16]](#ref_brow16)</a> | distributed Ledger <a>[[BROW16]](#ref_brow16)</a> |
+
 
 ## Verteilte Systeme
 
@@ -295,3 +321,22 @@ Die Entwicklung einer dezentralen Anwendung wird üblicherweise in drei Teilschr
 
 
 <a name="ref_stop18">[STOP18]</a>: Stobitzer, Christian: Symmetrische Verschlüsselung. Karlsruhe. URL: http://www.kryptowissen.de/symmetrische-verschluesselung.html (abgerufen am 27.04.2018)
+
+
+<a name="ref_gree15">[GREE15]</a>: Greenspan, Gideon: Private blockchains are more than “just” shared databases.  URL: https://www.multichain.com/blog/2015/10/private-blockchains-shared-databases/ (abgerufen am 29.04.2018)
+
+<a name="ref_bege18">[BEGE18]</a>: Begerow, Markus: Datenbank – Was ist eine Datenbank?  URL: http://www.datenbanken-verstehen.de/datenbank-grundlagen/datenbank/ (abgerufen am 29.04.2018)
+
+<a name="ref_wiki18">[WIKI18]</a>: Wikipedia, ACID   URL: https://de.wikipedia.org/wiki/ACID (abgerufen am 29.04.2018)
+
+<a name="ref_thom16">[THOM16]</a>: Thompson, Collin : Private Blockchain or Database?  URL: https://www.linkedin.com/pulse/private-blockchain-database-collin-thompson (abgerufen am 29.04.2018)
+
+<a name="ref_metz18">[METZ18]</a>: Metzger, Jochen: Distributed Ledger Technologie (DLT)  URL: https://wirtschaftslexikon.gabler.de/definition/distributed-ledger-technologie-dlt-54410 (abgerufen am 29.04.2018)
+
+<a name="ref_brow16">[BROW16]</a>: Brown, Richard 'Gendal' : On Distributed Databases and Distributed Ledgers  URL: https://gendal.me/2016/11/08/on-distributed-databases-and-distributed-ledgers/ (abgerufen am 29.04.2018)
+
+<a name="ref_itwi18">[ITWI18]</a>: itwissen.info: Verteilte Datenbank  URL: https://www.itwissen.info/Verteilte-Datenbank-distributed-database-DDB.html?query=Datenbank (abgerufen am 29.04.2018)
+
+<a name="ref_cola18">[COLA18]</a>: Complexity Labs: Distributed Ledger  URL: https://www.youtube.com/watch?v=Cqk7PN8f8gM (abgerufen am 29.04.2018)
+
+
