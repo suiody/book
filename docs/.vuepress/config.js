@@ -2,7 +2,7 @@ const base = '/book/'
 
 module.exports = {
   title: 'SGSE 18',
-  description: 'Kursmaterial für das Fach "Spezielle Gebiete der Softwareentwicklung"',
+  description: 'Kursmaterial für das Fach "Spezielle Gebiete zum Software Engineering"',
   dest: 'dist',
   base,
   head: [
