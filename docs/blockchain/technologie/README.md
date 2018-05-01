@@ -35,9 +35,7 @@ __Öffentlich__
 <a>[[DEMUSH]](#ref_Demush)</a>
 
 Die ursprüngliche Form einer Blockchain (siehe Bitcoin).
-Alle ihre Einträge sind öffentlich sichtbar. Jeder kann im Netzwerk eine Transaktion tätigen und solange diese valide ist, wird sie auch der Blockchain hinzugefügt. Am Konsensus teilnehmen. Es ist sogar erlaubt die Netzwerke zu verwalten. Im Gegenzug gibt es niemanden der das Alleinrecht im Netzwerk bestreitet - alle Teilnehmer sind gleich. Die üblichen Konsensusalgorithmen sind Proof of Work und Proof of Stake (Bitcoin, Ethereum). Die Vorteile von öffentlichen Blockchains sind Transparenz und Anonymität, wo hingegen Skalierbarkeit und Effizienz eher zweitrangig sind. <a>[[DEMUSH]](#ref_Demush)</a>, <a>[[BUTE16]](#ref_Bute16)</a>
-
-
+Alle ihre Einträge sind öffentlich sichtbar. Jeder kann im Netzwerk eine Transaktion tätigen und solange diese valide ist, wird sie auch der Blockchain hinzugefügt. Es ist allen freigestellt am Konsensus teilzunehmen und sogar die Netzwerke verwalten. Im Gegenzug gibt es niemanden der das Alleinrecht im Netzwerk bestreitet - alle Teilnehmer sind gleich. Öffentliche Blockchains nutzen Crypto-Economics, eine Kombination aus Konsensalgorithmen und wirtschaftlichen Anreizen, als Ersatz für einen zentralen Trust.  Die üblichen Konsensusalgorithmen sind Proof of Work und Proof of Stake (Bitcoin, Ethereum). Die Vorteile von öffentlichen Blockchains sind Transparenz und Anonymität, wobei die Skalierbarkeit und Effizienz eher zweitrangig sind. <a>[[DEMUSH]](#ref_Demush)</a>, <a>[[BUTE16]](#ref_Bute16)</a>
 
 __Privat und Konsortium__
 
