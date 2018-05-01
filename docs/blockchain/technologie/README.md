@@ -31,10 +31,15 @@ Es gibt drei Arten von Blockchain: öffentliche, private und diejenigen welche e
 
 __Öffentlich__
 
-Die ursprüngliche Form einer Blockchain (siehe Bitcoin). Deren Merkmale sind, dass alle ihre alle Einträge öffentlich sichtbar sind, jeder eine Transaktion tätigen und am Konsensus teilnehmen kann.
+![blockchain_public](./images/blockchain_public.PNG "Public Blockchain")
+<a>[[DEMUSH]](#ref_Demush)</a>
+
+Die ursprüngliche Form einer Blockchain (siehe Bitcoin). Alle ihre Einträge sind öffentlich sichtbar, jeder kann im Netzwerk eine Transaktion tätigen und am Konsensus teilnehmen. Es ist sogar erlaubt die Netzwerke zu verwalten. Im Gegenzug gibt es niemanden der das Alleinrecht im Netzwerk bestreitet - alle Teilnehmer sind gleich. Die üblichen Konsensusalgorithmen sind Proof of Work und Proof of Stake (Bitcoin, Ethereum). Die Vorteile von öffentlichen Blockchains sind Transparenz und Anonymität, wo hingegen Skalierbarkeit und Effizienz eher zweitrangig sind. <a>[[DEMUSH]](#ref_Demush)</a>
 
 __Privat und Konsortium__
 
+![blockchain_private](./images/blockchain_private.PNG "Private und Konsortium Blockchain")
+<a>[[DEMUSH]](#ref_Demush)</a>
 
 __Permissionless__
 
@@ -211,4 +216,4 @@ TODO: Risiken,  Bedeutung
 
 <a name="ref_Bute16">[BUTE16]</a>: Vitalik Buterin: On Public and Private Blockchains, 07.08.2015, URL: https://blog.ethereum.org/2015/08/07/on-public-and-private-blockchains/
 
-<a name="ref_DEMUSH">[DEMUSH]</a>: Rostyslav Demush: How Companies Can Leverage Private Blockchains to Improve Efficiency and Streamline Business Processes, URL: https://perfectial.com/blog/leveraging-private-blockchains-improve-efficiency-streamline-business-processes/
+<a name="ref_Demush">[DEMUSH]</a>: Rostyslav Demush: How Companies Can Leverage Private Blockchains to Improve Efficiency and Streamline Business Processes, URL: https://perfectial.com/blog/leveraging-private-blockchains-improve-efficiency-streamline-business-processes/
