@@ -7,11 +7,7 @@ Autor: Sebastian Janzen
 Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transaktionshistorie festgehalten wird, wie zum Beispiel einem öffentlichen Konto. Jeder Block zeigt auf den Vorgänger bis auf den ersten Block einer Blockchain, den sogenannten "Genesisblock". <a>[[ZHENG17]](#ref_Zheng17)</a>
 
 ![blockchain_architecture](./images/blockchain_architecture.PNG "Blockchain Architektur")
-<<<<<<< HEAD
-<a>[[ANDE16]](#ref_Ande16)</a>
-=======
 Abbildung angepasst aus <a>[[ANDE16]](#ref_Ande16)</a>
->>>>>>> 8ec68f434a34a8ccc29cfc65b2f6c97551561214
 
 >___!!!Das nächste Unterkapitel "Block" überschneidet sich mit dem Unterkapitel "Blöcke" von Björn. Bleibt erstmal so stehen, wir entscheiden später wie wir vorgehen!!!___ 
 
