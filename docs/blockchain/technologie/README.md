@@ -2,15 +2,39 @@
 
 
 ## Architektur und Funktionsweise
-
 Autor: Sebastian Janzen
 
-## Arten einer Blockchain 
+Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transaktionshistorie festgehalten wird, wie zum Beispiel einem öffentlichen Konto. Jeder Block zeigt auf den Vorgänger bis auf den ersten Block einer Blockchian, den sogenannten "Genesisblock". <a>[[ZHENG17]](#ref_Zheng17)</a>
 
-Autor: Sebastian Janzen
+![blockchain_architecture](./images/blockchain_architecture.png "Blockchain Architektur")
 
-Public, Private, Konsortium, Permissionless, Permissioned etc.
+> <span style="color:red">Das nächste Unterkapitel "Block" überschneidet sich mit dem Unterkapitel "Blöcke" von Björn. Bleibt erstmal so stehen, wir entscheiden später wie wir vorgehen!</span> 
 
+### Block
+
+### Digitale Signatur
+
+### Hauptmerkmale einer Blockchain
+
+__Dezentralisierung__
+
+__Beständigkeit__
+
+__Anonymität__
+
+__Nachvollziehbarkeit__
+
+### Arten einer Blockchain 
+
+__Public__
+
+__Private__ 
+
+__Konsortium__
+
+__Permissionless__
+
+__Permissioned__
 
 
 ## Eigenschaften einer Blockchain 
