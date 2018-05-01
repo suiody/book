@@ -8,7 +8,7 @@ Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transak
 
 ![blockchain_architecture](./images/blockchain_architecture.png "Blockchain Architektur")
 
-<span style="color:red">Das nächste Unterkapitel "Block" überschneidet sich mit dem Unterkapitel "Blöcke" von Björn. Bleibt erstmal so stehen, wir entscheiden später wie wir vorgehen!</span> 
+<font color="red">__!!!Das nächste Unterkapitel "Block" überschneidet sich mit dem Unterkapitel "Blöcke" von Björn. Bleibt erstmal so stehen, wir entscheiden später wie wir vorgehen!!!__</font> 
 
 ### Block
 
