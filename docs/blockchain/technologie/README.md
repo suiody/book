@@ -4,7 +4,7 @@
 ## Architektur und Funktionsweise
 Autor: Sebastian Janzen
 
-Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transaktionshistorie festgehalten wird, wie zum Beispiel einem öffentlichen Konto. Jeder Block zeigt auf den Vorgänger bis auf den ersten Block einer Blockchian, den sogenannten "Genesisblock". <a>[[ZHENG17]](#ref_Zheng17)</a>
+Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transaktionshistorie festgehalten wird, wie zum Beispiel einem öffentlichen Konto. Jeder Block zeigt auf den Vorgänger bis auf den ersten Block einer Blockchain, den sogenannten "Genesisblock". <a>[[ZHENG17]](#ref_Zheng17)</a>
 
 ![blockchain_architecture](./images/blockchain_architecture.PNG "Blockchain Architektur")
 <a>[[ANDE16]](#ref_Ande16)</a>
@@ -34,15 +34,17 @@ __Öffentlich__
 ![blockchain_public](./images/blockchain_public.PNG "Public Blockchain")
 <a>[[DEMUSH]](#ref_Demush)</a>
 
-Die ursprüngliche Form einer Blockchain (siehe Bitcoin).
-Alle ihre Einträge sind öffentlich sichtbar. Jeder kann im Netzwerk eine Transaktion tätigen und solange diese valide ist, wird sie auch der Blockchain hinzugefügt. Es ist allen freigestellt am Konsensus teilzunehmen und sogar die Netzwerke verwalten. Im Gegenzug gibt es niemanden der das Alleinrecht im Netzwerk bestreitet - alle Teilnehmer sind gleich. Öffentliche Blockchains nutzen Crypto-Economics, eine Kombination aus Konsensalgorithmen und wirtschaftlichen Anreizen, als Ersatz für einen zentralen Trust.  Die üblichen Konsensusalgorithmen sind Proof of Work und Proof of Stake (Bitcoin, Ethereum). Die Vorteile von öffentlichen Blockchains sind Transparenz und Anonymität, wobei die Skalierbarkeit und Effizienz eher zweitrangig sind. <a>[[DEMUSH]](#ref_Demush)</a>, <a>[[BUTE16]](#ref_Bute16)</a>
+Die ursprüngliche Art einer Blockchain (siehe Bitcoin-Blockchain).
+Alle ihre Einträge sind öffentlich sichtbar. Jeder kann im Netzwerk eine Transaktion tätigen und solange diese valide ist, wird sie auch einer Blockchain hinzugefügt. Es ist allen freigestellt am Konsensus teilzunehmen und sogar die Netzwerke zu verwalten. Im Gegenzug gibt es niemanden der das Alleinrecht im Netzwerk hat - alle Teilnehmer sind gleich. Der Einfluss ist proportional der Ressourcen eines Teilnehmers. Öffentliche Blockchains nutzen Crypto-Economics, eine Kombination aus Konsensalgorithmen und wirtschaftlichen Anreizen, als Ersatz für einen zentralen Trust.  Die üblichen Konsensusalgorithmen sind Proof of Work und Proof of Stake (Bitcoin, Ethereum). Die Vorteile von öffentlichen Blockchains sind Transparenz und Anonymität, wobei die Skalierbarkeit und Effizienz eher zweitrangig sind. Diese Art der Blockchain wird als völlig dezentral bezeichnet. <a>[[DEMUSH]](#ref_Demush)</a>, <a>[[BUTE16]](#ref_Bute16)</a>
 
 __Privat und Konsortium__
 
 ![blockchain_private](./images/blockchain_private.PNG "Private und Konsortium Blockchain")
 <a>[[DEMUSH]](#ref_Demush)</a>
 
+Wie der Name schon andeutet, sind private Blockchains nicht für jeden sichtbar und zugänglich. Sie werden aufgrund von überschaulichen Anzahl von Knoten viel effektiver verwaltet. Die Schreibrechte gehören üblicherweise einer einzigen Organisation, die Leserechte können zum Teil oder ganz öffentlich sein.
 
+Konsortium-Blockchains unterscheiden sich insofern von privaten, dass sie von Konsortien geführt werden.
 
 __Permissionless__
 
