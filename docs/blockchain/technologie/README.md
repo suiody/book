@@ -7,8 +7,9 @@ Autor: Sebastian Janzen
 Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transaktionshistorie festgehalten wird, wie zum Beispiel einem öffentlichen Konto. Jeder Block zeigt auf den Vorgänger bis auf den ersten Block einer Blockchian, den sogenannten "Genesisblock". <a>[[ZHENG17]](#ref_Zheng17)</a>
 
 ![blockchain_architecture](./images/blockchain_architecture.PNG "Blockchain Architektur")
+<b>[[ANDE16]](#ref_Ande16)</a>
 
-<font color="red">__!!!Das nächste Unterkapitel "Block" überschneidet sich mit dem Unterkapitel "Blöcke" von Björn. Bleibt erstmal so stehen, wir entscheiden später wie wir vorgehen!!!__</font> 
+>___!!!Das nächste Unterkapitel "Block" überschneidet sich mit dem Unterkapitel "Blöcke" von Björn. Bleibt erstmal so stehen, wir entscheiden später wie wir vorgehen!!!___ 
 
 ### Block
 
@@ -200,3 +201,4 @@ TODO: Risiken,  Bedeutung
 
 <a name="ref_Hofmann17">[Hofmann17]</a>: Hofmann, Frank ; Wurster, Simone ; Eyal, Ron ; Böhmecke-Schwafert, Moritz : The immutability concept of blockchains and benefits of early standardization. Nanjing, China : ITU Kaleidoscope: Challenges for a Data-Driven Society (ITU K), 2017, ISBN: 978-9-2612-4281-7 
 
+<a name="ref_Ande16">[ANDE16]</a>: Nicolai Andersen: Vorstellung der Blockchain-Technologie „Hallo, Welt!”, Deloitte, 03.2016, URL: https://www2.deloitte.com/content/dam/Deloitte/de/Documents/Innovation/Vorstellung%20der%20Blockchain-Technologie.pdf
