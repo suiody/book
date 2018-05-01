@@ -7,7 +7,7 @@ Autor: Sebastian Janzen
 Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transaktionshistorie festgehalten wird, wie zum Beispiel einem öffentlichen Konto. Jeder Block zeigt auf den Vorgänger bis auf den ersten Block einer Blockchian, den sogenannten "Genesisblock". <a>[[ZHENG17]](#ref_Zheng17)</a>
 
 ![blockchain_architecture](./images/blockchain_architecture.PNG "Blockchain Architektur")
-<b>[[ANDE16]](#ref_Ande16)</a>
+<a>[[ANDE16]](#ref_Ande16)</a>
 
 >___!!!Das nächste Unterkapitel "Block" überschneidet sich mit dem Unterkapitel "Blöcke" von Björn. Bleibt erstmal so stehen, wir entscheiden später wie wir vorgehen!!!___ 
 
@@ -27,11 +27,14 @@ __Nachvollziehbarkeit__
 
 ### Arten einer Blockchain 
 
-__Public__
+Es gibt drei Arten von Blockchain: öffentliche, private und diejenigen welche einem Konsortium angehören.
 
-__Private__ 
+__Öffentlich__
 
-__Konsortium__
+Die ursprüngliche Form einer Blockchain (siehe Bitcoin). Deren Merkmale sind, dass alle ihre alle Einträge öffentlich sichtbar sind, jeder eine Transaktion tätigen und am Konsensus teilnehmen kann.
+
+__Privat und Konsortium__
+
 
 __Permissionless__
 
@@ -191,8 +194,11 @@ TODO: Risiken,  Bedeutung
 
 ## Literaturverzeichnis
 <a name="ref_walter07">[WALTER07]</a>: Walter, Benedikt: Intermediation und Digitalisierung. Springer-Verlag, 2007, ISBN: 3835096303 
+
 <a name="ref_shen16">[SHEN16]</a>: Shen, Ji ; Wei, Bin ; Yan, Hongjun: Financial Intermediation Chains in an OTC Market. 2016, SSRN: https://ssrn.com/abstract=2577497
+
 <a name="ref_budic18">[BUDIC18]</a>: BusinessDictionary.com : What is intermediation? definition and meaning ; URL: http://www.businessdictionary.com/definition/intermediation.html ; Date Accessed: April 29, 2018
+
 <a name="ref_etla16">[ETLA16]</a>: ETLA; Mattila, Juri: The Blockchain Phenomenon – The Disruptive Potential of Distributed Consensus Architectures. ETLA Working Papers, 2016 ; ISSN: 2323-2420
 
 <a name="ref_Zheng17">[ZHENG17]</a>: Zheng, Zibin ; Xie, Shaoan ; Dai, Hongning ; Chen, Xiangping ; Wang, Huaimin : An Overview of Blockchain Technology: Architecture, Consensus, and Future Trends. Honolulu, HI, USA : IEEE International Congress on Big Data, 2017, ISBN: 978-1-5386-1996-4
@@ -202,3 +208,7 @@ TODO: Risiken,  Bedeutung
 <a name="ref_Hofmann17">[Hofmann17]</a>: Hofmann, Frank ; Wurster, Simone ; Eyal, Ron ; Böhmecke-Schwafert, Moritz : The immutability concept of blockchains and benefits of early standardization. Nanjing, China : ITU Kaleidoscope: Challenges for a Data-Driven Society (ITU K), 2017, ISBN: 978-9-2612-4281-7 
 
 <a name="ref_Ande16">[ANDE16]</a>: Nicolai Andersen: Vorstellung der Blockchain-Technologie „Hallo, Welt!”, Deloitte, 03.2016, URL: https://www2.deloitte.com/content/dam/Deloitte/de/Documents/Innovation/Vorstellung%20der%20Blockchain-Technologie.pdf
+
+<a name="ref_Bute16">[BUTE16]</a>: Vitalik Buterin: On Public and Private Blockchains, 07.08.2015, URL: https://blog.ethereum.org/2015/08/07/on-public-and-private-blockchains/
+
+<a name="ref_DEMUSH">[DEMUSH]</a>: Rostyslav Demush: How Companies Can Leverage Private Blockchains to Improve Efficiency and Streamline Business Processes, URL: https://perfectial.com/blog/leveraging-private-blockchains-improve-efficiency-streamline-business-processes/
