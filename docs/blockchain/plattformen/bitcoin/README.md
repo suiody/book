@@ -15,3 +15,7 @@ Um sich initial mit anderen Knoten zu verbinden, nutzt der Bitcoin einen sogenan
 
 Mining, UTXO etc.
 
+### Literatur
+
+[NAKA08] Nakamoto, S., Bitcoin: A peer-to-peer electronic cash system., 2008
+
