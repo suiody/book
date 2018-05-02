@@ -32,6 +32,7 @@ Es gibt drei Arten von Blockchain: öffentliche, private und diejenigen welche e
 __Öffentlich__
 
 ![blockchain_public](./images/blockchain_public.PNG "Public Blockchain")
+
 Abbildung angepasst aus <a>[[DEMUSH]](#ref_Demush)</a>
 
 Die ursprüngliche Art einer Blockchain (siehe Bitcoin-Blockchain).
@@ -40,6 +41,7 @@ Alle ihre Einträge sind öffentlich sichtbar. Jeder kann im Netzwerk eine Trans
 __Privat und Konsortium__
 
 ![blockchain_private](./images/blockchain_private.PNG "Private und Konsortium Blockchain")
+
 Abbildung angepasst aus <a>[[DEMUSH]](#ref_Demush)</a>
 
 Wie der Name schon andeutet, sind private Blockchains nicht für jeden sichtbar und zugänglich. Sie werden aufgrund von überschaulichen Anzahl von Knoten viel effektiver verwaltet. Die Schreibrechte an der Blockchain gehören üblicherweise einer einzigen Organisation, die Leserechte können zum Teil oder ganz öffentlich sein. Der üblichen Verwendungszwecke sind Datenhaltung und Wirtschaftsprüfung im Rahmen einer einzigen Firma. Konsortium-Blockchains unterscheiden sich insofern von privaten, dass nur vorausgewählte Knoten am Konsensus teilnehmen können. Diese Knoten können einer Gruppe von Banken gehören, wo jede Bank einen Knoten steuert. Wie im Falle der privaten Blockchain, kann das Leserecht teilweise oder ganz öffentlich sein, was dazu führt, dass Teilnehmern außerhalb des Konsortiums eine eingeschränkte Möglichkeit haben über eine API die Block Hashes zu überprüfen. Banken und Unternehmen bekommen damit eine Möglichkeit direkt ihre Vermögenswerte untereinander in Sekunden zu übertragen und die private P2P-Netzwerke zu überwachen. Diese Blockchains werden als teilweise dezentralisiert bezeichnet.
