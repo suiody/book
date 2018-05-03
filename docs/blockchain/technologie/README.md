@@ -6,7 +6,7 @@ Autor: Sebastian Janzen
 
 Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transaktionshistorie festgehalten wird, wie zum Beispiel einem öffentlichen Konto. Jeder Block zeigt auf den Vorgänger bis auf den ersten Block einer Blockchain, den sogenannten "Genesisblock". <a>[[ZHENG17]](#ref_Zheng17)</a>
 
-![blockchain_architecture](./images/blockchain_architecture.PNG "Blockchain Architektur")
+![blockchain_architecture](./images/blockchain_architecture.png "Blockchain Architektur")
 Abbildung angepasst aus <a>[[ANDE16]](#ref_Ande16)</a>
 
 >___!!!Das nächste Unterkapitel "Block" überschneidet sich mit dem Unterkapitel "Blöcke" von Björn. Bleibt erstmal so stehen, wir entscheiden später wie wir vorgehen!!!___ 
@@ -31,7 +31,7 @@ Es gibt drei Arten von Blockchain: öffentliche, private und diejenigen welche e
 
 __Öffentlich__
 
-![blockchain_public](./images/blockchain_public.PNG "Public Blockchain")
+![blockchain_public](./images/blockchain_public.jpg "Public Blockchain")
 
 Abbildung angepasst aus <a>[[DEMUSH]](#ref_Demush)</a>
 
@@ -39,7 +39,7 @@ Die ursprüngliche Art einer Blockchain (siehe Bitcoin-Blockchain).
 
 __Privat und Konsortium__
 
-![blockchain_private](./images/blockchain_private.PNG "Private und Konsortium Blockchain")
+![blockchain_private](./images/blockchain_private.jpg "Private und Konsortium Blockchain")
 
 Abbildung angepasst aus <a>[[DEMUSH]](#ref_Demush)</a>
 
