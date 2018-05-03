@@ -8,6 +8,11 @@ Fork this repo and clone your fork
 You may need to clear your browser cache if changes are still not visible, after TravisCI successfully built your commit.
 (maybe a "feature" of the serviceworker)
 
+#### Fix tedious cache-clearing by manually unregistering the serviceworker.
+
+![sw_unregister](./img/sw-unregister.png "SW Unregister")
+
+
 !! VuePress requires Node.js >= 8 !!
 
 ``` bash 
