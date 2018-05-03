@@ -2,17 +2,56 @@
 
 
 ## Architektur und Funktionsweise
-
 Autor: Sebastian Janzen
 
-## Arten einer Blockchain 
+Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transaktionshistorie festgehalten wird, wie zum Beispiel einem öffentlichen Konto. Jeder Block zeigt auf den Vorgänger bis auf den ersten Block einer Blockchain, den sogenannten "Genesisblock". <a>[[ZHENG17]](#ref_Zheng17)</a>
 
-Autor: Sebastian Janzen
+![blockchain_architecture](./images/blockchain_architecture.PNG "Blockchain Architektur")
+Abbildung angepasst aus <a>[[ANDE16]](#ref_Ande16)</a>
 
-Public, Private, Konsortium, Permissionless, Permissioned etc.
+>___!!!Das nächste Unterkapitel "Block" überschneidet sich mit dem Unterkapitel "Blöcke" von Björn. Bleibt erstmal so stehen, wir entscheiden später wie wir vorgehen!!!___ 
+
+### Block
+
+### Digitale Signatur
+
+### Hauptmerkmale einer Blockchain
+
+__Dezentralisierung__
+
+__Beständigkeit__
+
+__Anonymität__
+
+__Nachvollziehbarkeit__
+
+### Arten einer Blockchain 
+
+Es gibt drei Arten von Blockchain: öffentliche, private und diejenigen welche einem Konsortium angehören.
+
+__Öffentlich__
+
+![blockchain_public](./images/blockchain_public.PNG "Public Blockchain")
+
+Abbildung angepasst aus <a>[[DEMUSH]](#ref_Demush)</a>
+
+Die ursprüngliche Art einer Blockchain (siehe Bitcoin-Blockchain).
+
+__Privat und Konsortium__
+
+![blockchain_private](./images/blockchain_private.PNG "Private und Konsortium Blockchain")
+
+Abbildung angepasst aus <a>[[DEMUSH]](#ref_Demush)</a>
+
+Wie der Name schon andeutet, sind private Blockchains nicht für jeden sichtbar und zugänglich. Sie werden aufgrund von überschaulichen Anzahl von Knoten viel effektiver verwaltet. Die Schreibrechte an der Blockchain gehören üblicherweise einer einzigen Organisation, die Leserechte können zum Teil oder ganz öffentlich sein. Der üblichen Verwendungszwecke sind Datenhaltung und Wirtschaftsprüfung im Rahmen einer einzigen Firma. Konsortium-Blockchains unterscheiden sich insofern von privaten, dass nur vorausgewählte Knoten am Konsensus teilnehmen können. Diese Knoten können einer Gruppe von Banken gehören, wo jede Bank einen Knoten steuert. Wie im Falle der privaten Blockchain, kann das Leserecht teilweise oder ganz öffentlich sein, was dazu führt, dass Teilnehmern außerhalb des Konsortiums eine eingeschränkte Möglichkeit haben über eine API die Block Hashes zu überprüfen. Banken und Unternehmen bekommen damit eine Möglichkeit direkt ihre Vermögenswerte untereinander in Sekunden zu übertragen und die private P2P-Netzwerke zu überwachen. Diese Blockchains werden als teilweise dezentralisiert bezeichnet.
+<a>[[DEMUSH]](#ref_Demush)</a>, <a>[[BUTE16]](#ref_Bute16)</a>
+
+__Permissionless__
+
+__Permissioned__
 
 
-
+Alle ihre Einträge sind öffentlich sichtbar. Jeder kann im Netzwerk eine Transaktion tätigen und solange diese valide ist, wird sie auch einer Blockchain hinzugefügt. Es ist allen freigestellt am Konsensus teilzunehmen und sogar die Netzwerke zu verwalten. Im Gegenzug gibt es niemanden der das Alleinrecht im Netzwerk hat - alle Teilnehmer sind gleich. Der Einfluss ist proportional der Ressourcen eines Teilnehmers. Öffentliche Blockchains nutzen Crypto-Economics, eine Kombination aus Konsensalgorithmen und wirtschaftlichen Anreizen, als Ersatz für einen zentralen Trust.  Die üblichen Konsensusalgorithmen sind Proof of Work und Proof of Stake (Bitcoin, Ethereum). Die Vorteile von öffentlichen Blockchains sind Transparenz und Anonymität, wobei die Skalierbarkeit und Effizienz eher zweitrangig sind. Diese Art der Blockchain wird als völlig dezentral bezeichnet. <a>[[DEMUSH]](#ref_Demush)</a>, <a>[[BUTE16]](#ref_Bute16)</a>
 ## Eigenschaften einer Blockchain 
 
 Autor: Björn Enders-Müller
