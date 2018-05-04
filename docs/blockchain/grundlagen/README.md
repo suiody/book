@@ -208,7 +208,7 @@ Allgemein kann man eine Datenbank als eine organisierte Sammlung von elektronisc
 Dabei sollen hierbei viele Datensätze effizient, konsistent und dauerhaft verwaltet werden können. Zudem können Datenbanken logische Zusammenhänge zwischen den einzelnen Daten abbilden. 
 Beispielsweise können sie in Tabellen abgebildet werden, wobei jede Reihe eine Entität und jede Spalte ein Attribut, welches die Entität beschreibt, darstellt. 
 Zur Manipulation der Datenbanken sind Transaktionen notwendig. Dabei beinhaltet eine Transaktion ein oder mehrere Manipulationen der Datenbank (Datensatz anlegen, ändern oder löschen). 
-Bei der Ausführung der Transaktion wird sie auf ihre Richtigkeit überprüft und entweder als ganzes oder gar nicht ausgeführt (getreu dem ACID-(bei RDBs) bzw. dem BASE-Theorem (bei NoSQL-DBs) <a>[[WIKI18]](#ref_wiki18)</a>). Die Richtigkeit wird u.a. durch Regeln wie Unique Keys, Forein keys oder Check constraints. 
+Bei der Ausführung der Transaktion wird sie auf ihre Richtigkeit überprüft und entweder als ganzes oder gar nicht ausgeführt (getreu dem ACID-(bei RDBs) bzw. dem BASE-Theorem (bei NoSQL-DBs) <a>[[WIKI18]](#ref_wiki18a)</a>). Die Richtigkeit wird u.a. durch Regeln wie Unique Keys, Forein keys oder Check constraints. 
 Wichtig dabei ist, dass die Datenbank nach jeder Transaktion einen validen Zustand erreicht und entsprechend konsistente Daten beinhaltet.	
 
 ### Distributed Ledger Technologie (DLT) <a>[[METZ18]](#ref_metz18)</a>
@@ -386,6 +386,6 @@ Die Entwicklung einer dezentralen Anwendung wird üblicherweise in drei Teilschr
 
 <a name="ref_thom16">[THOM16]</a>: Thompson, Collin : Private Blockchain or Database?  URL: https://www.linkedin.com/pulse/private-blockchain-database-collin-thompson (abgerufen am 29.04.2018)
 
-<a name="ref_wiki18">[WIKI18a]</a>: Wikipedia, ACID. URL: https://de.wikipedia.org/wiki/ACID (abgerufen am 29.04.2018)
+<a name="ref_wiki18a">[WIKI18a]</a>: Wikipedia, ACID. URL: https://de.wikipedia.org/wiki/ACID (abgerufen am 29.04.2018)
 
-<a name="ref_wiki18">[WIKI18b]</a>: Wikimedia: Message authentication code. URL: https://en.wikipedia.org/wiki/Message_authentication_code (abgerufen am 04.05.2018)
+<a name="ref_wiki18b">[WIKI18b]</a>: Wikimedia: Message authentication code. URL: https://en.wikipedia.org/wiki/Message_authentication_code (abgerufen am 04.05.2018)
