@@ -30,7 +30,7 @@ Ebenso wichtig ist der Begriff der *Nichtabstreitbarkeit*. Diese gewährleistet 
 
 **Verbindlichkeit**
 
-Der Begriff der *Verbindlichkeit* kombiniert Authentizität mit Nichtabstreitbarkeit. Im Falle einer Datenübertragung heißt das, dass der Absender seine Identität bewiesen hat und der Empfang der Nachricht nicht abgetritten werden kann, <a>[[BSI18]](#ref_bsi18)</a>.
+Der Begriff der *Verbindlichkeit* kombiniert Authentizität mit Nichtabstreitbarkeit. Im Falle einer Datenübertragung heißt das, dass der Absender seine Identität bewiesen hat und der Empfang der Nachricht nicht abgetritten werden kann, <a>[[BSI18a]](#ref_bsi18a)</a>.
 
 **Kerckhoffs’ Prinzip**
 
@@ -157,42 +157,57 @@ Public Key Infrastructures verwalten und verteilen die Schlüssel und Zertifikat
 ### Algorithmen
 Autor: Patrick Vogt
 
-Empfehlungen vom BSI:
-https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102.pdf?__blob=publicationFile
+Im folgenden soll eine Übersicht über die in [BSI18] empfohlenen Algorithmen gegeben werden.
 
-Symmetrisch:
+Blockchiffren (Verfahren für Blöcke fester Längen):
+* AES-128
+* AES-192
+* AES-256
 
-AES
-DES
-Triple DES
-MARS
-IDEA
-RC2
-RC4
-RC5
-RC6
-Blowfish
-Twofish
-Threefish
-Serpent
+Stromchiffren:
 
-Asymmetrisch:
-Diffie-Hellman
-RSA
-Elliptic Curve
+*keine Verfahren empfohlen*
 
-Hybrid:
-ECIES
-DLIES
-
-Hash:
-SHA-256, SHA-512/256, SHA-384 und SHA-512
-SHA3-256, SHA3-384, SHA3-512
+Hashfunktionen:
+* SHA-256
+* SHA-512/256
+* SHA-384
+* SHA-512
+* SHA3-256
+* SHA3-384
+* SHA3-512
 
 MAC:
-CMAC
-HMAC
-GMAC
+* CMAC
+* HMAC
+* GMAC
+
+Signaturverfahren:
+
+* RSA
+* DSA
+* DSA auf Basis elliptischer Kurven
+    * ECDSA
+    * ECKDSA
+    * ECGDSA
+* Merkle-Signaturen
+
+Schlüsseltransport (asymmetrische Verfahren):
+* Diffie-Hellmann
+* EC Diffie-Hellman (ECKA-DH)
+
+| Verfahren          | Typ/Grundkategorie           | Anwendungsgebiet    | Sicherheitsbasis/-prinzip                                                                                    |
+|--------------------|------------------------------|---------------------|-----------------------------------------------------------------------------------------------------|
+| AES                | Blockschiffre                | Verschlüsselung     | Kein effizienter Weg zur Bestimmung des symmetrischen Schlüssels bekannt, viele Jahre bewährt                                                                             |
+| SHA                | Hash-Funktion                | Signatur            | Kollisionssichere Hash Funktion                                                                     |
+| CMAC               | MAC (Blockschiffre)          | Signatur            |   Sicheres Blockchiffre-Verfahren (??????)                                                                                                  |
+| HMAC               | MAC (Hash-Funktion)          | Signatur            | Kollisionssichere Hash Funktion                                                                                                    |
+| GMAC               | MAC (Blockschiffre)          | Signatur            |   Sicheres Blockchiffre-Verfahren (??????)                                                                                                                                                  |
+| RSA                | asym. Schlüsselpaar          | Verschl. & Signatur | Umkehrfunktion von Faktorisierung schwer zu berechnen                                                   |
+| DSA                | asym. Schlüsselpaar & Hashfunktion   | Signatur    | Umkehrfunktion von diskreter Log. schwer zu berechnen                                                   |
+| Elliptische Kurven | Einwegfunktion               | Signatur            | Umkehrfunktion von elliptischen Kurven schwer zu berechnen                                                   |
+| Diffie-Hellman     | Protokoll                    | Schlüsselaustausch  | Umkehrfunktion diskreter Exponentialfunktionen schwer zu berechnen |
+| Merkle-Signaturen  | Merkle-Tree & Einmalsignatur | Signatur            | Mehrstufige Hash-Verfahren zu einem einzigen Hashwert zusammenfassen (als   öffentlicher Schlüssel) |
 
 ### Zero knowledge Proofs 
 
@@ -424,7 +439,9 @@ Die Entwicklung einer dezentralen Anwendung wird üblicherweise in drei Teilschr
 
 <a name="ref_brow16">[BROW16]</a>: Brown, Richard 'Gendal' : On Distributed Databases and Distributed Ledgers  URL: https://gendal.me/2016/11/08/on-distributed-databases-and-distributed-ledgers/ (abgerufen am 29.04.2018)
 
-<a name="ref_bsi18">[BSI18]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI) - Referat B 23, Cyber-Sicherheit für den Bürger und Öffentlichkeitsarbeit: IT-Sicherheit: 4 Glossar und Begriffsdefinitionen. Bonn, 2018 URL: https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/Glossar/glossar_node.html (abgerufen am 29.04.2018)
+<a name="ref_bsi18a">[BSI18a]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI) - Referat B 23, Cyber-Sicherheit für den Bürger und Öffentlichkeitsarbeit: IT-Sicherheit: 4 Glossar und Begriffsdefinitionen. Bonn, 2018 URL: https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/Glossar/glossar_node.html (abgerufen am 29.04.2018)
+
+<a name="ref_bsi18b">[BSI18b]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI), BSI – Technische Richtlinie: Kryptographische Verfahren: Empfehlungen und Schlüssellängen. Kürzel: BSI TR-02102-1, Bonn, 2018
 
 <a name="ref_cola18">[COLA18]</a>: Complexity Labs: Distributed Ledger  URL: https://www.youtube.com/watch?v=Cqk7PN8f8gM (abgerufen am 29.04.2018)
 
