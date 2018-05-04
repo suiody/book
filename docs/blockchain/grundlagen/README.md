@@ -143,8 +143,7 @@ Der gesamte Vorgang läuft prinzipiell wie bei digitalen Signaturen ab:
 
 ![dig_signature](./images/crypto_mac.png "Prinzip von MACs")
 
-[Bildquelle](https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/MAC.svg/661px-MAC.svg.png)
-
+Abbildung entnommen aus <a>[[WIKI18b]](#ref_wiki18b)</a>
 Der Sender bildet mithilfe des gemeinsamen Schlüssels und der Nachricht eine Prüfsumme und verschickt die Nachricht mit angehängter Prüfsumme. Der Empfänger führt den gleichen Vorgang durch und prüft seine berechnete Prüfsumme mit der erhaltenen. 
 
 ### Public Key Infrastructure (PKI)
