@@ -157,14 +157,30 @@ Public Key Infrastructures verwalten und verteilen die Schlüssel und Zertifikat
 ### Algorithmen
 Autor: Patrick Vogt
 
-Im folgenden soll eine Übersicht über die in [BSI18] empfohlenen Algorithmen gegeben werden.
+Es gibt eine Vielzahl von verschiedenen Algorithmenarten im Bereich der Kryptographie. Die nachfolgende Tabelle soll, basierend auf den Empfehlungen in  <a>[[BSI18b]](#ref_bsi18b)</a>, einen Überblick über einige aktuell bedeutende Algorithmenarten verschaffen.
 
-Blockchiffren (Verfahren für Blöcke fester Längen):
+| Verfahren          | Typ/Grundkategorie           | Anwendungsgebiet    | Sicherheitsbasis/-prinzip                                                                                    |
+|--------------------|------------------------------|---------------------|-----------------------------------------------------------------------------------------------------|
+| AES                | Blockschiffre                | Verschlüsselung     | Kein effizienter Weg zur Bestimmung des symmetrischen Schlüssels bekannt, viele Jahre bewährt                                                                             |
+| SHA                | Hash-Funktion                | Signatur            | Kollisionssichere Hash Funktion                                                                     |
+| CMAC               | MAC (Blockschiffre)          | Signatur            |   Sicheres Blockchiffre-Verfahren (??????)                                                                                                  |
+| HMAC               | MAC (Hash-Funktion)          | Signatur            | Kollisionssichere Hash Funktion                                                                                                    |
+| GMAC               | MAC (Blockschiffre)          | Signatur            |   Sicheres Blockchiffre-Verfahren (??????)                                                                                                                                                  |
+| RSA                | asym. Schlüsselpaar          | Verschl. & Signatur | Umkehrfunktion von Faktorisierung schwer zu berechnen                                                   |
+| DSA                | asym. Schlüsselpaar & Hashfunktion   | Signatur    | Umkehrfunktion von diskreter Log. schwer zu berechnen                                                   |
+| Elliptische Kurven | Einwegfunktion               | Signatur            | Umkehrfunktion von elliptischen Kurven schwer zu berechnen                                                   |
+| Diffie-Hellman     | Protokoll                    | Schlüsselaustausch  | Umkehrfunktion diskreter Exponentialfunktionen schwer zu berechnen |
+| Merkle-Signaturen  | Merkle-Tree & Einmalsignatur | Signatur            | Mehrstufige Hash-Verfahren zu einem einzigen Hashwert zusammenfassen (als   öffentlicher Schlüssel) |
+
+
+In <a>[[BSI18b]](#ref_bsi18b)</a> werden im speziellen folgende Algorithmen empfohlenen: 
+
+Blockchiffren (symmetrisches Verfahren für Blöcke fester Längen):
 * AES-128
 * AES-192
 * AES-256
 
-Stromchiffren:
+Stromchiffren (symmetrisches Verfahren für Blöcke beliebiger Längen):
 
 *keine Verfahren empfohlen*
 
@@ -196,18 +212,6 @@ Schlüsseltransport (asymmetrische Verfahren):
 * Diffie-Hellmann
 * EC Diffie-Hellman (ECKA-DH)
 
-| Verfahren          | Typ/Grundkategorie           | Anwendungsgebiet    | Sicherheitsbasis/-prinzip                                                                                    |
-|--------------------|------------------------------|---------------------|-----------------------------------------------------------------------------------------------------|
-| AES                | Blockschiffre                | Verschlüsselung     | Kein effizienter Weg zur Bestimmung des symmetrischen Schlüssels bekannt, viele Jahre bewährt                                                                             |
-| SHA                | Hash-Funktion                | Signatur            | Kollisionssichere Hash Funktion                                                                     |
-| CMAC               | MAC (Blockschiffre)          | Signatur            |   Sicheres Blockchiffre-Verfahren (??????)                                                                                                  |
-| HMAC               | MAC (Hash-Funktion)          | Signatur            | Kollisionssichere Hash Funktion                                                                                                    |
-| GMAC               | MAC (Blockschiffre)          | Signatur            |   Sicheres Blockchiffre-Verfahren (??????)                                                                                                                                                  |
-| RSA                | asym. Schlüsselpaar          | Verschl. & Signatur | Umkehrfunktion von Faktorisierung schwer zu berechnen                                                   |
-| DSA                | asym. Schlüsselpaar & Hashfunktion   | Signatur    | Umkehrfunktion von diskreter Log. schwer zu berechnen                                                   |
-| Elliptische Kurven | Einwegfunktion               | Signatur            | Umkehrfunktion von elliptischen Kurven schwer zu berechnen                                                   |
-| Diffie-Hellman     | Protokoll                    | Schlüsselaustausch  | Umkehrfunktion diskreter Exponentialfunktionen schwer zu berechnen |
-| Merkle-Signaturen  | Merkle-Tree & Einmalsignatur | Signatur            | Mehrstufige Hash-Verfahren zu einem einzigen Hashwert zusammenfassen (als   öffentlicher Schlüssel) |
 
 ### Zero knowledge Proofs 
 
