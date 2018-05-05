@@ -15,11 +15,11 @@ Properties = Props... erwähnen
 ##### Styles & className
 ##### Lifecycle
 
-Der Lebenszyklus einer React Klassenkomponente besteht aus verschiedenen Phasen und Schritten, siehe nachfolgende Abbildung. Es existieren noch weitere Lifecycle-Methoden. Da diese jedoch als veraltet gelten und mit der Version 17 entfernt werden, werden diese im Folgenden außer Acht gelassen.
+Der Lebenszyklus einer React Klassenkomponente besteht aus verschiedenen Phasen und Schritten, siehe nachfolgende Abbildung. Es existieren noch weitere Lifecycle-Methoden. Da diese jedoch als veraltet gelten und mit der Version 17 entfernt werden, werden diese im Folgenden außer Acht gelassen. Als Informationsquelle für diesen Abschnitt wurde, sofern nicht anders angegeben, <a>[[FACE18a]](#ref_face18a)</a> verwendet.
 
 <a name="ref_lifecycles"></a>![ref_lifecycles](./images/LifeCycleMethods.png "React Lifecycle Methoden")
 
-Abbildung bearbeitet; entnommen aus <a>[[MAJ18]](#ref_MAJ18)</a> (dort als interaktive Abbildung vorhanden)
+Abbildung bearbeitet; entnommen aus <a>[[MAJ18]](#ref_maj18)</a> (dort als interaktive Abbildung vorhanden)
 
 **Mounting**
 
@@ -73,6 +73,8 @@ Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **
 
 ### Literaturverzeichnis
 
-<a name="ref_MAJ18">[MAJ18]</a>: Maj, Wojciech: Interactive React lifecycle methods diagram. URL: https://github.com/wojtekmaj/react-lifecycle-methods-diagram
+<a name="ref_maj18">[MAJ18]</a>: Maj, Wojciech: Interactive React lifecycle methods diagram. URL: https://github.com/wojtekmaj/react-lifecycle-methods-diagram
 (abgerufen am 05.05.2018)
 
+<a name="ref_face18a">[FACE18a]</a>: Facebook Inc.: React.Component. URL: https://reactjs.org/docs/react-component.html
+(abgerufen am 05.05.2018)
