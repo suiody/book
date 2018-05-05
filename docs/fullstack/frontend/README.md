@@ -6,6 +6,62 @@ Stand: Version 16.3.2
 #### SPA / Progressive Web App
 #### JSX
 render-Methode erwähnen
+
+JSX erweitert die Programmiersprache Javascript, indem es eine XML/HTML-artige Struktur zur Programmierung der GUI-Elemente innerhalb des Javascript Codes erlaubt. Damit aus einem JSX-Code standardmäßiges Javascript wird, muss der Code übersetzt werden. Dieser Vorgang wird i.d.R. mithilfe des Javascript-Compilers "Babel" durchgeführt. Streng genommen ist JSX kein zwingendes Muss bei der Verwendung von React als Framework, jedoch ist zu vermuten, dass die meisten Programmierer die JSX-Version dem compilierte Äquivalent aufgrund der Übersichtlichkeit bevorzugen würden. Außerdem können so hilfreichere Tool-Unterstützungen (Warnungen, Fehler etc.) angezeigt werden [[FACE18a]](#ref_face18a) .
+
+Als Beispiel soll folgender JSX-Code dienen:
+
+```jsx
+function render() {
+    return (
+      	<div>
+          <h1>Master Informatik</h1>
+          <h2>Campus Minden</h2>
+          <h3>Modulname:</h3>
+          <input type="text" autofocus name="moduleName"/>
+    	</div>
+    );
+};
+```
+Dieser Code wird vom Babel folgendermaßen übersetzt:
+
+```javascript
+function render() {
+    return React.createElement("div", null,
+             React.createElement("h1", null, "Master Informatik"),
+             React.createElement("h2", null, "Campus Minden"),
+             React.createElement("h3", null, "Modulname:"),
+             React.createElement("input", {
+                 type: "text", 
+                 autofocus: true, 
+                 name: "moduleName"
+             })
+    );
+};
+```
+
+*Das Beispiel lässt sich [hier](https://babeljs.io/repl/#?babili=false&browsers=&build=&builtIns=false&code_lz=GYVwdgxgLglg9mABAJwKZgCauQCgJSIDeAUAJBpQjJI7GL0OkA8GMAbgHx0M_1MAWARg4BZAIYBnKNkQBJMMDjIAtmNgBrJgHohXXrwEAmDgGExygA4gJiETEzpt_Y9319-AZlFwMIADZg5qgAXE5erm5M9lZQiFAAnhaoALwARNIAHlCpiGIgUHCKENaIgcopqco-_qgAckE5WnqM2qycEXgA3MQAvt3EQA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=6.26.0&envVersion=) online ansehen und bearbeiten.*
+
+Da es sich bei den JSX-Elementen um Javascript-Objekte handelt, können die Elemente auch beispielsweise Variablen zugewiesen werden:
+
+```jsx
+const header = <h1>Das ist eine Überschrift</h1>;  
+```
+
+Des Weiteren lässt sich auch weiterer Javascript Code direkt einfügen, indem er in geschweifte Klammern gesetzt wird:
+
+```jsx
+const items = ["book", "pen"];
+...
+const itemCounter = <div>Anzahl an Items: {items.length}</div>;
+
+===============================================================
+Ausgabe:
+    Anzahl an Items: 2
+===============================================================
+```
+
+
 #### Komponenten
 ##### Props, State, Children
 
@@ -15,7 +71,7 @@ Properties = Props... erwähnen
 ##### Styles & className
 ##### Lifecycle
 
-Der Lebenszyklus einer React Klassenkomponente besteht aus verschiedenen Phasen und Schritten, siehe nachfolgende Abbildung. Es existieren noch weitere Lifecycle-Methoden. Da diese jedoch als veraltet gelten und mit der Version 17 entfernt werden, werden diese im Folgenden außer Acht gelassen. Als Informationsquelle für diesen Abschnitt wurde, sofern nicht anders angegeben, <a>[[FACE18a]](#ref_face18a)</a> verwendet.
+Der Lebenszyklus einer React Klassenkomponente besteht aus verschiedenen Phasen und Schritten, siehe nachfolgende Abbildung. Es existieren noch weitere Lifecycle-Methoden. Da diese jedoch als veraltet gelten und mit der Version 17 entfernt werden, werden diese im Folgenden außer Acht gelassen. Als Informationsquelle für diesen Abschnitt wurde, sofern nicht anders angegeben, [[FACE18b]](#ref_face18b) verwendet.
 
 <a name="ref_lifecycles"></a>![ref_lifecycles](./images/LifeCycleMethods.png "React Lifecycle Methoden")
 
@@ -76,5 +132,8 @@ Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **
 <a name="ref_maj18">[MAJ18]</a>: Maj, Wojciech: Interactive React lifecycle methods diagram. URL: https://github.com/wojtekmaj/react-lifecycle-methods-diagram
 (abgerufen am 05.05.2018)
 
-<a name="ref_face18a">[FACE18a]</a>: Facebook Inc.: React.Component. URL: https://reactjs.org/docs/react-component.html
+<a name="ref_face18a">[FACE18a]</a>: Facebook Inc.: Introducing JSX. URL: https://reactjs.org/docs/introducing-jsx.html
 (abgerufen am 05.05.2018)
+<a name="ref_face18b">[FACE18b]</a>: Facebook Inc.: React.Component. URL: https://reactjs.org/docs/react-component.html
+(abgerufen am 05.05.2018)
+<a name="ref_zeig16">[ZEIG16]</a>: Zeigermann, Oliver ; Hartmann, Nils: React : Die praktische Einführung in React, React Router und Redux. 1. Aufl. s.l. : dpunkt, 2016 
