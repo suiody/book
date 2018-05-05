@@ -26,7 +26,8 @@ module.exports = {
         children: [
 		  '/digitalisierung/',
           '/cloud/',
-          '/dezentralisierung/'
+          '/dezentralisierung/',
+          '/smartcontract/'
         ]
       },
       {
