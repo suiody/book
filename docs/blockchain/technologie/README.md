@@ -263,7 +263,9 @@ Um eine hypothetische Prognose über die Zukunft von Assetflows unter angenommen
 Sind Vermittler aus dem Markt ausgeschieden oder haben sich in Nischen gerettet, existieren noch jene, die erst durch das neue Medium ihre Daseinsberechtigung erhalten und ihm vollends innewohnen. Diese Kategorie umfasst alle Aktuere, die mit ihren Geschäftsmodellen die Renditen der digitalen Wende einfahren. Und genau diese *Cybermediäre* scheinen nun durch die Blockchain mit der gleichen Wahl eines Zukunftsszenarios gegenübergestellt, wie ehemals ihre Vorgänger am Ende des letzten Jahrhunderts.
 
 Unterschiedliche Marktfunktionen sind verschieden stark durch derartige Transformationsprozesse bedroht und äußern so auch differenzierte Effekte <a>[[GIAG99]](#ref_giag99)</a>. Die nachstehende Tabelle gibt einen Überblick über betroffene Anwendungsbereiche und deren beobachtete Reaktion.
+
 <img src="./images/threats_to_intermediaries.PNG" width=“400”>
+
 Abbildung entnommen aus <a>[[GIAG99]](#ref_giag99)</a>
 
 <a>[[GIAG99]](#ref_giag99)</a> leitet aus der Tabelle eine Liste von Hypothesen ab, die als direkte Prognosereferenz dienlich sein können:
