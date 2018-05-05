@@ -275,6 +275,9 @@ Abbildung entnommen aus <a>[[GIAG99]](#ref_giag99)</a>
 
 Auffallend ist, dass Disintermediation - entgegen des Blockchainanspruchs - das am wenigsten wahrscheinliche Resultat repräsentiert. Intermediäre haben als gewinnmaximierende Agenten den Stimulus, auch im Rahmen von Paradigmenwechseln zu persistieren. Diese These soll die zentrale Erkenntnis dieses Abschnitts darstellen.
 
+Zweifelsohne repräsentiert die Blockchain eine Technologie, die Märkte revolutionieren kann und alle Akteure an allen Handelsstufen vor die Wahl stellt, sich an eines der drei geschilderten Szenarien zu binden. Disintermediation ist dabei natürlich keine bewusst wahrgenommene Entscheidung, sondern das Ergebnis des Unvermögens des Intermediärs sich gemessen an seinem Marktpotential neu zu positionieren. Sei dies in einer Nische oder im neuen Medium. Dass unsere Märkte kapitalistisch geprägt sind sollte ein klares Indiz dafür sein, dass alle derzeit am Markt teilnehmenden Akteure versuchen werden ihren Fortbestand zu sichern. Der größten Bedrohung sind dabei zentralisierte, monopolistische Unternehmungen ausgesetzt. Inhärent sind diese aber auch gleichzeitig die bedeutsamsten Teilnehmer des aktuellen Systems und haben folglich sowohl die größte Marktmacht, als auch den größten Incentive zum weiteren Bestehen. 
+Die Beobachtungen, die der Digitalisierung der Wirtschaft zur Jahrtausendwende zugrunde liegen, geben den Eindruck, dass der dezentrale, transparente Markt zwar sicherlich erneut intermediärsfeindlich wirkt, deren Existenzwille aber primär zu veränderten und/oder neuartigen Vermittlungsdiensten führt. Disintermediation scheint nicht das zwingend folgende Ergebnis der Konstituierung der Blockchain zu sein. Vielmehr haben wir mit einer Landschaft hochspezialisierter, neuartiger  Dienstleistungen zu rechnen.
+
 ##### Wertschöpfungstransparenz
 ...
 ##### Wirtschaftsautomation - M2M Transaktionen
