@@ -4,13 +4,18 @@
 ## Architektur und Funktionsweise
 Autor: Sebastian Janzen
 
-Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transaktionshistorie festgehalten wird, wie zum Beispiel einem öffentlichen Konto. Jeder Block zeigt auf den Vorgänger bis auf den ersten Block einer Blockchain, den sogenannten "Genesisblock". <a>[[ZHENG17]](#ref_Zheng17)</a>
+Was ist eine Blockchain?  
+Es gibt mehrere Definitionen, da die Entwicklung der Blockchain noch recht jung ist. Eine Definition besagt, dass es ein elektronischer Register für Datensätze, Ereignisse oder Transaktionen ist, wo die Teilnehmer eines Netzwerkes diesen verwalten. Eine andere Definition ist, dass Blockchain eine Datenbank ist in welcher Einträge in Blöcken gruppiert werden. Aus diesen Definitionen geht hervor, dass Blockchain-Systeme den verteilten Systemen angehören. <a>[[SCHL16]](#ref_Schl16)</a>
+
+Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transaktionshistorie festgehalten wird, wie zum Beispiel einem öffentlichen Konto. Jeder Block zeigt auf den Vorgänger die ganze Blockkette entlang bis auf den ersten Block einer Blockchain, den sogenannten "Genesisblock". <a>[[ZHENG17]](#ref_Zheng17)</a>
+
+Die Abbildung "Blockchain Architektur" zeigt, dass eine zufällige Zeichenkette (Nonce) solange iteriert wird, bis ihr Hashwert den Zielvorgaben des Netzwerkes entspricht. Ist dies der Fall, kommt der Block in die Blockchain. <a>[[ANDE16]](#ref_Ande16)</a>
 
 ![blockchain_architecture](./images/blockchain_architecture.png "Blockchain Architektur")
 
 _Blockchain Architektur_ Abbildung angepasst aus <a>[[ANDE16]](#ref_Ande16)</a>
 
->___!!!Das nächste Unterkapitel "Block" überschneidet sich mit dem Unterkapitel "Blöcke" von Björn. Bleibt erstmal so stehen, wir entscheiden später wie wir vorgehen!!!___ 
+>___<font color="orange">Das nächste Unterkapitel "Block" überschneidet sich mit dem Unterkapitel "Blöcke" von Björn. Bleibt erstmal so stehen, wir entscheiden später wie wir vorgehen!!!</font>___ 
 
 ### Block
 
@@ -19,19 +24,23 @@ _Blockchain Architektur_ Abbildung angepasst aus <a>[[ANDE16]](#ref_Ande16)</a>
 _Blockchain Block_, Abbildung angepasst aus <a>[[ZHENG17]](#ref_Zheng17)</a>
 
 Der Block besteht aus einem Blockheader und Blockbody.
-In den Blockheader gehören:
-- Block version: &nbsp;&nbsp;&nbsp;&nbsp;		Beinhaltet die Regeln für die Validierung eines Blocks
-- Merkle tree root hash: &nbsp;&nbsp;&nbsp;		Ist der Hashwert aller Transaktionen im Block
-- Timestamp: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		Aktueller Zeitstempel in Sekunden
-- nBits: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
-- Nonce: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Ist ein 4-Byte Feld, welches üblicherweise mit Null anfängt und pro Hashkalkulation inkrementiert
-- Parent block hash: &nbsp;&nbsp;&nbsp;&nbsp;	Ist ein 256-Bit Hashwert das auf den Vorgänger zeigt (siehe Abbildung _Blockchain Architektur_) 
+In den Blockheader gehören: <a>[[ZHENG17]](#ref_Zheng17)</a>
+- __Block version:__			Beinhaltet die Regeln für die Validierung eines Blocks
+- __Merkle tree root hash:__	Ist der Hashwert aller Transaktionen im Block
+- __Timestamp:__				Aktueller Zeitwert in Sekunden seit 01.01.1970
+- __nBits:__ 					Schwellwert eines Hashes ab dem ein Block als valide gilt
+- __Nonce:__					Ist ein 4-Byte Feld, welches üblicherweise mit Null anfängt und pro Hashkalkulation inkrementiert
+- __Parent block hash:__		Ist ein 256-Bit Hashwert das auf den Vorgänger zeigt
+
+Der Body besteht aus dem Transaktionszähler und den Transaktionen selbst. Je nach Block- und Transaktionsgröße variiert die Anzahl der Transaktionen im Block. Zur Verifizierung von Transaktionen dient asymmetrische Kryptografie. <a>[[ZHENG17]](#ref_Zheng17)</a>
 
 ### Digitale Signatur
 
 Jeder Benutzer besitzt ein Schlüsselpaar aus einem öffentlichen Schlüssel und einem privaten Schlüssel. Damit kann eine digitale Signatur generiert werden. Eine Nachricht oder Transaktion wird mit dem privaten Schlüssel signiert und an den Empfänger gesendet, der die Echtheit der Nachricht mit dem öffentlichen Schlüssel anhand der Signatur überprüfen kann. <a>[[ZHENG17]](#ref_Zheng17)</a>
 
-Aufgrund dessen, dass nur der Absender den privaten Schlüssel kennt, kann so die Authenzität der Nachricht und des Absenders sichergestellt werden. Desweiteren kann die Nachricht nicht durch asymemtrische Verschlüsselung unbemerkt verändert werden. <a>[[SCHL16]](#ref_Schl16)</a>
+Aufgrund dessen, dass nur der Absender den privaten Schlüssel kennt, kann so die Authenzität der Nachricht und des Absenders sichergestellt werden. Des Weiteren kann die Nachricht nicht durch asymemtrische Verschlüsselung unbemerkt verändert werden. <a>[[SCHL16]](#ref_Schl16)</a>
+
+In diesem Unterkapitel wird die digitale Signatur nur am Rande erwähnt. Für mehr Informationen siehe Unterkapitel "Digitale Signaturen" in Kryptografie, Grundlagen.
 
 ### Konzept einer Blockchain
 
@@ -49,7 +58,8 @@ Die Identität eines Benutzers ist geschützt, denn für die Interaktion mit der
 
 __Nachvollziehbarkeit__
 
-Jede Transaktion muss zu einer unverbrauchten Transaktion führen. Wird eine Transaktion in der Blockchain gespeichert, ändert sich der Status aller damit verlinkten unverbrauchten Transaktionen auf verbraucht. Das erlaubt die Transaktionen einfach nachzuverfolgen und zu verifizieren. <a>[[ZHENG17]](#ref_Zheng17)</a>
+Jeder Netzknoten im Netzwerk enthält neben der kompletten Blockchainkopie noch einen Cache (Unspent Transaction Output, UTXO), der die Transaktionsausgänge der Blockchain beinhaltet, die noch nicht für neue Transaktionen verwendet wurden.  Außerdem beinhaltet es eine Datenbank mit unbestätigten Transaktionen, welche nicht in die Blockchain aufgenommen wurden.  
+Wenn die Transaktion den ersten Netzknoten erreicht, prüft dieser über UTXO, ob die in der Transaktion referenzierten Eingänge nicht für andere Transaktionen verwendet wurden. Weiterhin wird die Summe der Eingänge überprüft; sie muss kleiner oder gleich der Summe der Ausgänge sein. Wenn die Signaturen gültig sind, leitet der Knoten die Transaktion an andere Netzknoten weiter. Dort wird die transaktion geprüft und in die Datenbank mit unbestätigten Transaktion aufgenommen. Dieser Vorgang heißt _Transaktionsverifikation_. <a>[[SCHL16]](#ref_Schl16)</a>
 
 ### Arten einer Blockchain 
 
@@ -70,7 +80,7 @@ __Privat und Konsortium__
 
 _Private und Konsortium Blockchains_, Abbildung aus <a>[[DEMUSH]](#ref_Demush)</a>
 
-Wie der Name schon andeutet, sind private Blockchains nicht für jeden sichtbar und zugänglich. Sie werden aufgrund von überschaulichen Anzahl von Knoten viel effektiver verwaltet. Die Schreibrechte an der Blockchain gehören üblicherweise einer einzigen Organisation, die Leserechte können zum Teil oder ganz öffentlich sein. Diese Art von Blockchain heißt _permissioned blockchain_. Die üblichen Verwendungszwecke sind Datenhaltung und Wirtschaftsprüfung im Rahmen einer einzigen Firma.
+Wie der Name schon andeutet, sind private Blockchains nicht für jeden sichtbar und zugänglich. Sie werden aufgrund von überschaulichen Anzahl von Knoten viel effektiver verwaltet. Die Schreibrechte an der Blockchain gehören üblicherweise einer einzigen Organisation, die Leserechte können zum Teil oder ganz öffentlich sein. Diese Art von Blockchain heißt _permissioned blockchain_. Die üblichen Verwendungszwecke sind Datenhaltung und Wirtschaftsprüfung im Rahmen einer einzigen Firma.  
 Konsortium-Blockchains unterscheiden sich insofern von privaten, dass nur vorausgewählte Knoten am Konsensus teilnehmen können. Diese Knoten können einer Gruppe von Banken gehören, wo jede Bank einen Knoten steuert. Wie im Falle der privaten Blockchain, kann das Leserecht teilweise oder ganz öffentlich sein, was dazu führt, dass Teilnehmern außerhalb des Konsortiums eine eingeschränkte Möglichkeit haben über eine API die Block Hashes zu überprüfen. Banken und Unternehmen bekommen damit eine Möglichkeit direkt ihre Vermögenswerte untereinander in Sekunden zu übertragen und die private P2P-Netzwerke zu überwachen. Diese Blockchains werden als teilweise dezentralisiert bezeichnet.
 <a>[[DEMUSH]](#ref_Demush)</a>, <a>[[BUTE15]](#ref_Bute15)</a>
 
@@ -292,4 +302,4 @@ Blockchain-Technologie
 
 <a name="ref_Ghal15">[GHAL15]</a>: Ghalsim, Yacine: Why we should drop the whole “Bitcoin vs blockchain” discussion, 07.10.2015, URL: https://medium.com/@YacineGhalim/why-we-should-drop-the-whole-bitcoin-vs-blockchain-discussion-e3e38e9a5104
 
-<a name="ref_Schl16">[SCHL16]</a>: Schlatt, Vincent; Schweizer, André; Urbach, Nils; Fridgen, Gilbert: Blockchain: Grundlagen, Anwendungen und Potenziale, S. 9-10, Fraunhofer FIT, 12.2016, URL: https://www.fim-rc.de/Paperbibliothek/Veroeffentlicht/642/wi-642.pdf (letzter Zugriff: 04.05.2018)
+<a name="ref_Schl16">[SCHL16]</a>: Schlatt, Vincent; Schweizer, André; Urbach, Nils; Fridgen, Gilbert: Blockchain: Grundlagen, Anwendungen und Potenziale, S. 8-12, Fraunhofer FIT, 12.2016, URL: https://www.fim-rc.de/Paperbibliothek/Veroeffentlicht/642/wi-642.pdf (letzter Zugriff: 04.05.2018)
