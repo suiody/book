@@ -7,11 +7,25 @@ Autor: Sebastian Janzen
 Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transaktionshistorie festgehalten wird, wie zum Beispiel einem öffentlichen Konto. Jeder Block zeigt auf den Vorgänger bis auf den ersten Block einer Blockchain, den sogenannten "Genesisblock". <a>[[ZHENG17]](#ref_Zheng17)</a>
 
 ![blockchain_architecture](./images/blockchain_architecture.png "Blockchain Architektur")
-Abbildung angepasst aus <a>[[ANDE16]](#ref_Ande16)</a>
+
+_Blockchain Architektur_ Abbildung angepasst aus <a>[[ANDE16]](#ref_Ande16)</a>
 
 >___!!!Das nächste Unterkapitel "Block" überschneidet sich mit dem Unterkapitel "Blöcke" von Björn. Bleibt erstmal so stehen, wir entscheiden später wie wir vorgehen!!!___ 
 
 ### Block
+
+![blockchain_block](./images/blockchain_block.png "Blockchain block")
+
+_Blockchain Block_, Abbildung angepasst aus <a>[[ZHENG17]](#ref_Zheng17)</a>
+
+Der Block besteht aus einem Blockheader und Blockbody.
+In den Blockheader gehören:
+- Block version: &nbsp;&nbsp;&nbsp;&nbsp;		Beinhaltet die Regeln für die Validierung eines Blocks
+- Merkle tree root hash: &nbsp;&nbsp;&nbsp;		Ist der Hashwert aller Transaktionen im Block
+- Timestamp: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		Aktueller Zeitstempel in Sekunden
+- nBits: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+- Nonce: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Ist ein 4-Byte Feld, welches üblicherweise mit Null anfängt und pro Hashkalkulation inkrementiert
+- Parent block hash: &nbsp;&nbsp;&nbsp;&nbsp;	Ist ein 256-Bit Hashwert das auf den Vorgänger zeigt (siehe Abbildung _Blockchain Architektur_) 
 
 ### Digitale Signatur
 
@@ -19,15 +33,23 @@ Jeder Benutzer besitzt ein Schlüsselpaar aus einem öffentlichen Schlüssel und
 
 Aufgrund dessen, dass nur der Absender den privaten Schlüssel kennt, kann so die Authenzität der Nachricht und des Absenders sichergestellt werden. Desweiteren kann die Nachricht nicht durch asymemtrische Verschlüsselung unbemerkt verändert werden. <a>[[SCHL16]](#ref_Schl16)</a>
 
-### Hauptmerkmale einer Blockchain
+### Konzept einer Blockchain
 
 __Dezentralisierung__
 
+In zentralisierten Transaktionssystemen spielt eine Vertrauensperson, z. B. eine Zentralbank, die Rolle des Validierungsknoten, was häufig zu Engpässen in der Leistung führt. Für die Blockchain werden Konsensusalgorithmen verwendet, was den Einsatz von Dritten überflüssig macht und zu einer besseren Performance führt. <a>[[ZHENG17]](#ref_Zheng17)</a>
+
 __Beständigkeit__
+
+Transaktionen sind schnell validierbar und invalide Transaktionen werden gar nicht erst akzeptiert. Die Struktur der Blockchain macht eine Änderung an den gespeicherten Transaktionen kaum möglich. <a>[[ZHENG17]](#ref_Zheng17)</a>
 
 __Anonymität__
 
+Die Identität eines Benutzers ist geschützt, denn für die Interaktion mit der Blockchain wird eine generierte Adresse verwendet, aus der nicht ohne weiteres möglich ist auf einen Benutzer zurückzuführen. Dennoch gibt es keine hundertprozentige Garantie, dass ein Benutzers absolut anonym ist. <a>[[ZHENG17]](#ref_Zheng17)</a>
+
 __Nachvollziehbarkeit__
+
+Jede Transaktion muss zu einer unverbrauchten Transaktion führen. Wird eine Transaktion in der Blockchain gespeichert, ändert sich der Status aller damit verlinkten unverbrauchten Transaktionen auf verbraucht. Das erlaubt die Transaktionen einfach nachzuverfolgen und zu verifizieren. <a>[[ZHENG17]](#ref_Zheng17)</a>
 
 ### Arten einer Blockchain 
 
@@ -49,7 +71,6 @@ __Privat und Konsortium__
 _Private und Konsortium Blockchains_, Abbildung aus <a>[[DEMUSH]](#ref_Demush)</a>
 
 Wie der Name schon andeutet, sind private Blockchains nicht für jeden sichtbar und zugänglich. Sie werden aufgrund von überschaulichen Anzahl von Knoten viel effektiver verwaltet. Die Schreibrechte an der Blockchain gehören üblicherweise einer einzigen Organisation, die Leserechte können zum Teil oder ganz öffentlich sein. Diese Art von Blockchain heißt _permissioned blockchain_. Die üblichen Verwendungszwecke sind Datenhaltung und Wirtschaftsprüfung im Rahmen einer einzigen Firma.
-
 Konsortium-Blockchains unterscheiden sich insofern von privaten, dass nur vorausgewählte Knoten am Konsensus teilnehmen können. Diese Knoten können einer Gruppe von Banken gehören, wo jede Bank einen Knoten steuert. Wie im Falle der privaten Blockchain, kann das Leserecht teilweise oder ganz öffentlich sein, was dazu führt, dass Teilnehmern außerhalb des Konsortiums eine eingeschränkte Möglichkeit haben über eine API die Block Hashes zu überprüfen. Banken und Unternehmen bekommen damit eine Möglichkeit direkt ihre Vermögenswerte untereinander in Sekunden zu übertragen und die private P2P-Netzwerke zu überwachen. Diese Blockchains werden als teilweise dezentralisiert bezeichnet.
 <a>[[DEMUSH]](#ref_Demush)</a>, <a>[[BUTE15]](#ref_Bute15)</a>
 
