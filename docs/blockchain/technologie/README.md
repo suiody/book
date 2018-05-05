@@ -264,7 +264,7 @@ Sind Vermittler aus dem Markt ausgeschieden oder haben sich in Nischen gerettet,
 
 Unterschiedliche Marktfunktionen sind verschieden stark durch derartige Transformationsprozesse bedroht und äußern so auch differenzierte Effekte <a>[[GIAG99]](#ref_giag99)</a>. Die nachstehende Tabelle gibt einen Überblick über betroffene Anwendungsbereiche und deren beobachtete Reaktion.
 
-<img src="./images/threats_to_intermediaries.PNG" width=“350”>
+<img src="./images/threats_to_intermediaries.PNG" width=“300”>
 
 Abbildung entnommen aus <a>[[GIAG99]](#ref_giag99)</a>
 
