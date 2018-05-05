@@ -43,7 +43,7 @@ Diese Methode wird demnach aufgerufen, nachdem die Änderungen im nativen DOM an
 
 **Unmounting**
 
-Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **componentWillUnmount()** aufgerufen. Sie dient zum aufräumen von Timern, Netzwerkverbindungen etc.
+Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **componentWillUnmount()** aufgerufen. Sie dient zum Aufräumen von Timern, Netzwerkverbindungen etc.
 
 
 
