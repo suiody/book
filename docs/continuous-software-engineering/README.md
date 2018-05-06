@@ -26,7 +26,7 @@ Der Begriff DevOps setzt sich zusammen aus den Begriffen Development (Entwicklun
 
 ##### Automatisierung
 
-Ein Ziel von DevOps ist die größtmögliche Automatisierung des Auslieferungsprozesses durch den Einsatz geeigneter Tools.
+Ein Ziel von DevOps ist die größtmögliche Automatisierung des Auslieferungsprozesses durch den Einsatz geeigneter Tools. Einfache, repititive Aufgaben werden automatisiert.
 
 ##### Schneller Releases/Deployment Cycle
 
