@@ -43,18 +43,16 @@ Autor: Björn Böing
 
 ## Legal technology
 
-- Technologie und Software, um juristische Dienstleistungen anzubieten
-- Meistens StartUp Unternehmen, die versuchen durch ihre Ideen den traditionellen Markt zu unterbrechen
-- StartUps wollen den Bürgern Recht oft zugänglicher machen. Ob über einfachere Suche von Anwälten oder direkten Zugang zu einfachen Rechtsmöglichkeiten
-- https://berlinlegal.tech/2018/
-- Kontakt zu einem Anwalt überflüssig machen oder die Kontaktaufnahme erleichtern
+Unter dem Begriff *"Legal technology"* (oder kurz *"Legal Tech"*), werden Technologien und Softwareprogramme zusammengefasst, die eingesetzt werden um juristische Dienstleistungen anzubieten. Meist sind es StartUp-Unternehmen, die durch ihre Produkte versuchen den traditionellen Markt für Juristik zu durchbrechen, indem sie beispielsweise den Weg zum Anwalt überflüssig machen oder einfache Möglichkeiten anbieten den passenden Anwalt zu finden. Darüber hinaus wollen viele dieser Unternehmen schlicht dem Otto Normalverbraucher helfen seine Rechtsansprüche geltend zu machen kann, ohne, dass dieser große Aufwände oder Kosten tragen muss. [[RUBI14]](#ref_rubi14)
+
+Bereits 2014 berichteten große Nachrichtenargenturen wie Forbes darüber, dass der Legal Tech Markt boomt und eine große Anzahl and StartUps versuchen in Amerika und Europa Fuß zu fassen. Viele bereits bestehende Kanzleien sind nach wie vor überfordert, welche Technologien für sie interessant sind und ihnen helfen könnten. Ein einfaches Beispiel ist der Einsatz von Deep Learning und künstlicher Intelligenz (KI), um die enorme Menge an juristisch relevanten Dokumenten zu klassifizieren und wichtige Informationen auf einen Blick darzustellen. Damit geht der Begriff "*legal predictive analytics"* einher, mit dem das Analysieren von Dokumenten und das Vorraussagen von Ergebnissen gemeint ist. Hat eine Kanzlei beispielsweise schon mehrere Hundert Verfahren über Betrugsfälle abgewickelt, so könnten mit Hilfe von KI Aussagen zu anstehenden Verfahren gemacht werden. [[KORM17]](#ref_korm17) [[STEM18]](#ref_stem18)
+
 - Laut "Law Technology Today" hat sich das Verhältnis zwischen Kunden und Kanzleien in den letzten 50 Jahren kaum verändert http://www.lawtechnologytoday.org/2014/12/smart-startups/
+- https://berlinlegal.tech/2018/
 - Klassische und aktuelle Einsatzgebiete erläutern
 - Steigener Wachstum von relevanten Dokumenten (speziell Emails) lässt sich mittels Deep Learning vereinfachen. "Legal predictive analytics"
 - Wichtigkeit wird dadurch unterstrichen, dass die Johann Wolfgang Goethe-Universität Frankfurt Legaltech als Schlüsselqualifikations-Modul hinzugefügt wurde https://legal-tech-blog.de/goethe-2-0-legaltech-an-der-johann-wolfgang-goethe-universitaet-frankfurt
 - Beispiel von Geld-Für-Flug.de anbringen. Bei Stornieren oder Nicht-Antreten eines Fluges, ist eine Airline verpflichtet einen gewissen Anteil des Ticketpreises zurückzubezahlen. Das Unternehmen kauft das Anklagerecht des Nutzers ab und reicht es als Sammelklage vor Gericht ein. Der Nutzer erhält sein Geld dabei innerhalb von 24h überwiesen, egal wie das Verfahren läuft. https://legal-tech-blog.de/wie-geld-fuer-flug-de-die-airline-branche-aufmischt-interview-mit-co-founder-head-of-legal-benedikt-quarch
-- Recht ist schwer zugänglich durch hohe Aufwände und Kosten
-- Bestimmte Technologien könnten Anwälten helfen, andere machen wenig Sinn https://www.law.ox.ac.uk/business-law-blog/blog/2017/12/legal-tech-era-bad-ideas
 
 
 Autor: Björn Böing
@@ -80,14 +78,20 @@ Autor: Matthias Kersting
 
 <a name="ref_hert18">[HERT18]</a>: Hertig, Alyssa: What is a DAO? ; URL: <a>https://www.coindesk.com/information/what-is-a-dao-ethereum/vvvv</a> (abgerufen am 04.05.2018)
 
+<a name="ref_korm17">[KORM17]</a>: Korman, Zachary ; 19.12.2017: Legal Tech: The Era of Bad Ideas ; URL: <a>https://www.law.ox.ac.uk/business-law-blog/blog/2017/12/legal-tech-era-bad-ideas</a> (abgerufen am 06.05.2018)
+
 <a name="ref_nort16">[NORT16]</a>: Norton, Steven ; 20.05.2016: Downfall of DAO Digital Currency Fund Shows Blockchain Reputational Risk ; URL: <a>https://blogs.wsj.com/cio/2016/06/20/downfall-of-dao-digital-currency-fund-shows-blockchain-reputational-risk/</a> (abgerufen am 04.05.2018)
 
 <a name="ref_pete17">[PETE17]</a>: Peterson, Becky ; 19.11.2017: Venture capital has a new way of cashing in on blockchain bonanza — here’s what you need to know about SAFTs ; URL: <a>https://www.businessinsider.de/bitcoin-price-what-is-a-saft-blockchain-the-crypto-fundraising-craze-shaking-up-venture-capital-2017-11</a> (abgerufen am 05.05.2018)
 
 <a name="ref_popp16">[POPP16]</a>: Popper, Nathaniel ; 17.06.2016: A Hacking of More Than $50 Million Dashes Hopes in the World of Virtual Currency ; URL: <a>https://www.nytimes.com/2016/06/18/business/dealbook/hacker-may-have-removed-more-than-50-million-from-experimental-cybercurrency-project.html</a> (abgerufen am 04.05.2018)
 
-<a name="ref_reif18">[REIF18]</a>: Reiff, Nathan; 25.01.2018: What Is the DAO? ; URL: <a>https://www.investopedia.com/tech/what-dao/</a> (abgerufen am 04.05.2018)
+<a name="ref_reif18">[REIF18]</a>: Reiff, Nathan ; 25.01.2018: What Is the DAO? ; URL: <a>https://www.investopedia.com/tech/what-dao/</a> (abgerufen am 04.05.2018)
+
+<a name="ref_rubi14">[RUBI14]</a>: Rubin, Basha ; 06.12.2014: Legal Tech StartUps Have A Short History And A Bright Future ; URL: <a>https://techcrunch.com/2014/12/06/legal-tech-startups-have-a-short-history-and-a-bright-future/</a> (abgerufen am 06.05.2018)
 
 <a name="ref_usse17">[USSE17]</a>: U.S. SEC ; 25.07.2017: SEC Issues INvestigative Report Concluding DAO Tokens, a Digital Asset, Were Securities ; URL: <a>https://www.sec.gov/news/press-release/2017-131</a> (abgerufen am 05.05.2018)
+
+<a name="ref_stem18">[STEM18]</a>: Stemplewski, Jan ; 23.02.2018: Legal Tech Berlin: Kurzvorträge zu industriellen Rechtsdienstleistungen ; URL: <a>https://youtu.be/oMhCIQmsAQg</a> (abgerufen am 06.05.2018)
 
 <a name="ref_szab96">[SZAB96]</a>: Smart Contracts: Building Blocks for Digital Markets 1996 ; URL: <a>http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart_contracts_2.html</a> (abgerufen am 03.05.2018)
