@@ -1,7 +1,7 @@
 # Frontend
 ## FRP
 ## React.js
-Stand: Version 16.3.2
+*Stand: Version 16.3.2*
 ### Einführung
 #### SPA / Progressive Web App
 
@@ -59,7 +59,12 @@ Render-Ausgabe:
 ===============================================================
 ```
 
-**render()**
+#### Komponenten
+##### Props, State, Children
+
+Properties = Props... erwähnen
+
+##### Rendern
 
 Die Methode *render* ist - wie ihr Name bereits vermuten lässt - die Rendermethode eines React-Elements. Sie wird aufgerufen, wenn die Komponente im Browser dargestellt werden soll (siehe Lifecycle Kapitel). Als Rückgabewert erhält sie genau **ein** React Element. 
 Ist es erforderlich, dass mehrere Elemente zurückgegeben werden, müssen diese in einem Container (z.B. *div*) gebündelt werden. 
@@ -102,11 +107,6 @@ render() {
   );
 }
 ```
-
-#### Komponenten
-##### Props, State, Children
-
-Properties = Props... erwähnen
 
 ##### Events
 
@@ -167,8 +167,8 @@ class StartButton extends React.Component {
 ```jsx
 class StartButton extends React.Component {
   // !!! Experimentelles Feature !!!
-  // Babel konvertiert diese Funktion zu einer öffentlichen Klassenmethode
-  // je nach Projekteinstellung ist diese Funktion ggf. standardmäßig nicht aktiviert 
+  // Babel konvertiert diese Funktion zu einer öffentlichen Klassenmethode.
+  // Je nach Projekteinstellung ist diese Funktion ggf. standardmäßig nicht aktiviert 
   start = () => {
     this.doStuff(); // "this" kann hier verwendet werden
   }
@@ -219,7 +219,62 @@ const someValue = 1;
 
 In beiden Fällen wird das React Event *e* als zweiter Parameter an die Methode *start* übergeben. Werden bei der *bind*-Methode mehrere Parameter übergeben, wird der Eventparameter entsprechend nach hinten verschoben. Hier geschieht die Parameterübergabe implizit und muss somit nicht angegeben werden. 
 
-##### Styles & className
+##### Styling
+Das Styling von React Komponenten kann prinzipiell auf unterschiedliche Arten geschehen. Im Folgenden werden drei häufige Verfahren vorgestellt.
+
+***style*-Attribut**
+
+Das Aussehen von Elementen kann z.B. direkt über ihr **style**-Attribut angepasst werden. Hierbei ist darauf zu achten, dass die Style-Bezeichner ihrem CSS-Äquivalent als *camelCase* entsprechen. So wird "font-size" z.B. zu "fontSize".
+
+```jsx
+const divStyle = {
+  color: 'red',
+  fontSize: '12px',
+};
+
+// ...
+
+function someComponent() {
+  return <div style={divStyle}>Roter Text</div>;
+}
+```
+
+**CSS**
+
+Eine weitere Möglichkeit ist das Verwenden von herkömmlichen CSS-Dateien.
+Es ist darauf zu achten, dass das *class*-Attribut in JSX *className* lautet.
+Das "id" Attribut kann wie in HTML gewohnt verwendet werden.
+
+CSS:
+```css
+.red-text {
+  color: red;
+}
+#some-id {
+  font-size: 12px;
+}
+```
+JSX:
+```jsx
+function someComponent() {
+  return <div className="red-text" id="some-id">Roter Text</div>;
+}
+```
+
+**Styled Components**
+
+Darüber hinaus kann z.B. auch die Bibliothek [*styled-components*](https://www.styled-components.com/) verwendet werden. Diese verwendet eine Mischung aus CSS und JavaScript.
+
+```jsx
+const RedText = styled.div`
+    color: red;
+    font-size: 12px;
+`;
+
+function someComponent() {
+  return <RedText>Roter Text</RedText>;
+}
+```
 ##### Lifecycle
 
 Der Lebenszyklus einer React Klassenkomponente besteht aus verschiedenen Schritten und Phasen, siehe nachfolgende Abbildung. Es existieren noch weitere Lifecycle-Methoden. Da diese jedoch als veraltet gelten und mit der Version 17 entfernt werden, werden diese im Folgenden außer Acht gelassen. Als Informationsquelle für diesen Abschnitt wird, sofern nicht anders angegeben, [[FACE18b]](#ref_face18b) verwendet.
@@ -250,9 +305,8 @@ Bevor die Änderungen in den nativen DOM übertragen werden, wird die Methode **
 
 Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **componentWillUnmount()** aufgerufen. Sie dient zum Aufräumen von Timern, Netzwerkverbindungen etc.
 
-
-
 ##### Bedingtes Rendern
+
 ##### Dumb Components & Smart Components
 
 ### Patterns / Architektur 
@@ -270,6 +324,8 @@ Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **
 ##### Typescript
 
 #### Context
+
+
 #### Error Handling (Error Boundaries)
 #### Code-Splitting
 #### Strict Mode
