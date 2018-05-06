@@ -263,13 +263,15 @@ function someComponent() {
 
 **Styled Components**
 
-Darüber hinaus kann z.B. auch die Bibliothek [*styled-components*](https://www.styled-components.com/) verwendet werden. Diese verwendet eine Mischung aus CSS und JavaScript.
+Darüber hinaus kann z.B. auch die Bibliothek [*styled-components*](https://www.styled-components.com/) verwendet werden. Diese verwendet eine Mischung aus CSS und JavaScript. Als Kennung für eine Style-Beschreibung dient das Gravis-Symbol ( ` ) am Anfang und Ende des Styles. Dadurch wird eine React-Komponente erzeugt, die zum Rendern verwendet werden kann.
 
 ```jsx
 const RedText = styled.div`
     color: red;
     font-size: 12px;
 `;
+
+// ...
 
 function someComponent() {
   return <RedText>Roter Text</RedText>;
