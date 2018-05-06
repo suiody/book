@@ -4,8 +4,9 @@
 Stand: Version 16.3.2
 ### Einführung
 #### SPA / Progressive Web App
+
 #### JSX
-render-Methode erwähnen
+**TODO: render-Methode erwähnen**
 
 JSX erweitert die Programmiersprache JavaScript, indem es eine XML/HTML-artige Struktur zur Programmierung der GUI-Elemente innerhalb des JavaScript Codes erlaubt. Damit aus einem JSX-Code standardmäßiges JavaScript wird, muss der Code übersetzt werden. Dieser Vorgang wird i.d.R. mithilfe des JavaScript-Compilers "Babel" durchgeführt. Streng genommen ist JSX kein zwingendes Muss bei der Verwendung von React als Framework, jedoch ist zu vermuten, dass die meisten Programmierer die JSX-Version dem compilierte JavaScript Äquivalent aufgrund der Übersichtlichkeit bevorzugen würden. Außerdem können so hilfreichere Tool-Unterstützungen (Warnungen, Fehler etc.) angezeigt werden [[FACE18a]](#ref_face18a).
 
@@ -25,7 +26,7 @@ function render() {
 ```
 Dieser Code wird von Babel folgendermaßen übersetzt:
 
-```JavaScript
+```javascript
 function render() {
     return React.createElement("div", null,
              React.createElement("h1", null, "Master Informatik"),
@@ -48,7 +49,7 @@ Da es sich bei den JSX-Elementen um JavaScript-Objekte handelt, können die Elem
 const header = <h1>Das ist eine Überschrift</h1>;  
 ```
 
-Des Weiteren lässt sich auch weiterer JavaScript Code direkt einfügen, indem dieser in geschweifte Klammern gesetzt wird:
+Des Weiteren lässt sich auch weiterer JavaScript Code direkt als sogenannte "Expressions" einfügen, indem dieser in geschweifte Klammern gesetzt wird:
 
 ```jsx
 const items = ["book", "pen"];
@@ -60,13 +61,122 @@ Render-Ausgabe:
 ===============================================================
 ```
 
-
 #### Komponenten
 ##### Props, State, Children
 
 Properties = Props... erwähnen
 
 ##### Events
+
+*Innerhalb dieses Abschnittes wird eine beispielhafte Komponente betrachtet, die aus einem Button besteht, der bei Aktivierung (Betätigung der Schaltfläche) eine Funktion mit dem Namen "start" aufruft.*
+
+Die Verwendung von UI-Komponenten erfordert oftmals eine ereignisbasierte Interaktion mit den einzelnen Elementen. Bei React Elementen werden die Events ähnlich wie bei herkömmlichen DOM Elementen gehandhabt.
+
+
+HTML:
+```html
+<button onclick="start()">
+  Start
+</button>
+```
+JSX:
+```jsx
+<button onClick={start}>
+  Start
+</button>
+```
+
+In diesem Beispiel sind prinzipiell zwei Unterschiede zu erkennen:
+
+1. die Eventnamen entsprechen den herkömmlichen Bezeichnungen in *camelCase* Schreibweise
+2. die verbundenen Event-Handler werden als Expression (siehe JSX Kapitel) eingebunden
+
+Meistens werden die Event-Handler innerhalb einer Klassenkomponente in Form von Klassenmethoden realisiert. In diesem Fall muss sichergestellt werden, dass die Klassenmethode an die Klasse gebunden ("bound") wird und somit in deren Kontext enthalten ist. Da dies in JavaScript standardmäßig nicht der Fall ist, bedarf es einer manuellen Bindung.
+
+React bietet hierfür verschiedene Möglichkeiten [[FACE18c]](#ref_face18c).
+
+**Bindung im Konstruktor**
+```jsx
+class StartButton extends React.Component {
+  constructor(props) {
+    super(props);
+
+    // Hier wird die Methode gebunden
+    this.start = this.start.bind(this);
+  }
+  
+  start() = {
+    this.doStuff(); // "this" kann hier verwendet werden
+  }
+
+  // ...
+
+  render() {
+    return (
+      <button onClick={this.start}>
+        Start
+      </button>
+    );
+  }
+}
+```
+
+**Public class field Syntax (*experimentelles Feature*)**
+```jsx
+class StartButton extends React.Component {
+  // !!! Experimentelles Feature !!!
+  // Babel konvertiert diese Funktion zu einer öffentlichen Klassenmethode
+  // je nach Projekteinstellung ist diese Funktion ggf. standardmäßig nicht aktiviert 
+  start = () => {
+    this.doStuff(); // "this" kann hier verwendet werden
+  }
+
+  // ...
+
+  render() {
+    return (
+      <button onClick={this.start}>
+        Start
+      </button>
+    );
+  }
+}
+```
+
+**Arrow Function (*nicht empfohlen*)**
+
+Arrow Functions verfügen in JavaScript nicht über ein eigenes *this* und umgehen somit die angesprochene Problematik [[MOZI18]](#ref_mozi18). Diese Art der Programmierung wird jedoch nicht empfohlen, da jeder Rendervorgang der Komponente eine neue Funktion erzeugt. Wird dieser Callback als Property an andere Komponenten weitergegeben, werden diese eventuell ebenfalls neu gerendert , wodurch die Performance leidet.
+
+```jsx
+class StartButton extends React.Component {
+
+  start() = {
+    this.doStuff(); // "this" kann hier verwendet werden
+  }
+
+  // ...
+
+  render() {
+    return (
+      <button onClick={() => this.start()}>
+        Start
+      </button>
+    );
+  }
+}
+```
+
+Natürlich können den Callback-Methoden ebenfalls Parameter mitgegeben werden [[FACE18c]](#ref_face18c):
+
+```jsx
+const someValue = 1;
+// ...
+<button onClick={(e) => this.start(someValue, e)}>Start</button>
+<button onClick={this.start.bind(this, someValue)}>Start</button>
+```
+
+In beiden Fällen wird das React Event *e* als zweiter Parameter an die Methode *start* übergeben. Werden bei der *bind*-Methode mehrere Parameter übergeben, wird der Eventparameter entsprechend nach hinten verschoben. Hier geschieht die Parameterübergabe implizit und muss somit nicht angegeben werden. 
+
 ##### Styles & className
 ##### Lifecycle
 
@@ -131,6 +241,14 @@ Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **
 
 <a name="ref_face18a">[FACE18a]</a>: Facebook Inc.: Introducing JSX. URL: https://reactjs.org/docs/introducing-jsx.html
 (abgerufen am 05.05.2018)
+
 <a name="ref_face18b">[FACE18b]</a>: Facebook Inc.: React.Component. URL: https://reactjs.org/docs/react-component.html
 (abgerufen am 05.05.2018)
+
+<a name="ref_face18c">[FACE18c]</a>: Facebook Inc.: React.Component. URL: https://reactjs.org/docs/handling-events.html
+(abgerufen am 06.05.2018)
+
+<a name="ref_mozi18">[MOZI18]</a>: Mozilla and individual contributors: Arrow functions. URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+(abgerufen am 06.05.2018)
+
 <a name="ref_zeig16">[ZEIG16]</a>: Zeigermann, Oliver ; Hartmann, Nils: React : Die praktische Einführung in React, React Router und Redux. 1. Aufl. s.l. : dpunkt, 2016 
