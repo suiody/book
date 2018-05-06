@@ -6,8 +6,6 @@ Stand: Version 16.3.2
 #### SPA / Progressive Web App
 
 #### JSX
-**TODO: render-Methode erwähnen**
-
 JSX erweitert die Programmiersprache JavaScript, indem es eine XML/HTML-artige Struktur zur Programmierung der GUI-Elemente innerhalb des JavaScript Codes erlaubt. Damit aus einem JSX-Code standardmäßiges JavaScript wird, muss der Code übersetzt werden. Dieser Vorgang wird i.d.R. mithilfe des JavaScript-Compilers "Babel" durchgeführt. Streng genommen ist JSX kein zwingendes Muss bei der Verwendung von React als Framework, jedoch ist zu vermuten, dass die meisten Programmierer die JSX-Version dem compilierte JavaScript Äquivalent aufgrund der Übersichtlichkeit bevorzugen würden. Außerdem können so hilfreichere Tool-Unterstützungen (Warnungen, Fehler etc.) angezeigt werden [[FACE18a]](#ref_face18a).
 
 Als Beispiel soll folgender JSX-Code dienen:
@@ -59,6 +57,50 @@ const itemCounter = <div>Anzahl an Items: {items.length}</div>;
 Render-Ausgabe:
     Anzahl an Items: 2
 ===============================================================
+```
+
+**render()**
+
+Die Methode *render* ist - wie ihr Name bereits vermuten lässt - die Rendermethode eines React-Elements. Sie wird aufgerufen, wenn die Komponente im Browser dargestellt werden soll (siehe Lifecycle Kapitel). Als Rückgabewert erhält sie genau **ein** React Element. 
+Ist es erforderlich, dass mehrere Elemente zurückgegeben werden, müssen diese in einem Container (z.B. *div*) gebündelt werden. 
+
+```jsx
+render() {
+  return (
+    <div>
+      <ChildA />
+      <ChildB />
+      <ChildC />
+    </div>
+  );
+}
+```
+
+Hieraus resultiert ein weiteres Element im DOM (ein div Element). 
+Diesen Umstand kann man durch Verwendung von React *Fragments* umgehen. Sie gruppieren die Elemente, ohne selber im DOM eingefügt zu werden [[FACE18d]](#ref_face18d).
+
+```jsx
+render() {
+  return (
+    <React.Fragment>
+      <ChildA />
+      <ChildB />
+      <ChildC />
+    </React.Fragment>
+  );
+}
+
+// oder die neue Schreibweise mit <> und </>
+// (wird noch nicht von allen Tools unterstützt)
+render() {
+  return (
+    <>
+      <ChildA />
+      <ChildB />
+      <ChildC />
+    </>
+  );
+}
 ```
 
 #### Komponenten
@@ -166,7 +208,7 @@ class StartButton extends React.Component {
 }
 ```
 
-Natürlich können den Callback-Methoden ebenfalls Parameter mitgegeben werden [[FACE18c]](#ref_face18c):
+Callback-Methoden können ebenfalls Parameter mitgegeben werden [[FACE18c]](#ref_face18c):
 
 ```jsx
 const someValue = 1;
@@ -246,6 +288,9 @@ Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **
 (abgerufen am 05.05.2018)
 
 <a name="ref_face18c">[FACE18c]</a>: Facebook Inc.: React.Component. URL: https://reactjs.org/docs/handling-events.html
+(abgerufen am 06.05.2018)
+
+<a name="ref_face18d">[FACE18d]</a>: Facebook Inc.: React.Component. URL: https://reactjs.org/docs/fragments.html
 (abgerufen am 06.05.2018)
 
 <a name="ref_mozi18">[MOZI18]</a>: Mozilla and individual contributors: Arrow functions. URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
