@@ -59,7 +59,37 @@ Autor: Björn Böing
 
 ## Blockchain in Education
 
+Ein Anwendungsfall für Blockchain Technologien abseits der weit verbreiteten Einsatzmöglichkeit zur Realisierung von dezentralisierten Währungen wie Bitcoin oder Ethereum findet sich im Bereich der Bildung. In diesem Zusammenhang können die Vorteile von Blockchains dazu genutzt werden um Probleme, die in sich im aktuellen Bildungssystem ergeben zu lösen. Zu diesen Schwierigkeiten zählen:
+- Bildungseinrichtungen welteit verwenden unterschiedliche Standarts und Technologien, um die Fortschritte der Lernenden festzuhalten. Durch diese Unterschiede ist es schwierig, erbrachte Leistungen in ein anderes System zu übertragen und so anzuerkennen.
+- Sollte ein Nachweis über eine erbrachte Leistung wie z.B. eine Urkunde zu einem Abschluss verloren gehen, ist es zeitaufwändig, diesen zu ersetzen, da die Bildungseinrichtung kontaktiert und ein neuer Nachweis ausgestellt werden muss.
+- Durch die fehlende Transparenz des Bildungssystems kann es zu Betrug kommen, bei dem nicht erbrachte Leistungen oder nicht vorhandene Abschlüsse vorgetäuscht werden.
+
+Durch den Einsatz von Blockchain Technologien kann diesen Problemen entgegengewirkt werden. Durch die Verwendung eines einheitlichen Standarts innerhalb einer Blockchain ist es möglich, erbrachte Leistungen weltweit übertragbar zu machen und so die administrativen und sprachlichen Hürden für den Austausch von Bildungseinrichtungen auf internationaler Ebene deutlich zu verringern. Im Bereich von Hochschulen würde es so z.B. Studierenden ermöglicht, während des Studiums einfach das Land zu wechseln, in dem Leistungen erbracht werden.
+Durch die Transparenz und Unveränderbarkeit von Blockchains kann nachvollzogen werden, wann ein Teilnehmer eine Leistung erbracht hat. Hieraus ergeben sich im Hinblick auf Bildung die folgenden Vorteile:
+- Es ist möglich, Betrugsfälle einfacher aufzudecken, da z.B. gefälschte Abschlüsse nicht in der Blockchain enthalten sind und durch die Dezentralisierung eine Wiederspruchsfreiheit der meisten Knoten garantiert werden kann.
+- Wenn in der Blockchain zusätzlich die Interaktion zwischen Lehrenden und Lernenden festgehalten wird, hat dies für beide Parteien den Vorteil, dass die Zusammenarbeit nachvollzogen werden kann. Dies ermöglicht einerseits den Lernfortschritt zu überprüfen, aber auch zu ermitteln, ob durch den Lehrenden ausreichend Unterstützung gegeben worden ist.
+- Durch die öffentliche Einsehbarkeit der Blockchain wird es Arbeitgebern ermöglicht, den Wissensstand eines potenziellen neuen Mitarbeiters besser zu bewerten und so geeignete Personen zu finden.
+
+Durch diese öffentliche Zugänglichkeit ergeben sich jedoch auch Probleme, da ein solches Blockchain System bedeuten würde, dass sensible, personenbezogene Daten einsehbar wären. Daher sollte bei einer Anwendung von Blockchain Technologien im Bereich der Bildung darauf geachtet werden, dass die Privatsphäre der Nutzer nicht beeinträchtigt wird.
+Im Folgenden werden Beispiele für die Anwendung von Blockchains im Bereich der Bildung vorgestellt.
+
+### EduCTX
+
+### Disciplina
+Bei Disciplina handelt es sich um ein Konzept für den Einsatz von Blockchain Technologien zur Speicherung bildungsbezogener Daten von Personen.
+Das Ziel des Konzeptes ist es, eine Möglichkeit zu finden, den Vorteil der öffentlichen Verifizierbarkeit von public Blockchains wie Etherium mit dem Vorteil keine privaten Daten preiszugeben von privaten Ketten wie Hyperledger zu vereinen.
+Der Aufbau von Disciplina lässt sich anhand der folgenden Abbildung nachvollziehen:
+
+<a name="disciplina_aufbau"></a>![disciplina_aufbau](./images/disciplina_aufbau.png "Disciplina Aufbau")
+
+Um die privaten Daten der Nutzer zu schützen, kommen bei Disciplina zwei unterschiedliche Blockchains zum Einsatz:
+- Die erste Kette, in der Abbildung mit "Educators" beschriftet, ist eine private Blockchain, die nur Lehrenden zugänglich ist. Hier werden von diesen Blöcke angelegt, die die genauen Daten zu erbrachten Leistungen beinhalten.
+- Die zweite Blockchain ist öffentlich und enthält keinerlei personenbezogene Daten, sondern speichert lediglich Hashwerte, die anhand von Einträgen in der privaten Kette gebildet werden.
+
+Durch diese Trennung ist es möglich, zu garantieren, dass die private Blockchain nicht manipuliert werden kann und gleichzeitig zu verhindern, dass private Daten öffentlich zugänglich sind.
+
 Autor: Matthias Kersting
+
 
 ## Blockchain und KI
 
