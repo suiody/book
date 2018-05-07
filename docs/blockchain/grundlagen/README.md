@@ -55,12 +55,11 @@ Hash Funktionen können z.B. für das Speichern von Passwörtern verwendet werde
 
 ### Verschlüsselung
 Autor: Patrick Vogt
-#### Verschlüsselungsarten
 
 *Symmetrische Verschlüsselung*
 
 Eine Art der Verschlüsselung ist die symmetrische Verschlüsselung. Bereits Gaius Julius Caesar (* 100 v. Chr., † 44 v. Chr.)  verwendete diese Art der Verschlüsselung zur Kommunikation mit seinen Generälen 
-(die sogenannte *Caesarchiffre*). Diese Schlüssel, die diese Verfahren verwenden werden *symmetrische Schlüssel* genannt, da Chiffrier- und Dechiffrierschlüssel identisch sind, siehe nachfolgende Abbildung.
+(die sogenannte *Caesarchiffre*). Die Schlüssel dieser Verfahren werden *symmetrische Schlüssel* genannt, da Chiffrier- und Dechiffrierschlüssel identisch sind, siehe nachfolgende Abbildung.
 
 <a name="ref_sym_encryption"></a>![sym_encryption](./images/sym_verschl.png "Symmetrische Verschlüsselung")
 
@@ -98,7 +97,7 @@ Abbildung entnommen aus <a>[[BAUM14]](#ref_baum14)</a>
 ### Digitale Signaturen
 Autor: Patrick Vogt
 
-Ähnlich wie herkömmliche (analoge) Signaturen sollen digitale Signaturen sicherstellen, dass eine Nachricht bzw. ein Dokument wirklich von dem Absender/Signierer stammt, der vorgibt das Dokument erstellt zu haben.
+Ähnlich wie herkömmliche (analoge) Signaturen sollen digitale Signaturen sicherstellen, dass eine Nachricht bzw. ein Dokument tatsächlich von dem Absender/Signierer stammt, der vorgibt das Dokument erstellt zu haben.
 
 Mithilfe von digitalen Signaturen kann sichergestellt werden, dass mit dem richtigen Gegenüber kommuniziert wird (beispielsweise beim Schlüsselaustausch zweier Teilnehmer).
 Eine Verschlüsselung der Daten erfolgt bei der Signierung nicht, wenngleich eine zusätzliche Verschlüsselung der signierten Nachricht durchaus üblich ist <a>[[PAAR16]](#ref_paar16)</a>.
@@ -144,6 +143,7 @@ Der gesamte Vorgang läuft prinzipiell wie bei digitalen Signaturen ab:
 ![dig_signature](./images/crypto_mac.png "Prinzip von MACs")
 
 Abbildung entnommen aus <a>[[WIKI18b]](#ref_wiki18b)</a>
+
 Der Sender bildet mithilfe des gemeinsamen Schlüssels und der Nachricht eine Prüfsumme und verschickt die Nachricht mit angehängter Prüfsumme. Der Empfänger führt den gleichen Vorgang durch und prüft seine berechnete Prüfsumme mit der erhaltenen. 
 
 ### Public Key Infrastructure (PKI)
@@ -157,20 +157,20 @@ Public Key Infrastructures verwalten und verteilen die Schlüssel und Zertifikat
 ### Algorithmen
 Autor: Patrick Vogt
 
-Es gibt eine Vielzahl von verschiedenen Algorithmen Arten im Bereich der Kryptographie. Die nachfolgende Tabelle soll, basierend auf den Empfehlungen in  <a>[[BSI18b]](#ref_bsi18b)</a>, einen Überblick über einige aktuell bedeutende Algorithmen Arten verschaffen.
+Es gibt eine Vielzahl von verschiedenen Algorithmen Arten im Bereich der Kryptographie. Die nachfolgende Tabelle soll, basierend auf den Empfehlungen in <a>[[BSI18b]](#ref_bsi18b)</a>, einen Überblick über einige aktuell bedeutende Algorithmen Arten verschaffen.
 
 | Verfahren          | Typ/Grundkategorie           | Anwendungsgebiet    | Sicherheitsbasis/-prinzip                                                                                    |
 |--------------------|------------------------------|---------------------|-----------------------------------------------------------------------------------------------------|
-| AES                | Blockchiffre                | Verschlüsselung     | Kein effizienter Weg zur Bestimmung des symmetrischen Schlüssels bekannt, viele Jahre bewährt                                                                             |
+| AES                | Blockchiffre                | Verschlüsselung     | Kein effizienter Weg zur Bestimmung des symmetrischen Schlüssels bekannt; viele Jahre bewährt                                                                             |
 | SHA                | Hash-Funktion                | Signatur            | Kollisionssichere Hash Funktion                                                                     |
-| CMAC               | MAC (Blockchiffre)          | Signatur            |   Sicheres Blockchiffre-Verfahren (??????)                                                                                                  |
+| CMAC               | MAC (Blockchiffre)          | Signatur            |   Sicheres Blockchiffre-Verfahren                                                                                                 |
 | HMAC               | MAC (Hash-Funktion)          | Signatur            | Kollisionssichere Hash Funktion                                                                                                    |
-| GMAC               | MAC (Blockchiffre)          | Signatur            |   Sicheres Blockchiffre-Verfahren (??????)                                                                                                                                                  |
+| GMAC               | MAC (Blockchiffre)          | Signatur            |   Sicheres Blockchiffre-Verfahren                                                                                                                                                 |
 | RSA                | asym. Schlüsselpaar          | Verschl. & Signatur | Umkehrfunktion von Faktorisierung schwer zu berechnen                                                   |
 | DSA                | asym. Schlüsselpaar & Hashfunktion   | Signatur    | Umkehrfunktion von diskreter Log. schwer zu berechnen                                                   |
 | Elliptische Kurven | Einwegfunktion               | Signatur            | Umkehrfunktion von elliptischen Kurven schwer zu berechnen                                                   |
 | Diffie-Hellman     | Protokoll                    | Schlüsselaustausch  | Umkehrfunktion diskreter Exponentialfunktionen schwer zu berechnen |
-| Merkle-Signaturen  | Merkle-Tree & Einmalsignatur | Signatur            | Mehrstufige Hash-Verfahren zu einem einzigen Hashwert zusammenfassen (als   öffentlicher Schlüssel) |
+| Merkle-Signaturen  | Merkle-Tree & Einmalsignatur | Signatur            | Mehrstufige Hash-Verfahren zu einem einzigen Hashwert zusammenfassen (als öffentlicher Schlüssel) |
 
 
 In <a>[[BSI18b]](#ref_bsi18b)</a> werden im speziellen folgende Algorithmen empfohlenen: 
@@ -199,7 +199,6 @@ MAC:
 * GMAC
 
 Signaturverfahren:
-
 * RSA
 * DSA
 * DSA auf Basis elliptischer Kurven
