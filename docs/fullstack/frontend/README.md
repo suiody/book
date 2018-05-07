@@ -345,7 +345,7 @@ Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **
 <a name="ref_face18b">[FACE18b]</a>: Facebook Inc.: React.Component. URL: https://reactjs.org/docs/react-component.html
 (abgerufen am 05.05.2018)
 
-<a name="ref_face18c">[FACE18c]</a>: Facebook Inc.: React.Component. URL: https://reactjs.org/docs/handling-events.html
+<a name="ref_face18c">[FACE18c]</a>: Facebook Inc.: Handling Events. URL: https://reactjs.org/docs/handling-events.html
 (abgerufen am 06.05.2018)
 
 <a name="ref_face18d">[FACE18d]</a>: Facebook Inc.: React.Component. URL: https://reactjs.org/docs/fragments.html
