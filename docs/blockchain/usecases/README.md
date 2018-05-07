@@ -77,6 +77,7 @@ Im Folgenden werden Beispiele für die Anwendung von Blockchains im Bereich der 
 
 ### Disciplina
 Bei Disciplina handelt es sich um ein Konzept für den Einsatz von Blockchain Technologien zur Speicherung bildungsbezogener Daten von Personen.
+Das Ziel des Konzeptes ist es, eine Möglichkeit zu finden, den Vorteil der öffentlichen Verifizierbarkeit von public Blockchains wie Etherium mit dem Vorteil keine privaten Daten preiszugeben von privaten Ketten wie Hyperledger zu vereinen.
 Der Aufbau von Disciplina lässt sich anhand der folgenden Abbildung nachvollziehen:
 
 <a name="disciplina_aufbau"></a>![disciplina_aufbau](./images/disciplina_aufbau.png "Disciplina Aufbau")
