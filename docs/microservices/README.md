@@ -1,6 +1,6 @@
 # Microservices
 
->Ein Microservice ist ein leichtgewichtiger autonomer Dienst, der eine einzige Aufgabe erfüllt und mit anderen ähnlichen Diensten über eine gut definierte Schnittstelle kollaboriert.[NAMI14]
+>Ein Microservice ist ein leichtgewichtiger autonomer Dienst, der eine einzige Aufgabe erfüllt und mit anderen ähnlichen Diensten über eine gut definierte Schnittstelle kollaboriert. [Nami2014]
 
 Es ist eine Variante der serviceorientierten Architektur (SOA)
 Hinzufügen oder Abschalten eines Dienstes sollte keine Auswirkungen auf die Arbeit andere Dienste haben.
@@ -8,8 +8,7 @@ Hinzufügen oder Abschalten eines Dienstes sollte keine Auswirkungen auf die Arb
 Bild 1 zeigt einen möglichen Aufbau von Microservices. Jedem Dienst entspricht eine Funktionalität. Einige Dienste haben eigene Datenbanken, andere greifen auf eine gemeinsame Datenbank zu.
 
 ![Bild 1: Architektur](./images/architecture.png)
-
-_Abbildung 1. Architektur, entnommen aus [MIRI17]_ 
+_Abbildung 1. Architektur_
 
 Vorraussetzungen für Microservices sind:
 1. Request/Response calls mit willkürlich strukturierten Daten
@@ -26,23 +25,20 @@ Einige häufig anzutreffende Entwürfen von Remote Calls sind Direct Call, Gatew
 
 __Direct Call__
 
-![Bild 2: Direct call](./images/direct_call_pattern.PNG)
-
+![Bild 2: Direct call](./images/direct_call_pattern.png)
 _Abbildung 2. Direct Call_
 
 __Gateway__
 
-![Bild 3: Gateway](./images/gateway_pattern.PNG)
-
+![Bild 3: Gateway](./images/gateway_pattern.png)
 _Abbildung 3. Gateway_
 
 __Message-bus__
 
-![Bild 4: Message Bus](./images/message_bus_pattern.PNG)
-
+![Bild 4: Message Bus](./images/message_bus_pattern.png)
 _Abbildung 3. Message-bus_
 
-Eine der Hauptaufgaben von Microservices ist eine Minimierung von Einflüssen im Falle einer möglichen Schnittstellenänderung.[NAMI14]
+Eine der Hauptaufgaben von Microservices ist eine Minimierung von Einflüssen im Falle einer möglichen Schnittstellenänderung.[Nami2014]
 
 ## Unterschiede zu monolitischen Anwendungen
 
@@ -51,9 +47,9 @@ Monolytische Anwendungen sind als ein Ganzes entwickelt. Sie bestehen oft aus dr
 - Serverseitige Applikation
 - Datenbank
 
-Die serverseitige Applikation ist ein solches Monolith, weil sie für HTTP-Anfragen zuständig ist, Zugriffe auf die Datenbank steuert und mit dem Browser interagiert. Eine Änderung im System führt zu einer neuen Version.[LEWI14]
+Die serverseitige Applikation ist ein solches Monolith, weil sie für HTTP-Anfragen zuständig ist, Zugriffe auf die Datenbank steuert und mit dem Browser interagiert. Eine Änderung im System führt zu einer neuen Version.[Lewi2014]
 
-Jedes einzelnes Microservice kann in komplett anderer Programmiersprache geschrieben sein. Im Gegensatz dazu kann eine monolitische Architektur zwar mehrere Dienste oder Komponenten enthalten - sie bilden aber trotzdem ein Ganzes.[NAMI14]
+Jedes einzelnes Microservice kann in komplett anderer Programmiersprache geschrieben sein. Im Gegensatz dazu kann eine monolitische Architektur zwar mehrere Dienste oder Komponenten enthalten - sie bilden aber trotzdem ein Ganzes.[Nami2014]
 
 ### Vorteile
 
@@ -109,15 +105,17 @@ Function as a service
 
 ## Quellen
 
-[NAMI14] Dmitry Namiot, Manfred Sneps-Sneppe: On Micro-services Architecture, International Journal of Open Information Technologies ISSN: 2307-8162 vol. 2, no. 9, 2014,
+[Nami2014] Dmitry Namiot, Manfred Sneps-Sneppe: On Micro-services Architecture, International Journal of Open Information Technologies ISSN: 2307-8162 vol. 2, no. 9, 2014,
 https://cyberleninka.ru/article/v/on-micro-services-architecture (letzter Zugriff: 26.04.2018)
 
-[NEWM15] Sam Newman: Building Microservices: Designing Fine-Grained Systems, O'Reilly Media, Inc., 02.02.2015
+[Newm2015] Sam Newman: Building Microservices: Designing Fine-Grained Systems, O'Reilly Media, Inc., 02.02.2015
 
-[RICH17] Chris Richardson: Pattern: Microservice Architecture, 2017, http://microservices.io/patterns/microservices.html (letzter Zugriff: 26.04.2018)
+[Rich2017] Chris Richardson: Pattern: Microservice Architecture, 2017, http://microservices.io/patterns/microservices.html (letzter Zugriff: 26.04.2018)
 
-[CHEN18] Lianping Chen: Microservices: Architecting for Continuous Delivery and DevOps, IEEE International Conference on Software Architecture, 2018
+[Chen2018] Lianping Chen: Microservices: Architecting for Continuous Delivery and DevOps, IEEE International Conference on Software Architecture, 2018
 
-[LEWI14] James Lewis, Martin Fowler: Microservices, a definition of this new architectural term, 25.03.2014, https://martinfowler.com/articles/microservices.html (letzter Zugriff: 29.04.2018)
+[Lewi2014] James Lewis, Martin Fowler: Microservices, a definition of this new architectural term, 25.03.2014, https://martinfowler.com/articles/microservices.html (letzter Zugriff: 29.04.2018)
 
-[MIRI17] Ima Miri, Microservices vs SOA, Jan. 04, 17, https://dzone.com/articles/microservices-vs-soa-2
+## Abbildungsverzeichnis
+
+Abbildung 1:&ensp;Ima Miri, Microservices vs SOA, Jan. 04, 17, https://dzone.com/articles/microservices-vs-soa-2
