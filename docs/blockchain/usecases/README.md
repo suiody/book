@@ -73,10 +73,19 @@ Durch die Transparenz und Unveränderbarkeit von Blockchains kann nachvollzogen 
 Durch diese öffentliche Zugänglichkeit ergeben sich jedoch auch Probleme, da ein solches Blockchain System bedeuten würde, dass sensible, personenbezogene Daten einsehbar wären. Daher sollte bei einer Anwendung von Blockchain Technologien im Bereich der Bildung darauf geachtet werden, dass die Privatsphäre der Nutzer nicht beeinträchtigt wird.
 Im Folgenden werden Beispiele für die Anwendung von Blockchains im Bereich der Bildung vorgestellt.
 
-EduCTX
+### EduCTX
 
-Disciplina
+### Disciplina
+Bei Disciplina handelt es sich um ein Konzept für den Einsatz von Blockchain Technologien zur Speicherung bildungsbezogener Daten von Personen.
+Der Aufbau von Disciplina lässt sich anhand der folgenden Abbildung nachvollziehen:
 
+<a name="disciplina_aufbau"></a>![disciplina_aufbau](./images/disciplina_aufbau.png "Disciplina Aufbau")
+
+Um die privaten Daten der Nutzer zu schützen, kommen bei Disciplina zwei unterschiedliche Blockchains zum Einsatz:
+- Die erste Kette, in der Abbildung mit "Educators" beschriftet, ist eine private Blockchain, die nur Lehrenden zugänglich ist. Hier werden von diesen Blöcke angelegt, die die genauen Daten zu erbrachten Leistungen beinhalten.
+- Die zweite Blockchain ist öffentlich und enthält keinerlei personenbezogene Daten, sondern speichert lediglich Hashwerte, die anhand von Einträgen in der privaten Kette gebildet werden.
+
+Durch diese Trennung ist es möglich, zu garantieren, dass die private Blockchain nicht manipuliert werden kann und gleichzeitig zu verhindern, dass private Daten öffentlich zugänglich sind.
 
 Autor: Matthias Kersting
 
