@@ -8,6 +8,7 @@ Hinzufügen oder Abschalten eines Dienstes sollte keine Auswirkungen auf die Arb
 Bild 1 zeigt einen möglichen Aufbau von Microservices. Jedem Dienst entspricht eine Funktionalität. Einige Dienste haben eigene Datenbanken, andere greifen auf eine gemeinsame Datenbank zu.
 
 ![Bild 1: Architektur](./images/architecture.png)
+
 _Abbildung 1. Architektur_
 
 Vorraussetzungen für Microservices sind:
@@ -26,16 +27,19 @@ Einige häufig anzutreffende Entwürfen von Remote Calls sind Direct Call, Gatew
 __Direct Call__
 
 ![Bild 2: Direct call](./images/direct_call_pattern.png)
+
 _Abbildung 2. Direct Call_
 
 __Gateway__
 
 ![Bild 3: Gateway](./images/gateway_pattern.png)
+
 _Abbildung 3. Gateway_
 
 __Message-bus__
 
 ![Bild 4: Message Bus](./images/message_bus_pattern.png)
+
 _Abbildung 3. Message-bus_
 
 Eine der Hauptaufgaben von Microservices ist eine Minimierung von Einflüssen im Falle einer möglichen Schnittstellenänderung.[Nami2014]
@@ -105,17 +109,13 @@ Function as a service
 
 ## Quellen
 
-[Nami2014] Dmitry Namiot, Manfred Sneps-Sneppe: On Micro-services Architecture, International Journal of Open Information Technologies ISSN: 2307-8162 vol. 2, no. 9, 2014,
+[Chen2018] Chen, Lianping: Microservices: Architecting for Continuous Delivery and DevOps, IEEE International Conference on Software Architecture, 2018
+
+[Lewi2014] Lewis James; Fowler, Martin: Microservices, a definition of this new architectural term, 25.03.2014, https://martinfowler.com/articles/microservices.html (letzter Zugriff: 29.04.2018)
+
+[Nami2014] Namiot, Dmitry; Sneps-Sneppe, Manfred: On Micro-services Architecture, International Journal of Open Information Technologies ISSN: 2307-8162 vol. 2, no. 9, 2014,
 https://cyberleninka.ru/article/v/on-micro-services-architecture (letzter Zugriff: 26.04.2018)
 
-[Newm2015] Sam Newman: Building Microservices: Designing Fine-Grained Systems, O'Reilly Media, Inc., 02.02.2015
+[Newm2015] Newman, Sam: Building Microservices: Designing Fine-Grained Systems, O'Reilly Media, Inc., 02.02.2015
 
-[Rich2017] Chris Richardson: Pattern: Microservice Architecture, 2017, http://microservices.io/patterns/microservices.html (letzter Zugriff: 26.04.2018)
-
-[Chen2018] Lianping Chen: Microservices: Architecting for Continuous Delivery and DevOps, IEEE International Conference on Software Architecture, 2018
-
-[Lewi2014] James Lewis, Martin Fowler: Microservices, a definition of this new architectural term, 25.03.2014, https://martinfowler.com/articles/microservices.html (letzter Zugriff: 29.04.2018)
-
-## Abbildungsverzeichnis
-
-Abbildung 1:&ensp;Ima Miri, Microservices vs SOA, Jan. 04, 17, https://dzone.com/articles/microservices-vs-soa-2
+[Rich2017] Richardson, Chris: Pattern: Microservice Architecture, 2017, http://microservices.io/patterns/microservices.html (letzter Zugriff: 26.04.2018)
