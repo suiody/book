@@ -161,16 +161,16 @@ Es gibt eine Vielzahl von verschiedenen Algorithmen Arten im Bereich der Kryptog
 
 | Verfahren          | Typ/Grundkategorie           | Anwendungsgebiet    | Sicherheitsbasis/-prinzip                                                                                    |
 |--------------------|------------------------------|---------------------|-----------------------------------------------------------------------------------------------------|
-| AES                | Blockchiffre                | Verschlüsselung     | Kein effizienter Weg zur Bestimmung des symmetrischen Schlüssels bekannt; viele Jahre bewährt                                                                             |
-| SHA                | Hash-Funktion                | Signatur            | Kollisionssichere Hash Funktion                                                                     |
-| CMAC               | MAC (Blockchiffre)          | Signatur            |   Sicheres Blockchiffre-Verfahren                                                                                                 |
-| HMAC               | MAC (Hash-Funktion)          | Signatur            | Kollisionssichere Hash Funktion                                                                                                    |
-| GMAC               | MAC (Blockchiffre)          | Signatur            |   Sicheres Blockchiffre-Verfahren                                                                                                                                                 |
+| AES                | Blockchiffre                | Verschlüsselung     | kein effizienter Weg zur Bestimmung des symmetrischen Schlüssels bekannt; viele Jahre bewährt                                                                             |
+| SHA                | Hash-Funktion                | Signatur            | kollisionssichere Hash Funktion                                                                     |
+| CMAC               | MAC (Blockchiffre)          | Signatur            |   sicheres Blockchiffre-Verfahren                                                                                                 |
+| HMAC               | MAC (Hash-Funktion)          | Signatur            | kollisionssichere Hash Funktion                                                                                                    |
+| GMAC               | MAC (Blockchiffre)          | Signatur            |   sicheres Blockchiffre-Verfahren                                                                                                                                                 |
 | RSA                | asym. Schlüsselpaar          | Verschl. & Signatur | Umkehrfunktion von Faktorisierung schwer zu berechnen                                                   |
 | DSA                | asym. Schlüsselpaar & Hashfunktion   | Signatur    | Umkehrfunktion von diskreter Log. schwer zu berechnen                                                   |
 | Elliptische Kurven | Einwegfunktion               | Signatur            | Umkehrfunktion von elliptischen Kurven schwer zu berechnen                                                   |
 | Diffie-Hellman     | Protokoll                    | Schlüsselaustausch  | Umkehrfunktion diskreter Exponentialfunktionen schwer zu berechnen |
-| Merkle-Signaturen  | Merkle-Tree & Einmalsignatur | Signatur            | Mehrstufige Hash-Verfahren zu einem einzigen Hashwert zusammenfassen (als öffentlicher Schlüssel) |
+| Merkle-Signaturen  | Merkle-Tree & Einmalsignatur | Signatur            | mehrstufige Hash-Verfahren zu einem einzigen Hashwert zusammenfassen (als öffentlicher Schlüssel) |
 
 
 In <a>[[BSI18b]](#ref_bsi18b)</a> werden im speziellen folgende Algorithmen empfohlenen: 
