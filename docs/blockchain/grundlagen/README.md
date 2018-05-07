@@ -18,7 +18,7 @@ Das Akronym *CIA* ergibt sich aus den folgenden drei Begriffen,  <a>[[BAUM14]](#
 
 **Authentizität**
 
-Das Sicherheitsziel Authentizität gewährleistet, dass ein Kommunikationspartner wirklich derjenige ist, der er vorgibt zu sein. Sind Daten oder Informationen authentisch, so ist deren Herkunft gewiss.
+Das Sicherheitsziel *Authentizität* gewährleistet, dass ein Kommunikationspartner wirklich derjenige ist, der er vorgibt zu sein. Sind Daten oder Informationen authentisch, so ist deren Herkunft gewiss.
 
 **Nichtabstreitbarkeit**
 
@@ -30,7 +30,7 @@ Ebenso wichtig ist der Begriff der *Nichtabstreitbarkeit*. Diese gewährleistet 
 
 **Verbindlichkeit**
 
-Der Begriff der Verbindlichkeit kombiniert Authentizität mit Nichtabstreitbarkeit. Im Falle der Datenübertragung heißt das, dass der Absender seine Identität bewiesen hat und der Empfang der Nachricht nicht abgetritten werden kann, <a>[[BSI18]](#ref_bsi18)</a>.
+Der Begriff der *Verbindlichkeit* kombiniert Authentizität mit Nichtabstreitbarkeit. Im Falle einer Datenübertragung heißt das, dass der Absender seine Identität bewiesen hat und der Empfang der Nachricht nicht abgetritten werden kann, <a>[[BSI18a]](#ref_bsi18a)</a>.
 
 **Kerckhoffs’ Prinzip**
 
@@ -43,10 +43,13 @@ Alle heutzutage gängigen Verschlüsselungsverfahren folgen diesem Grundsatz.
 ### Hash Funktionen
 Autor: Patrick Vogt
 
-Hash Funktionen bilden einen wichtigen Bestandteil innerhalb der Kryptographie. Dort berechnen Sie aus einer gegebenen Nachricht einen sogenannten *Hashwert* fester Länge. Aus kryptografischer Sicht können Hashwerte als eine Prüfsumme gesehen werden. 
-Es handelt sich im Prinzip um eine Art "Einwegfunktion". Der Weg vom Definitionsbereich hin zum Bildbereich ist einfach durchführbar, die Rückrichtung ist jedoch schwer. So können Hash Funktionen auch z.B. für das Speichern von Passwörtern verwendet werden, sodass innerhalb der Datenbank das Passwort nicht als Klartext sondern als Hashwert hinterlegt wird, <a>[[PAAR16]](#ref_paar16)</a>.
+Hash Funktionen bilden einen wichtigen Bestandteil innerhalb der Kryptographie. Sie berechnen aus einer gegebenen Nachricht einen sogenannten *Hashwert* fester Länge. Aus kryptografischer Sicht können Hashwerte als eine Prüfsumme gesehen werden. 
+Hierbei handelt es sich im Prinzip um eine "Einwegfunktion", bei der der Weg vom Definitionsbereich hin zum Bildbereich einfach durchzuführen ist, die Rückrichtung jedoch nur mit großem Aufwand bestimmbar ist. Selbst wenn es einem Angreifer gelingen sollte einen passenden Wert für einen gegebenen Hashwert zu berechnen ist sein Ergebnis nicht eindeutig, <a>[[PAAR16]](#ref_paar16)</a>. 
 
-Aufgrund des eingeschränkten Bildbereichs (begrenzte Anzahl an Zeichen) und des unbegrenzten Definitionsbereichs kann es zu *Kollisionen* kommen (unterschiedliche nachrichten führen zu dem gleichen Hashwert). 
+Das liegt daran, dass sogenannte *Kollisionen* auftreten können. Das bedeutet, dass aufgrund des eingeschränkten Bildbereichs (begrenzte Anzahl an Zeichen) und des gleichzeitig unbegrenzten Definitionsbereichs (quasi beliebig lange Zeichenfolge) zwangsweise Überschneidungen auftreten können. Je schwieriger es ist für eine Nachricht eine weitere Nachricht zu finden, die den gleichen Hashwert ergibt, desto *kollisionssicherer* ist das Hashverfahren.
+
+Hash Funktionen können z.B. für das Speichern von Passwörtern verwendet werden, sodass innerhalb einer Datenbank das Passwort nicht als Klartext (sondern als Hashwert) hinterlegt wird, <a>[[PAAR16]](#ref_paar16)</a>.
+
 
 ...
 
@@ -57,56 +60,62 @@ Autor: Patrick Vogt
 *Symmetrische Verschlüsselung*
 
 Eine Art der Verschlüsselung ist die symmetrische Verschlüsselung. Bereits Gaius Julius Caesar (* 100 v. Chr., † 44 v. Chr.)  verwendete diese Art der Verschlüsselung zur Kommunikation mit seinen Generälen 
-(die sogenannte *Caesarchiffre*). Hierbei sind Chiffrier- und Dechiffrierschlüssel gleich, siehe nachfolgende Abbildung. Man spricht auch von einem *symmetrischer Schlüssel*.
+(die sogenannte *Caesarchiffre*). Diese Schlüssel, die diese Verfahren verwenden werden *symmetrische Schlüssel* genannt, da Chiffrier- und Dechiffrierschlüssel identisch sind, siehe nachfolgende Abbildung.
 
 <a name="ref_sym_encryption"></a>![sym_encryption](./images/sym_verschl.png "Symmetrische Verschlüsselung")
-[Bildquelle](https://www.ssl2buy.com/wiki/symmetric-vs-asymmetric-encryption-what-are-differences)
+
+Abbildung entnommen aus <a>[[SSL18]](#ref_ssl18)</a>
 
 Problematisch ist hierbei, dass Sender und Empfänger den gemeinsamen Schlüssel einmalig vor der ersten Übertragung austauschen müssen. 
 Es wird somit ein Kommunikationskanal benötigt, in dem die Teilnehmer ihren Schlüssel auf sichere Art und Weise austauschen können, siehe nachfolgende Abbildung.
-Ebenso ist zu erwähnen, dass die Anzahl der benötigten Schlüssel mit der Anzahl der Kommunikationspartner drastisch steigt. Damit N Teilnehmer sicher miteinander kommunizieren können, werden 
-**N(N-1)/2** Schlüssel benötigt <a>[[KÜST11]](#ref_kuesters11)</a>.
-Als Vorteil ist unter anderem die hohe Geschwindigkeit für das Ver- und Entschlüsseln der Daten zu nennen, da diese Verfahren meist auf effizienten Operationen (z.B. XOR) beruhen , <a>[[STOP18]](#ref_stop18)</a>.
  
 
 ![sym_encryption](./images/sym_verschl2.png "Symmetrische Verschlüsselung")
+
 Abbildung entnommen aus <a>[[BAUM14]](#ref_baum14)</a>
+
+Ebenso ist zu erwähnen, dass die Anzahl der benötigten Schlüssel mit der Anzahl der Kommunikationspartner drastisch steigt. Damit N Teilnehmer sicher miteinander kommunizieren können, werden 
+**N(N-1)/2** Schlüssel benötigt <a>[[KÜST11]](#ref_kuesters11)</a>.
+Als Vorteil ist unter anderem die hohe Geschwindigkeit für das Ver- und Entschlüsseln der Daten zu nennen, da diese Verfahren meist auf effizienten Operationen (z.B. XOR) beruhen, <a>[[STOP18]](#ref_stop18)</a>.
+
 
 *Asymmetrische Verschlüsselung*
 
 Im Gegensatz zur symmetrischen Verschlüsselung verwendet die asymmetrische Verschlüsselung verschiedene Schlüssel zur Ver- und Entschlüsselung.
-Es existiert ein *Schlüsselpaar*, das aus einem öffentlichen (public key) sowie einem privaten Schlüssel (private key/secret key) besteht. Das grundsätzliche Verfahren ist in der folgenden Abbildung 
+Es existiert ein *Schlüsselpaar*, das aus einem öffentlichen Schlüssel (public key) sowie einem privaten Schlüssel (private key/secret key) besteht. Das grundsätzliche Verfahren ist in der folgenden Abbildung 
 dargestellt. 
   
 ![asym_encryption](./images/asym_verschl.png "Asymmetrische Verschlüsselung")
-[Bildquelle](https://www.ssl2buy.com/wiki/symmetric-vs-asymmetric-encryption-what-are-differences)
+Abbildung entnommen aus <a>[[SSL18]](#ref_ssl18)</a>
 
 Der Absender verwendet den öffentlichen Schlüssel des Empfängers zum Verschlüsseln der Daten. Der  Empfänger erhält den verschlüsselten Text und kann diesen mit seinem privaten Schlüssel
-dechiffrieren. Der große Vorteil dieses Verfahrens liegt darin, dass der öffentliche Schlüssel nicht geheim gehalten werden muss, da er nicht zum entschlüsseln der Daten genutzt werden kann. Der bei der symmetrischen Verschlüsselung benötigte sichere Kommunikationskanal entfällt somit, siehe nachfolgende Abbildung. Der private Schlüssel sollte dementsprechend nur dem jeweiligen Empfänger bekannt sein und von ihm geheim gehalten werden. Da die Schlüssel jeweils von nur einem Teilnehmer abhängig sind, steigt die Anzahl der Schlüssel bei steigender Anzahl an Teilnehmern nicht quadratisch, wie bei der symmetrischen Verschlüsselung, sondern linear.
+dechiffrieren. Der große Vorteil dieses Verfahrens liegt darin, dass der öffentliche Schlüssel nicht geheim gehalten werden muss, da er nicht zum entschlüsseln der Daten genutzt werden kann. Der bei der symmetrischen Verschlüsselung benötigte sichere Kommunikationskanal entfällt somit, siehe nachfolgende Abbildung. Der private Schlüssel sollte dementsprechend nur dem jeweiligen Empfänger bekannt sein und von ihm geheim gehalten werden. Da die Schlüssel jeweils von nur einem Teilnehmer abhängig sind, steigt die Anzahl der Schlüssel bei steigender Anzahl an Teilnehmern nicht quadratisch - wie bei der symmetrischen Verschlüsselung - sondern linear.
 
 ![asym_encryption](./images/asym_verschl2.png "Asymmetrische Verschlüsselung")
+
 Abbildung entnommen aus <a>[[BAUM14]](#ref_baum14)</a>
 
 ### Digitale Signaturen
 Autor: Patrick Vogt
 
-Ähnlich wie herkömmliche (analoge) Signaturen sollen digitale Signaturen sicherstellen, dass eine Nachricht bzw. ein Dokument wirklich von dem Absender/Signierer stammt, der vorgibt das Dokument abgeschickt zu haben.
-Eine Verschlüsselung der Daten erfolgt bei der Signierung nicht, wenngleich eine zusätzliche Verschlüsselung der signierten Nachricht durchaus üblich ist.
-Mithilfe der digitaler Signatur kann beispielsweise beim Schlüsselaustausch zweier Teilnehmer sichergestellt werden, dass mit dem richtigen Gegenüber kommuniziert wird <a>[[PAAR16]](#ref_paar16)</a>.
+Ähnlich wie herkömmliche (analoge) Signaturen sollen digitale Signaturen sicherstellen, dass eine Nachricht bzw. ein Dokument wirklich von dem Absender/Signierer stammt, der vorgibt das Dokument erstellt zu haben.
+
+Mithilfe von digitalen Signaturen kann sichergestellt werden, dass mit dem richtigen Gegenüber kommuniziert wird (beispielsweise beim Schlüsselaustausch zweier Teilnehmer).
+Eine Verschlüsselung der Daten erfolgt bei der Signierung nicht, wenngleich eine zusätzliche Verschlüsselung der signierten Nachricht durchaus üblich ist <a>[[PAAR16]](#ref_paar16)</a>.
+
 Die nachfolgende Abbildung zeigt den prinzipiellen Ablauf beim Übermitteln digial signierter Dokumente.
 
 ![dig_signature](./images/digital_sign.svg "Prinzipt der digitalen Signatur")
-[Bildquelle](https://www.docusign.com/how-it-works/electronic-signature/digital-signature/digital-signature-faq)
+Abbildung entnommen aus <a>[[DOCU18]](#ref_docu18)</a>
 
-Das zu signierende Dokument wird mithilfe einer Hash-Funktion verarbeitet und anschließend mit dem privaten Schlüssel des Signierers verschlüsselt und an das originale Dokument angefügt. Das nun signierte 
-Dokument wird an den Empfänger gesendet.  Die Signatur wird mithilfe des öffentlichen Schlüssels des Signierers entschlüsselt. Der Empfänger wendet anschließend den gleichen Hash-Algorithmus wie der Absender 
+Das zu signierende Dokument wird mithilfe einer Hash-Funktion verarbeitet und anschließend mit dem privaten Schlüssel des Signierers verschlüsselt und an das originale Dokument angefügt. Das nun signierte Dokument wird an den Empfänger gesendet, wo die Signatnur mithilfe des öffentlichen Schlüssels des Signierers entschlüsselt wird. Der Empfänger wendet anschließend den gleichen Hash-Algorithmus wie der Absender 
 auf das Dokument an und vergleicht sein Ergebnise mit der empfangenen Signatur. Stimmen die beiden Hashwerte überein wurde der Text mit sehr hoher Wahrscheinlichkeit von der angegebenen Person signiert und nicht verändert. 
 
 Im Gegensatz zu anderen (auf symmetrischen Verfahren basierenden) Signaturverfahren kann der Empfänger der Nachricht jedem - der ebenfalls den öffentlichen Schlüssel des Signierers kennt - beweisen, dass dieser die Nachricht verfasst hat.
 Solche digitalen Signaturverfahren können deshalb auch zur juristischen Beweisführung verwendet werden <a>[[PAAR16]](#ref_paar16)</a>.
 
 Anforderungen an die Verwendung von digitalen Signaturen werden in Deutschland im Signaturgesetz (SigG) bzw. in der Signaturverordnung (SigV) angegeben.
-Hier werden drei verschiedene Arten von elektronischen Signaturen unterschieden, <a>[[BAUM14]](#ref_baum14)</a>:
+Hier werden drei verschiedene Arten von elektronischen Signaturen unterschieden <a>[[BAUM14]](#ref_baum14)</a>:
 
 >* Als **elektronische Signatur** werden in elektronischer Form vorliegende Daten betrachtet, die zur Authentifizierung dienen und die anderen elektronischen Daten beigefügt
 werden können. Es könnte sich hierbei also auch um eine eingescannte Unterschrift
@@ -122,7 +131,7 @@ Letztere Signaturen beinhalten zusätzlich zum Namen und Testschlüssel weitere 
 ### Message Authentication Code (MAC)
 Autor: Patrick Vogt
 
-Message Authentication Codes (MACs) werden auch kryptografische Prüfsummen genannt. Wie auch digitale Signaturen dienen sie der Sicherstellung der Integrität und Authentisierung von Nachrichten, wobei MACs jedoch auf einem symmetrischen Verfahren beruhen, wodurch eine Nichtzurückwesbarkeit nicht gewährleistet werden kann. MACs basieren auf Hash Funktionen oder Blockchiffren, wodurch sie in der Regel deutlich schneller als digitale Signaturen verarbeitet werden können.
+Message Authentication Codes (MACs) werden auch kryptografische Prüfsummen genannt. Wie digitale Signaturen dienen sie der Sicherstellung der Integrität und Authentisierung von Nachrichten, wobei MACs jedoch auf einem symmetrischen Verfahren beruhen und eine Nichtzurückwesbarkeit somit nicht gewährleistet werden kann. MACs basieren auf Hash Funktionen oder Blockchiffren, wodurch sie in der Regel deutlich schneller als digitale Signaturen verarbeitet werden können.
 
 Im Wesentlichen wird mithilfe eines symmetrischen Schlüssels *k* und der Nachricht *x* eine Prüfsumme *m* gebildet:
 
@@ -133,20 +142,76 @@ Auf diese Art und Weise soll sichergestellt werden, dass die Nachricht auf dem W
 Der gesamte Vorgang läuft prinzipiell wie bei digitalen Signaturen ab:
 
 ![dig_signature](./images/crypto_mac.png "Prinzip von MACs")
-[Bildquelle](https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/MAC.svg/661px-MAC.svg.png)
 
+Abbildung entnommen aus <a>[[WIKI18b]](#ref_wiki18b)</a>
 Der Sender bildet mithilfe des gemeinsamen Schlüssels und der Nachricht eine Prüfsumme und verschickt die Nachricht mit angehängter Prüfsumme. Der Empfänger führt den gleichen Vorgang durch und prüft seine berechnete Prüfsumme mit der erhaltenen. 
 
 ### Public Key Infrastructure (PKI)
 Autor: Patrick Vogt
 
-Bei Verfahren, die auf asymmetrischen Methodiken beruhen, muss sichergestellt werden, dass ein bestimmter öffentlicher Schlüssel wirklich einer gewissen Person gehört. Die Gültigkeit dieser *Schlüsselbindung* wird von *Zerzifizierungsstellen* (*certification authorities, CA*), mithilfe von Zertifikaten (*cetificates*), bestätigt <a>[[KÜST11]](#ref_kuesters11)</a>. 
+Bei Verfahren, die auf asymmetrischen Methodiken beruhen muss sichergestellt werden, dass ein bestimmter öffentlicher Schlüssel tatsächlich einer gewissen Person gehört. Die Gültigkeit dieser *Schlüsselbindung* wird von *Zerzifizierungsstellen* (*certification authorities, CA*), mithilfe von Zertifikaten (*cetificates*), bestätigt <a>[[KÜST11]](#ref_kuesters11)</a>. 
 
 Public Key Infrastructures verwalten und verteilen die Schlüssel und Zertifikate. 
 
 ...
 ### Algorithmen
 Autor: Patrick Vogt
+
+Es gibt eine Vielzahl von verschiedenen Algorithmenarten im Bereich der Kryptographie. Die nachfolgende Tabelle soll, basierend auf den Empfehlungen in  <a>[[BSI18b]](#ref_bsi18b)</a>, einen Überblick über einige aktuell bedeutende Algorithmenarten verschaffen.
+
+| Verfahren          | Typ/Grundkategorie           | Anwendungsgebiet    | Sicherheitsbasis/-prinzip                                                                                    |
+|--------------------|------------------------------|---------------------|-----------------------------------------------------------------------------------------------------|
+| AES                | Blockschiffre                | Verschlüsselung     | Kein effizienter Weg zur Bestimmung des symmetrischen Schlüssels bekannt, viele Jahre bewährt                                                                             |
+| SHA                | Hash-Funktion                | Signatur            | Kollisionssichere Hash Funktion                                                                     |
+| CMAC               | MAC (Blockschiffre)          | Signatur            |   Sicheres Blockchiffre-Verfahren (??????)                                                                                                  |
+| HMAC               | MAC (Hash-Funktion)          | Signatur            | Kollisionssichere Hash Funktion                                                                                                    |
+| GMAC               | MAC (Blockschiffre)          | Signatur            |   Sicheres Blockchiffre-Verfahren (??????)                                                                                                                                                  |
+| RSA                | asym. Schlüsselpaar          | Verschl. & Signatur | Umkehrfunktion von Faktorisierung schwer zu berechnen                                                   |
+| DSA                | asym. Schlüsselpaar & Hashfunktion   | Signatur    | Umkehrfunktion von diskreter Log. schwer zu berechnen                                                   |
+| Elliptische Kurven | Einwegfunktion               | Signatur            | Umkehrfunktion von elliptischen Kurven schwer zu berechnen                                                   |
+| Diffie-Hellman     | Protokoll                    | Schlüsselaustausch  | Umkehrfunktion diskreter Exponentialfunktionen schwer zu berechnen |
+| Merkle-Signaturen  | Merkle-Tree & Einmalsignatur | Signatur            | Mehrstufige Hash-Verfahren zu einem einzigen Hashwert zusammenfassen (als   öffentlicher Schlüssel) |
+
+
+In <a>[[BSI18b]](#ref_bsi18b)</a> werden im speziellen folgende Algorithmen empfohlenen: 
+
+Blockchiffren (symmetrisches Verfahren für Blöcke fester Längen):
+* AES-128
+* AES-192
+* AES-256
+
+Stromchiffren (symmetrisches Verfahren für Blöcke beliebiger Längen):
+
+*keine Verfahren empfohlen*
+
+Hashfunktionen:
+* SHA-256
+* SHA-512/256
+* SHA-384
+* SHA-512
+* SHA3-256
+* SHA3-384
+* SHA3-512
+
+MAC:
+* CMAC
+* HMAC
+* GMAC
+
+Signaturverfahren:
+
+* RSA
+* DSA
+* DSA auf Basis elliptischer Kurven
+    * ECDSA
+    * ECKDSA
+    * ECGDSA
+* Merkle-Signaturen
+
+Schlüsseltransport (asymmetrische Verfahren):
+* Diffie-Hellmann
+* EC Diffie-Hellman (ECKA-DH)
+
 
 ### Zero knowledge Proofs 
 
@@ -161,7 +226,7 @@ Allgemein kann man eine Datenbank als eine organisierte Sammlung von elektronisc
 Dabei sollen hierbei viele Datensätze effizient, konsistent und dauerhaft verwaltet werden können. Zudem können Datenbanken logische Zusammenhänge zwischen den einzelnen Daten abbilden. 
 Beispielsweise können sie in Tabellen abgebildet werden, wobei jede Reihe eine Entität und jede Spalte ein Attribut, welches die Entität beschreibt, darstellt. 
 Zur Manipulation der Datenbanken sind Transaktionen notwendig. Dabei beinhaltet eine Transaktion ein oder mehrere Manipulationen der Datenbank (Datensatz anlegen, ändern oder löschen). 
-Bei der Ausführung der Transaktion wird sie auf ihre Richtigkeit überprüft und entweder als ganzes oder gar nicht ausgeführt (getreu dem ACID-(bei RDBs) bzw. dem BASE-Theorem (bei NoSQL-DBs) <a>[[WIKI18]](#ref_wiki18)</a>). Die Richtigkeit wird u.a. durch Regeln wie Unique Keys, Forein keys oder Check constraints. 
+Bei der Ausführung der Transaktion wird sie auf ihre Richtigkeit überprüft und entweder als ganzes oder gar nicht ausgeführt (getreu dem ACID-(bei RDBs) bzw. dem BASE-Theorem (bei NoSQL-DBs) <a>[[WIKI18]](#ref_wiki18a)</a>). Die Richtigkeit wird u.a. durch Regeln wie Unique Keys, Forein keys oder Check constraints. 
 Wichtig dabei ist, dass die Datenbank nach jeder Transaktion einen validen Zustand erreicht und entsprechend konsistente Daten beinhaltet.	
 
 ### Distributed Ledger Technologie (DLT) <a>[[METZ18]](#ref_metz18)</a>
@@ -271,6 +336,67 @@ finden, damit seine eigene Blockchain schneller wächst als die Blockchain an de
 dezentralisierung gewährleistet. Sollte alllerdings eine Person oder Organization mehr als 51% der Rechenleistung kontrollieren, könnte diese 
 Organisation den Verlauf der Blockchain manipulieren.  
 
+### Proof-of-Stake
+Auch bei dem sogenannten Proof-of-Stake geht es darum einen Block mit Transaktionen zu finden, auf den sich das gesamte Netzwerk einigen kann.
+Anders als bei dem Proof-of-Work Algorithmus muss dazu allerdings kein Hashwert erraten werden. Beim Proof-of-Stake wird eine Node im Netzwerk
+zufällig ausgelost. Die ausgeloste Node darf dann einen neuen Block zur Blockchain hinzufügen. Zusätzlich erhält die ausgewählte Node eine 
+Belohnung (Blockreward) für das hinzufügen des Blockes. Die Chancen der Nodes auf eine Auswahl kann gesteigert werden, fall die Nodes einen
+Einsatz (Stake) besitzen. Je größer dabei die Anzahl der gehaltenen Coins ist, desto höher ist die Chance ausgewählt zu werden und den neuen Block
+zu stellen.
+
+Der Hintergedanke beim Proof-of-Stake ist der, das je größer das Investment in eine Cryptowährung ist, desto größer ist auch der Anreiz des
+Investors in die "Gesundheit" der Währung. Der Wert einer Cryptowährung ist über das Vertrauen der Anleger bestimmt. Sollten große 
+Investoren, die aufgrund ihres gehaltenen Vermögens häufig einen Block stellen, versuchen die Chain zu manipulieren, so würden sie beim
+Auffliegen von diesen manipulationen auf Grund des Vertrauensverlust selber Geld verlieren. 
+
+In der Praxis zeigt sich allerdings ein anders Bild. Der Proof-of-Stake zeigte sich anfällig für das "Nothing at Stake" Problem. Auch wenn
+Großinvestoren im Allgemeinfall einen ökonomischen Anreiz haben die Blockchain frei von forks zu halten, so gibt es keinen eingebauten 
+mechanischen Mechanismus der Miner davon abhält jeden Block zu validieren um an die Blockreward zu gelangen. 
+
+### Practical Byzantine Fault Tolerance
+Der Practical Byzabtibe Fault Tolerance (PBFT) ist der erste hier vorgestelle Konsens-Algorithmus welcher nicht komplett offen ist (permissioned).
+Während bei PoW und PoS jeder Computer im Netzwerk beim finden eines neuen Blockes mithelfen kann, so gibt es beim PBFT ein zentrales Netzwerk an
+Nodes, welche die Entscheidung über einen neuen Block treffen. Diese Nodes wurden von einer zentralen Organisation oder Komitee bestimmt. Diese
+Nodes bilden ein voll vermaschtes Netzwerk und sind somit alle untereinander bekannt. 
+
+Unter diesen zentralen Node wird periodisch eine Anführernode (Primary) gewählt. Die Auswahl des Primary erfolgt in der Regel zufällig. Nur der 
+Primary darf neue Blöcke erstellen und den andern Nodes (Replicas) im zentralen Netzwerk als Vorschlag unterbreiten. Dabei wird der vorgeschlagene
+Block in drei Stufen vom zentralen Netzwerk überprüft: Pre-prepared, prepared und commited. In der Pre-prepared Phase wird der neue Block an alle
+Replicas gesendet. Der Block wird von allen anderen Replicas überprüft. Das Ergebnis dieser Überprüfung wird wiederum an alle anderen Replicas
+per Broadcast übermittelt. Auf diese weise erhalten alle Replicas die Ergebnisse der anderen Replicas. Dies ist der prepared Schritt. Stimmen
+mindestens 2/3 alle Ergebnisse der Replicas überein, so wird der Block anerkannt. In diesem Fall broadcastet jede Node im Netzwerk, dass der
+neue Block angenommen wurde. Dies ist der Commit Schritt. Damit wird der Block sowohl beim Primary als auch bei den Replicas in die Blockchain 
+aufgenommen. 
+
+Die Fault Tolerance im Namen des Algorithmus kommt daher, dass es auch zu einem Konsens kommt falls eine oder mehrere Node nicht richtig 
+funktionieren. Dies kann durch einen "natürlichen" Computerfehler oder aber auch durch böswillige Absicht passieren. Über die Formel
+n = 3f+1 kann herrausgefunden werden, wieviele fehlerhafte Nodes das System aushalten kann. Dabei ist n die Anzahl der gesamt Nodes und
+f die Anzahl der Fehlerhaften Nodes. In einem System mit 4 Nodes könnte also eine Node fehlerhaft sein. Über die 3 funktionieren Nodes kann
+eine 3/4 Mehrheit erreicht werden, was zu einem Konsens führen würde. Bei 2 fehlerhaften Node würde die 2/3 nicht erreicht werden können. 
+
+### Proof of Elapsed Time
+Der Proof-of-Elapsed-Time (PoEL) ist ein von Intel entwickelter Konsens Algorithmus. Dabei erstellen Nodes einen Timer, welcher eine zufällige
+Ablaufzeit besitzt. Falls der Timer einer Node abgelaufen ist, darf diese Node einen Block zur Blockchain hinzufügen. Die Schwierigkeit die es
+zu überwinden gilt ist zum einen wie die Erstellung des Timers gehandhabt wird und zum anderen wie kontrolliert werden kann das die gewählte Zeit
+auch wirklich gewartet worden ist. Sollten diese Bedingungen nicht überprüft werden könnten Node einfach eine kurze Zeit als Timer wählen oder die
+Zeit schlicht nicht warten. 
+
+Um dem entgegenzuwirken stellt Intel in ihren Prozessoren ein spezielles Instruktionsset names Intel Software Guard Extensions (SGX) zur Verfügung.
+Mit hilfe von SGX ist es möglich Code ausführen zu lassen. Nach Ablauf des Codes wird ein Zertifikat erstellt, welches nachweist das der Code ohne
+Veränderung von außen ausgeführt wurde. Die Erstellung des Timers wird deshalb von der SGX überwacht und ein neuer Block wird nur dann vom Netzwerk
+akzeptiert falls ein Zertifikat beigelegt wird was die korrekte Erstellung und ablauf des Timers belegt. 
+
+Ein Problem mit dem PoEL ist, dass dieser momentan nur auf neueren CPUs von der Firma Intel ausgeführt werden kann. So werden alle anderen Node 
+aufgrund ihres Prozessors ausgeschlossen. Auch wenn andere Hersteller ihre CPU mit einem kompatibelen Instruktionsset ausrüsten bleibt der 
+Nachteil das ein Teil des Vertrauens nicht von dem Netzwerk selber aufgebaut wird, sondern von einer zentralen Stelle, in diesem Fall der
+CPU Hersteller, erbracht wird. Dieser Umstand sollte genau genommen von einem Konsens Algorithmus vermieden werden, da im Falle von PoEL ein 
+Potentieller Schwachpunkt direkt auf der Hand liegt, nämlich der Prozessor selbst.
+
+### Federated Byzantine Agreement 
+
+
+
+
 ## Dezentrale Anwendungen
 
 Autor: Patrick Starzynski 
@@ -313,30 +439,34 @@ Die Entwicklung einer dezentralen Anwendung wird üblicherweise in drei Teilschr
 
 <a name="ref_baum14">[BAUM14]</a>: Baumann, Ulrike ; Franz, Elke ; Pfitzmann, Andreas: Kryptographische Systeme. Berlin : Springer Vieweg, 2014, ISBN: 978-3-642-45332-8 
 
-<a name="ref_bsi18">[BSI18]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI) - Referat B 23, Cyber-Sicherheit für den Bürger und Öffentlichkeitsarbeit: IT-Sicherheit: 4 Glossar und Begriffsdefinitionen. Bonn, 2018 URL: https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/Glossar/glossar_node.html (abgerufen am 29.04.2018)
-
-<a name="ref_kuesters11">[KÜST11]</a>: Küsters, Ralf ; Wilke, Thomas: Moderne Kryptographie : Eine Einführung. 1. Aufl. Wiesbaden : Vieweg + Teubner, 2011, ISBN: 978-3-519-00509-4
-
-<a name="ref_paar16">[PAAR16]</a>: Paar, Christof ; Pelzl, Jan: Kryptografie verständlich : Ein Lehrbuch für Studierende und Anwender. Berlin, Heidelberg : Springer Vieweg, 2016, ISBN: 978-3-662-49296-3
-
-
-<a name="ref_stop18">[STOP18]</a>: Stobitzer, Christian: Symmetrische Verschlüsselung. Karlsruhe. URL: http://www.kryptowissen.de/symmetrische-verschluesselung.html (abgerufen am 27.04.2018)
-
-
-<a name="ref_gree15">[GREE15]</a>: Greenspan, Gideon: Private blockchains are more than “just” shared databases.  URL: https://www.multichain.com/blog/2015/10/private-blockchains-shared-databases/ (abgerufen am 29.04.2018)
-
 <a name="ref_bege18">[BEGE18]</a>: Begerow, Markus: Datenbank – Was ist eine Datenbank?  URL: http://www.datenbanken-verstehen.de/datenbank-grundlagen/datenbank/ (abgerufen am 29.04.2018)
-
-<a name="ref_wiki18">[WIKI18]</a>: Wikipedia, ACID   URL: https://de.wikipedia.org/wiki/ACID (abgerufen am 29.04.2018)
-
-<a name="ref_thom16">[THOM16]</a>: Thompson, Collin : Private Blockchain or Database?  URL: https://www.linkedin.com/pulse/private-blockchain-database-collin-thompson (abgerufen am 29.04.2018)
-
-<a name="ref_metz18">[METZ18]</a>: Metzger, Jochen: Distributed Ledger Technologie (DLT)  URL: https://wirtschaftslexikon.gabler.de/definition/distributed-ledger-technologie-dlt-54410 (abgerufen am 29.04.2018)
 
 <a name="ref_brow16">[BROW16]</a>: Brown, Richard 'Gendal' : On Distributed Databases and Distributed Ledgers  URL: https://gendal.me/2016/11/08/on-distributed-databases-and-distributed-ledgers/ (abgerufen am 29.04.2018)
 
-<a name="ref_itwi18">[ITWI18]</a>: itwissen.info: Verteilte Datenbank  URL: https://www.itwissen.info/Verteilte-Datenbank-distributed-database-DDB.html?query=Datenbank (abgerufen am 29.04.2018)
+<a name="ref_bsi18a">[BSI18a]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI) - Referat B 23, Cyber-Sicherheit für den Bürger und Öffentlichkeitsarbeit: IT-Sicherheit: 4 Glossar und Begriffsdefinitionen. Bonn, 2018 URL: https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/Glossar/glossar_node.html (abgerufen am 29.04.2018)
+
+<a name="ref_bsi18b">[BSI18b]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI), BSI – Technische Richtlinie: Kryptographische Verfahren: Empfehlungen und Schlüssellängen. Kürzel: BSI TR-02102-1, Bonn, 2018
 
 <a name="ref_cola18">[COLA18]</a>: Complexity Labs: Distributed Ledger  URL: https://www.youtube.com/watch?v=Cqk7PN8f8gM (abgerufen am 29.04.2018)
 
+<a name="ref_docu18">[DOCU18]</a>:  DocuSign Inc.: What are digital signatures?, San Francisco, 2018, URL: https://www.docusign.com/how-it-works/electronic-signature/digital-signature/digital-signature-faq (abgerufen am 04.05.2018)
 
+<a name="ref_gree15">[GREE15]</a>: Greenspan, Gideon: Private blockchains are more than “just” shared databases.  URL: https://www.multichain.com/blog/2015/10/private-blockchains-shared-databases/ (abgerufen am 29.04.2018)
+
+<a name="ref_itwi18">[ITWI18]</a>: itwissen.info: Verteilte Datenbank  URL: https://www.itwissen.info/Verteilte-Datenbank-distributed-database-DDB.html?query=Datenbank (abgerufen am 29.04.2018)
+
+<a name="ref_kuesters11">[KÜST11]</a>: Küsters, Ralf ; Wilke, Thomas: Moderne Kryptographie : Eine Einführung. 1. Aufl. Wiesbaden : Vieweg + Teubner, 2011, ISBN: 978-3-519-00509-4
+
+<a name="ref_metz18">[METZ18]</a>: Metzger, Jochen: Distributed Ledger Technologie (DLT)  URL: https://wirtschaftslexikon.gabler.de/definition/distributed-ledger-technologie-dlt-54410 (abgerufen am 29.04.2018)
+
+<a name="ref_paar16">[PAAR16]</a>: Paar, Christof ; Pelzl, Jan: Kryptografie verständlich : Ein Lehrbuch für Studierende und Anwender. Berlin, Heidelberg : Springer Vieweg, 2016, ISBN: 978-3-662-49296-3
+
+<a name="ref_ssl18">[SSL18]</a>:  SSL2BUY LLC.: Symmetric vs. Asymmetric Encryption – What are differences?. Anaheim, 2018 URL: https://www.ssl2buy.com/wiki/symmetric-vs-asymmetric-encryption-what-are-differences (abgerufen am 04.05.2018)
+
+<a name="ref_stop18">[STOP18]</a>: Stobitzer, Christian: Symmetrische Verschlüsselung. Karlsruhe. URL: http://www.kryptowissen.de/symmetrische-verschluesselung.html (abgerufen am 27.04.2018)
+
+<a name="ref_thom16">[THOM16]</a>: Thompson, Collin : Private Blockchain or Database?  URL: https://www.linkedin.com/pulse/private-blockchain-database-collin-thompson (abgerufen am 29.04.2018)
+
+<a name="ref_wiki18a">[WIKI18a]</a>: Wikipedia, ACID. URL: https://de.wikipedia.org/wiki/ACID (abgerufen am 29.04.2018)
+
+<a name="ref_wiki18b">[WIKI18b]</a>: Wikimedia: Message authentication code. URL: https://en.wikipedia.org/wiki/Message_authentication_code (abgerufen am 04.05.2018)
