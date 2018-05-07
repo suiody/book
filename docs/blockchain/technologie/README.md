@@ -104,7 +104,7 @@ Während oben die Merkmale der öffentlichen und privaten Blockchain aufgezählt
 
 Autor: Björn Enders-Müller
 
-### Immutable
+### Immutability
 
 Der Begriff der „immutability“ bedeutet übersetzt Unveränderlichkeit und ist eine zentrale Eigenschaft einer Blockchain. Dieser Abschnitt soll dazu dienen die Unveränderlichkeit einer Blockchain zu erklären und verdeutlichen.
 
