@@ -104,7 +104,7 @@ Während oben die Merkmale der öffentlichen und privaten Blockchain aufgezählt
 
 Autor: Björn Enders-Müller
 
-### Immutable
+### Immutability
 
 Der Begriff der „immutability“ bedeutet übersetzt Unveränderlichkeit und ist eine zentrale Eigenschaft einer Blockchain. Dieser Abschnitt soll dazu dienen die Unveränderlichkeit einer Blockchain zu erklären und verdeutlichen.
 
@@ -117,6 +117,19 @@ Trotz der grundlegenden Eigenschaften und Mechanismen der Blockchain ist es theo
 Eine theoretisch möglicher aber unwahrscheinlicher Angriff auf die Unveränderlichkeit einer Blockchain basiert dabei auf der Datenstruktur selbst. Es wird versucht die Hash-Werte der Blöcke zu manipulieren. Solang die verwendete Hash-Funktion nicht Kollisionsresistenz ist sind solche Angriffe theoretisch möglich. Für die Hash-Funktion müsste also garantiert werden, dass es so gut wie unmöglich ist, zwei unterschiedliche Blöcke zu finden, die einen identischen Hashwert produzieren. Selbst in Systemen, in denen ein einzelner Benutzer oder eine Gruppe über einen überproportionalen Anteil an Rechenleistung verfügen, könnten die Hash-Werte der Blöcke dann mit kollisionsresistenten Hash-Funktion abgesichert werden. Leider wurde bisher für viele der weitverbreiteten Hash-Funktionen genau diese Kollisionsresistenz noch nicht bewiesen. 
 
 Die Unveränderlichkeit der Blockchain kann auch durch ihre Konsensmechanismen angegriffen werden. Dies ist jedoch in der Regel schwer oder kostspielig. Bei der Bitcoin Blockchain könnte dies mit einem sogenannten „51% attack“ versucht werden. Dies bedeutet, dass ein Einzelner oder eine Gruppe mehr als 50% der Rechenleistung im Peer-to-Peer Netzwerk kontrolliert. Dies könnte dafür genutzt werden um das gesamte Netzwerk dahingeht zu lenken, dass eine manipulierte Blockchain akzeptiert wird und Transaktionen verfälscht werden. Im Bitcoin System wäre dieser Angriff sehr kostspielig. Die Hash-Power des gesamten Netzwerkes betrug im Oktober 2017 ca. 10.000.000 TH/s (1 TH/s eine Billionen/Tera Berechnungen pro Sekunde). Spezialisierte Hash-Hardware wie der Antminer S9 liefern 13,5 TH/s also spiegeln 740.741 dieser Gräte die gesamte Hash-Power des Systems wieder. Jedes dieser Geräte kostete am vierten Oktober letzten Jahres 1265 US-Dollar. Um also auf 51% Rechenleistung zu kommen wäre ca. 460 Millionen US-Dollar alleine an Hardware nötig.
+
+Anscheint wurden bisher die Unveränderlichkeit der Blockchain nur indirekt verletzt. Dies passiert, wenn ein sogenannter Blockchain „fork“ entsteht. Dies bedeutet so viel, dass sich die Blockchain nach einem bestimmten Block aufgabelt bzw. aufspaltet. Dies ist in der folgenden Abbildung nochmal verdeutlicht. Die Pfeile stellen die Hash-Werte, die jeweils auf den vorherigen Block zeigen dar. 
+
+<img src="./images/blockchain_simple_fork.png" >
+
+Beispiel für einen Blockchain Fork.
+Abbildung selbst erstellt
+
+Nach dem Block 3 folgen zwei unterschiedliche Block 4 Blöcke und auf diese jeweils ein Block 5. Solche Ereignisse können z.B. auftreten, wenn Änderungen an der Anwendersoftware durchgeführt werden oder diese durch ein andere ersetzt wird. Anwendersoftware für Blockchain Systeme sind häufig Open-Source und so für jeden frei zugänglich. So könnte z.B. jeder der in der dazu fähig ist die aktuelle Bitcoin Blockchain forken und seinen eigenen „Coin“ weiterführen. 
+
+So etwas Ähnliches ist bei der DAO passiert. Die DAO des Ethereum Netzwerk ist eine sogenannten „Decentralized Autonomous Organization“ und ist in dem entsprechenden Abschnitt genauer erläutert. Kurz beschrieben ist die DAO im Grunde ein „Unternehmen“, das durch kaufbare Stimmrechte (Tokens) gesteuert wurde. Die DAO arbeitet dabei stark mit Smart Contracts welche ebenfalls in ihrem eigenen Abschnitt beschrieben sind. Die Funktionsweise dieses Unternehmens und die damit verbundene Ethereum Blockchain wurde als unveränderlich angesehen. Ein Problem ist dann Anfang 2016 aufgetreten. Durch einen Softwarefehler in der DAO war es Angreifern gelungen Stimmrechte im Wert von 50 Millionen USD zu entwenden.
+
+Dieser Betrug trat eine ausschweifende Diskussion über die Unveränderlichkeit der Ethereum Blockchain los. Viele wünschten sich natürlich, dass dieser Betrug ausgeglichen wird und sprachen sich daher auch für eine Veränderung des Ethereum Protokolls aus. Eine weitere stark vertretene Meinung war die, dass der Quelltext als einzige Quelle von „Wahrheit“ niemals nachträglichen verändert werden darf, weil genau durch solche Eingriffe das sogenannte „immutability principle“ verletzt wird. Schlussendlich wurde die Diskussion gar nicht aufgelöst, sondern es wurde ein Fork der ursprünglichen Ethereum Blockchain erzeugt. Die Mehrheit der Anwender hat am Ende dafür gesorgt, dass die Blockchain angepasst wurde. Jedoch wird die alte Blockchain von einem Teil der Benutzer die alte Blockchain als Ethereum Classic weitergeführt. Wenn die DAO ein herkömmliches Unternehmen wäre hätte man diesen Betrug einfach zurückbuchen können, jedoch ist dies ein einer Blockchain durch die Konsensmechanismen nicht ohne weiteres möglich. Solche Probleme und der Umgang mit diesen erschüttern das Vertrauen der Benutzer und schädigen den Ruf von Blockchain Systemen. Die DAO zeigt schön auf wie die Unveränderlichkeit der Blockchain nur gegeben ist, wenn alle Benutzer im System damit einverstanden sind. 
 
 <a>[[HOFM17]](#ref_HOFM17)</a>
 
