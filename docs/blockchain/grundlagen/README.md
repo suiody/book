@@ -1,16 +1,17 @@
 # Grundlagen
 
 ## Kryptographie
-Autor: Patrick Vogt
+Autor: Lukas Stuckstette und Patrick Vogt
 
-...
+Um die Funktionsweise einer Blockchain verstehen zu können, ist ein grundsätzliches Verständnis im Bereich der Kryptographie unerlässlich. Dieses Kapitel soll deshalb einen Überblick über die Grundlagen der Kryptographie schaffen.
+Hierzu werden zunächst einige grundlegende Begrifflichkeiten erläutert sowie Themenbereiche der Verschlüsselung und Signierung vorgestellt. 
 
-### Einige wichtige Begriffe und Grundsätze der Kryptographie
+### Einige wichtige Begriffe der Kryptographie
 Autor: Patrick Vogt
 
 **CIA-Schutzziele**
 
-Das Akronym *CIA* ergibt sich aus den folgenden drei Begriffen,  <a>[[BAUM14]](#ref_baum14)</a>:
+Das Akronym *CIA* ergibt sich aus den folgenden drei Begriffen, <a>[[BAUM14]](#ref_baum14)</a>:
 
 * **C**onfidentiality (Vertraulichkeit): Informationen sind nur autorisierten Personen zugänglich
 * **I**ntegrity (Integrität): Informationen sind korrekt, aktuell und vollständig
@@ -24,13 +25,13 @@ Das Sicherheitsziel *Authentizität* gewährleistet, dass ein Kommunikationspart
 
 Ebenso wichtig ist der Begriff der *Nichtabstreitbarkeit*. Diese gewährleistet eine Nachweisbarkeit gegenüber Dritten, sodass der Versand und Empfang einer Nachricht bzw. von Daten/Informationen bewiesen werden kann. Hieraus ergeben sich zwei Unterkategorien:
 
-* Nichtabstreitbarkeit der Herkunft: verhindert ein nachträgliche Abstreiten des **Versands** einer Nachricht
+* Nichtabstreitbarkeit der Herkunft: verhindert ein nachträgliches Abstreiten des **Versands** einer Nachricht
 
 * Nichtabstreitbarkeit des Erhalts: verhindert ein nachträgliche Abstreiten des **Erhaltens** einer Nachricht
 
 **Verbindlichkeit**
 
-Der Begriff der *Verbindlichkeit* kombiniert Authentizität mit Nichtabstreitbarkeit. Im Falle einer Datenübertragung heißt das, dass der Absender seine Identität bewiesen hat und der Empfang der Nachricht nicht abgetritten werden kann, <a>[[BSI18a]](#ref_bsi18a)</a>.
+Der Begriff der *Verbindlichkeit* kombiniert Authentizität mit Nichtabstreitbarkeit. Im Falle einer Datenübertragung heißt das, dass der Absender seine Identität bewiesen hat und der Empfang der Nachricht nicht abgestritten werden kann <a>[[BSI18a]](#ref_bsi18a)</a>.
 
 **Kerckhoffs’ Prinzip**
 
@@ -40,27 +41,24 @@ Ein wichtiger Grundsatz der Kryptographie wurde 1883 von Auguste Kerkchoffs von 
 
 Alle heutzutage gängigen Verschlüsselungsverfahren folgen diesem Grundsatz. 
 
-### Hash Funktionen
+### Hashfunktionen
 Autor: Patrick Vogt
 
-Hash Funktionen bilden einen wichtigen Bestandteil innerhalb der Kryptographie. Sie berechnen aus einer gegebenen Nachricht einen sogenannten *Hashwert* fester Länge. Aus kryptografischer Sicht können Hashwerte als eine Prüfsumme gesehen werden. 
-Hierbei handelt es sich im Prinzip um eine "Einwegfunktion", bei der der Weg vom Definitionsbereich hin zum Bildbereich einfach durchzuführen ist, die Rückrichtung jedoch nur mit großem Aufwand bestimmbar ist. Selbst wenn es einem Angreifer gelingen sollte einen passenden Wert für einen gegebenen Hashwert zu berechnen ist sein Ergebnis nicht eindeutig, <a>[[PAAR16]](#ref_paar16)</a>. 
+Hashfunktionen bilden einen wichtigen Bestandteil innerhalb der Kryptographie. Sie berechnen aus einer gegebenen Nachricht einen sogenannten *Hashwert* fester Länge. Aus kryptografischer Sicht können Hashwerte als eine Prüfsumme gesehen werden. 
+Hierbei handelt es sich im Prinzip um eine "Einwegfunktion", bei der der Weg vom Definitionsbereich hin zum Bildbereich einfach durchzuführen ist, die Rückrichtung jedoch nur mit großem Aufwand bestimmbar ist. Selbst wenn es einem Angreifer gelingen sollte einen passenden Wert für einen gegebenen Hashwert zu berechnen, so ist sein Ergebnis nicht eindeutig <a>[[PAAR16]](#ref_paar16)</a>. 
 
-Das liegt daran, dass sogenannte *Kollisionen* auftreten können. Das bedeutet, dass aufgrund des eingeschränkten Bildbereichs (begrenzte Anzahl an Zeichen) und des gleichzeitig unbegrenzten Definitionsbereichs (quasi beliebig lange Zeichenfolge) zwangsweise Überschneidungen auftreten können. Je schwieriger es ist für eine Nachricht eine weitere Nachricht zu finden, die den gleichen Hashwert ergibt, desto *kollisionssicherer* ist das Hashverfahren.
+Das liegt daran, dass sogenannte *Kollisionen* auftreten können. Das bedeutet, dass aufgrund des eingeschränkten Bildbereichs (begrenzte Anzahl an Zeichen) und des gleichzeitig unbegrenzten Definitionsbereichs (quasi beliebig lange Zeichenfolge) zwangsweise Überschneidungen auftreten können. Je schwieriger man für eine gegebene Nachricht eine weitere Nachricht mit identischem Hashwert finden kann, desto *kollisionssicherer* ist das Hashverfahren.
 
-Hash Funktionen können z.B. für das Speichern von Passwörtern verwendet werden, sodass innerhalb einer Datenbank das Passwort nicht als Klartext (sondern als Hashwert) hinterlegt wird, <a>[[PAAR16]](#ref_paar16)</a>.
+Hashfunktionen können z.B. für das Speichern von Passwörtern verwendet werden, sodass innerhalb einer Datenbank das Passwort nicht als Klartext (sondern als Hashwert) hinterlegt wird <a>[[PAAR16]](#ref_paar16)</a>. Bei Blockchains werden Hashfunktionen z.B. dazu genutzt, um die einzelnen Blöcke miteinander zu verbinden (siehe Abschnitt "Die Blockchain" im Kapitel "Verteilte Systeme").
 
-
-...
 
 ### Verschlüsselung
 Autor: Patrick Vogt
-#### Verschlüsselungsarten
 
 *Symmetrische Verschlüsselung*
 
 Eine Art der Verschlüsselung ist die symmetrische Verschlüsselung. Bereits Gaius Julius Caesar (* 100 v. Chr., † 44 v. Chr.)  verwendete diese Art der Verschlüsselung zur Kommunikation mit seinen Generälen 
-(die sogenannte *Caesarchiffre*). Diese Schlüssel, die diese Verfahren verwenden werden *symmetrische Schlüssel* genannt, da Chiffrier- und Dechiffrierschlüssel identisch sind, siehe nachfolgende Abbildung.
+(die sogenannte *Caesarchiffre*). Die Schlüssel dieser Verfahren werden *symmetrische Schlüssel* genannt, da Chiffrier- und Dechiffrierschlüssel identisch sind, siehe nachfolgende Abbildung.
 
 <a name="ref_sym_encryption"></a>![sym_encryption](./images/sym_verschl.png "Symmetrische Verschlüsselung")
 
@@ -76,7 +74,7 @@ Abbildung entnommen aus <a>[[BAUM14]](#ref_baum14)</a>
 
 Ebenso ist zu erwähnen, dass die Anzahl der benötigten Schlüssel mit der Anzahl der Kommunikationspartner drastisch steigt. Damit N Teilnehmer sicher miteinander kommunizieren können, werden 
 **N(N-1)/2** Schlüssel benötigt <a>[[KÜST11]](#ref_kuesters11)</a>.
-Als Vorteil ist unter anderem die hohe Geschwindigkeit für das Ver- und Entschlüsseln der Daten zu nennen, da diese Verfahren meist auf effizienten Operationen (z.B. XOR) beruhen, <a>[[STOP18]](#ref_stop18)</a>.
+Als Vorteil ist unter anderem die hohe Geschwindigkeit für das Ver- und Entschlüsseln der Daten zu nennen, da diese Verfahren meist auf effizienten Operationen (z.B. XOR) beruhen <a>[[STOP18]](#ref_stop18)</a>.
 
 
 *Asymmetrische Verschlüsselung*
@@ -88,8 +86,8 @@ dargestellt.
 ![asym_encryption](./images/asym_verschl.png "Asymmetrische Verschlüsselung")
 Abbildung entnommen aus <a>[[SSL18]](#ref_ssl18)</a>
 
-Der Absender verwendet den öffentlichen Schlüssel des Empfängers zum Verschlüsseln der Daten. Der  Empfänger erhält den verschlüsselten Text und kann diesen mit seinem privaten Schlüssel
-dechiffrieren. Der große Vorteil dieses Verfahrens liegt darin, dass der öffentliche Schlüssel nicht geheim gehalten werden muss, da er nicht zum entschlüsseln der Daten genutzt werden kann. Der bei der symmetrischen Verschlüsselung benötigte sichere Kommunikationskanal entfällt somit, siehe nachfolgende Abbildung. Der private Schlüssel sollte dementsprechend nur dem jeweiligen Empfänger bekannt sein und von ihm geheim gehalten werden. Da die Schlüssel jeweils von nur einem Teilnehmer abhängig sind, steigt die Anzahl der Schlüssel bei steigender Anzahl an Teilnehmern nicht quadratisch - wie bei der symmetrischen Verschlüsselung - sondern linear.
+Der Absender verwendet den öffentlichen Schlüssel des Empfängers zum Verschlüsseln der Daten. Der Empfänger erhält den verschlüsselten Text und kann diesen mit seinem privaten Schlüssel
+dechiffrieren. Der große Vorteil dieses Verfahrens liegt darin, dass der öffentliche Schlüssel nicht geheim gehalten werden muss, da er nicht zum Entschlüsseln der Daten genutzt werden kann. Der bei der symmetrischen Verschlüsselung benötigte sichere Kommunikationskanal entfällt somit, siehe nachfolgende Abbildung. Der private Schlüssel sollte dementsprechend nur dem jeweiligen Empfänger bekannt sein und von ihm geheim gehalten werden. Da die Schlüssel jeweils von nur einem Teilnehmer abhängig sind, steigt die Anzahl der Schlüssel bei steigender Anzahl an Teilnehmern nicht quadratisch - wie bei der symmetrischen Verschlüsselung - sondern linear.
 
 ![asym_encryption](./images/asym_verschl2.png "Asymmetrische Verschlüsselung")
 
@@ -98,18 +96,18 @@ Abbildung entnommen aus <a>[[BAUM14]](#ref_baum14)</a>
 ### Digitale Signaturen
 Autor: Patrick Vogt
 
-Ähnlich wie herkömmliche (analoge) Signaturen sollen digitale Signaturen sicherstellen, dass eine Nachricht bzw. ein Dokument wirklich von dem Absender/Signierer stammt, der vorgibt das Dokument erstellt zu haben.
+Ähnlich wie herkömmliche (analoge) Signaturen sollen digitale Signaturen sicherstellen, dass eine Nachricht bzw. ein Dokument tatsächlich von dem Absender/Signierer stammt, der vorgibt das Dokument erstellt zu haben.
 
 Mithilfe von digitalen Signaturen kann sichergestellt werden, dass mit dem richtigen Gegenüber kommuniziert wird (beispielsweise beim Schlüsselaustausch zweier Teilnehmer).
 Eine Verschlüsselung der Daten erfolgt bei der Signierung nicht, wenngleich eine zusätzliche Verschlüsselung der signierten Nachricht durchaus üblich ist <a>[[PAAR16]](#ref_paar16)</a>.
 
-Die nachfolgende Abbildung zeigt den prinzipiellen Ablauf beim Übermitteln digial signierter Dokumente.
+Die nachfolgende Abbildung zeigt den prinzipiellen Ablauf beim Übermitteln digital signierter Dokumente.
 
-![dig_signature](./images/digital_sign.svg "Prinzipt der digitalen Signatur")
+![dig_signature](./images/digital_sign.svg "Prinzip der digitalen Signatur")
 Abbildung entnommen aus <a>[[DOCU18]](#ref_docu18)</a>
 
-Das zu signierende Dokument wird mithilfe einer Hash-Funktion verarbeitet und anschließend mit dem privaten Schlüssel des Signierers verschlüsselt und an das originale Dokument angefügt. Das nun signierte Dokument wird an den Empfänger gesendet, wo die Signatnur mithilfe des öffentlichen Schlüssels des Signierers entschlüsselt wird. Der Empfänger wendet anschließend den gleichen Hash-Algorithmus wie der Absender 
-auf das Dokument an und vergleicht sein Ergebnise mit der empfangenen Signatur. Stimmen die beiden Hashwerte überein wurde der Text mit sehr hoher Wahrscheinlichkeit von der angegebenen Person signiert und nicht verändert. 
+Das zu signierende Dokument wird mithilfe einer Hash-Funktion verarbeitet und anschließend mit dem privaten Schlüssel des Signierers verschlüsselt und an das originale Dokument angefügt. Das nun signierte Dokument wird an den Empfänger gesendet, wo die Signatur mithilfe des öffentlichen Schlüssels des Signierers entschlüsselt wird. Der Empfänger wendet anschließend den gleichen Hash-Algorithmus wie der Absender 
+auf das Dokument an und vergleicht sein Ergebniss mit der empfangenen Signatur. Stimmen die beiden Hashwerte überein wurde der Text mit sehr hoher Wahrscheinlichkeit von der angegebenen Person signiert und nicht verändert. 
 
 Im Gegensatz zu anderen (auf symmetrischen Verfahren basierenden) Signaturverfahren kann der Empfänger der Nachricht jedem - der ebenfalls den öffentlichen Schlüssel des Signierers kennt - beweisen, dass dieser die Nachricht verfasst hat.
 Solche digitalen Signaturverfahren können deshalb auch zur juristischen Beweisführung verwendet werden <a>[[PAAR16]](#ref_paar16)</a>.
@@ -131,7 +129,7 @@ Letztere Signaturen beinhalten zusätzlich zum Namen und Testschlüssel weitere 
 ### Message Authentication Code (MAC)
 Autor: Patrick Vogt
 
-Message Authentication Codes (MACs) werden auch kryptografische Prüfsummen genannt. Wie digitale Signaturen dienen sie der Sicherstellung der Integrität und Authentisierung von Nachrichten, wobei MACs jedoch auf einem symmetrischen Verfahren beruhen und eine Nichtzurückwesbarkeit somit nicht gewährleistet werden kann. MACs basieren auf Hash Funktionen oder Blockchiffren, wodurch sie in der Regel deutlich schneller als digitale Signaturen verarbeitet werden können.
+Message Authentication Codes (MACs) werden auch kryptografische Prüfsummen genannt. Wie digitale Signaturen dienen sie der Sicherstellung der Integrität und Authentisierung von Nachrichten, wobei MACs jedoch auf einem symmetrischen Verfahren beruhen und eine Nichtzurückweisbarkeit somit nicht gewährleistet werden kann. MACs basieren auf Hashfunktionen oder Blockchiffren, wodurch sie in der Regel deutlich schneller als digitale Signaturen verarbeitet werden können.
 
 Im Wesentlichen wird mithilfe eines symmetrischen Schlüssels *k* und der Nachricht *x* eine Prüfsumme *m* gebildet:
 
@@ -144,36 +142,44 @@ Der gesamte Vorgang läuft prinzipiell wie bei digitalen Signaturen ab:
 ![dig_signature](./images/crypto_mac.png "Prinzip von MACs")
 
 Abbildung entnommen aus <a>[[WIKI18b]](#ref_wiki18b)</a>
+
 Der Sender bildet mithilfe des gemeinsamen Schlüssels und der Nachricht eine Prüfsumme und verschickt die Nachricht mit angehängter Prüfsumme. Der Empfänger führt den gleichen Vorgang durch und prüft seine berechnete Prüfsumme mit der erhaltenen. 
 
 ### Public Key Infrastructure (PKI)
 Autor: Patrick Vogt
 
-Bei Verfahren, die auf asymmetrischen Methodiken beruhen muss sichergestellt werden, dass ein bestimmter öffentlicher Schlüssel tatsächlich einer gewissen Person gehört. Die Gültigkeit dieser *Schlüsselbindung* wird von *Zerzifizierungsstellen* (*certification authorities, CA*), mithilfe von Zertifikaten (*cetificates*), bestätigt <a>[[KÜST11]](#ref_kuesters11)</a>. 
+Bei Verfahren, die auf asymmetrischen Methodiken beruhen, muss sichergestellt werden, dass ein bestimmter öffentlicher Schlüssel tatsächlich einer gewissen Person gehört. Die Gültigkeit dieser *Schlüsselbindung* wird von *Zertifizierungsstellen* (*certification authorities, CA*), mithilfe von Zertifikaten (*cetificates*), bestätigt <a>[[KÜST11]](#ref_kuesters11)</a>. Public Key Infrastructures (PKIs) verwalten und verteilen die Schlüssel und Zertifikate.
 
-Public Key Infrastructures verwalten und verteilen die Schlüssel und Zertifikate. 
+Digitale Zertifikate bestehen aus einem öffentlichen Schlüssel sowie aus zusätzlichen Informationen, z.B.:
 
-...
+* wer hat das Zertifikat ausgestellt?
+* für wen wurde das Zertifikat ausgestellt (Besitzer des privaten Schlüssels)
+* Gültigkeitszeitraum des Zertifikats
+* Fingerprint (eindeutige Kennung; z.B. durch Anwenden einer Hashfunktion auf den öffentlichen Schlüssel)
+
+Damit der Austausch solcher Zertifikate einfach und sicher durchgeführt werden kann, erstellt eine Zertifizierungsstelle ein Wurzelzertifikat (Root-Zertifikat). Diese Stelle muss somit für alle Teilnehmer als vertrauenswürdig eingestuft sein. Mithilfe des zum Wurzelzertifikat gehörenden privaten Schlüssels können weiteren Zertifikate signiert werden. Private Schlüssel, deren Zertifikat von einem Wurzelzertifikat signiert wurde, können ebenfalls zum Signieren weiterer Zertifikate verwendet werden. Diese Zertifikate dürfen wiederum weitere Zertifkate signieren. Eine solche "Signatur-Kette" darf beliebig lang weitergeführt werden, solange sie beim Wurzelzertifikat einer CA beginnt.
+Zur Überprüfung der Vertrauenswürdigkeit und Echtheit müssen dementsprechend alle Zertifikate der Kette überprüft werden [[BSI18b]](#ref_BSI18b).
+
 ### Algorithmen
 Autor: Patrick Vogt
 
-Es gibt eine Vielzahl von verschiedenen Algorithmenarten im Bereich der Kryptographie. Die nachfolgende Tabelle soll, basierend auf den Empfehlungen in  <a>[[BSI18b]](#ref_bsi18b)</a>, einen Überblick über einige aktuell bedeutende Algorithmenarten verschaffen.
+Es gibt eine Vielzahl von verschiedenen Algorithmen Arten im Bereich der Kryptographie. Die nachfolgende Tabelle soll, basierend auf den Empfehlungen in [[BSI18c]](#ref_bsi18c), einen Überblick über einige aktuell bedeutende Algorithmen Arten verschaffen.
 
 | Verfahren          | Typ/Grundkategorie           | Anwendungsgebiet    | Sicherheitsbasis/-prinzip                                                                                    |
 |--------------------|------------------------------|---------------------|-----------------------------------------------------------------------------------------------------|
-| AES                | Blockschiffre                | Verschlüsselung     | Kein effizienter Weg zur Bestimmung des symmetrischen Schlüssels bekannt, viele Jahre bewährt                                                                             |
-| SHA                | Hash-Funktion                | Signatur            | Kollisionssichere Hash Funktion                                                                     |
-| CMAC               | MAC (Blockschiffre)          | Signatur            |   Sicheres Blockchiffre-Verfahren (??????)                                                                                                  |
-| HMAC               | MAC (Hash-Funktion)          | Signatur            | Kollisionssichere Hash Funktion                                                                                                    |
-| GMAC               | MAC (Blockschiffre)          | Signatur            |   Sicheres Blockchiffre-Verfahren (??????)                                                                                                                                                  |
+| AES                | Blockchiffre                | Verschlüsselung     | kein effizienter Weg zur Bestimmung des symmetrischen Schlüssels bekannt; viele Jahre bewährt                                                                             |
+| SHA                | Hash-Funktion                | Signatur            | kollisionssichere Hashfunktion                                                                     |
+| CMAC               | MAC (Blockchiffre)          | Signatur            |   sicheres Blockchiffre-Verfahren                                                                                                 |
+| HMAC               | MAC (Hash-Funktion)          | Signatur            | kollisionssichere Hashfunktion                                                                                                    |
+| GMAC               | MAC (Blockchiffre)          | Signatur            |   sicheres Blockchiffre-Verfahren                                                                                                                                                 |
 | RSA                | asym. Schlüsselpaar          | Verschl. & Signatur | Umkehrfunktion von Faktorisierung schwer zu berechnen                                                   |
 | DSA                | asym. Schlüsselpaar & Hashfunktion   | Signatur    | Umkehrfunktion von diskreter Log. schwer zu berechnen                                                   |
 | Elliptische Kurven | Einwegfunktion               | Signatur            | Umkehrfunktion von elliptischen Kurven schwer zu berechnen                                                   |
 | Diffie-Hellman     | Protokoll                    | Schlüsselaustausch  | Umkehrfunktion diskreter Exponentialfunktionen schwer zu berechnen |
-| Merkle-Signaturen  | Merkle-Tree & Einmalsignatur | Signatur            | Mehrstufige Hash-Verfahren zu einem einzigen Hashwert zusammenfassen (als   öffentlicher Schlüssel) |
+| Merkle-Signaturen  | Merkle-Tree & Einmalsignatur | Signatur            | mehrstufige Hash-Verfahren zu einem einzigen Hashwert zusammenfassen (als öffentlicher Schlüssel) |
 
 
-In <a>[[BSI18b]](#ref_bsi18b)</a> werden im speziellen folgende Algorithmen empfohlenen: 
+In <a>[[BSI18c]](#ref_bsi18c)</a> werden im speziellen folgende Algorithmen empfohlenen: 
 
 Blockchiffren (symmetrisches Verfahren für Blöcke fester Längen):
 * AES-128
@@ -199,7 +205,6 @@ MAC:
 * GMAC
 
 Signaturverfahren:
-
 * RSA
 * DSA
 * DSA auf Basis elliptischer Kurven
@@ -437,15 +442,17 @@ Die Entwicklung einer dezentralen Anwendung wird üblicherweise in drei Teilschr
 
 ## Literaturverzeichnis
 
-<a name="ref_baum14">[BAUM14]</a>: Baumann, Ulrike ; Franz, Elke ; Pfitzmann, Andreas: Kryptographische Systeme. Berlin : Springer Vieweg, 2014, ISBN: 978-3-642-45332-8 
+<a name="ref_baum14">[BAUM14]</a>: Baumann, Ulrike ; Franz, Elke ; Pfitzmann, Andreas: Kryptographische Systeme. Berlin: Springer Vieweg, 2014, ISBN: 978-3-642-45332-8 
 
 <a name="ref_bege18">[BEGE18]</a>: Begerow, Markus: Datenbank – Was ist eine Datenbank?  URL: http://www.datenbanken-verstehen.de/datenbank-grundlagen/datenbank/ (abgerufen am 29.04.2018)
 
-<a name="ref_brow16">[BROW16]</a>: Brown, Richard 'Gendal' : On Distributed Databases and Distributed Ledgers  URL: https://gendal.me/2016/11/08/on-distributed-databases-and-distributed-ledgers/ (abgerufen am 29.04.2018)
+<a name="ref_brow16">[BROW16]</a>: Brown, Richard 'Gendal': On Distributed Databases and Distributed Ledgers  URL: https://gendal.me/2016/11/08/on-distributed-databases-and-distributed-ledgers/ (abgerufen am 29.04.2018)
 
-<a name="ref_bsi18a">[BSI18a]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI) - Referat B 23, Cyber-Sicherheit für den Bürger und Öffentlichkeitsarbeit: IT-Sicherheit: 4 Glossar und Begriffsdefinitionen. Bonn, 2018 URL: https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/Glossar/glossar_node.html (abgerufen am 29.04.2018)
+<a name="ref_bsi18a">[BSI18a]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI) - Referat B 23, Cyber-Sicherheit für den Bürger und Öffentlichkeitsarbeit: IT-Sicherheit: 4 Glossar und Begriffsdefinitionen. Bonn, 2018, URL: https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/Glossar/glossar_node.html (abgerufen am 29.04.2018)
 
-<a name="ref_bsi18b">[BSI18b]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI), BSI – Technische Richtlinie: Kryptographische Verfahren: Empfehlungen und Schlüssellängen. Kürzel: BSI TR-02102-1, Bonn, 2018
+<a name="ref_bsi18b">[BSI18b]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI), Sicherheitsmechanismen in elektronischen Ausweisdokumenten: Public Key Infrastructure (PKI). Bonn, 2018, URL: https://www.bsi.bund.de/DE/Themen/DigitaleGesellschaft/ElektronischeIdentitaeten/Sicherheitsmechanismen/sicherPKI/pki_node.html (abgerufen am 08.05.2018)
+
+<a name="ref_bsi18c">[BSI18c]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI), BSI – Technische Richtlinie: Kryptographische Verfahren: Empfehlungen und Schlüssellängen. Kürzel: BSI TR-02102-1, Bonn, 2018
 
 <a name="ref_cola18">[COLA18]</a>: Complexity Labs: Distributed Ledger  URL: https://www.youtube.com/watch?v=Cqk7PN8f8gM (abgerufen am 29.04.2018)
 

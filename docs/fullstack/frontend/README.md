@@ -281,7 +281,7 @@ function someComponent() {
 
 Der Lebenszyklus einer React Klassenkomponente besteht aus verschiedenen Schritten und Phasen, siehe nachfolgende Abbildung. Es existieren noch weitere Lifecycle-Methoden. Da diese jedoch als veraltet gelten und mit der Version 17 entfernt werden, werden diese im Folgenden außer Acht gelassen. Als Informationsquelle für diesen Abschnitt wird, sofern nicht anders angegeben, [[FACE18b]](#ref_face18b) verwendet.
 
-<a name="ref_lifecycles"></a>![ref_lifecycles](./images/LifeCycleMethods.png "React Lifecycle Methoden")
+<a name="ref_lifecycles"></a>![ref_lifecycles](./images/lifecycle_methods.png "React Lifecycle Methoden")
 
 Abbildung bearbeitet; entnommen aus <a>[[MAJ18]](#ref_maj18)</a> (dort als interaktive Abbildung vorhanden)
 
@@ -345,7 +345,7 @@ Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **
 <a name="ref_face18b">[FACE18b]</a>: Facebook Inc.: React.Component. URL: https://reactjs.org/docs/react-component.html
 (abgerufen am 05.05.2018)
 
-<a name="ref_face18c">[FACE18c]</a>: Facebook Inc.: React.Component. URL: https://reactjs.org/docs/handling-events.html
+<a name="ref_face18c">[FACE18c]</a>: Facebook Inc.: Handling Events. URL: https://reactjs.org/docs/handling-events.html
 (abgerufen am 06.05.2018)
 
 <a name="ref_face18d">[FACE18d]</a>: Facebook Inc.: React.Component. URL: https://reactjs.org/docs/fragments.html
