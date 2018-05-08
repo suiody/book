@@ -158,12 +158,12 @@ Digitale Zertifikate bestehen aus einem öffentlichen Schlüssel sowie aus zusä
 * Fingerprint (eindeutige Kennung; z.B. durch Anwenden einer Hashfunkton auf den öffentlichen Schlüssel)
 
 Damit der Austausch solcher Zertifikate einfach und sicher durchgeführt werden kann, erstellt eine Zertifizierungsstelle ein Wurzelzertifikat (Root-Zertifikat). Diese Stelle muss somit für alle Teilnehmer als vertrauenswürdig eingestuft sein. Mithilfe des zum Wurzelzertifikat gehörenden privaten Schlüssels können weiteren Zertifikate signiert werden. Private Schlüssel, deren Zertifikat von einem Wurzelzertifikat signiert wurde, können ebenfalls zum Signieren weiterer Zertifikate verwendet werden. Diese Zertifikate dürfen wiederum weitere Zertifkate signieren. Eine solche "Signatur-Kette" darf beliebig lang weitergeführt werden, solange sie beim Wurzelzertifikat einer CA beginnt.
-Zur Überprüfung der Vertrauenswürdigkeit und Echtheit müssen dementsprechend alle Zertifikate der Kette überprüft werden [[BSI18c]](#ref_BSI18c).
+Zur Überprüfung der Vertrauenswürdigkeit und Echtheit müssen dementsprechend alle Zertifikate der Kette überprüft werden [[BSI18b]](#ref_BSI18b).
 
 ### Algorithmen
 Autor: Patrick Vogt
 
-Es gibt eine Vielzahl von verschiedenen Algorithmen Arten im Bereich der Kryptographie. Die nachfolgende Tabelle soll, basierend auf den Empfehlungen in <a>[[BSI18b]](#ref_bsi18b)</a>, einen Überblick über einige aktuell bedeutende Algorithmen Arten verschaffen.
+Es gibt eine Vielzahl von verschiedenen Algorithmen Arten im Bereich der Kryptographie. Die nachfolgende Tabelle soll, basierend auf den Empfehlungen in <a>[[BSI18c]](#ref_bsi18c)</a>, einen Überblick über einige aktuell bedeutende Algorithmen Arten verschaffen.
 
 | Verfahren          | Typ/Grundkategorie           | Anwendungsgebiet    | Sicherheitsbasis/-prinzip                                                                                    |
 |--------------------|------------------------------|---------------------|-----------------------------------------------------------------------------------------------------|
@@ -179,7 +179,7 @@ Es gibt eine Vielzahl von verschiedenen Algorithmen Arten im Bereich der Kryptog
 | Merkle-Signaturen  | Merkle-Tree & Einmalsignatur | Signatur            | mehrstufige Hash-Verfahren zu einem einzigen Hashwert zusammenfassen (als öffentlicher Schlüssel) |
 
 
-In <a>[[BSI18b]](#ref_bsi18b)</a> werden im speziellen folgende Algorithmen empfohlenen: 
+In <a>[[BSI18c]](#ref_bsi18c)</a> werden im speziellen folgende Algorithmen empfohlenen: 
 
 Blockchiffren (symmetrisches Verfahren für Blöcke fester Längen):
 * AES-128
@@ -450,9 +450,9 @@ Die Entwicklung einer dezentralen Anwendung wird üblicherweise in drei Teilschr
 
 <a name="ref_bsi18a">[BSI18a]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI) - Referat B 23, Cyber-Sicherheit für den Bürger und Öffentlichkeitsarbeit: IT-Sicherheit: 4 Glossar und Begriffsdefinitionen. Bonn, 2018, URL: https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/Glossar/glossar_node.html (abgerufen am 29.04.2018)
 
-<a name="ref_bsi18b">[BSI18b]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI), BSI – Technische Richtlinie: Kryptographische Verfahren: Empfehlungen und Schlüssellängen. Kürzel: BSI TR-02102-1, Bonn, 2018
+<a name="ref_bsi18b">[BSI18b]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI), Sicherheitsmechanismen in elektronischen Ausweisdokumenten: Public Key Infrastructure (PKI). Bonn, 2018, URL: https://www.bsi.bund.de/DE/Themen/DigitaleGesellschaft/ElektronischeIdentitaeten/Sicherheitsmechanismen/sicherPKI/pki_node.html (abgerufen am 08.05.2018)
 
-<a name="ref_bsi18c">[BSI18c]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI), Sicherheitsmechanismen in elektronischen Ausweisdokumenten: Public Key Infrastructure (PKI). Bonn, 2018, URL: https://www.bsi.bund.de/DE/Themen/DigitaleGesellschaft/ElektronischeIdentitaeten/Sicherheitsmechanismen/sicherPKI/pki_node.html (abgerufen am 08.05.2018)
+<a name="ref_bsi18c">[BSI18c]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI), BSI – Technische Richtlinie: Kryptographische Verfahren: Empfehlungen und Schlüssellängen. Kürzel: BSI TR-02102-1, Bonn, 2018
 
 <a name="ref_cola18">[COLA18]</a>: Complexity Labs: Distributed Ledger  URL: https://www.youtube.com/watch?v=Cqk7PN8f8gM (abgerufen am 29.04.2018)
 
