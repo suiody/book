@@ -41,15 +41,15 @@ Ein wichtiger Grundsatz der Kryptographie wurde 1883 von Auguste Kerkchoffs von 
 
 Alle heutzutage gängigen Verschlüsselungsverfahren folgen diesem Grundsatz. 
 
-### Hashfunktonen
+### Hashfunktionen
 Autor: Patrick Vogt
 
-Hashfunktonen bilden einen wichtigen Bestandteil innerhalb der Kryptographie. Sie berechnen aus einer gegebenen Nachricht einen sogenannten *Hashwert* fester Länge. Aus kryptografischer Sicht können Hashwerte als eine Prüfsumme gesehen werden. 
+Hashfunktionen bilden einen wichtigen Bestandteil innerhalb der Kryptographie. Sie berechnen aus einer gegebenen Nachricht einen sogenannten *Hashwert* fester Länge. Aus kryptografischer Sicht können Hashwerte als eine Prüfsumme gesehen werden. 
 Hierbei handelt es sich im Prinzip um eine "Einwegfunktion", bei der der Weg vom Definitionsbereich hin zum Bildbereich einfach durchzuführen ist, die Rückrichtung jedoch nur mit großem Aufwand bestimmbar ist. Selbst wenn es einem Angreifer gelingen sollte einen passenden Wert für einen gegebenen Hashwert zu berechnen ist sein Ergebnis nicht eindeutig <a>[[PAAR16]](#ref_paar16)</a>. 
 
 Das liegt daran, dass sogenannte *Kollisionen* auftreten können. Das bedeutet, dass aufgrund des eingeschränkten Bildbereichs (begrenzte Anzahl an Zeichen) und des gleichzeitig unbegrenzten Definitionsbereichs (quasi beliebig lange Zeichenfolge) zwangsweise Überschneidungen auftreten können. Je schwieriger es ist für eine Nachricht eine weitere Nachricht zu finden, die den gleichen Hashwert ergibt, desto *kollisionssicherer* ist das Hashverfahren.
 
-Hashfunktonen können z.B. für das Speichern von Passwörtern verwendet werden, sodass innerhalb einer Datenbank das Passwort nicht als Klartext (sondern als Hashwert) hinterlegt wird <a>[[PAAR16]](#ref_paar16)</a>.
+Hashfunktionen können z.B. für das Speichern von Passwörtern verwendet werden, sodass innerhalb einer Datenbank das Passwort nicht als Klartext (sondern als Hashwert) hinterlegt wird <a>[[PAAR16]](#ref_paar16)</a>.
 
 
 ### Verschlüsselung
@@ -129,7 +129,7 @@ Letztere Signaturen beinhalten zusätzlich zum Namen und Testschlüssel weitere 
 ### Message Authentication Code (MAC)
 Autor: Patrick Vogt
 
-Message Authentication Codes (MACs) werden auch kryptografische Prüfsummen genannt. Wie digitale Signaturen dienen sie der Sicherstellung der Integrität und Authentisierung von Nachrichten, wobei MACs jedoch auf einem symmetrischen Verfahren beruhen und eine Nichtzurückweisbarkeit somit nicht gewährleistet werden kann. MACs basieren auf Hashfunktonen oder Blockchiffren, wodurch sie in der Regel deutlich schneller als digitale Signaturen verarbeitet werden können.
+Message Authentication Codes (MACs) werden auch kryptografische Prüfsummen genannt. Wie digitale Signaturen dienen sie der Sicherstellung der Integrität und Authentisierung von Nachrichten, wobei MACs jedoch auf einem symmetrischen Verfahren beruhen und eine Nichtzurückweisbarkeit somit nicht gewährleistet werden kann. MACs basieren auf Hashfunktionen oder Blockchiffren, wodurch sie in der Regel deutlich schneller als digitale Signaturen verarbeitet werden können.
 
 Im Wesentlichen wird mithilfe eines symmetrischen Schlüssels *k* und der Nachricht *x* eine Prüfsumme *m* gebildet:
 
@@ -155,7 +155,7 @@ Digitale Zertifikate bestehen aus einem öffentlichen Schlüssel sowie aus zusä
 * wer hat das Zertifikat ausgestellt?
 * für wen wurde das Zertifikat ausgestellt (Besitzer des privaten Schlüssels)
 * Gültigkeitszeitraum des Zertifikats
-* Fingerprint (eindeutige Kennung; z.B. durch Anwenden einer Hashfunkton auf den öffentlichen Schlüssel)
+* Fingerprint (eindeutige Kennung; z.B. durch Anwenden einer Hashfunktion auf den öffentlichen Schlüssel)
 
 Damit der Austausch solcher Zertifikate einfach und sicher durchgeführt werden kann, erstellt eine Zertifizierungsstelle ein Wurzelzertifikat (Root-Zertifikat). Diese Stelle muss somit für alle Teilnehmer als vertrauenswürdig eingestuft sein. Mithilfe des zum Wurzelzertifikat gehörenden privaten Schlüssels können weiteren Zertifikate signiert werden. Private Schlüssel, deren Zertifikat von einem Wurzelzertifikat signiert wurde, können ebenfalls zum Signieren weiterer Zertifikate verwendet werden. Diese Zertifikate dürfen wiederum weitere Zertifkate signieren. Eine solche "Signatur-Kette" darf beliebig lang weitergeführt werden, solange sie beim Wurzelzertifikat einer CA beginnt.
 Zur Überprüfung der Vertrauenswürdigkeit und Echtheit müssen dementsprechend alle Zertifikate der Kette überprüft werden [[BSI18b]](#ref_BSI18b).
@@ -168,9 +168,9 @@ Es gibt eine Vielzahl von verschiedenen Algorithmen Arten im Bereich der Kryptog
 | Verfahren          | Typ/Grundkategorie           | Anwendungsgebiet    | Sicherheitsbasis/-prinzip                                                                                    |
 |--------------------|------------------------------|---------------------|-----------------------------------------------------------------------------------------------------|
 | AES                | Blockchiffre                | Verschlüsselung     | kein effizienter Weg zur Bestimmung des symmetrischen Schlüssels bekannt; viele Jahre bewährt                                                                             |
-| SHA                | Hash-Funktion                | Signatur            | kollisionssichere Hashfunkton                                                                     |
+| SHA                | Hash-Funktion                | Signatur            | kollisionssichere Hashfunktion                                                                     |
 | CMAC               | MAC (Blockchiffre)          | Signatur            |   sicheres Blockchiffre-Verfahren                                                                                                 |
-| HMAC               | MAC (Hash-Funktion)          | Signatur            | kollisionssichere Hashfunkton                                                                                                    |
+| HMAC               | MAC (Hash-Funktion)          | Signatur            | kollisionssichere Hashfunktion                                                                                                    |
 | GMAC               | MAC (Blockchiffre)          | Signatur            |   sicheres Blockchiffre-Verfahren                                                                                                                                                 |
 | RSA                | asym. Schlüsselpaar          | Verschl. & Signatur | Umkehrfunktion von Faktorisierung schwer zu berechnen                                                   |
 | DSA                | asym. Schlüsselpaar & Hashfunktion   | Signatur    | Umkehrfunktion von diskreter Log. schwer zu berechnen                                                   |
