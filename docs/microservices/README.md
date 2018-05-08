@@ -1,6 +1,6 @@
 # Microservices
 
->Ein Microservice ist ein leichtgewichtiger autonomer Dienst, der eine einzige Aufgabe erfüllt und mit anderen ähnlichen Diensten über eine gut definierte Schnittstelle kollaboriert. [Nami2014]
+>Ein Microservice ist ein leichtgewichtiger autonomer Dienst, der eine einzige Aufgabe erfüllt und mit anderen ähnlichen Diensten über eine gut definierte Schnittstelle kollaboriert. <a>[[NAMI14]](#ref_Nami14)</a>
 
 Es ist eine Variante der serviceorientierten Architektur (SOA)
 Hinzufügen oder Abschalten eines Dienstes sollte keine Auswirkungen auf die Arbeit andere Dienste haben.
@@ -42,7 +42,7 @@ __Message-bus__
 
 _Message Bus_, Abbildung angepasst aus <a>[[NAMI14]](#ref_Nami14)</a>
 
-Eine der Hauptaufgaben von Microservices ist eine Minimierung von Einflüssen im Falle einer möglichen Schnittstellenänderung.[Nami2014]
+Eine der Hauptaufgaben von Microservices ist eine Minimierung von Einflüssen im Falle einer möglichen Schnittstellenänderung. <a>[[NAMI14]](#ref_Nami14)</a>
 
 ## Unterschiede zu monolitischen Anwendungen
 
@@ -51,13 +51,13 @@ Monolytische Anwendungen sind als ein Ganzes entwickelt. Sie bestehen oft aus dr
 - Serverseitige Applikation
 - Datenbank
 
-Die serverseitige Applikation ist ein solches Monolith, weil sie für HTTP-Anfragen zuständig ist, Zugriffe auf die Datenbank steuert und mit dem Browser interagiert. Eine Änderung im System führt zu einer neuen Version.[Lewi2014]
+Die serverseitige Applikation ist ein solches Monolith, weil sie für HTTP-Anfragen zuständig ist, Zugriffe auf die Datenbank steuert und mit dem Browser interagiert. Eine Änderung im System führt zu einer neuen Version.<a>[[LEWI14]](#ref_Lewi14)</a>
 
-Jedes einzelnes Microservice kann in komplett anderer Programmiersprache geschrieben sein. Im Gegensatz dazu kann eine monolitische Architektur zwar mehrere Dienste oder Komponenten enthalten - sie bilden aber trotzdem ein Ganzes.[Nami2014]
+Jedes einzelnes Microservice kann in komplett anderer Programmiersprache geschrieben sein. Im Gegensatz dazu kann eine monolitische Architektur zwar mehrere Dienste oder Komponenten enthalten - sie bilden aber trotzdem ein Ganzes.<a>[[NAMI14]](#ref_Nami14)</a>
 
 ### Vorteile
 
-[Nami2014]
+<a>[[NAMI14]](#ref_Nami14)</a>
 - übersichtlicher Code, weil je Dienst, deswegen einfacher neuer Entwickler reinzubringen
 - Modifizierbarkeit, muss nicht die gesamte Architektur verändert werden
 - Macht kontinuierliche Entwicklung einfacher
@@ -70,7 +70,7 @@ Jedes einzelnes Microservice kann in komplett anderer Programmiersprache geschri
 
 ### Nachteile
 
-[Nami2014]
+<a>[[NAMI14]](#ref_Nami14)</a>
 - Viele Remote Calls
 - Bis zu einer bestimmten Größe, schwieriger zu entwickeln, da Partitionierung
 - Schwerer aufzusetzen als eine monolytische Struktur (größter Nachteil)
