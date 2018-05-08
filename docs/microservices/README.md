@@ -9,7 +9,7 @@ Bild 1 zeigt einen möglichen Aufbau von Microservices. Jedem Dienst entspricht 
 
 ![Bild 1: Architektur](./images/architecture.png)
 
-_Abbildung 1. Architektur_
+_Architektur_, Abbildung aus <a>[[MIRI17]](#ref_Miri17)</a>
 
 Vorraussetzungen für Microservices sind:
 1. Request/Response calls mit willkürlich strukturierten Daten
@@ -26,21 +26,21 @@ Einige häufig anzutreffende Entwürfen von Remote Calls sind Direct Call, Gatew
 
 __Direct Call__
 
-![Bild 2: Direct call](./images/direct_call_pattern.png)
+<img src="./images/direct_call_pattern.png" alt="Direct Call" style="width: 400px;"/>
 
-_Abbildung 2. Direct Call_
+_Direct Call_, Abbildung angepasst aus <a>[[NAMI14]](#ref_Nami14)</a>
 
 __Gateway__
 
-![Bild 3: Gateway](./images/gateway_pattern.png)
+<img src="./images/gateway_pattern.png" alt="Gateway" style="width: 400px;"/>
 
-_Abbildung 3. Gateway_
+_Gateway_, Abbildung angepasst aus <a>[[NAMI14]](#ref_Nami14)</a>
 
 __Message-bus__
 
-![Bild 4: Message Bus](./images/message_bus_pattern.png)
+<img src="./images/message_bus_pattern.png" alt="Message Bus" style="width: 400px;"/>
 
-_Abbildung 3. Message-bus_
+_Message Bus_, Abbildung angepasst aus <a>[[NAMI14]](#ref_Nami14)</a>
 
 Eine der Hauptaufgaben von Microservices ist eine Minimierung von Einflüssen im Falle einer möglichen Schnittstellenänderung.[Nami2014]
 
@@ -109,13 +109,15 @@ Function as a service
 
 ## Quellen
 
-[Chen2018] Chen, Lianping: Microservices: Architecting for Continuous Delivery and DevOps, IEEE International Conference on Software Architecture, 2018
+<a name="ref_Chen18">[CHEN18]</a>: Chen, Lianping: Microservices: Architecting for Continuous Delivery and DevOps, IEEE International Conference on Software Architecture, 2018
 
-[Lewi2014] Lewis James; Fowler, Martin: Microservices, a definition of this new architectural term, 25.03.2014, https://martinfowler.com/articles/microservices.html (letzter Zugriff: 29.04.2018)
+<a name="ref_Miri17">[MIRI17]</a>: Miri, Ima: Microservices vs. SOA, 04.01.2017, URL: https://dzone.com/articles/microservices-vs-soa-2
 
-[Nami2014] Namiot, Dmitry; Sneps-Sneppe, Manfred: On Micro-services Architecture, International Journal of Open Information Technologies ISSN: 2307-8162 vol. 2, no. 9, 2014,
+<a name="ref_Lewi14">[LEWI14]</a>: Lewis James; Fowler, Martin: Microservices, a definition of this new architectural term, 25.03.2014, https://martinfowler.com/articles/microservices.html (letzter Zugriff: 29.04.2018)
+
+<a name="ref_Nami14">[NAMI14]</a>: Namiot, Dmitry; Sneps-Sneppe, Manfred: On Micro-services Architecture, International Journal of Open Information Technologies ISSN: 2307-8162 vol. 2, no. 9, 2014,
 https://cyberleninka.ru/article/v/on-micro-services-architecture (letzter Zugriff: 26.04.2018)
 
-[Newm2015] Newman, Sam: Building Microservices: Designing Fine-Grained Systems, O'Reilly Media, Inc., 02.02.2015
+<a name="ref_Newm15">[NEWM15]</a>: Newman, Sam: Building Microservices: Designing Fine-Grained Systems, O'Reilly Media, Inc., 02.02.2015
 
-[Rich2017] Richardson, Chris: Pattern: Microservice Architecture, 2017, http://microservices.io/patterns/microservices.html (letzter Zugriff: 26.04.2018)
+<a name="ref_Rich17">[RICH17]</a>: Richardson, Chris: Pattern: Microservice Architecture, 2017, http://microservices.io/patterns/microservices.html (letzter Zugriff: 26.04.2018)
