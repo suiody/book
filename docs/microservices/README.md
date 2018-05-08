@@ -16,7 +16,7 @@ Vorraussetzungen für Microservices sind:
 2. Asynchrone Events in Echtzeit
 3. Bidirektionale Requests und Responses
 4. Requests und Responses können willkürlich geschachtelt sein
-5. Serialisierbarer Nachrichtenformat: wie JSON, XML
+5. Nachrichtenformat: wie JSON, XML
 
 Wenn es um Microservices geht müssen die Remote Calls näher betrachtet werden.
 
@@ -44,16 +44,16 @@ _Message Bus_, Abbildung angepasst aus <a>[[NAMI14]](#ref_Nami14)</a>
 
 Eine der Hauptaufgaben von Microservices ist eine Minimierung von Einflüssen im Falle einer möglichen Schnittstellenänderung. <a>[[NAMI14]](#ref_Nami14)</a>
 
-## Unterschiede zu monolitischen Anwendungen
+## Unterschiede zu monolithischen Anwendungen
 
-Monolytische Anwendungen sind als ein Ganzes entwickelt. Sie bestehen oft aus drei Schichten:
+Monolithischen Anwendungen werden als ein Ganzes entwickelt. Sie bestehen oft aus drei Schichten:
 - Clientseitige Applikation
 - Serverseitige Applikation
 - Datenbank
 
 Die serverseitige Applikation ist ein solches Monolith, weil sie für HTTP-Anfragen zuständig ist, Zugriffe auf die Datenbank steuert und mit dem Browser interagiert. Eine Änderung im System führt zu einer neuen Version.<a>[[LEWI14]](#ref_Lewi14)</a>
 
-Jedes einzelnes Microservice kann in komplett anderer Programmiersprache geschrieben sein. Im Gegensatz dazu kann eine monolitische Architektur zwar mehrere Dienste oder Komponenten enthalten - sie bilden aber trotzdem ein Ganzes.<a>[[NAMI14]](#ref_Nami14)</a>
+Jedes einzelnes Microservice kann in komplett anderer Programmiersprache geschrieben sein. Im Gegensatz dazu kann eine monolithische Architektur zwar mehrere Dienste oder Komponenten enthalten - sie bilden aber trotzdem ein Ganzes.<a>[[NAMI14]](#ref_Nami14)</a>
 
 ### Vorteile
 
@@ -73,7 +73,7 @@ Jedes einzelnes Microservice kann in komplett anderer Programmiersprache geschri
 <a>[[NAMI14]](#ref_Nami14)</a>
 - Viele Remote Calls
 - Bis zu einer bestimmten Größe, schwieriger zu entwickeln, da Partitionierung
-- Schwerer aufzusetzen als eine monolytische Struktur (größter Nachteil)
+- Schwerer aufzusetzen als eine monolithische Struktur (größter Nachteil)
 - Mehrere Kopien gleichzeitig laufen zu lassen nicht möglich, Load Balancer
 - Zusätzliche Komplexität, weil ein System in unterschiedliche Dienste partitioniert werden soll
 - Größerer Speicherbedarf, weil jeder Dienst eigenen Platz beansprucht
