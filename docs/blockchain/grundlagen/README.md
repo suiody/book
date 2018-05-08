@@ -45,11 +45,11 @@ Alle heutzutage gängigen Verschlüsselungsverfahren folgen diesem Grundsatz.
 Autor: Patrick Vogt
 
 Hashfunktionen bilden einen wichtigen Bestandteil innerhalb der Kryptographie. Sie berechnen aus einer gegebenen Nachricht einen sogenannten *Hashwert* fester Länge. Aus kryptografischer Sicht können Hashwerte als eine Prüfsumme gesehen werden. 
-Hierbei handelt es sich im Prinzip um eine "Einwegfunktion", bei der der Weg vom Definitionsbereich hin zum Bildbereich einfach durchzuführen ist, die Rückrichtung jedoch nur mit großem Aufwand bestimmbar ist. Selbst wenn es einem Angreifer gelingen sollte einen passenden Wert für einen gegebenen Hashwert zu berechnen ist sein Ergebnis nicht eindeutig <a>[[PAAR16]](#ref_paar16)</a>. 
+Hierbei handelt es sich im Prinzip um eine "Einwegfunktion", bei der der Weg vom Definitionsbereich hin zum Bildbereich einfach durchzuführen ist, die Rückrichtung jedoch nur mit großem Aufwand bestimmbar ist. Selbst wenn es einem Angreifer gelingen sollte einen passenden Wert für einen gegebenen Hashwert zu berechnen, so ist sein Ergebnis nicht eindeutig <a>[[PAAR16]](#ref_paar16)</a>. 
 
-Das liegt daran, dass sogenannte *Kollisionen* auftreten können. Das bedeutet, dass aufgrund des eingeschränkten Bildbereichs (begrenzte Anzahl an Zeichen) und des gleichzeitig unbegrenzten Definitionsbereichs (quasi beliebig lange Zeichenfolge) zwangsweise Überschneidungen auftreten können. Je schwieriger es ist für eine Nachricht eine weitere Nachricht zu finden, die den gleichen Hashwert ergibt, desto *kollisionssicherer* ist das Hashverfahren.
+Das liegt daran, dass sogenannte *Kollisionen* auftreten können. Das bedeutet, dass aufgrund des eingeschränkten Bildbereichs (begrenzte Anzahl an Zeichen) und des gleichzeitig unbegrenzten Definitionsbereichs (quasi beliebig lange Zeichenfolge) zwangsweise Überschneidungen auftreten können. Je schwieriger man für eine gegebene Nachricht eine weitere Nachricht mit identischem Hashwert finden kann, desto *kollisionssicherer* ist das Hashverfahren.
 
-Hashfunktionen können z.B. für das Speichern von Passwörtern verwendet werden, sodass innerhalb einer Datenbank das Passwort nicht als Klartext (sondern als Hashwert) hinterlegt wird <a>[[PAAR16]](#ref_paar16)</a>.
+Hashfunktionen können z.B. für das Speichern von Passwörtern verwendet werden, sodass innerhalb einer Datenbank das Passwort nicht als Klartext (sondern als Hashwert) hinterlegt wird <a>[[PAAR16]](#ref_paar16)</a>. Bei Blockchains werden Hashfunktionen z.B. dazu genutzt, um die einzelnen Blöcke miteinander zu verbinden (siehe Abschnitt "Die Blockchain" im Kapitel "Verteilte Systeme").
 
 
 ### Verschlüsselung
