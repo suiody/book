@@ -31,7 +31,7 @@ Ebenso wichtig ist der Begriff der *Nichtabstreitbarkeit*. Diese gewährleistet 
 
 **Verbindlichkeit**
 
-Der Begriff der *Verbindlichkeit* kombiniert Authentizität mit Nichtabstreitbarkeit. Im Falle einer Datenübertragung heißt das, dass der Absender seine Identität bewiesen hat und der Empfang der Nachricht nicht abgestritten werden kann, <a>[[BSI18a]](#ref_bsi18a)</a>.
+Der Begriff der *Verbindlichkeit* kombiniert Authentizität mit Nichtabstreitbarkeit. Im Falle einer Datenübertragung heißt das, dass der Absender seine Identität bewiesen hat und der Empfang der Nachricht nicht abgestritten werden kann <a>[[BSI18a]](#ref_bsi18a)</a>.
 
 **Kerckhoffs’ Prinzip**
 
@@ -74,7 +74,7 @@ Abbildung entnommen aus <a>[[BAUM14]](#ref_baum14)</a>
 
 Ebenso ist zu erwähnen, dass die Anzahl der benötigten Schlüssel mit der Anzahl der Kommunikationspartner drastisch steigt. Damit N Teilnehmer sicher miteinander kommunizieren können, werden 
 **N(N-1)/2** Schlüssel benötigt <a>[[KÜST11]](#ref_kuesters11)</a>.
-Als Vorteil ist unter anderem die hohe Geschwindigkeit für das Ver- und Entschlüsseln der Daten zu nennen, da diese Verfahren meist auf effizienten Operationen (z.B. XOR) beruhen, <a>[[STOP18]](#ref_stop18)</a>.
+Als Vorteil ist unter anderem die hohe Geschwindigkeit für das Ver- und Entschlüsseln der Daten zu nennen, da diese Verfahren meist auf effizienten Operationen (z.B. XOR) beruhen <a>[[STOP18]](#ref_stop18)</a>.
 
 
 *Asymmetrische Verschlüsselung*
