@@ -446,12 +446,12 @@ class StartStopButton extends React.Component {
     return (
       this.state.isRunning 
       ?
-        // wird gerendert, wenn this.state.isRunning == true
+        // wird gerendert, wenn this.state.isRunning true ist
         <button onClick={this.stop}>
           Stopp
         </button>
       :
-        // wird gerendert, wenn this.state.isRunning == false
+        // wird gerendert, wenn this.state.isRunning false ist
         <button onClick={this.start}>
           Start
         </button>
@@ -460,7 +460,7 @@ class StartStopButton extends React.Component {
 }
 ```
 
-Statt des hier verwendeten Konditionaloperator (... ? ... : ...) kann auch if-Konstrukt verwendet werden. In diesem Fall darf die entsprechende Logik jedoch nicht "inline" in das return-Statement. 
+Statt des hier verwendeten Konditionaloperator (... ? ... : ...) kann auch z.B. ein if-Konstrukt verwendet werden. In diesem Fall darf die entsprechende Logik jedoch nicht "inline" in das return-Statement, sondern muss als extra Code davor. 
 
 Beispiel: 
 
@@ -488,14 +488,18 @@ render() {
 ```
 
 ### Patterns / Architektur 
-
+[[CHAN17]](ref_chan17)
 #### Flux
+[[TSON18]](ref_tson18)
 #### State management (Redux)
+[[TSON18]](ref_tson18)
 #### Komposition vs. Vererbung
 #### Higher Order Components (HOCs)
-
+[[CHAN17]](ref_chan17)
+[[TSON18]](ref_tson18)
 ### Weitere React-Themen
-#### Virtuelles DOM & Reconciliation
+#### Virtuelles DOM & 
+https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e
 #### Type checking/static types in JavaScript
 ...
 ##### PropTypes
@@ -539,7 +543,13 @@ PropTypes überprüft die Typen aus Gründen der Performance nur im Entwicklermo
 
 
 ##### Flow
+
 ##### Typescript
+Typescript ist eine von Microsoft entwickelte Programmiersprache. Da sie JavaScript erweitert und somit auch kompatibel zu JavaScript ist, lassen sich JavaScript Projekte i.d.R. recht einfach migrieren.
+
+TSLint
+
+Schnellstart: [link](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter)
 
 #### Context
 
@@ -551,6 +561,8 @@ PropTypes überprüft die Typen aus Gründen der Performance nur im Entwicklermo
 #### Serverseitiges Rendern
 
 ### Literaturverzeichnis
+
+<a name="ref_chan17">[CHAN17]</a>: Tsonev, Krasimir: React Patterns. URL: https://reactpatterns.com/ (abgerufen am 09.05.2018)
 
 <a name="ref_maj18">[MAJ18]</a>: Maj, Wojciech: Interactive React lifecycle methods diagram. URL: https://github.com/wojtekmaj/react-lifecycle-methods-diagram
 (abgerufen am 05.05.2018)
@@ -572,5 +584,7 @@ PropTypes überprüft die Typen aus Gründen der Performance nur im Entwicklermo
 
 <a name="ref_mozi18">[MOZI18]</a>: Mozilla and individual contributors: Arrow functions. URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 (abgerufen am 06.05.2018)
+
+<a name="ref_tson18">[TSON18]</a>: Tsonev, Krasimir: React in patterns. URL: https://legacy.gitbook.com/book/krasimir/react-in-patterns/details (abgerufen am 09.05.2018)
 
 <a name="ref_zeig16">[ZEIG16]</a>: Zeigermann, Oliver ; Hartmann, Nils: React : Die praktische Einführung in React, React Router und Redux. 1. Aufl. s.l. : dpunkt, 2016 
