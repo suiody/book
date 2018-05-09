@@ -2,11 +2,39 @@
 ## FRP
 ## React.js
 *Stand: Version 16.3.2*
+- [Einführung](#Einführung)
+  - [SPA / Progressive Web App](#SPA-/-Progressive-Web-App)
+  - [JSX](#JSX)
+- [Komponenten](#Komponenten)
+  - [Dumb Components & Smart Components](#Dumb-Components-&-Smart-Components)
+  - [Props, State, Children](#Props,-State,-Children)  
+  - [Rendern](#Rendern)
+  - [Events](#Events)
+  - [Styling](#Styling)
+  - [Lifecycle](#Lifecycle)
+  - [Bedingtes Rendern](#Bedingtes-Rendern)
+- [Patterns / Architektur](#Patterns-/-Architektur)
+  - [State management (Redux)](#State-management-(Redux))
+  - [Komposition vs. Vererbung](#Komposition-vs.-Vererbung)
+  - [Higher Order Components (HOCs)](#Higher-Order-Components-(HOCs))
+  - [Flux](#Flux)
+- [Weitere React-Themen](#Weitere-React-Themen)
+  - [Virtuelles DOM & Reconciliation](#Virtuelles-DOM-&-Reconciliation)
+  - [Type cheking/static types in JavaScript](#Type-cheking/static-types-in-JavaScript)
+    - [PropTypes](#PropTypes)
+    - [Flow](#Flow)
+    - [Typescript](#Typescript)
+  - [Error Handling (Error Boundaries)](#Error-Handling-(Error-Boundaries))
+  - [Code-Splitting](#Code-Splitting)
+  - [Strict Mode](#Strict-Mode)
+  - [React Router](#React-Router)
+  - [Serverseitiges Rendern](#Serverseitiges-Rendern)
+
 ### Einführung
 #### SPA / Progressive Web App
 
 #### JSX
-JSX erweitert die Programmiersprache JavaScript, indem es eine XML/HTML-artige Struktur zur Programmierung der GUI-Elemente innerhalb des JavaScript Codes erlaubt. Damit aus einem JSX-Code standardmäßiges JavaScript wird, muss der Code übersetzt werden. Dieser Vorgang wird i.d.R. mithilfe des JavaScript-Compilers "Babel" durchgeführt. Streng genommen ist JSX kein zwingendes Muss bei der Verwendung von React als Framework, jedoch ist zu vermuten, dass die meisten Programmierer die JSX-Version dem compilierte JavaScript Äquivalent aufgrund der Übersichtlichkeit bevorzugen würden. Außerdem können so hilfreichere Tool-Unterstützungen (Warnungen, Fehler etc.) angezeigt werden [[FACE18a]](#ref_face18a).
+JSX erweitert die Programmiersprache JavaScript, indem es eine XML/HTML-artige Struktur zur Programmierung der GUI-Elemente innerhalb des JavaScript Codes erlaubt. Damit aus einem JSX-Code standardmäßiges JavaScript wird, muss der Code übersetzt werden. Dieser Vorgang wird i.d.R. mithilfe des JavaScript-Compilers "Babel" durchgeführt. Streng genommen ist JSX kein zwingendes Muss bei der Verwendung von React, jedoch ist zu vermuten, dass die meisten Programmierer die JSX-Version dem compilierte JavaScript Äquivalent aufgrund der Übersichtlichkeit bevorzugen würden. Außerdem können so hilfreichere Tool-Unterstützungen (Warnungen, Fehler etc.) angezeigt werden [[FACE18a]](#ref_face18a).
 
 Als Beispiel soll folgender JSX-Code dienen:
 
@@ -60,6 +88,9 @@ Render-Ausgabe:
 ```
 
 #### Komponenten
+
+##### Dumb Components & Smart Components
+
 ##### Props, State, Children
 
 Properties = Props... erwähnen
@@ -308,8 +339,6 @@ Bevor die Änderungen in den nativen DOM übertragen werden, wird die Methode **
 Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **componentWillUnmount()** aufgerufen. Sie dient zum Aufräumen von Timern, Netzwerkverbindungen etc.
 
 ##### Bedingtes Rendern
-
-##### Dumb Components & Smart Components
 
 ### Patterns / Architektur 
 
