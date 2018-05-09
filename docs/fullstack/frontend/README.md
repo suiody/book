@@ -7,7 +7,7 @@
   - [JSX](#JSX)
 - [Komponenten](#Komponenten)
   - [Dumb Components & Smart Components](#Dumb-Components-&-Smart-Components)
-  - [Props, State, Children](#Props,-State,-Children)  
+  - [Children](#Children)  
   - [Rendern](#Rendern)
   - [Events](#Events)
   - [Styling](#Styling)
@@ -20,7 +20,7 @@
   - [Flux](#Flux)
 - [Weitere React-Themen](#Weitere-React-Themen)
   - [Virtuelles DOM & Reconciliation](#Virtuelles-DOM-&-Reconciliation)
-  - [Type cheking/static types in JavaScript](#Type-cheking/static-types-in-JavaScript)
+  - [Type checking/static types in JavaScript](#Type-checking/static-types-in-JavaScript)
     - [PropTypes](#PropTypes)
     - [Flow](#Flow)
     - [Typescript](#Typescript)
@@ -90,11 +90,95 @@ Render-Ausgabe:
 #### Komponenten
 
 ##### Dumb Components & Smart Components
+Grundsätzlich unterscheidet man zwischen zwei Arten von Komponenten. Die sogenannten "dumb components" und die "smart components". Sie unterscheiden sich darin, dass dumb components über keinen Zustand (*state*) verfügen. Soll heißen, dass sie einmalig Eigenschaften zugewiesen bekommen (*properties*, im Folgenden auch *props* genannt) und auf Basis dieser Werte ihr Aussehen anpassen. Es ist darauf zu achten, dass Javascript standardmäßig über keine Typprüfung verfügt und somit auch die Verwendung der Properties ein sorgsames Vorgehen verlangt. Möglichkeiten zur statischen  werden im Kapitel "Type checking/static types in JavaScript" vorgestellt.
 
-##### Props, State, Children
+Das nachfolgende Beispiel zeigt eine beispielhafte dump component.
 
-Properties = Props... erwähnen
+```jsx
+const Header = (props) => {
+  return (
+  <div>
+    { props.title }
+  </div>
+  )
+}
+```
 
+ Sie wird in der Variable "Header" als Arrow Function gespeichert. Die Funktion erhält als Parameter die Properties. Es handelt sich hierbei immer um ein Objekt, das die übergebenen Eigenschaften in Form von Key-Value Paaren bereitstellt. In diesem Fall wird der Wert des Schlüssels "title" innerhalb eines div-Containers angezeigt.  
+
+ Die Props werden im JSX als Attribut angelegt: 
+
+ ```jsx
+ /// props = {
+ ///   title: "Informatik Minden"
+ /// }
+<Header title="Informatik Minden" />
+ ```
+
+Smart components verfügen hingegen über einen *Status*. Hierbei handelt es sich ebenfalls um ein Objekt, das aus Key-Value Paaren besteht. Besonders ist hierbei jedoch, dass sich der Status innerhalb des Lebenszyklus der Komponente ändern kann. 
+
+Smart components werden in Form Klassen realisiert und erhalten die Properties über ihren Konstruktor. Die folgende Komponente stellt einen Zähler dar, der als Property einen Startwert (*startValue*) erhält und bei Betätigung des Buttons den Zähler um eins erhöht. Dieser Zähler wird als Statusvariable (*this.state.count*) realisiert und wird mithilfe der Rendermethode (dazu im nächsten Kapitel mehr) angezeigt. 
+
+```jsx
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    // der Startwert des Zählers muss als Property übergeben werden
+    this.state = {count: props.startValue};
+    // diese Bindung wird später erklärt; bitte erst einmal ignorieren
+    this.increment = this.increment.bind(this);
+  }
+  increment() {
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.increment}>+1</button>
+        <h1>Aktueller Wert: {this.state.count}</h1>
+      </div>
+    );
+  }
+}
+```
+
+Bei der Verwendung des Status ist zu beachten, dass Werte von Statusvariablen mit der Methode *setState()* geändert werden müssen. Diese Methode erhält ein Objekt mit den Key-Value Paaren, die geändert werden sollen. Auf diese Art und Weise wird die Anzeige direkt nach dem Ändern eines Statuswerts aktualisiert. 
+Weitere Informationen zum "Lifecycle" von smart components finden sich im gleichnamigen Kapitel.
+
+
+##### Children
+
+Die vorherigen Beispiele haben bereits gezeigt, dass die Oberfläche aus hierarchisch Strukturierten Elementen besteht. Innerhalb von Komponenten, kann auf die direkten Vorfahren (*children*) zugegriffen werden.
+
+```jsx
+const List = (props) => {
+  return (
+    <div>
+      <p>Anzahl an Items: {React.Children.count(props.children)}</p>
+      <ul>
+        {props.children}
+      </ul>
+    </div>
+  )
+}
+```
+Aufruf:
+```jsx
+  <List>
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </List>
+  
+  //======================
+  // Ausgabe:
+  //======================
+  // Anzahl an Items: 2
+  //  • Item 1
+  //  • Item 2
+  //======================
+```
 ##### Rendern
 
 Die Methode *render* ist - wie ihr Name bereits vermuten lässt - die Rendermethode eines React-Elements. Sie wird aufgerufen, wenn die Komponente im Browser dargestellt werden soll (siehe Lifecycle Kapitel). Als Rückgabewert erhält sie genau **ein** React Element. 
@@ -412,7 +496,7 @@ render() {
 
 ### Weitere React-Themen
 #### Virtuelles DOM & Reconciliation
-#### Type cheking/static types in JavaScript
+#### Type checking/static types in JavaScript
 ##### PropTypes
 ##### Flow
 ##### Typescript
