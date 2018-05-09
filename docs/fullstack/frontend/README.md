@@ -497,7 +497,47 @@ render() {
 ### Weitere React-Themen
 #### Virtuelles DOM & Reconciliation
 #### Type checking/static types in JavaScript
+...
 ##### PropTypes
+Durch das Importieren des Packets "prop-types" erhält man Zugriff auf das in React eingebaute Typechecking-Werkzeug *PropTypes*. Mithilfe von PropTypes kann überwacht werden, ob alle benötigten Properties einer Komponente übergeben wurde und ob der Typ des Übergabewertes korrekt ist.
+
+Im folgenden Beispiel werden zwei Strings als Props festgelegt. Hierzu wird der Komponente eine Variable mit dem Namen *propTypes* zugewiesen.
+Innerhalb dieser Variable werden die Properties und deren Typen definiert. Das Anfügen von *isRequired* führt dazu, dass die Property zwingend einem Wert des angegebenen Typs zugewiesen werden muss.
+Ist dies nicht der Fall, erscheint eine entsprechende Fehlermeldung in der Konsole des verwendeten Browsers.
+
+```jsx
+import PropTypes from 'prop-types';
+
+class Header extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>{this.props.title}</h1>
+        {this.props.children}
+      </div>
+    );
+  }
+}
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired, // zwingend notwendig
+  children: PropTypes.element         // optional
+};
+```
+
+Es können viele Typen überprüft werden, z.B.:
+* PropTypes.string
+* PropTypes.number
+* PropTypes.array
+* PropTypes.bool
+* PropTypes.func -> Funktion
+* PropTypes.element -> React Element
+* PropTypes.instanceOf(*Klasse*)
+* PropTypes.oneOf(['EnumA', 'EnumB']) -> wie eine Enumeration
+
+PropTypes überprüft die Typen aus Gründen der Performance nur im Entwicklermodus [[FACE18e]](#ref_face18e).
+
+
 ##### Flow
 ##### Typescript
 
@@ -525,6 +565,9 @@ render() {
 (abgerufen am 06.05.2018)
 
 <a name="ref_face18d">[FACE18d]</a>: Facebook Inc.: React.Component. URL: https://reactjs.org/docs/fragments.html
+(abgerufen am 06.05.2018)
+
+<a name="ref_face18e">[FACE18e]</a>: Facebook Inc.: Typechecking With PropTypes. URL: https://reactjs.org/docs/typechecking-with-proptypes.html
 (abgerufen am 06.05.2018)
 
 <a name="ref_mozi18">[MOZI18]</a>: Mozilla and individual contributors: Arrow functions. URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
