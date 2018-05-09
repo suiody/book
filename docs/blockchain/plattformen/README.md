@@ -35,7 +35,7 @@ Autor: Cem Basoglu
 Das in 2016 gegründete Hyperledger Projekt fasst mehrere Frameworks und Tools
 zusammen, die den Einsatz von Distributed Ledger Technologien in Business
 Applikationen ermöglichen sollen <a>[[CHAC16]](#ref_cach16)</a>.
-Neben den von IBM und Intel initial beigesteuerten Distributed Ledger Codebasen
+Neben den von IBM und Intel initial beigesteuerten Distributed Ledger Codebasen,
 Fabric und Sawtooth, gehören mittlerweile drei weitere Frameworks und eine Vielzahl
 von Tools zum Hyperledger Projekt.
 
@@ -70,8 +70,8 @@ von Standard Sprachen wie Go, Java oder Javascript <a>[[ANDR18]](#ref_andr18)</a
 Wie in Abbildung 8.4.2.1 dargestellt, wird das Framework in die Komponenten
 Membership Service Provider, Peer, Ordering Service und Chaincode unterteilt,
 wobei durch den modularen Aufbau die Komponenten beliebig ausgetauscht oder
-durch eigene Implementierung ersetzt werden können. Die Kommunikation zwischen
-den Komponenten erfolgt mittels gRPC.
+durch eigene eine Implementierung ersetzt werden können. Die Kommunikation
+zwischen den Komponenten erfolgt mittels gRPC.
 
 ![Fabric Architektur](./images/fabric_arch.png "Fabric Architektur")
 
@@ -98,15 +98,44 @@ den Unternehmen gelesen werden können, die von der Transaktion tangiert werden.
 Abbildung 8.4.2.2 - Organisationen und Channels (Quelle: <a>[[FABR18]](#ref_fabr18)</a>)
 
 Darüber hinaus können sogenannte Channels verwendet werden, um das
-Blockhain-Netzwerke noch weiter zu unterteilen. Jedes dieser Sub-Netzwerke
+Blockhain-Netzwerk noch weiter zu unterteilen. Jedes dieser Sub-Netzwerke
 besitzt sowohl einen eigenen Kommunikationskanal, als auch einen eigenen
-Distribted Ledger. Wie in Abbildung 8.4.2.2 dargestellt, können somit mehrere
-private Netzwerke zwischen den Teilnehmern betrieben werden.
+Distributed Ledger. Wie in Abbildung 8.4.2.2 dargestellt, können somit mehrere
+private Ledgers zwischen den Teilnehmern betrieben werden.
+
+Um eine für Bitcoin oder Ethereum typische Blockchain Topologie zu
+implementieren, würde somit nur ein Channel benötigt werden. Alle Peers würden
+diesen Channel nutzen, um über einen gemeinsamen Distributed Ledger im Konsens
+zu sein.
 
 ##### Peer
+Ein Fabric Blockhain-Netzwerk besteht in der Regel aus mehreren Peers. Jeder
+Peer kann an einem oder mehreren Channels teilnehmen. Für jeden Channel wird ein
+eigener, logisch getrennter Ledger verwaltet. Der Zugriff auf den Ledger wird
+über Smart Contracts ermöglicht. Dazu verbindet sich der Client mit einem Peer
+und nutzt die Funktionen der auf diesem Peer verfügbaren Smart Contracts, um
+Daten von dem Ledger abzufragen bzw. zu ändern. Trotz eines gemeinsamen Ledgers
+je Channel, müssen nicht alle Peers die selben Smart Contracts bereitstellen.
+
+Für die Persistierung des Ledgers wird standardmäßig LevelDB verwendet, um den
+Zustand der Smart Contracts als Schlüsselwertepaar abzulegen. Alterantiv kann
+auch CouchDB genutzt werden, um komplexere Datenstrukturen in Form im
+JSON-Format zu persistieren und damit Eigenschaftenabhängige Abfragen zu
+ermöglichen.
+
+Abfragen vom Distributed Ledger werden umgehend vom Peer beantwortet. Für
+Aktualisierungen muss der Client eine bestimmte Anzahl von Bestätigungen
+(*Endorsement*) von mehreren Peers einholen. Dazu ruft die Applikation zunächst
+die gewünschte Funktion im Smart Contract auf, wodurch ein Antrag (*Proposal*)
+zur Änderung des Distributed Ledgers initiiert wird. Die Peers führen dabei
+die Funktion im Smart Contract aus und erzeugen eine signierte Bestätigung des
+Antrags. Hierbei wird der Ledger jedoch noch nicht geändert und lediglich die
+Bestätigungen der Peers erzeugt.
 
 ##### Ordering Service
 
+
+##### Client
 ##### Chaincode
 Ein zentrales Element im Fabric Framework bildet der Smart Contract, der auch
 Chaincode genannt wird. Über diesen werden sämtliche Funktionalitäten der
@@ -116,8 +145,6 @@ Deployen eines Smart Contracts und das Aufrufen einer Funktion im Smart Contract
 ![Chaincode Aufruf](./images/peers.diagram.6.png "Chaincode Aufruf")
 
 Abbildung 8.4.2.3 - Chaincode Aufruf (Quelle: <a>[[FABR18]](#ref_fabr18)</a>)
-
-##### Client
 
 #### Sawtooth
 
