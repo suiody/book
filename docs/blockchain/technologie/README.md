@@ -92,7 +92,7 @@ In dieser Tabelle sind die wichtigsten Unterschiede nochmals zusammengefasst.
 |                                                       | __Permissioned Blockchain__     | __Permissionless Blockchain__ |
 |-------------------------------------------------------|---------------------------------|-------------------------------|
 |_Instandhaltung:_                                      | Kleine Gruppe von Entitäten     | Jeder der will                |
-|_Schutz vor Unaufrichtigkeit:_                         | Reputationsschäden              | Crypto-Economics              |
+|_Schutz vor Unaufrichtigkeit:_                         | Reputationsschaden              | Crypto-Economics              |
 |_Transaktionsrechte:_                                  | Zugelassene Gruppe von Menschen | Jeder der will                |
 |_Zugang:_                                              | Kleine Gruppe von Entitäten     | Jeder der will                |
 |_Speicherort:_                                         | Zentraler Server                | Verteilt                      |
@@ -104,7 +104,7 @@ In dieser Tabelle sind die wichtigsten Unterschiede nochmals zusammengefasst.
 
 _Blockchain Unterschiede_, Tabelle angepasst aus <a>[[GHAL15]](#ref_Ghal15)</a>
 
-In einer begrenzten Umgebung, bezogen auf die Knoten, spielt permissioned Blockchain ihre Stärken aus - hohe Geschwidigkeit und niedrige Transaktionskosten. Aufgrund ihres Grundprinzips sind Zensurresistenz, Offenheit und dezentrales Vertrauen hierfür unnötig, während sie für eine permissionless Blockchain unabdingbar sind. Ein Radar-Diagramm in der nächsten Abbildung macht nochmal die Unterschiede deutlich. 
+In einer begrenzten Umgebung, bezogen auf die Knoten, spielt permissioned Blockchain ihre Stärken aus - hohe Geschwindigkeit und niedrige Transaktionskosten. Aufgrund ihres Grundprinzips sind Zensurresistenz, Offenheit und dezentrales Vertrauen hierfür unnötig, während sie für eine permissionless Blockchain unabdingbar sind. Ein Radar-Diagramm in der nächsten Abbildung macht nochmal die Unterschiede deutlich. 
 
 ![blockchain_permissioned_vs_permissionless](./images/blockchain_permissioned_vs_permissionless.png "Permissioned vs Permissionless")
 
