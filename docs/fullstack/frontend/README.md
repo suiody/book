@@ -9,10 +9,10 @@
   - [Dumb Components & Smart Components](#Dumb-Components-&-Smart-Components)
   - [Children](#Children)  
   - [Rendern](#Rendern)
+  - [Bedingtes Rendern](#Bedingtes-Rendern)
   - [Events](#Events)
   - [Styling](#Styling)
   - [Lifecycle](#Lifecycle)
-  - [Bedingtes Rendern](#Bedingtes-Rendern)
 - [Patterns / Architektur](#Patterns-/-Architektur)
   - [State management (Redux)](#State-management-(Redux))
   - [Komposition vs. Vererbung](#Komposition-vs.-Vererbung)
@@ -222,6 +222,70 @@ render() {
   );
 }
 ```
+##### Bedingtes Rendern
+Aufgrund des in JSX - also Javascript - eingebetteten Codes für das Rendern von Komponenten, kann ein bedingtes Rendern relativ einfach eingebaut werden. Im folgenden Beispiel wird, abhängig vom Zustand der Komponente, entweder ein Button "Start"- oder ein "Stopp"-Button angezeigt. 
+
+```jsx
+class StartStopButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isRunning: false };
+
+    this.start = this.start.bind(this);
+    this.stop = this.stop.bind(this);
+  }
+  
+  start() {
+    this.setState({ isRunning: true });
+  }
+  stop() {
+    this.setState({ isRunning: false });
+  }
+
+  render() {
+    return (
+      this.state.isRunning 
+      ?
+        // wird gerendert, wenn this.state.isRunning true ist
+        <button onClick={this.stop}>
+          Stopp
+        </button>
+      :
+        // wird gerendert, wenn this.state.isRunning false ist
+        <button onClick={this.start}>
+          Start
+        </button>
+    );
+  }
+}
+```
+
+Statt des hier verwendeten Konditionaloperator (... ? ... : ...) kann auch z.B. ein if-Konstrukt verwendet werden. In diesem Fall darf die entsprechende Logik jedoch nicht "inline" in das return-Statement, sondern muss als extra Code davor. 
+
+Beispiel: 
+
+```jsx
+//...
+render() {
+    let button; // Rückgabewert, kann natürlich auch als Expression in einen JSX-Code eingebaut werden
+    if (this.state.isRunning) {
+      button = (
+        <button onClick={this.stop}>
+          Stopp
+        </button>
+      );
+    } else {
+        button = (
+          <button onClick={this.start}>
+            Start
+          </button>
+       );
+    }
+    return button;
+  }
+}
+//...
+```
 
 ##### Events
 
@@ -422,81 +486,17 @@ Bevor die Änderungen in den nativen DOM übertragen werden, wird die Methode **
 
 Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **componentWillUnmount()** aufgerufen. Sie dient zum Aufräumen von Timern, Netzwerkverbindungen etc.
 
-##### Bedingtes Rendern
-Aufgrund des in JSX - also Javascript - eingebetteten Codes für das Rendern von Komponenten, kann ein bedingtes Rendern relativ einfach eingebaut werden. Im folgenden Beispiel wird, abhängig vom Zustand der Komponente, entweder ein Button "Start"- oder ein "Stopp"-Button angezeigt. 
-
-```jsx
-class StartStopButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { isRunning: false };
-
-    this.start = this.start.bind(this);
-    this.stop = this.stop.bind(this);
-  }
-  
-  start() {
-    this.setState({ isRunning: true });
-  }
-  stop() {
-    this.setState({ isRunning: false });
-  }
-
-  render() {
-    return (
-      this.state.isRunning 
-      ?
-        // wird gerendert, wenn this.state.isRunning true ist
-        <button onClick={this.stop}>
-          Stopp
-        </button>
-      :
-        // wird gerendert, wenn this.state.isRunning false ist
-        <button onClick={this.start}>
-          Start
-        </button>
-    );
-  }
-}
-```
-
-Statt des hier verwendeten Konditionaloperator (... ? ... : ...) kann auch z.B. ein if-Konstrukt verwendet werden. In diesem Fall darf die entsprechende Logik jedoch nicht "inline" in das return-Statement, sondern muss als extra Code davor. 
-
-Beispiel: 
-
-```jsx
-//...
-render() {
-    let button; // Rückgabewert, kann natürlich auch als Expression in einen JSX-Code eingebaut werden
-    if (this.state.isRunning) {
-      button = (
-        <button onClick={this.stop}>
-          Stopp
-        </button>
-      );
-    } else {
-        button = (
-          <button onClick={this.start}>
-            Start
-          </button>
-       );
-    }
-    return button;
-  }
-}
-//...
-```
 
 ### Patterns / Architektur 
-[[CHAN17]](ref_chan17)
+[[CHAN17]](#ref_chan17)
 #### Flux
-[[TSON18]](ref_tson18)
+[[TSON18]](#ref_tson18)
 #### State management (Redux)
-[[TSON18]](ref_tson18)
+[[TSON18]](#ref_tson18)
 #### Komposition vs. Vererbung
 #### Higher Order Components (HOCs)
-[[CHAN17]](ref_chan17)
-[[TSON18]](ref_tson18)
+[[CHAN17]](#ref_chan17)
+[[TSON18]](#ref_tson18)
 ### Weitere React-Themen
 #### Virtuelles DOM & 
 https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e
