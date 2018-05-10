@@ -15,8 +15,6 @@ Die Abbildung "Blockchain Architektur" zeigt, dass eine zufällige Zeichenkette 
 
 _Blockchain Architektur_ Abbildung angepasst aus <a>[[ANDE16]](#ref_Ande16)</a>
 
->___<font color="orange">Das nächste Unterkapitel "Block" überschneidet sich mit dem Unterkapitel "Blöcke" von Björn. Bleibt erstmal so stehen, wir entscheiden später wie wir vorgehen!!!</font>___ 
-
 ### Block
 
 ![blockchain_block](./images/blockchain_block.png "Blockchain block")
@@ -62,30 +60,43 @@ Es gibt drei Arten von Blockchain: öffentliche, private und diejenigen welche e
 
 __Öffentlich__
 
-![blockchain_public](./images/blockchain_public.png "Public Blockchain")
-
-_Öffentliche Blockchain_, Abbildung aus <a>[[DEMUSH]](#ref_Demush)</a>
-
 Die ursprüngliche Art einer Blockchain (siehe Bitcoin-Blockchain). Alle Einträge sind öffentlich sichtbar. Jeder kann im Netzwerk eine Transaktion tätigen und solange diese valide ist, wird sie auch einer Blockchain hinzugefügt. Es ist allen freigestellt am Konsensus teilzunehmen und sogar die Netzwerke zu verwalten. Im Gegenzug gibt es niemanden der das Alleinrecht im Netzwerk hat - alle Teilnehmer sind gleich. Aus diesem Grund wird ein öffentliches Blockchain auch _permissionless blockchain_ genannt.
 Der Einfluss ist proportional der Ressourcen eines Teilnehmers. Öffentliche Blockchains nutzen Crypto-Economics, eine Kombination aus Konsensalgorithmen und wirtschaftlichen Anreizen, als Ersatz für einen zentralen Trust.  Die üblichen Konsensusalgorithmen sind Proof of Work und Proof of Stake (Bitcoin, Ethereum). Die Vorteile von öffentlichen Blockchains sind Transparenz und Anonymität, wobei die Skalierbarkeit und Effizienz eher zweitrangig sind. Diese Art der Blockchain wird als völlig dezentral bezeichnet. <a>[[DEMUSH]](#ref_Demush)</a>, <a>[[BUTE15]](#ref_Bute15)</a>
 
+
+
+![blockchain_public](./images/blockchain_public.png "Public Blockchain")
+
+_Öffentliches Blockchain-Netzwerk_, eigene Abbildung
+
 __Privat und Konsortium__
-
-![blockchain_private](./images/blockchain_private.png "Private und Konsortium Blockchain")
-
-_Private und Konsortium Blockchains_, Abbildung aus <a>[[DEMUSH]](#ref_Demush)</a>
 
 Wie der Name schon andeutet, sind private Blockchains nicht für jeden sichtbar und zugänglich. Sie werden aufgrund von überschaulichen Anzahl von Knoten viel effektiver verwaltet. Die Schreibrechte an der Blockchain gehören üblicherweise einer einzigen Organisation, die Leserechte können zum Teil oder ganz öffentlich sein. Diese Art von Blockchain heißt _permissioned blockchain_. Die üblichen Verwendungszwecke sind Datenhaltung und Wirtschaftsprüfung im Rahmen einer einzigen Firma.  
 Konsortium-Blockchains unterscheiden sich insofern von privaten, dass nur vorausgewählte Knoten am Konsensus teilnehmen können. Diese Knoten können einer Gruppe von Banken gehören, wo jede Bank einen Knoten steuert. Wie im Falle der privaten Blockchain, kann das Leserecht teilweise oder ganz öffentlich sein, was dazu führt, dass Teilnehmern außerhalb des Konsortiums eine eingeschränkte Möglichkeit haben über eine API die Block Hashes zu überprüfen. Banken und Unternehmen bekommen damit eine Möglichkeit direkt ihre Vermögenswerte untereinander in Sekunden zu übertragen und die private P2P-Netzwerke zu überwachen. Diese Blockchains werden als teilweise dezentralisiert bezeichnet.
 <a>[[DEMUSH]](#ref_Demush)</a>, <a>[[BUTE15]](#ref_Bute15)</a>
 
+![blockchain_private](./images/blockchain_private.png "Private und Konsortium Blockchain")
+
+_Privates und Konsortium Blockchain-Netzwerk_, eigene Abbildung
+
 ### Unterschiede zwischen permissionless und permissioned
 
 In dieser Tabelle sind die wichtigsten Unterschiede nochmals zusammengefasst.
 
-![blockchain_private_vs_public](./images/blockchain_private_vs_public.png "Blockchain Unterschiede")
+|                                                       | __Permissioned Blockchain__     | __Permissionless Blockchain__ |
+|-------------------------------------------------------|---------------------------------|-------------------------------|
+|_Instandhaltung:_                                      | Kleine Gruppe von Entitäten     | Jeder der will                |
+|_Schutz vor Unaufrichtigkeit:_                         | Reputationsschaden              | Crypto-Economics              |
+|_Transaktionsrechte:_                                  | Zugelassene Gruppe von Menschen | Jeder der will                |
+|_Zugang:_                                              | Kleine Gruppe von Entitäten     | Jeder der will                |
+|_Speicherort:_                                         | Zentraler Server                | Verteilt                      |
+|_Vertrauen in eine zentrale Entität zur Sicherheit:_   | Ja                              | Nein                          |
+|_Transaktionskosten:_                                  | Klein                           | Hoch                          |
+|_Geschwindigkeit:_                                     | Schnell                         | Langsam                       |
+|_Schutz vor Zensur:_                                   | Nein                            | Ja                            |
+|_Token:_                                               | Nein                            | Ja                            |
 
-_Blockchain Unterschiede_, Abbildung angepasst aus <a>[[GHAL15]](#ref_Ghal15)</a>
+_Blockchain Unterschiede_, Tabelle angepasst aus <a>[[GHAL15]](#ref_Ghal15)</a>
 
 In einer begrenzten Umgebung, bezogen auf die Knoten, spielt permissioned Blockchain ihre Stärken aus - hohe Geschwidigkeit und niedrige Transaktionskosten. Aufgrund ihres Grundprinzips sind Zensurresistenz, Offenheit und dezentrales Vertrauen hierfür unnötig, während sie für eine permissionless Blockchain unabdingbar sind. Ein Radar-Diagramm in der nächsten Abbildung macht nochmal die Unterschiede deutlich. 
 
