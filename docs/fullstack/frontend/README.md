@@ -495,6 +495,13 @@ Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **
 [[TSON18]](#ref_tson18)
 #### Komposition vs. Vererbung
 #### Higher Order Components (HOCs)
+Higher order components erweitern Komponenten, indem sie ihnen zusätzliche Funktionalitäten oder Properties zur Verfügung stellen (ähnlich wie beim Decorator pattern). Möchte man beispielsweise bei jedem Mounting-Vogang von Komponnten ein Log-Nachricht ausgeben, so müsste man denselben Code an vielen Stellen des Projekts einbauen (jeweils in der componentDidMount-Methode der Komponenten).
+Eine HOC kann hier abhilfe schaffen:
+
+   
+
+
+
 [[CHAN17]](#ref_chan17)
 [[TSON18]](#ref_tson18)
 ### Weitere React-Themen
