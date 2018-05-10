@@ -92,7 +92,7 @@ In dieser Tabelle sind die wichtigsten Unterschiede nochmals zusammengefasst.
 |                                                       | __Permissioned Blockchain__     | __Permissionless Blockchain__ |
 |-------------------------------------------------------|---------------------------------|-------------------------------|
 |_Instandhaltung:_                                      | Kleine Gruppe von Entitäten     | Jeder der will                |
-|_Schutz vor Unaufrichtigkeit:_                         | Reputationsschaden              | Crypto-Economics              |
+|_Schutz vor Unaufrichtigkeit:_                         | Reputationsschäden              | Crypto-Economics              |
 |_Transaktionsrechte:_                                  | Zugelassene Gruppe von Menschen | Jeder der will                |
 |_Zugang:_                                              | Kleine Gruppe von Entitäten     | Jeder der will                |
 |_Speicherort:_                                         | Zentraler Server                | Verteilt                      |
