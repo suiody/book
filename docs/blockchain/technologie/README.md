@@ -133,6 +133,28 @@ Dieser Betrug trat eine ausschweifende Diskussion über die Unveränderlichkeit 
 
 <a>[[HOFM17]](#ref_HOFM17)</a>
 
+In dem Fall der DAO spricht man davon, dass es sich um einen sogenannten „hard fork“ handelt. Von einem Hard-Fork wird gesprochen, wenn eine radikale Änderung am System vorgenommen wird. Das kann dazu führen das Blöcke und Transaktionen, die vor dem Fork invalide ware valide werden.  Anders herum könnte es auch gehen indem valide Blöcke invalide werden wie bei der DAO. Damit so etwas möglich ist müssen alle Knoten des Systems sich darüber einig sein was geändert werden soll und diese Änderung dann an ihrer Anwendersoftware durchführen. Dadurch entsteht dann der eigentlich Fork, weil die Blöcke des alten Systems im neuen abgelehnt werden und Blöcke des neuen Systems im alten System abgelehnt werden. Knoten die nicht die neuste Version verwenden können nicht mehr am System teilnehmen und updaten in der Regel daraufhin ihre Software. Beide Systeme unabhängig voneinander und folgen unterschiedlichen Regeln. In der folgenden Abbildung ist ein Hard-Fork einer Blockchain visualisiert.
+
+<img src="./images/blockchain_hard_fork.png" >
+
+Veraltete Knoten nehmen die neuen Blöcke nicht an und spalten die Blockchain.
+Abbildung entnommen aus
+<a>[[INVE18]](#ref_INVE18)</a>
+
+Von einem „soft fork“ wiederum wird gesprochen, wenn nach einem Fork nur eine der beiden neuen Blockchains weitergeführt wird und diese mit dem Teil vor dem Fork kompatible ist. Anders als beim Hard-Fork brauchen nur die Mehrheit ihre Anwendersoftware updaten. Ein Vorteil eines Soft-Fork ist, dass z.B. neue Arten von Transaktionen und Regeln zur deren Validierung in das System eingeführt werden können. Diese Erweiterungen müss lediglich den Sendern und Empfängern solcher Transaktionen bekannt sein. Für alle veralteten Knoten wird eine solche Transaktion als eine „pay-to-anybody“ Transaktion markiert.
+
+Ein Soft-Fork kann auch einfach dadurch entstehen, dass einige Miner ihre Software noch nicht aktualisiert haben und somit gegen eventuell neu hinzugefügte Konsensmechanismen verstoßen. Solche Forks sind nur temporär und die neu erzeugten aber veralteten Blöcke der nicht aktuellen Knoten werden dann von der Mehrheit der aktuellen Knoten abgestoßen. In der folgenden Abbildung ist dieser Prozess noch einmal verdeutlicht. Der grau gekennzeichnete Block wird nicht in die Blockchain eingefügt, weil er gegen die neuen Regeln verstößt.
+
+<img src="./images/blockchain_soft_fork.png" >
+
+Blöcke die von veralteten Knoten erzeugt wurden werden von der Mehrheit abgestoßen.
+Abbildung entnommen aus
+<a>[[INVE18]](#ref_INVE18)</a>
+
+Es müssen also nicht immer alle Knoten aktuell gehalten werden, weil die neuen Blöcke schlussendlich abwärtskompatible sind. Wenn, aus welchen Gründen auch immer, ein Soft-Fork rückgängig gemacht werden soll, so ist dies nur durch einen Hard-Fork möglich.
+
+<a>[[INVE18]](#ref_INVE18)</a>
+
 ### Transaktion
 
 
@@ -402,6 +424,8 @@ http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimension
 <a name="ref_hahn18">[HAHN18]</a>: Hahn, Christopher ; Wons, Adrian: Initial Coin Offering (ICO) - Unternehmensfinanzierung auf Basis der Blockchain-Technologie. Gabler Verlag, 2018, ISBN: 978-3-658-21786-0
 
 <a name="ref_HOFM17">[HOFM17]</a>: Hofmann, Frank ; Wurster, Simone ; Eyal, Ron ; Böhmecke-Schwafert, Moritz : The immutability concept of blockchains and benefits of early standardization. Nanjing, China : ITU Kaleidoscope: Challenges for a Data-Driven Society (ITU K), 2017, ISBN: 978-9-2612-4281-7 
+
+<a name="ref_INVE18">[INVE18]</a>: Investopedia.com : Hard Fork & Soft Fork ; URL: https://www.investopedia.com/terms/h/hard-fork.asp & https://www.investopedia.com/terms/h/hard-fork.asp ; Date Accessed: Mai 09, 2018
 
 <a name="ref_Schl16">[SCHL16]</a>: Schlatt, Vincent; Schweizer, André; Urbach, Nils; Fridgen, Gilbert: Blockchain: Grundlagen, Anwendungen und Potenziale, S. 8-12, Fraunhofer FIT, 12.2016, URL: https://www.fim-rc.de/Paperbibliothek/Veroeffentlicht/642/wi-642.pdf (letzter Zugriff: 04.05.2018)
 
