@@ -70,8 +70,8 @@ von Standard Sprachen wie Go, Java oder Javascript <a>[[ANDR18]](#ref_andr18)</a
 Wie in Abbildung 8.4.2.1 dargestellt, wird das Framework in die Komponenten
 Membership Service Provider, Peer, Ordering Service und Chaincode unterteilt,
 wobei durch den modularen Aufbau die Komponenten beliebig ausgetauscht oder
-durch eigene eine Implementierung ersetzt werden können. Die Kommunikation
-zwischen den Komponenten erfolgt mittels gRPC.
+durch eigene Implementierungen ersetzt werden können. Die Kommunikation zwischen
+den Komponenten erfolgt mittels gRPC.
 
 ![Fabric Architektur](./images/fabric_arch.png "Fabric Architektur")
 
@@ -110,41 +110,96 @@ zu sein.
 
 ##### Peer
 Ein Fabric Blockhain-Netzwerk besteht in der Regel aus mehreren Peers. Jeder
-Peer kann an einem oder mehreren Channels teilnehmen. Für jeden Channel wird ein
-eigener, logisch getrennter Ledger verwaltet. Der Zugriff auf den Ledger wird
-über Smart Contracts ermöglicht. Dazu verbindet sich der Client mit einem Peer
-und nutzt die Funktionen der auf diesem Peer verfügbaren Smart Contracts, um
-Daten von dem Ledger abzufragen bzw. zu ändern. Trotz eines gemeinsamen Ledgers
-je Channel, müssen nicht alle Peers die selben Smart Contracts bereitstellen.
+Peer kann an einem oder mehreren Channels teilnehmen, für den jeweils ein
+eigener, logisch getrennter Ledger verwaltet und mittels Smart Contracts
+zugegriffen wird. Dazu verbindet sich der Client mit einem Peer und nutzt die
+Funktionen der auf diesem Peer verfügbaren Smart Contracts, um Daten von dem
+Ledger abzufragen bzw. zu ändern. Trotz eines gemeinsamen Ledgers je Channel,
+müssen nicht alle Peers die selben Smart Contracts bereitstellen.
 
 Für die Persistierung des Ledgers wird standardmäßig LevelDB verwendet, um den
-Zustand der Smart Contracts als Schlüsselwertepaar abzulegen. Alterantiv kann
-auch CouchDB genutzt werden, um komplexere Datenstrukturen in Form im
-JSON-Format zu persistieren und damit Eigenschaftenabhängige Abfragen zu
-ermöglichen.
-
-Abfragen vom Distributed Ledger werden umgehend vom Peer beantwortet. Für
-Aktualisierungen muss der Client eine bestimmte Anzahl von Bestätigungen
-(*Endorsement*) von mehreren Peers einholen. Dazu ruft die Applikation zunächst
-die gewünschte Funktion im Smart Contract auf, wodurch ein Antrag (*Proposal*)
-zur Änderung des Distributed Ledgers initiiert wird. Die Peers führen dabei
-die Funktion im Smart Contract aus und erzeugen eine signierte Bestätigung des
-Antrags. Hierbei wird der Ledger jedoch noch nicht geändert und lediglich die
-Bestätigungen der Peers erzeugt.
+Zustand der Smart Contracts als Schlüsselwertepaar abzulegen. Alternativ kann
+auch CouchDB eingesetzt werden, um Datenstrukturen im JSON-Format zu
+persistieren und damit komplexere Abfragen aus dem Ledger zu ermöglichen.
 
 ##### Ordering Service
+Während eine Abfrage vom Distributed Ledger von einem einzelnen Peer verarbeitet
+werden kann, müssen bei Änderungen die Peers im Konsens sein. In diesem Prozess
+nimmt der Ordering Service eine essenzielle Rolle ein. Wie es der Name schon
+erahnen lässt, ist es die Hauptaufgabe des Ordering Service die Transaktionen in
+eine Reihenfolge zu bringen, zu einem Block zu verpacken und an die Peers zu
+verteilen. Dadurch wird sichergestellt, dass genug Peers der Änderung zugestimmt
+haben und alle Transaktionen in der selben Reihenfolge an den Ledger angehängt
+werden.
 
+Neben dem hier beschrieben Konsens Algorithmus  genannt und ist Standardmäßig
 
 ##### Client
+Wie bei klassischen Client-Server-Architekturen stellt der Client, auch im
+Hyperledger Fabric Kontext, die vom Nutzer lokal ausgeführte Applikation dar.
+Für diesen Zweck stellt das Hyperledger Fabric Framework, eine Client-Bibliothek
+bereit, mit dem die Applikation mit den Peers und Ordering Service interagieren
+kann.
+
 ##### Chaincode
 Ein zentrales Element im Fabric Framework bildet der Smart Contract, der auch
 Chaincode genannt wird. Über diesen werden sämtliche Funktionalitäten der
 Blockchain abgebildet. Somit existieren nur zwei Arten von Transaktionen - das
-Deployen eines Smart Contracts und das Aufrufen einer Funktion im Smart Contract.
+Deployen eines Smart Contracts und das Aufrufen einer Funktion im Smart
+Contract. Über sogenannte System Smart Contracts, die jeder Peer besitzt, können
+ebenfalls Konfigurationen am Blockhain Netzwerk vorgenommen werden.
+
+Smart Contracts können in Standard Programmiersprachen wie Go, Node.Js oder Java
+geschrieben werden. Wie in Listing 8.4.2.1 dargestellt, implementiert
+jeder Smart Contract das *ChaincodeInterface* aus dem Hyperledger Fabric SDK.
+
+```javascript
+const shim = require('fabric-shim');
+
+var Chaincode = class {
+  async Init(stub) {
+    //initialize Chaincode State
+  }
+  async Invoke(stub){
+    //Chaincode invokation handler
+  }
+}
+```
+Listing 8.4.2.1 - Smart Contract Beispiel
+
+Die Deploy-Transaktion stellt eine spezielle Form der Invoke-Transaktion dar,
+mit dem zunächst der Smart Contract auf dem jeweiligen Peer instanziiert und
+anschließend die *Init(...)*-Methode aufgerufen wird. In dieser Methode hat der
+Smart Contract die Gelegenheit die eigenen State-Variablen im Distributed Ledger
+zu initialisieren.
+Jede Invoke-Transaktion eines Smart Contracts wird von der Methode *Invoke(...)*
+behandelt. Über die Eigenschaften in dem Parameter *stub* kann ermittelt werden,
+welche Funktionen des Smart Contracts mit welche Argumenten aufgerufen wurde, um
+die gewünschte Aktion vorzunehmen.
+
+##### Transaktion-Workflow
+Abfragen vom Distributed Ledger werden umgehend vom Peer beantwortet. Für
+Aktualisierungen muss der Client eine bestimmte Anzahl von Bestätigungen
+(*Endorsement*) von mehreren Peers einholen. Wie in Abbildung 8.4.2.3
+dargestellt, ruft die Applikation dazu zunächst die gewünschte Funktion im
+Smart Contract auf, wodurch ein Antrag (*Proposal*) zur Änderung des
+Distributed Ledgers initiiert wird. Die Peers führen dabei die Funktion im
+Smart Contract aus und erzeugen eine signierte Bestätigung des Antrags. Hierbei
+wird der Ledger jedoch noch nicht geändert und lediglich die Bestätigungen der
+Peers erzeugt und an den Client zurück geschickt.
 
 ![Chaincode Aufruf](./images/peers.diagram.6.png "Chaincode Aufruf")
 
 Abbildung 8.4.2.3 - Chaincode Aufruf (Quelle: <a>[[FABR18]](#ref_fabr18)</a>)
+
+Der Client sammelt die Bestätigungen der einzelnen Peers und überträgt diese
+samt Antrag an den Ordering Service. Erst mit der Übertragung des Antrags an den
+Ordering Service, wird der Änderungsprozess eingeleitet. Der Ordering Service
+sammelt die Anträge von allen Applikationen, verpackt diese in einen Block und
+überträgt diese schliesslich an alle Peers. Die Peers hängen anschließend den
+Block an den jeweils lokalen Ledger und aktualisieren den State. Wenn alle Peers
+die Änderung übernommen haben, wird die Applikation über die Änderung des
+Distributed Ledgers benachrichtigt und die Transaktion damit abgeschlossen.
 
 #### Sawtooth
 
