@@ -56,18 +56,13 @@ __Anonymität__
 
 Die Identität eines Benutzers ist geschützt, denn für die Interaktion mit der Blockchain wird eine generierte Adresse verwendet, aus der nicht ohne weiteres möglich ist auf einen Benutzer zurückzuführen. Dennoch gibt es keine hundertprozentige Garantie, dass ein Benutzers absolut anonym ist. <a>[[ZHENG17]](#ref_Zheng17)</a>
 
-__Nachvollziehbarkeit__
-
-Jeder Netzknoten im Netzwerk enthält neben der kompletten Blockchainkopie noch einen Cache (Unspent Transaction Output, UTXO), der die Transaktionsausgänge der Blockchain beinhaltet, die noch nicht für neue Transaktionen verwendet wurden.  Außerdem beinhaltet es eine Datenbank mit unbestätigten Transaktionen, welche nicht in die Blockchain aufgenommen wurden.  
-Wenn die Transaktion den ersten Netzknoten erreicht, prüft dieser über UTXO, ob die in der Transaktion referenzierten Eingänge nicht für andere Transaktionen verwendet wurden. Weiterhin wird die Summe der Eingänge überprüft; sie muss kleiner oder gleich der Summe der Ausgänge sein. Wenn die Signaturen gültig sind, leitet der Knoten die Transaktion an andere Netzknoten weiter. Dort wird die transaktion geprüft und in die Datenbank mit unbestätigten Transaktion aufgenommen. Dieser Vorgang heißt _Transaktionsverifikation_. <a>[[SCHL16]](#ref_Schl16)</a>
-
 ### Arten einer Blockchain 
 
 Es gibt drei Arten von Blockchain: öffentliche, private und diejenigen welche einem Konsortium angehören.
 
 __Öffentlich__
 
-![blockchain_public](./images/blockchain_public.jpg "Public Blockchain")
+![blockchain_public](./images/blockchain_public.png "Public Blockchain")
 
 _Öffentliche Blockchain_, Abbildung aus <a>[[DEMUSH]](#ref_Demush)</a>
 
@@ -76,7 +71,7 @@ Der Einfluss ist proportional der Ressourcen eines Teilnehmers. Öffentliche Blo
 
 __Privat und Konsortium__
 
-![blockchain_private](./images/blockchain_private.jpg "Private und Konsortium Blockchain")
+![blockchain_private](./images/blockchain_private.png "Private und Konsortium Blockchain")
 
 _Private und Konsortium Blockchains_, Abbildung aus <a>[[DEMUSH]](#ref_Demush)</a>
 
