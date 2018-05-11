@@ -500,7 +500,30 @@ Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **
 ### Patterns / Architektur 
 [[CHAN17]](#ref_chan17)
 #### Flux
-[[TSON18]](#ref_tson18)
+
+Flux ist ein Architektur Pattern, das beim Erstellen von User Interfaces verwendet werden kann. Es wurde erstmal 2014 von Facebook vorgestellt. Facebook nutzt Flux intern für ihre React Projekte, da ihnen die bidirektionalen Verbindungen bei Verwendung eines MVC Patterns aufgrund des großen Umfangs ihrer Projekte Probleme bereiteten [[FACE14]](#ref_face14). 
+Im Gegensatz zu MVC handelt es sich bei Flux um ein unidirektionales Pattern.
+
+Der prinzipielle Architektur von Flux wird in der folgenden Abbildung dargestellt:
+
+<a name="ref_flux_achitecture"></a>![ref_flux_achitecture](./images/basic_flux_architecture.jpg "Flux Architektur")
+
+Abbildung entnommen aus [[TSON18]](#ref_tson18)
+
+Das Pattern besteht aus 4 Bestandteilen, [[TSON18]](#ref_tson18):
+
+**Action**
+
+Ereignisse/Benachrichtigungen, die Informationen/Daten an den Dispatcher weiterleiten. Sie werden von der View oder sonstigen Services (z.B. HTTP Requests) ausgelöst.
+
+**Dispatcher**
+
+Der Dispatcher ist der hauptsächliche Akteur. Alle eingehenden Ereignisse des Systems (bzw. *Actions*) werden im Dispatcher gesammelt und dort an die Entsprechenden *Stores* verteilt.
+
+**Store**
+
+Die Stores empfangen die Benachrichtigungen vom Dispatcher und ändern auf Basis der neuen Informationen ggf. ihren Zustand, um Änderungen in der entsprechenden View auszulösen. Verglichen mit dem MVC Pattern handelt es sich bei den Stores also im Prinzip um das Model.
+
 #### State management (Redux)
 [[TSON18]](#ref_tson18)
 #### Komposition vs. Vererbung
@@ -637,6 +660,11 @@ Schnellstart: [link](https://github.com/Microsoft/TypeScript-React-Starter#types
 
 <a name="ref_face18e">[FACE18e]</a>: Facebook Inc.: Typechecking With PropTypes. URL: https://reactjs.org/docs/typechecking-with-proptypes.html
 (abgerufen am 06.05.2018)
+
+<a name="ref_face14">[FACE14]</a>: 
+Facebook
+: Hacker Way: Rethinking Web App Development at Facebook. URL: https://www.youtube.com/watch?v=nYkdrAPrdcw&feature=youtu.be&t=568
+(abgerufen am 11.05.2018)
 
 <a name="ref_mozi18">[MOZI18]</a>: Mozilla and individual contributors: Arrow functions. URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 (abgerufen am 06.05.2018)
