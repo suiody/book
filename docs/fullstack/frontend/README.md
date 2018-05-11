@@ -478,7 +478,7 @@ Abbildung bearbeitet; entnommen aus <a>[[MAJ18]](#ref_maj18)</a> (dort als inter
 
 Noch bevor die Komponente zum DOM hinzugefügt wird (man spricht hierbei vom "mounting"), wird ihr Konstruktor (**constructor(props)**) aufgerufen (in der Abbildung etwas missverständlich dargestellt). Hierbei sollte darauf geachtet werden, dass als erstes der Konstruktor der Basisklasse aufgerufen wird (*super(props)*), da andernfalls das Klassenattribut *this.props* noch nicht definiert ist und es somit zu Bugs kommen kann. Der Konstruktor sollte z.B. dafür genutzt werden den Status des Objekts zu initialisieren (mit this.state).
 
-Nachdem das Objekt initialisiert wurde, wird die Methode **getDerivedStateFromProps(nextProps, prevState)** aufgerufen. Als Rückgabewert wird ein Objekt erwartet, das den Status auf Basis der angepassten Properties enthält oder *null*, um zu signalisieren, dass sich der Status auf Basis der Props nicht geändert hat. Um zu prüfen welche Props sich geändert haben (bzw. ändern werden), kann der Parameter *nextProps* mit den aktuellen Properties des Objekts verglichen werden.
+Nachdem das Objekt initialisiert wurde, wird die Methode **getDerivedStateFromProps(nextProps, prevState)** aufgerufen.  Als Rückgabewert wird ein Objekt erwartet, das den Status auf Basis der angepassten Properties enthält oder *null*, um zu signalisieren, dass sich der Status auf Basis der Props nicht geändert hat. Um zu prüfen welche Props sich geändert haben (bzw. ändern werden), kann der Parameter *nextProps* mit den aktuellen Properties des Objekts verglichen werden.
 
 Es folgt der Aufruf der **render**-Methode und anschließend das Updaten des "nativen DOMs" und der "refs" (Verweise auf die Elemente des nativen DOMs).
 
@@ -514,7 +514,23 @@ Das Pattern besteht aus 4 Bestandteilen, [[TSON18]](#ref_tson18):
 
 **Action**
 
-Ereignisse/Benachrichtigungen, die Informationen/Daten an den Dispatcher weiterleiten. Sie werden von der View oder sonstigen Services (z.B. HTTP Requests) ausgelöst.
+Ereignisse/Benachrichtigungen, die Informationen/Daten an den Dispatcher weiterleiten. Sie werden von der View oder sonstigen Services (z.B. HTTP Anfragen) ausgelöst. 
+
+Typischerweise handelt es sich bei einer Action um ein Object, das über zwei Attribute verfügt.
+* *type*: um welche Action handelt es sich  (eine Art ID)?
+* *payload*: Objekt, das die Nutzdaten enthält
+
+Eine Action, bei der eine Person zu einer Liste hinzugefügt werden soll, könnte folgendermaßen aussehen:
+
+```javascript
+{
+  type: 'ADD_PERSON',
+  payload: {
+    forename: 'Max'
+    surname: 'Mustermann'
+  }
+}
+```
 
 **Dispatcher**
 
@@ -524,11 +540,80 @@ Der Dispatcher ist der hauptsächliche Akteur. Alle eingehenden Ereignisse des S
 
 Die Stores empfangen die Benachrichtigungen vom Dispatcher und ändern auf Basis der neuen Informationen ggf. ihren Zustand, um Änderungen in der entsprechenden View auszulösen. Verglichen mit dem MVC Pattern handelt es sich bei den Stores also im Prinzip um das Model.
 
-#### State management (Redux)
+**View**
+
+Die Views dienen der Anzeige der Daten. Sie abonnieren Stores und können Actions auslösen. Bei React sind die Views die entsprechenden React Komponenten.
+
+#### State management mit Redux
+
+Redux ist eine JavaScript Bibliothek, die einen "Zustands-Container" (*state-container*) zur Hilfe bei der Verwaltung des Datenflusses einer Applikation bereitstellt. Die Architktur erinnert stark an die Flux Architektur, siehe nachfolgende Abbildung. Für die Verwendung von Redux mit React kann man die Bibliothek [react-redux](https://github.com/reactjs/react-redux) verwenden.
+
+<a name="ref_redux_achitecture"></a>![ref_redux_achitecture](./images/redux-architecture.jpg "Redux Architektur")
+
+Sie besteht aus vier Bestandteilen:
+
+**Action**
+
+Die Actions verhalten sich analog zu den Actions des Flux Patterns, jedoch ist ihr Aufbau leicht abgeändert:
+
+```javascript
+{
+  type: 'ADD_PERSON',
+  forename: 'Max'
+  surname: 'Mustermann'
+}
+```
+
+*Randbemerkung*: 
+
+Es wird empfohlen möglichst wenig Nutzdaten in ein Aktion einzubinden. Statt der gesamtem Informationen kann beispielsweise ein Index übergeben werden, mithilfe dessen die Informationen aus einer Liste o.ä. entnommen werden können [[REDU18]](#ref_redu18). 
+
+**Reducer**
+
+Reducer sind Funktionen, die den aktuellen Zustand eines Stores sowie eine Action erhalten und auf Basis dieser Informationen den neuen Zustand zurückgeben. Reducer müssen zwingend die folgenden beiden Eigenschaften erfüllen, damit das zugrundeliegende Pattern von Redux nicht verletzt wird:
+
+* es muss sich um eine sogenannte *pure function* handeln, d.h., dass der Ausgabewert der Funktion bei gleicher Eingabe immer gleich ist
+
+* die Funktion darf keine Seiteneffekte besitzen, d.h. keine globalen Variablen verwenden, keine asynchronen Aufrufe tätigen etc.  
+
+Das folgende Beispiel stellt einen einfachen Reducer für ein Array von Personen dar. Es erhält den aktuellen Zustand (ein Array mit den aktuell vorhandenen Personen) sowie die auszuführende Action. Anhand des Action-Attributes *type* wird die auf den Zustand anzuwendene Aktion ausgewählt und der Zustsand anschließend zurückgegeben.
+ 
+```javascript
+const personReducer = (state, action) => {
+  switch (action.type) {
+    case 'ADD_PERSON':
+      return [
+        // die bisherigen Personen
+        ...state,
+        // neue Person anfügen
+        {
+          forename: action.forename,
+          surname: action.surname
+        }
+      ]
+    case 'REMOVE_PERSON':
+      //...
+    // sonstige Actions
+    // ...
+    default:
+      // Fehlerbehandlung...
+  }
+}
+```
+
+**React (View):** 
+
+Analog zu Flux.
+
+**Store** 
+
+Analog zu Flux.
+
+
 [[TSON18]](#ref_tson18)
 #### Komposition vs. Vererbung
 #### Higher Order Components (HOCs)
-Higher order components erweitern Komponenten, indem sie ihnen zusätzliche Funktionalitäten oder Properties zur Verfügung stellen (ähnlich wie beim Decorator Pattern) [[TSON18]](#ref_tson18). Möchte man beispielsweise bei jedem Mounting- und Rendervorgang von Komponnten ein Log-Nachricht ausgeben, so müsste man den gleichen Code an vielen Stellen des Projekts einbauen (in der componentDidMount- und der render-Methode der jeweiligen Komponente).
+Higher order components erweitern Komponenten, indem sie ihnen zusätzliche Funktionalitäten oder Properties zur Verfügung stellen (ähnlich wie beim Decorator Pattern) [[TSON18]](#ref_tson18). Möchte man beispielsweise bei jedem Mounting- und Rendervorgang von Komponenten ein Log-Nachricht ausgeben, so müsste man den gleichen Code an vielen Stellen des Projekts einbauen (in der componentDidMount- und der render-Methode der jeweiligen Komponente).
 Eine HOC kann hier Abhilfe schaffen:
 
 ```jsx
@@ -575,9 +660,8 @@ In diesem recht simplen Beispiel wird deutlich, dass so Logik und Anzeige besser
 
 
 
-
 ### Weitere React-Themen
-#### Virtuelles DOM & 
+#### Virtuelles DOM & Reconciliation
 https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e
 #### Type checking/static types in JavaScript
 ...
@@ -668,6 +752,9 @@ Facebook
 
 <a name="ref_mozi18">[MOZI18]</a>: Mozilla and individual contributors: Arrow functions. URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 (abgerufen am 06.05.2018)
+
+<a name="ref_redu18">[REDU18]</a>: Redux: Actions. URL: https://redux.js.org/basics/actions
+(abgerufen am 11.05.2018)
 
 <a name="ref_tson18">[TSON18]</a>: Tsonev, Krasimir: React in patterns. URL: https://legacy.gitbook.com/book/krasimir/react-in-patterns/details (abgerufen am 09.05.2018)
 
