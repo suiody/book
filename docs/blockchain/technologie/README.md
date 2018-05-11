@@ -169,7 +169,37 @@ Es müssen also nicht immer alle Knoten aktuell gehalten werden, weil die neuen 
 
 ### Transaktion
 
+In einem Blockchain System sind Transaktionen das was in den Blöcken der Blockchain gespeichert wird. Bei Bitcoin (BTC) z.B. besteht eine Transaktion aus der Übertragung von Bitcoins. Wenn z.B. die Benutzerin Alice 5 BTC and Bob senden würden dann müsste sie dies in einer Nachricht an das Netzwerk boadcasten. Die Nachricht könnte also „Sende 5.0 BTC von Alice zu Bob.“ lauten. Um allerdings sicherzustellen, dass diese Nachricht überhaupt von Alice geschickt wurde und nicht von einem Angreifer ist eine „digitale Signatur“ nötig. Eine solche Signatur agiert als eine Art Nachweis, dass Alice der Besitzer des Kontos ist aus dem die 5 BTC entnommen werden sollen. Um etwas zu signieren werden kryptografische Funktionen genutzt. Um diese Funktionen wiederum zu verwenden benötigt Alice zwei Schüssel, die auf spezielle weiß verknüpft sind, einen „public key“ und einen „private key“, genaueres zu der Funktionsweise ist in dem entsprechenden Abschnitt zu finden. Der Private-Schlüssel wird im folgenden als „secret key“ bzw. SK abgekürzt und der public key als PK. Alice kann ihren SK nutzen um ihre Nachricht mit ihrer Signatur zu versehen. Dies ist im Grunde eine digitale Unterschrift, die von anderen Nutzern mit dem PK überprüft werden kann, um sicherzustellen das tatsächlich Alice die Nachricht geschickt hat und das diese auf dem Weg durch das Netzwerk nicht verändert wurde. In der folgenden Abbildung ist dieser Vorgang nochmal verdeutlicht.
 
+<img src="./images/bitcoin_transaction_signature.png" >
+
+Erzeugung von Signatur und Verifizierung mit SK und PK.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+Es ist zwingend notwendig das Alice niemals ihren SK preisgibt, da dieser auch den Zugriff auf ihre BTC sichert. Die Signatur ist sozusagen ein Proxy-Passwort, das bewiesen soll das Alice im besitz des echten SK ist. Bei jeder Transaktion die Alice durchführt erzeugt sie immer wieder eine neue Signatur, weil ansonsten ein Angreifer einfach die Signatur einer älteren Transaktion dahingehende missbrauchen das er sich als Alice ausgibt.
+
+In Systemen in denen Benutzer ein Konto besitzen, wie z.B. Bitcoin, wird häufig der PK als Zieladresse für Transaktionen genutzt. Mit dem bisher Beschriebenen lässt sich jedoch nicht Nachweißen, dass Alice überhaupt jemals im Besitz von 5 BTC war. Eine Transaktion besteht daher nicht nur aus der Signatur, Zieladresse und Menge an BTC, sondern aus vorherigen Transaktionen die beweisen das Alice 5 BTC besaß (Inputs). In der folgenden Abbildung ist die Transaktion visualisiert. Diese verweist auf zwei ältere Transaktionen in denen Alice der Empfänger (Outputs) war. Natürlich muss die gesamte Summe an erhaltenen BTC gleich oder größer dem zu versendenten Betrag (5 BTC) sein. Im Bitcoin System gibt es noch eine Besonderheit, dass wenn die nachgewiesene Summe den zu versendenden Betrag überschreitet eine zusätzliche Output-Transaktion eingefügt wird, die sozusagen das Wechselgeld and Alice zurück überweißt.
+
+<img src="./images/bitcoin_transaction_inputs.png" width="500">
+
+Eine Transaktion die auf zwei unverbrauchte Input-Transaktionen verweißt.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+Diese Verknüpfung von Transaktionen resultiert in einer Transaktionskette. Der wichtige Punkt ist, dass jede Transaktion mit älteren Transaktionen abgesichert ist. In der folgenden Abbildung ist die Transaktionskette dargestellt.
+
+<img src="./images/bitcoin_transaction_ownership_chain.png" width="450">
+
+Verkettung von Transaktionen.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+Nur weil Alice allerdings irgendwelche alten unverbrauchten Transaktionen aufführt heißt, dass nicht das diesen vertraut werden können. Daher müssen auch deren aufgeführten eingehenden Input-Transaktionen überprüft werden, natürlich können diesen ebenso nicht vertraut werden also müssen alle Transaktionen des gesamten Systems geprüft werden um sicherzustellen, dass keine manipuliert wurde. Auf den ersten Blick erscheint diese Aufgabe sehr zeitaufwendig jedoch kann sie mit unterschiedlichen Hilfsmitteln wie Indexen optimiert werden. Für Alice bedeutet dies auch, dass sie beim Überprüfen wie viel BTC sie noch besitzt sie alle unverbrauchten Input-Transaktionen aufaddieren muss um auf ihren Kontostand zu erhalten. Eine Transaktion kann also aus mehreren eingehenden und ausgehenden Transaktion bestehen. 
+
+Bitcoin z.B. unterstützt mehr als nur simple Überweisungen von einem Konto zum anderen. Um komplexere Transaktionen durchzuführen wird eine eigene Scriptsprache verwendet. Man kann sich, dass in etwa so vorstellen, dass Alice BTC in ein öffentlich zugängliches Bankschließfach deponiert und diesen mit einer Art mathematischem Rätsel absichert. Im simpelsten Fall gestaltet Alice das Rätsel so, dass nur ein Empfänger das Schließfach öffnen kann. Im Beispiel davor also Bob. Alternativ könnte sie z.B. dafür sorgen, dass mehrere Personen nötig sind um auf den Inhalt zuzugreifen. Dann wären z.B. zwei von drei Empfänger Signaturen nötig um das Schließfach zu öffnen. Eine weitere spezielle Transaktion ist die erste Transaktion im Bitcoin System. Diese konnte theoretisch von jedem gelöst werden. Diese speziellen Aspekte und die Scriptsprache werden häufig hinter Anwenderfreundlicher Software verstreckt. Auch wenn theoretisch jeder die Scriptsprache nutzen könnte ist davon abzuraten, da Fehler zu unerwünschten Ergebnissen führen können.
+
+<a>[[IMPO18]](#ref_IMPO18)</a>
 
 ### Blöcke
 
@@ -436,6 +466,8 @@ http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimension
 <a name="ref_hahn18">[HAHN18]</a>: Hahn, Christopher ; Wons, Adrian: Initial Coin Offering (ICO) - Unternehmensfinanzierung auf Basis der Blockchain-Technologie. Gabler Verlag, 2018, ISBN: 978-3-658-21786-0
 
 <a name="ref_HOFM17">[HOFM17]</a>: Hofmann, Frank ; Wurster, Simone ; Eyal, Ron ; Böhmecke-Schwafert, Moritz : The immutability concept of blockchains and benefits of early standardization. Nanjing, China : ITU Kaleidoscope: Challenges for a Data-Driven Society (ITU K), 2017, ISBN: 978-9-2612-4281-7 
+
+<a name="ref_IMPO18">[IMPO18]</a>: Iimponderablethings.com : How Bitcoin Works Under the Hood  ; URL: http://www.imponderablethings.com/2013/07/how-bitcoin-works-under-hood.html ; Date Accessed: Mai 10, 2018
 
 <a name="ref_INVE18">[INVE18]</a>: Investopedia.com : Hard Fork & Soft Fork ; URL: https://www.investopedia.com/terms/h/hard-fork.asp & https://www.investopedia.com/terms/h/hard-fork.asp ; Date Accessed: Mai 09, 2018
 
