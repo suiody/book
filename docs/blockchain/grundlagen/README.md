@@ -11,7 +11,7 @@ Autor: Patrick Vogt
 
 **CIA-Schutzziele**
 
-Das Akronym *CIA* ergibt sich aus den folgenden drei Begriffen, <a>[[BAUM14]](#ref_baum14)</a>:
+Kryptographie ist ein mögliches Mittel gegen gezielte Angriffe auf Softwaresysteme. Das Akronym *CIA* spiegelt drei wichtige Schutzziele wider. Es ergibt sich aus den folgenden drei Begriffen, [[BAUM14]](#ref_baum14):
 
 * **C**onfidentiality (Vertraulichkeit): Informationen sind nur autorisierten Personen zugänglich
 * **I**ntegrity (Integrität): Informationen sind korrekt, aktuell und vollständig
@@ -23,7 +23,7 @@ Das Sicherheitsziel *Authentizität* gewährleistet, dass ein Kommunikationspart
 
 **Nichtabstreitbarkeit**
 
-Ebenso wichtig ist der Begriff der *Nichtabstreitbarkeit*. Diese gewährleistet eine Nachweisbarkeit gegenüber Dritten, sodass der Versand und Empfang einer Nachricht bzw. von Daten/Informationen bewiesen werden kann. Hieraus ergeben sich zwei Unterkategorien:
+Ebenso wichtig ist der Begriff der *Nichtabstreitbarkeit*. Diese gewährleistet eine Nachweisbarkeit gegenüber Dritten, sodass der Versand und Empfang einer Nachricht, bzw. von Daten/Informationen, bewiesen werden kann. Hieraus ergeben sich zwei Unterkategorien:
 
 * Nichtabstreitbarkeit der Herkunft: verhindert ein nachträgliches Abstreiten des **Versands** einer Nachricht
 
@@ -40,6 +40,7 @@ Ein wichtiger Grundsatz der Kryptographie wurde 1883 von Auguste Kerkchoffs von 
 >Die Sicherheit eines Kryptosystems liegt allein in der Schwierigkeit, den Schlüssel zu finden – sie darf nicht auf der Geheimhaltung des Systems beruhen. <a>[[BAUM14]](#ref_baum14)</a>
 
 Alle heutzutage gängigen Verschlüsselungsverfahren folgen diesem Grundsatz. 
+Befolgt man diesen Grundsatz nicht, erhält ein potentieller Angreifer Zugriff auf alle Daten, sobald das Verfahren, z.B. aufgrund eines Informationslecks, bekannt wird. Des Weiteren ermöglicht dies, dass Experten über die Sicherheit der Verfahren offen diskutieren können und ggf. auftretende Sicherheitslücken erkannt und behoben werden können.
 
 ### Hashfunktionen
 Autor: Patrick Vogt
@@ -87,7 +88,7 @@ dargestellt.
 Abbildung entnommen aus <a>[[SSL18]](#ref_ssl18)</a>
 
 Der Absender verwendet den öffentlichen Schlüssel des Empfängers zum Verschlüsseln der Daten. Der Empfänger erhält den verschlüsselten Text und kann diesen mit seinem privaten Schlüssel
-dechiffrieren. Der große Vorteil dieses Verfahrens liegt darin, dass der öffentliche Schlüssel nicht geheim gehalten werden muss, da er nicht zum Entschlüsseln der Daten genutzt werden kann. Der bei der symmetrischen Verschlüsselung benötigte sichere Kommunikationskanal entfällt somit, siehe nachfolgende Abbildung. Der private Schlüssel sollte dementsprechend nur dem jeweiligen Empfänger bekannt sein und von ihm geheim gehalten werden. Da die Schlüssel jeweils von nur einem Teilnehmer abhängig sind, steigt die Anzahl der Schlüssel bei steigender Anzahl an Teilnehmern nicht quadratisch - wie bei der symmetrischen Verschlüsselung - sondern linear.
+dechiffrieren. Der große Vorteil dieses Verfahrens liegt darin, dass der öffentliche Schlüssel nicht geheim gehalten werden muss, da er nicht zum Entschlüsseln der Daten genutzt werden kann. Der bei der symmetrischen Verschlüsselung benötigte sichere Kommunikationskanal entfällt somit, siehe nachfolgende Abbildung. Der private Schlüssel sollte dementsprechend nur dem jeweiligen Empfänger bekannt sein und von ihm geheim gehalten werden. Da die Schlüssel jeweils von nur einem Teilnehmer abhängig sind, steigt die Anzahl der Schlüssel bei steigender Anzahl an Teilnehmern nicht quadratisch, wie bei der symmetrischen Verschlüsselung, sondern linear.
 
 ![asym_encryption](./images/asym_verschl2.png "Asymmetrische Verschlüsselung")
 
@@ -106,8 +107,8 @@ Die nachfolgende Abbildung zeigt den prinzipiellen Ablauf beim Übermitteln digi
 ![dig_signature](./images/digital_sign.svg "Prinzip der digitalen Signatur")
 Abbildung entnommen aus <a>[[DOCU18]](#ref_docu18)</a>
 
-Das zu signierende Dokument wird mithilfe einer Hash-Funktion verarbeitet und anschließend mit dem privaten Schlüssel des Signierers verschlüsselt und an das originale Dokument angefügt. Das nun signierte Dokument wird an den Empfänger gesendet, wo die Signatur mithilfe des öffentlichen Schlüssels des Signierers entschlüsselt wird. Der Empfänger wendet anschließend den gleichen Hash-Algorithmus wie der Absender 
-auf das Dokument an und vergleicht sein Ergebniss mit der empfangenen Signatur. Stimmen die beiden Hashwerte überein wurde der Text mit sehr hoher Wahrscheinlichkeit von der angegebenen Person signiert und nicht verändert. 
+Das zu signierende Dokument wird mithilfe einer Hashfunktion verarbeitet und anschließend mit dem privaten Schlüssel des Absenders ("Signierers") verschlüsselt und an das originale Dokument angefügt. Das nun signierte Dokument wird an den Empfänger gesendet, wo die Signatur mithilfe des öffentlichen Schlüssels des Signierers entschlüsselt wird. Der Empfänger wendet anschließend den gleichen Hash-Algorithmus wie der Absender 
+auf das Dokument an und vergleicht sein Ergebnis mit der empfangenen Signatur. Stimmen die beiden Hashwerte überein wurde der Text mit sehr hoher Wahrscheinlichkeit von der angegebenen Person signiert und nicht verändert. 
 
 Im Gegensatz zu anderen (auf symmetrischen Verfahren basierenden) Signaturverfahren kann der Empfänger der Nachricht jedem - der ebenfalls den öffentlichen Schlüssel des Signierers kennt - beweisen, dass dieser die Nachricht verfasst hat.
 Solche digitalen Signaturverfahren können deshalb auch zur juristischen Beweisführung verwendet werden <a>[[PAAR16]](#ref_paar16)</a>.
@@ -129,7 +130,7 @@ Letztere Signaturen beinhalten zusätzlich zum Namen und Testschlüssel weitere 
 ### Message Authentication Code (MAC)
 Autor: Patrick Vogt
 
-Message Authentication Codes (MACs) werden auch kryptografische Prüfsummen genannt. Wie digitale Signaturen dienen sie der Sicherstellung der Integrität und Authentisierung von Nachrichten, wobei MACs jedoch auf einem symmetrischen Verfahren beruhen und eine Nichtzurückweisbarkeit somit nicht gewährleistet werden kann. MACs basieren auf Hashfunktionen oder Blockchiffren, wodurch sie in der Regel deutlich schneller als digitale Signaturen verarbeitet werden können.
+Message Authentication Codes (MACs) werden auch kryptografische Prüfsummen genannt. Sie dienen der Sicherstellung der Integrität und Authentisierung von Nachrichten. MACs beruhen, im Gegensatz zu digitalen Signaturen, auf einem symmetrischen Verfahren, wodurch eine Nichtzurückweisbarkeit nicht gewährleistet werden kann. Es werden Hashfunktionen oder Blockchiffren verwendet, wodurch sie in der Regel deutlich schneller als digitale Signaturen verarbeitet werden können.
 
 Im Wesentlichen wird mithilfe eines symmetrischen Schlüssels *k* und der Nachricht *x* eine Prüfsumme *m* gebildet:
 
@@ -148,29 +149,29 @@ Der Sender bildet mithilfe des gemeinsamen Schlüssels und der Nachricht eine Pr
 ### Public Key Infrastructure (PKI)
 Autor: Patrick Vogt
 
-Bei Verfahren, die auf asymmetrischen Methodiken beruhen, muss sichergestellt werden, dass ein bestimmter öffentlicher Schlüssel tatsächlich einer gewissen Person gehört. Die Gültigkeit dieser *Schlüsselbindung* wird von *Zertifizierungsstellen* (*certification authorities, CA*), mithilfe von Zertifikaten (*cetificates*), bestätigt <a>[[KÜST11]](#ref_kuesters11)</a>. Public Key Infrastructures (PKIs) verwalten und verteilen die Schlüssel und Zertifikate.
+Bei Verfahren, die auf asymmetrischen Methodiken beruhen, muss sichergestellt werden, dass ein bestimmter öffentlicher Schlüssel tatsächlich einer gewissen Person gehört. Die Gültigkeit dieser *Schlüsselbindung* wird von *Zertifizierungsstellen* (*certification authorities, CA*), mithilfe von *Zertifikaten* (*cetificates*), bestätigt <a>[[KÜST11]](#ref_kuesters11)</a>. Public Key Infrastructures (PKIs) verwalten und verteilen die Schlüssel und Zertifikate.
 
 Digitale Zertifikate bestehen aus einem öffentlichen Schlüssel sowie aus zusätzlichen Informationen, z.B.:
 
 * wer hat das Zertifikat ausgestellt?
-* für wen wurde das Zertifikat ausgestellt (Besitzer des privaten Schlüssels)
+* für wen wurde das Zertifikat ausgestellt (Besitzer des privaten Schlüssels)?
 * Gültigkeitszeitraum des Zertifikats
 * Fingerprint (eindeutige Kennung; z.B. durch Anwenden einer Hashfunktion auf den öffentlichen Schlüssel)
 
-Damit der Austausch solcher Zertifikate einfach und sicher durchgeführt werden kann, erstellt eine Zertifizierungsstelle ein Wurzelzertifikat (Root-Zertifikat). Diese Stelle muss somit für alle Teilnehmer als vertrauenswürdig eingestuft sein. Mithilfe des zum Wurzelzertifikat gehörenden privaten Schlüssels können weiteren Zertifikate signiert werden. Private Schlüssel, deren Zertifikat von einem Wurzelzertifikat signiert wurde, können ebenfalls zum Signieren weiterer Zertifikate verwendet werden. Diese Zertifikate dürfen wiederum weitere Zertifkate signieren. Eine solche "Signatur-Kette" darf beliebig lang weitergeführt werden, solange sie beim Wurzelzertifikat einer CA beginnt.
+Damit der Austausch solcher Zertifikate einfach und sicher durchgeführt werden kann, erstellt eine Zertifizierungsstelle ein Wurzelzertifikat (Root-Zertifikat). Diese Stelle muss für alle Teilnehmer als vertrauenswürdig eingestuft sein. Mithilfe des zum Wurzelzertifikat gehörenden privaten Schlüssels können weiteren Zertifikate signiert werden. Private Schlüssel, deren Zertifikat von einem Wurzelzertifikat signiert wurde, können ebenfalls zum Signieren weiterer Zertifikate verwendet werden. Diese Zertifikate dürfen wiederum weitere Zertifkate signieren. Eine solche "Signatur-Kette" darf beliebig lang weitergeführt werden, solange sie beim Wurzelzertifikat einer CA beginnt.
 Zur Überprüfung der Vertrauenswürdigkeit und Echtheit müssen dementsprechend alle Zertifikate der Kette überprüft werden [[BSI18b]](#ref_BSI18b).
 
 ### Algorithmen
 Autor: Patrick Vogt
 
-Es gibt eine Vielzahl von verschiedenen Algorithmen Arten im Bereich der Kryptographie. Die nachfolgende Tabelle soll, basierend auf den Empfehlungen in [[BSI18c]](#ref_bsi18c), einen Überblick über einige aktuell bedeutende Algorithmen Arten verschaffen.
+Im Bereich der Kryptographie gibt es eine Vielzahl von verschiedenen Algorithmen Arten . Die nachfolgende Tabelle soll, basierend auf den Empfehlungen in [[BSI18c]](#ref_bsi18c), einen Überblick über einige aktuell bedeutende Algorithmen Arten verschaffen.
 
 | Verfahren          | Typ/Grundkategorie           | Anwendungsgebiet    | Sicherheitsbasis/-prinzip                                                                                    |
 |--------------------|------------------------------|---------------------|-----------------------------------------------------------------------------------------------------|
 | AES                | Blockchiffre                | Verschlüsselung     | kein effizienter Weg zur Bestimmung des symmetrischen Schlüssels bekannt; viele Jahre bewährt                                                                             |
-| SHA                | Hash-Funktion                | Signatur            | kollisionssichere Hashfunktion                                                                     |
+| SHA                | Hashfunktion                | Signatur            | kollisionssichere Hashfunktion                                                                     |
 | CMAC               | MAC (Blockchiffre)          | Signatur            |   sicheres Blockchiffre-Verfahren                                                                                                 |
-| HMAC               | MAC (Hash-Funktion)          | Signatur            | kollisionssichere Hashfunktion                                                                                                    |
+| HMAC               | MAC (Hashfunktion)          | Signatur            | kollisionssichere Hashfunktion                                                                                                    |
 | GMAC               | MAC (Blockchiffre)          | Signatur            |   sicheres Blockchiffre-Verfahren                                                                                                                                                 |
 | RSA                | asym. Schlüsselpaar          | Verschl. & Signatur | Umkehrfunktion von Faktorisierung schwer zu berechnen                                                   |
 | DSA                | asym. Schlüsselpaar & Hashfunktion   | Signatur    | Umkehrfunktion von diskreter Log. schwer zu berechnen                                                   |

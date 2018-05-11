@@ -2,11 +2,41 @@
 ## FRP
 ## React.js
 *Stand: Version 16.3.2*
+
+***Warum funktionieren die Links mit VuePress nicht?***
+- [Einführung](#Einführung)
+  - [SPA / Progressive Web App](#SPA-/-Progressive-Web-App)
+  - [JSX](#JSX)
+- [Komponenten](#Komponenten)
+  - [Dumb Components & Smart Components](#Dumb-Components-&-Smart-Components)
+  - [Children](#Children)  
+  - [Rendern](#Rendern)
+  - [Bedingtes Rendern](#Bedingtes-Rendern)
+  - [Events](#Events)
+  - [Styling](#Styling)
+  - [Lifecycle](#Lifecycle)
+- [Patterns / Architektur](#Patterns-/-Architektur)
+  - [State management (Redux)](#State-management-(Redux))
+  - [Komposition vs. Vererbung](#Komposition-vs.-Vererbung)
+  - [Higher Order Components (HOCs)](#Higher-Order-Components-(HOCs))
+  - [Flux](#Flux)
+- [Weitere React-Themen](#Weitere-React-Themen)
+  - [Virtuelles DOM & Reconciliation](#Virtuelles-DOM-&-Reconciliation)
+  - [Type checking/static types in JavaScript](#Type-checking/static-types-in-JavaScript)
+    - [PropTypes](#PropTypes)
+    - [Flow](#Flow)
+    - [Typescript](#Typescript)
+  - [Error Handling (Error Boundaries)](#Error-Handling-(Error-Boundaries))
+  - [Code-Splitting](#Code-Splitting)
+  - [Strict Mode](#Strict-Mode)
+  - [React Router](#React-Router)
+  - [Serverseitiges Rendern](#Serverseitiges-Rendern)
+
 ### Einführung
 #### SPA / Progressive Web App
 
 #### JSX
-JSX erweitert die Programmiersprache JavaScript, indem es eine XML/HTML-artige Struktur zur Programmierung der GUI-Elemente innerhalb des JavaScript Codes erlaubt. Damit aus einem JSX-Code standardmäßiges JavaScript wird, muss der Code übersetzt werden. Dieser Vorgang wird i.d.R. mithilfe des JavaScript-Compilers "Babel" durchgeführt. Streng genommen ist JSX kein zwingendes Muss bei der Verwendung von React als Framework, jedoch ist zu vermuten, dass die meisten Programmierer die JSX-Version dem compilierte JavaScript Äquivalent aufgrund der Übersichtlichkeit bevorzugen würden. Außerdem können so hilfreichere Tool-Unterstützungen (Warnungen, Fehler etc.) angezeigt werden [[FACE18a]](#ref_face18a).
+JSX erweitert die Programmiersprache JavaScript, indem es eine XML/HTML-artige Struktur zur Programmierung der GUI-Elemente innerhalb des JavaScript Codes erlaubt. Damit aus einem JSX-Code standardmäßiges JavaScript wird, muss der Code übersetzt werden. Dieser Vorgang wird i.d.R. mithilfe des JavaScript-Compilers "Babel" durchgeführt. Streng genommen ist JSX kein zwingendes Muss bei der Verwendung von React, jedoch ist zu vermuten, dass die meisten Programmierer die JSX-Version dem compilierte JavaScript Äquivalent aufgrund der Übersichtlichkeit bevorzugen würden. Außerdem können so hilfreichere Tool-Unterstützungen (Warnungen, Fehler etc.) angezeigt werden [[FACE18a]](#ref_face18a).
 
 Als Beispiel soll folgender JSX-Code dienen:
 
@@ -60,10 +90,97 @@ Render-Ausgabe:
 ```
 
 #### Komponenten
-##### Props, State, Children
 
-Properties = Props... erwähnen
+##### Dumb Components & Smart Components
+Grundsätzlich unterscheidet man zwischen zwei Arten von Komponenten. Die sogenannten "dumb components" und die "smart components". Sie unterscheiden sich darin, dass dumb components über keinen Zustand (*state*) verfügen. Soll heißen, dass sie einmalig Eigenschaften zugewiesen bekommen (*properties*, im Folgenden auch *props* genannt) und auf Basis dieser Werte ihr Aussehen anpassen. Es ist darauf zu achten, dass Javascript standardmäßig über keine Typprüfung verfügt und somit auch die Verwendung der Properties ein sorgsames Vorgehen verlangt. Möglichkeiten zur statischen  werden im Kapitel "Type checking/static types in JavaScript" vorgestellt.
 
+Das nachfolgende Beispiel zeigt eine beispielhafte dump component.
+
+```jsx
+const Header = (props) => {
+  return (
+  <div>
+    { props.title }
+  </div>
+  )
+}
+```
+
+ Sie wird in der Variable "Header" als Arrow Function gespeichert. Die Funktion erhält als Parameter die Properties. Es handelt sich hierbei immer um ein Objekt, das die übergebenen Eigenschaften in Form von Key-Value Paaren bereitstellt. In diesem Fall wird der Wert des Schlüssels "title" innerhalb eines div-Containers angezeigt.  
+
+ Die Props werden im JSX als Attribut angelegt: 
+
+ ```jsx
+ /// props = {
+ ///   title: "Informatik Minden"
+ /// }
+<Header title="Informatik Minden" />
+ ```
+
+Smart components verfügen hingegen über einen *Status*. Hierbei handelt es sich ebenfalls um ein Objekt, das aus Key-Value Paaren besteht. Besonders ist hierbei jedoch, dass sich der Status innerhalb des Lebenszyklus der Komponente ändern kann. 
+
+Smart components werden in Form Klassen realisiert und erhalten die Properties über ihren Konstruktor. Die folgende Komponente stellt einen Zähler dar, der als Property einen Startwert (*startValue*) erhält und bei Betätigung des Buttons den Zähler um eins erhöht. Dieser Zähler wird als Statusvariable (*this.state.count*) realisiert und wird mithilfe der Rendermethode (dazu im nächsten Kapitel mehr) angezeigt. 
+
+```jsx
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    // der Startwert des Zählers muss als Property übergeben werden
+    this.state = {count: props.startValue};
+    // diese Bindung wird später erklärt; bitte erst einmal ignorieren
+    this.increment = this.increment.bind(this);
+  }
+  increment() {
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.increment}>+1</button>
+        <h1>Aktueller Wert: {this.state.count}</h1>
+      </div>
+    );
+  }
+}
+```
+
+Bei der Verwendung des Status ist zu beachten, dass Werte von Statusvariablen mit der Methode *setState()* geändert werden müssen. Diese Methode erhält ein Objekt mit den Key-Value Paaren, die geändert werden sollen. Auf diese Art und Weise wird die Anzeige direkt nach dem Ändern eines Statuswerts aktualisiert. 
+Weitere Informationen zum "Lifecycle" von smart components finden sich im gleichnamigen Kapitel.
+
+
+##### Children
+
+Die vorherigen Beispiele haben bereits gezeigt, dass die Oberfläche aus hierarchisch Strukturierten Elementen besteht. Innerhalb von Komponenten, kann auf die direkten Vorfahren (*children*) zugegriffen werden.
+
+```jsx
+const List = (props) => {
+  return (
+    <div>
+      <p>Anzahl an Items: {React.Children.count(props.children)}</p>
+      <ul>
+        {props.children}
+      </ul>
+    </div>
+  )
+}
+```
+Aufruf:
+```jsx
+  <List>
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </List>
+  
+  //======================
+  // Ausgabe:
+  //======================
+  // Anzahl an Items: 2
+  //  • Item 1
+  //  • Item 2
+  //======================
+```
 ##### Rendern
 
 Die Methode *render* ist - wie ihr Name bereits vermuten lässt - die Rendermethode eines React-Elements. Sie wird aufgerufen, wenn die Komponente im Browser dargestellt werden soll (siehe Lifecycle Kapitel). Als Rückgabewert erhält sie genau **ein** React Element. 
@@ -107,6 +224,80 @@ render() {
   );
 }
 ```
+===================
+TODO
+===================
+```jsx
+ReactDOM.render(
+  <AppComponent />,               // React Komponente
+  document.getElementById('root') // Element in der HTML-Datei, an der die      Komponente eingebaut wird
+);
+
+```
+##### Bedingtes Rendern
+Aufgrund des in JSX - also Javascript - eingebetteten Codes für das Rendern von Komponenten, kann ein bedingtes Rendern relativ einfach eingebaut werden. Im folgenden Beispiel wird, abhängig vom Zustand der Komponente, entweder ein Button "Start"- oder ein "Stopp"-Button angezeigt. 
+
+```jsx
+class StartStopButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isRunning: false };
+
+    this.start = this.start.bind(this);
+    this.stop = this.stop.bind(this);
+  }
+  
+  start() {
+    this.setState({ isRunning: true });
+  }
+  stop() {
+    this.setState({ isRunning: false });
+  }
+
+  render() {
+    return (
+      this.state.isRunning 
+      ?
+        // wird gerendert, wenn this.state.isRunning true ist
+        <button onClick={this.stop}>
+          Stopp
+        </button>
+      :
+        // wird gerendert, wenn this.state.isRunning false ist
+        <button onClick={this.start}>
+          Start
+        </button>
+    );
+  }
+}
+```
+
+Statt des hier verwendeten Konditionaloperator (... ? ... : ...) kann auch z.B. ein if-Konstrukt verwendet werden. In diesem Fall darf die entsprechende Logik jedoch nicht "inline" in das return-Statement, sondern muss als extra Code davor. 
+
+Beispiel: 
+
+```jsx
+//...
+render() {
+    let button; // Rückgabewert, kann natürlich auch als Expression in einen JSX-Code eingebaut werden
+    if (this.state.isRunning) {
+      button = (
+        <button onClick={this.stop}>
+          Stopp
+        </button>
+      );
+    } else {
+        button = (
+          <button onClick={this.start}>
+            Start
+          </button>
+       );
+    }
+    return button;
+  }
+}
+//...
+```
 
 ##### Events
 
@@ -147,7 +338,7 @@ class StartButton extends React.Component {
     this.start = this.start.bind(this);
   }
   
-  start() = {
+  start() {
     this.doStuff(); // "this" kann hier verwendet werden
   }
 
@@ -289,7 +480,7 @@ Abbildung bearbeitet; entnommen aus <a>[[MAJ18]](#ref_maj18)</a> (dort als inter
 
 Noch bevor die Komponente zum DOM hinzugefügt wird (man spricht hierbei vom "mounting"), wird ihr Konstruktor (**constructor(props)**) aufgerufen (in der Abbildung etwas missverständlich dargestellt). Hierbei sollte darauf geachtet werden, dass als erstes der Konstruktor der Basisklasse aufgerufen wird (*super(props)*), da andernfalls das Klassenattribut *this.props* noch nicht definiert ist und es somit zu Bugs kommen kann. Der Konstruktor sollte z.B. dafür genutzt werden den Status des Objekts zu initialisieren (mit this.state).
 
-Nachdem das Objekt initialisiert wurde, wird die Methode **getDerivedStateFromProps(nextProps, prevState)** aufgerufen. Als Rückgabewert wird ein Objekt erwartet, das den Status auf Basis der angepassten Properties enthält oder *null*, um zu signalisieren, dass sich der Status auf Basis der Props nicht geändert hat. Um zu prüfen welche Props sich geändert haben (bzw. ändern werden), kann der Parameter *nextProps* mit den aktuellen Properties des Objekts verglichen werden.
+Nachdem das Objekt initialisiert wurde, wird die Methode **getDerivedStateFromProps(nextProps, prevState)** aufgerufen.  Als Rückgabewert wird ein Objekt erwartet, das den Status auf Basis der angepassten Properties enthält oder *null*, um zu signalisieren, dass sich der Status auf Basis der Props nicht geändert hat. Um zu prüfen welche Props sich geändert haben (bzw. ändern werden), kann der Parameter *nextProps* mit den aktuellen Properties des Objekts verglichen werden.
 
 Es folgt der Aufruf der **render**-Methode und anschließend das Updaten des "nativen DOMs" und der "refs" (Verweise auf die Elemente des nativen DOMs).
 
@@ -307,23 +498,223 @@ Bevor die Änderungen in den nativen DOM übertragen werden, wird die Methode **
 
 Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **componentWillUnmount()** aufgerufen. Sie dient zum Aufräumen von Timern, Netzwerkverbindungen etc.
 
-##### Bedingtes Rendern
-
-##### Dumb Components & Smart Components
 
 ### Patterns / Architektur 
-
+[[CHAN17]](#ref_chan17)
 #### Flux
-#### State management (Redux)
+
+Flux ist ein Architektur Pattern, das beim Erstellen von User Interfaces verwendet werden kann. Es wurde erstmal 2014 von Facebook vorgestellt. Facebook nutzt Flux intern für ihre React Projekte, da ihnen die bidirektionalen Verbindungen bei Verwendung eines MVC Patterns aufgrund des großen Umfangs ihrer Projekte Probleme bereiteten [[FACE14]](#ref_face14). 
+Im Gegensatz zu MVC handelt es sich bei Flux um ein unidirektionales Pattern.
+
+Der prinzipielle Architektur von Flux wird in der folgenden Abbildung dargestellt:
+
+<a name="ref_flux_achitecture"></a>![ref_flux_achitecture](./images/basic_flux_architecture.jpg "Flux Architektur")
+
+Abbildung entnommen aus [[TSON18]](#ref_tson18)
+
+Das Pattern besteht aus 4 Bestandteilen, [[TSON18]](#ref_tson18):
+
+**Action**
+
+Ereignisse/Benachrichtigungen, die Informationen/Daten an den Dispatcher weiterleiten. Sie werden von der View oder sonstigen Services (z.B. HTTP Anfragen) ausgelöst. 
+
+Typischerweise handelt es sich bei einer Action um ein Object, das über zwei Attribute verfügt.
+* *type*: um welche Action handelt es sich  (eine Art ID)?
+* *payload*: Objekt, das die Nutzdaten enthält
+
+Eine Action, bei der eine Person zu einer Liste hinzugefügt werden soll, könnte folgendermaßen aussehen:
+
+```javascript
+{
+  type: 'ADD_PERSON',
+  payload: {
+    forename: 'Max'
+    surname: 'Mustermann'
+  }
+}
+```
+
+**Dispatcher**
+
+Der Dispatcher ist der hauptsächliche Akteur. Alle eingehenden Ereignisse des Systems (bzw. *Actions*) werden im Dispatcher gesammelt und dort an die Entsprechenden *Stores* verteilt.
+
+**Store**
+
+Die Stores empfangen die Benachrichtigungen vom Dispatcher und ändern auf Basis der neuen Informationen ggf. ihren Zustand, um Änderungen in der entsprechenden View auszulösen. Verglichen mit dem MVC Pattern handelt es sich bei den Stores also im Prinzip um das Model.
+
+**View**
+
+Die Views dienen der Anzeige der Daten. Sie abonnieren Stores und können Actions auslösen. Bei React sind die Views die entsprechenden React Komponenten.
+
+#### State management mit Redux
+
+Redux ist eine JavaScript Bibliothek, die einen "Zustands-Container" (*state-container*) zur Hilfe bei der Verwaltung des Datenflusses einer Applikation bereitstellt. Die Architktur erinnert stark an die Flux Architektur, siehe nachfolgende Abbildung. Für die Verwendung von Redux mit React kann man die Bibliothek [react-redux](https://github.com/reactjs/react-redux) verwenden.
+
+<a name="ref_redux_achitecture"></a>![ref_redux_achitecture](./images/redux-architecture.jpg "Redux Architektur")
+
+Sie besteht aus vier Bestandteilen:
+
+**Action**
+
+Die Actions verhalten sich analog zu den Actions des Flux Patterns, jedoch ist ihr Aufbau leicht abgeändert:
+
+```javascript
+{
+  type: 'ADD_PERSON',
+  forename: 'Max'
+  surname: 'Mustermann'
+}
+```
+
+*Randbemerkung*: 
+
+Es wird empfohlen möglichst wenig Nutzdaten in eine Aktion einzubinden. Statt der gesamtem Informationen kann beispielsweise ein Index übergeben werden, mithilfe dessen die Informationen aus einer Liste o.ä. entnommen werden können [[REDU18]](#ref_redu18). 
+
+**Reducer**
+
+Reducer sind Funktionen, die den aktuellen Zustand eines Stores sowie eine Action erhalten und auf Basis dieser Informationen den neuen Zustand zurückgeben. Reducer müssen zwingend die folgenden beiden Eigenschaften erfüllen, damit das zugrundeliegende Pattern von Redux nicht verletzt wird:
+
+* es muss sich um eine sogenannte *pure function* handeln, d.h., dass der Ausgabewert der Funktion bei gleicher Eingabe immer gleich ist
+
+* die Funktion darf keine Seiteneffekte besitzen, d.h. keine globalen Variablen verwenden, keine asynchronen Aufrufe tätigen etc.  
+
+Das folgende Beispiel stellt einen einfachen Reducer für ein Array von Personen dar. Es erhält den aktuellen Zustand (ein Array mit den aktuell vorhandenen Personen) sowie die auszuführende Action. Anhand des Action-Attributes *type* wird die auf den Zustand anzuwendene Aktion ausgewählt und der Zustsand anschließend zurückgegeben.
+ 
+```javascript
+const personReducer = (state, action) => {
+  switch (action.type) {
+    case 'ADD_PERSON':
+      return [
+        // die bisherigen Personen
+        ...state,
+        // neue Person anfügen
+        {
+          forename: action.forename,
+          surname: action.surname
+        }
+      ]
+    case 'REMOVE_PERSON':
+      //...
+    // sonstige Actions
+    // ...
+    default:
+      // Fehlerbehandlung...
+  }
+}
+```
+
+**React (View):** 
+
+Analog zu Flux.
+
+**Store** 
+
+Analog zu Flux.
+
+
+[[TSON18]](#ref_tson18)
 #### Komposition vs. Vererbung
 #### Higher Order Components (HOCs)
+Higher order components erweitern Komponenten, indem sie ihnen zusätzliche Funktionalitäten oder Properties zur Verfügung stellen (ähnlich wie beim Decorator Pattern) [[TSON18]](#ref_tson18). Möchte man beispielsweise bei jedem Mounting- und Rendervorgang von Komponenten ein Log-Nachricht ausgeben, so müsste man den gleichen Code an vielen Stellen des Projekts einbauen (in der componentDidMount- und der render-Methode der jeweiligen Komponente).
+Eine HOC kann hier Abhilfe schaffen:
+
+```jsx
+// Beispielhafte Komponente, die später erweitert wird
+const Title = (props) => <h1>{props.title}</h1>;
+
+// HOC
+function withLogger(WrappedComponent) {
+  return class extends React.Component {
+    componentDidMount() {
+      console.log(this.props.prefix + ' component did mount')
+    }
+
+    render() {
+      console.log(this.props.prefix + ' render')
+      // mit "{...this.props}" werden alle Properties des HOCs kopiert,
+      // sodass die erweiterte Komponente diese erhält.
+      // Es können auch weitere Properties hinzugefügt werden.
+      // Weitere Infos: Nach "Spread-Operator" suchen
+      return (
+        <WrappedComponent {...this.props}> />
+      )
+    }
+  }
+};
+```
+Bei der HOC handelt es sich um eine Art Factory-Methode. die als Parameter die zu erweiternde Komponente erhält und auf Basis dieser die high-order Komponente erstellt.
+
+Dementsprechend muss die Funktion wie folgt aufgerufen werden:
+```jsx
+const LoggedComponent = withLogger(Title);
+```
+
+Die so erstellte Komponente kann anschließend wie üblich verwendet werden:
+```jsx
+<LoggedComponent 
+    prefix="LoggedComponent:" // Property für den Logger
+    title="test"              // Property für die Komponente
+/>           
+```
+
+In diesem recht simplen Beispiel wird deutlich, dass so Logik und Anzeige besser getrennt werden können, wodurch die Wiederverwendbarkeit der einzelnen Teile verbessert wird. Die Anzeige kann so oftmals durch dump components realisiert werden. Es ist z.B. denkbar, dass eine HOC Daten aus dem Netz abruft und sie dann einer statuslosen "Anzeigekomponente" zur Verfügung stellt [[CHAN17]](#ref_chan17). Ebenso könnte eine HOC die Konfiguration einer anderen Komponente übernehmen. All das erleichtert zudem das Testen der Komponenten, da die Aufgaben strikter getrennt werden und so einfacher Mock-Komponenten erstellt werden können [[TSON18]](#ref_tson18).
+
+
+
 
 ### Weitere React-Themen
 #### Virtuelles DOM & Reconciliation
-#### Type cheking/static types in JavaScript
+https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e
+#### Type checking/static types in JavaScript
+...
 ##### PropTypes
+Durch das Importieren des Packets "prop-types" erhält man Zugriff auf das in React eingebaute Typechecking-Werkzeug *PropTypes*. Mithilfe von PropTypes kann überwacht werden, ob alle benötigten Properties einer Komponente übergeben wurde und ob der Typ des Übergabewertes korrekt ist.
+
+Im folgenden Beispiel werden zwei Strings als Props festgelegt. Hierzu wird der Komponente eine Variable mit dem Namen *propTypes* zugewiesen.
+Innerhalb dieser Variable werden die Properties und deren Typen definiert. Das Anfügen von *isRequired* führt dazu, dass die Property zwingend einem Wert des angegebenen Typs zugewiesen werden muss.
+Ist dies nicht der Fall, erscheint eine entsprechende Fehlermeldung in der Konsole des verwendeten Browsers.
+
+```jsx
+import PropTypes from 'prop-types';
+
+class Header extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>{this.props.title}</h1>
+        {this.props.children}
+      </div>
+    );
+  }
+}
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired, // zwingend notwendig
+  children: PropTypes.element         // optional
+};
+```
+
+Es können viele Typen überprüft werden, z.B.:
+* PropTypes.string
+* PropTypes.number
+* PropTypes.array
+* PropTypes.bool
+* PropTypes.func -> Funktion
+* PropTypes.element -> React Element
+* PropTypes.instanceOf(*Klasse*)
+* PropTypes.oneOf(['EnumA', 'EnumB']) -> wie eine Enumeration
+
+PropTypes überprüft die Typen aus Gründen der Performance nur im Entwicklermodus [[FACE18e]](#ref_face18e).
+
+
 ##### Flow
+
 ##### Typescript
+Typescript ist eine von Microsoft entwickelte Programmiersprache. Da sie JavaScript erweitert und somit auch kompatibel zu JavaScript ist, lassen sich JavaScript Projekte i.d.R. recht einfach migrieren.
+
+TSLint
+
+Schnellstart: [link](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter)
 
 #### Context
 
@@ -335,6 +726,8 @@ Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **
 #### Serverseitiges Rendern
 
 ### Literaturverzeichnis
+
+<a name="ref_chan17">[CHAN17]</a>: Tsonev, Krasimir: React Patterns. URL: https://reactpatterns.com/ (abgerufen am 09.05.2018)
 
 <a name="ref_maj18">[MAJ18]</a>: Maj, Wojciech: Interactive React lifecycle methods diagram. URL: https://github.com/wojtekmaj/react-lifecycle-methods-diagram
 (abgerufen am 05.05.2018)
@@ -351,7 +744,20 @@ Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **
 <a name="ref_face18d">[FACE18d]</a>: Facebook Inc.: React.Component. URL: https://reactjs.org/docs/fragments.html
 (abgerufen am 06.05.2018)
 
+<a name="ref_face18e">[FACE18e]</a>: Facebook Inc.: Typechecking With PropTypes. URL: https://reactjs.org/docs/typechecking-with-proptypes.html
+(abgerufen am 06.05.2018)
+
+<a name="ref_face14">[FACE14]</a>: 
+Facebook
+: Hacker Way: Rethinking Web App Development at Facebook. URL: https://www.youtube.com/watch?v=nYkdrAPrdcw&feature=youtu.be&t=568
+(abgerufen am 11.05.2018)
+
 <a name="ref_mozi18">[MOZI18]</a>: Mozilla and individual contributors: Arrow functions. URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 (abgerufen am 06.05.2018)
+
+<a name="ref_redu18">[REDU18]</a>: Redux: Actions. URL: https://redux.js.org/basics/actions
+(abgerufen am 11.05.2018)
+
+<a name="ref_tson18">[TSON18]</a>: Tsonev, Krasimir: React in patterns. URL: https://legacy.gitbook.com/book/krasimir/react-in-patterns/details (abgerufen am 09.05.2018)
 
 <a name="ref_zeig16">[ZEIG16]</a>: Zeigermann, Oliver ; Hartmann, Nils: React : Die praktische Einführung in React, React Router und Redux. 1. Aufl. s.l. : dpunkt, 2016 
