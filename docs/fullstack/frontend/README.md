@@ -230,7 +230,7 @@ TODO
 ```jsx
 ReactDOM.render(
   <AppComponent />,               // React Komponente
-  document.getElementById('root') // Element in der HTML-Datei, an der die      Komponente eingebaut wird
+  document.getElementById('root') // Element in der HTML-Datei, an der die Komponente eingebaut wird
 );
 
 ```
@@ -546,7 +546,7 @@ Die Stores empfangen die Benachrichtigungen vom Dispatcher und ändern auf Basis
 
 Die Views dienen der Anzeige der Daten. Sie abonnieren Stores und können Actions auslösen. Bei React sind die Views die entsprechenden React Komponenten.
 
-#### State management mit Redux
+#### State Management mit Redux
 
 Redux ist eine JavaScript Bibliothek, die einen "Zustands-Container" (*state-container*) zur Hilfe bei der Verwaltung des Datenflusses einer Applikation bereitstellt. Die Architktur erinnert stark an die Flux Architektur, siehe nachfolgende Abbildung. Für die Verwendung von Redux mit React kann man die Bibliothek [react-redux](https://github.com/reactjs/react-redux) verwenden.
 
@@ -556,7 +556,7 @@ Sie besteht aus vier Bestandteilen:
 
 **Action**
 
-Die Actions verhalten sich analog zu den Actions des Flux Patterns, jedoch ist ihr Aufbau leicht abgeändert:
+Die Actions verhalten sich analog zu den Actions des Flux Patterns, jedoch ist ihr Aufbau leicht abgeändert. Statt des Attributs "payload" werden die Nutzdaten direkt an das Action-Objekt angefügt:
 
 ```javascript
 {
@@ -642,7 +642,7 @@ function withLogger(WrappedComponent) {
   }
 };
 ```
-Bei der HOC handelt es sich um eine Art Factory-Methode. die als Parameter die zu erweiternde Komponente erhält und auf Basis dieser die high-order Komponente erstellt.
+Bei der HOC handelt es sich um eine Art Factory-Methode, die als Parameter die zu erweiternde Komponente erhält und auf Basis dieser die high-order Komponente erstellt.
 
 Dementsprechend muss die Funktion wie folgt aufgerufen werden:
 ```jsx
