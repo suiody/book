@@ -505,16 +505,12 @@ Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **
 [[TSON18]](#ref_tson18)
 #### Komposition vs. Vererbung
 #### Higher Order Components (HOCs)
-Higher order components erweitern Komponenten, indem sie ihnen zusätzliche Funktionalitäten oder Properties zur Verfügung stellen (ähnlich wie beim Decorator Pattern). Möchte man beispielsweise bei jedem Mounting-Vogang von Komponnten ein Log-Nachricht ausgeben, so müsste man denselben Code an vielen Stellen des Projekts einbauen (in der componentDidMount-Methode der jeweiligen Komponente).
+Higher order components erweitern Komponenten, indem sie ihnen zusätzliche Funktionalitäten oder Properties zur Verfügung stellen (ähnlich wie beim Decorator Pattern) [[TSON18]](#ref_tson18). Möchte man beispielsweise bei jedem Mounting- und Rendervorgang von Komponnten ein Log-Nachricht ausgeben, so müsste man den gleichen Code an vielen Stellen des Projekts einbauen (in der componentDidMount- und der render-Methode der jeweiligen Komponente).
 Eine HOC kann hier Abhilfe schaffen:
 
 ```jsx
 // Beispielhafte Komponente, die später erweitert wird
-class Title extends React.Component {
-  render() {
-    return <h1>{this.props.title}</h1>;
-  }
-}
+const Title = (props) => <h1>{props.title}</h1>;
 
 // HOC
 function withLogger(WrappedComponent) {
@@ -536,22 +532,27 @@ function withLogger(WrappedComponent) {
   }
 };
 ```
-Komponente mit der Logger HOC erweitern:
+Bei der HOC handelt es sich um eine Art Factory-Methode. die als Parameter die zu erweiternde Komponente erhält und auf Basis dieser die high-order Komponente erstellt.
+
+Dementsprechend muss die Funktion wie folgt aufgerufen werden:
 ```jsx
 const LoggedComponent = withLogger(Title);
 ```
-Komponente verwenden:
+
+Die so erstellte Komponente kann anschließend wie üblich verwendet werden:
 ```jsx
 <LoggedComponent 
     prefix="LoggedComponent:" // Property für den Logger
-    title="test" />           // Property für die Komponente
+    title="test"              // Property für die Komponente
+/>           
 ```
-   
+
+In diesem recht simplen Beispiel wird deutlich, dass so Logik und Anzeige besser getrennt werden können, wodurch die Wiederverwendbarkeit der einzelnen Teile verbessert wird. Die Anzeige kann so oftmals durch dump components realisiert werden. Es ist z.B. denkbar, dass eine HOC Daten aus dem Netz abruft und sie dann einer statuslosen "Anzeigekomponente" zur Verfügung stellt [[CHAN17]](#ref_chan17). Ebenso könnte eine HOC die Konfiguration einer anderen Komponente übernehmen. All das erleichtert zudem das Testen der Komponenten, da die Aufgaben strikter getrennt werden und so einfacher Mock-Komponenten erstellt werden können [[TSON18]](#ref_tson18).
 
 
 
-[[CHAN17]](#ref_chan17)
-[[TSON18]](#ref_tson18)
+
+
 ### Weitere React-Themen
 #### Virtuelles DOM & 
 https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e
