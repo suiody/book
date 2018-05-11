@@ -171,7 +171,7 @@ Es müssen also nicht immer alle Knoten aktuell gehalten werden, weil die neuen 
 
 In einem Blockchain System sind Transaktionen das was in den Blöcken der Blockchain gespeichert wird. Bei Bitcoin (BTC) z.B. besteht eine Transaktion aus der Übertragung von Bitcoins. Wenn z.B. die Benutzerin Alice 5 BTC and Bob senden würden dann müsste sie dies in einer Nachricht an das Netzwerk boadcasten. Die Nachricht könnte also „Sende 5.0 BTC von Alice zu Bob.“ lauten. Um allerdings sicherzustellen, dass diese Nachricht überhaupt von Alice geschickt wurde und nicht von einem Angreifer ist eine „digitale Signatur“ nötig. Eine solche Signatur agiert als eine Art Nachweis, dass Alice der Besitzer des Kontos ist aus dem die 5 BTC entnommen werden sollen. Um etwas zu signieren werden kryptografische Funktionen genutzt. Um diese Funktionen wiederum zu verwenden benötigt Alice zwei Schüssel, die auf spezielle weiß verknüpft sind, einen „public key“ und einen „private key“, genaueres zu der Funktionsweise ist in dem entsprechenden Abschnitt zu finden. Der Private-Schlüssel wird im folgenden als „secret key“ bzw. SK abgekürzt und der public key als PK. Alice kann ihren SK nutzen um ihre Nachricht mit ihrer Signatur zu versehen. Dies ist im Grunde eine digitale Unterschrift, die von anderen Nutzern mit dem PK überprüft werden kann, um sicherzustellen das tatsächlich Alice die Nachricht geschickt hat und das diese auf dem Weg durch das Netzwerk nicht verändert wurde. In der folgenden Abbildung ist dieser Vorgang nochmal verdeutlicht.
 
-<img src="./images/bitcoin_transaction_signature.png" >
+<img src="./images/bitcoin_transaction_signature.png" width="430">
 
 Erzeugung von Signatur und Verifizierung mit SK und PK.
 Abbildung entnommen aus
@@ -189,7 +189,7 @@ Abbildung entnommen aus
 
 Diese Verknüpfung von Transaktionen resultiert in einer Transaktionskette. Der wichtige Punkt ist, dass jede Transaktion mit älteren Transaktionen abgesichert ist. In der folgenden Abbildung ist die Transaktionskette dargestellt.
 
-<img src="./images/bitcoin_transaction_ownership_chain.png" width="450">
+<img src="./images/bitcoin_transaction_ownership_chain.png" width="430">
 
 Verkettung von Transaktionen.
 Abbildung entnommen aus
@@ -198,6 +198,40 @@ Abbildung entnommen aus
 Nur weil Alice allerdings irgendwelche alten unverbrauchten Transaktionen aufführt heißt, dass nicht das diesen vertraut werden können. Daher müssen auch deren aufgeführten eingehenden Input-Transaktionen überprüft werden, natürlich können diesen ebenso nicht vertraut werden also müssen alle Transaktionen des gesamten Systems geprüft werden um sicherzustellen, dass keine manipuliert wurde. Auf den ersten Blick erscheint diese Aufgabe sehr zeitaufwendig jedoch kann sie mit unterschiedlichen Hilfsmitteln wie Indexen optimiert werden. Für Alice bedeutet dies auch, dass sie beim Überprüfen wie viel BTC sie noch besitzt sie alle unverbrauchten Input-Transaktionen aufaddieren muss um auf ihren Kontostand zu erhalten. Eine Transaktion kann also aus mehreren eingehenden und ausgehenden Transaktion bestehen. 
 
 Bitcoin z.B. unterstützt mehr als nur simple Überweisungen von einem Konto zum anderen. Um komplexere Transaktionen durchzuführen wird eine eigene Scriptsprache verwendet. Man kann sich, dass in etwa so vorstellen, dass Alice BTC in ein öffentlich zugängliches Bankschließfach deponiert und diesen mit einer Art mathematischem Rätsel absichert. Im simpelsten Fall gestaltet Alice das Rätsel so, dass nur ein Empfänger das Schließfach öffnen kann. Im Beispiel davor also Bob. Alternativ könnte sie z.B. dafür sorgen, dass mehrere Personen nötig sind um auf den Inhalt zuzugreifen. Dann wären z.B. zwei von drei Empfänger Signaturen nötig um das Schließfach zu öffnen. Eine weitere spezielle Transaktion ist die erste Transaktion im Bitcoin System. Diese konnte theoretisch von jedem gelöst werden. Diese speziellen Aspekte und die Scriptsprache werden häufig hinter Anwenderfreundlicher Software verstreckt. Auch wenn theoretisch jeder die Scriptsprache nutzen könnte ist davon abzuraten, da Fehler zu unerwünschten Ergebnissen führen können.
+
+Ein Problem mit dem bisher dargestellten System bleibt jedoch. Eine Transaktion über das Netzwerk zu verteilen brauch Zeit. Physikalisch weit entfernte Knoten erhalten die Nachricht über eine Transaktion später als dichtere Knoten. Es ist zwingend notwendig die Reihenfolge von Transaktionen festzulegen. Ein simpler Zeitstemple reicht jedoch leider nicht aus, da dieser einfach gefälscht werden könnte. Falls die Reihenfolge nicht eindeutig im System festgelegt werden kann ist ein sogenannter „double spend attack“ möglich. Dies bedeutet soviel wie, dass Geld zweimal ausgeben werden kann.
+
+Alice könnte also z.B. eine Transaktion an Bob schicken in der sie ihm z.B. 5 BTC überweißt. Daraufhin würde Bob beginnen ein Produkt zu liefern und Alice könnte eine zweite Transaktion mit dem selben Nachweisen für den besitz von BTC and sich selbst zurückschicken. Die Knoten im Netzwerk erhalten die Transaktionen in unterschiedlicher Reihenfolge und können nicht festlegen welche Transaktion valide ist und welche nicht, weil zweimal dieselben Input-Transaktionen verwendet wurden und dies nicht erlaubt ist. Um in einem Blockchain System die Reihenfolge von Transaktionen festzulegen, werden diese in verketteten Blöcken abgespeichert und die Blöcke untereinander verlinkt. Daher natürlich auch der Name Blockchain. 
+
+Für die Erzeugung von Blöcken existieren unterschiedliche Möglichkeiten wie z.B. „Proof of Work“ (POW). Diese Verfahren werden auch Konsensmechanismen genannten und werden in ihrem eigenen Abschnitt ausführlich erläutert. Kurz beschrieben sorgen diese Verfahren dafür, dass die Knoten im System Blöcke generieren, jedoch wird so das Problem der Reihenfolge nur von den Transaktionen auf die Blöcke verlagert.
+
+In Bitcoin wird POW verwendet und das System ist so organisiert, dass durchschnittlich all 10 Minuten ca. ein Block erzeugt wird und dabei 2400 Transaktionen abspeichert werden. Wenn aber zwei Blöcke fast zeitgleich im System erzeugt werden und an die anderen Knoten verteilt werden ist wieder unklar, welcher zuerst existiert hat und die Blockchain fortsetzen soll. Eine Möglichkeit ist es einfach den ersten erhaltenden zu verwenden und die anderen Blöcke parallel dazu, wie bei einem Fork, in die Blockchain zu hängen. Wenn dann der nächste Block im System gefunden wird und verteil wird zeigt sich durch die spezielle Hash-Verlinkung von Blöcken welcher der richtige war. Denn in einem Blockchain System kann kein Block erzeugt werden bevor nicht der Block davor erzeugt wurde, weil der Hash-Wert vorherigen Teil des darauffolgenden ist. Dies hat jedoch einen Hacken, die parallel eingebauten Blöcke werden verworfen und Transaktionen, die in diesen enthalten waren werden zurück in einen Topf von nicht verifizierten Transaktionen geschoben. Hierbei ist das Problem was mit den Blöcken der Blockchain selbst vermieden werden sollte wieder möglich, der Double-Spend-Attack. 
+
+Bitcoin verwendet, da die einfache Methode. Wenn mehrere neue Blöcke auf den letzten Block zeigen sind die parallel in der Blockchain bis ein längerer Strang entsteht. Der Grund dafür ist, dass in der längsten Blockchain am meisten Arbeit steckt, die in der Regel nur vom größten Teil des Systems geleistet werden kann. Somit ist die längste Blockchain auch die vertrauenswürdigsten ist. 
+
+Wie wäre also ein Angriff auf das Ender der Blockchain möglich? Kurz beschrieben könnte die Angreiferin Alice ein Produkt von Bob kaufen und hoffen, dass dieser es verschickt. Zu dem Zeitpunkt müsste Alice ein alternatives Ende der Blockchain zum Netzwerk präsentieren in dem sie die Input-Transaktion die ursprünglich an Bob gingen wieder an sich selbst überweißt. Daraufhin wäre die Transaktion an Bob invalide, weil die kürzere Blockchain verworfen wird. Die Transaktion an Bob würde dann in den Topf der nicht verifizierten Transaktionen umgeleitet werden. Jedoch würde die Transaktion nie validiert werden und verworfen werden, weil die Input-Transaktionen, welche die Transaktion an Bob unterstützen in der Blockchain von Alice verwendet wurden. Bob hätte also weder sein Geld noch sein Produkt. In der folgenden Abbildung ist dieser Angriff nochmal dargestellt. 
+
+<img src="./images/bitcoin_blockchain_double_spend.png" width="470">
+
+Double-Spend-Attack von Alice an Bob mit alternativem Blockchain Ende.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+Zum Glück ist dieses Szenario in einem POW System extrem unwahrscheinlich, weil die Erzeugung von Blöcken so schwer ist. Für einen einzelnen handelsüblichen Computer würde es Jahre dauern um einen einzelnen Block zu erzeugen. Alice bräuchte also sehr viel Glück bei der Erzeugung von Blöcken oder extrem leistungsfähige Hardware um schneller Blöcke als der Rest des Systems zu generieren, siehe 51% Angriff. Durch die Unklarheiten am Ende der Blockchain wird eine Transaktion umso sicherer je älter sie ist. Es wird empfohlen mehrere Blöcke z.B. mindestens sieben oder höher abzuwarten bis man eine Transaktion als unveränderlich betrachtet. In der folgenden Abbildung ist dies nochmal verdeutlich.
+
+<img src="./images/bitcoin_blockchain_confirmations_security.png" width="500">
+
+Unsicherheiten von Transaktionen bzw. Blöcken am Ende der Blockchain.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+Obwohl es so schwer ist das Ende der Blockchain zu manipulieren ist ein solcher Angriff theoretisch möglich. Es gibt viele Benutzer die sich zu sogenannten Mining-Gilden zusammenschließen und gemeinsam daran arbeiten Blöcke zu finden und den sogenannten „block reward“ unter sich aufzuteilen. Das Problem dieser Gilden ist, dass sie sehr große Anteile des Systems ausmachen können. So wurden z.B. von der Gruppierung „BTC Guild“, am 23. April 2013, sechs Blöcke in Folge gefunden, daraufhin hat die Gruppe selbst dafür gesorgt, dass dies in ihrem System nicht mehr möglich ist, damit das Vertrauen an Bitcoin nicht verloren geht. In der folgenden Abbildung ist die Wahrscheinlichkeit, dass ein solches Ereignis eintritt dargestellt. Dazu ist ausschlageben wie viel Rechenleistung der Angreifer im Verhältnis zum restlichen System besitzt.
+
+<img src="./images/bitcoin_probability_solving_multiple_blocks_in_row_bitcoin.png" width="450">
+
+Graph zur Wahrschenlichkeit, dass eine Gruppe oder einzelne Person sechs Blöcke in Folge generiert.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
 
 <a>[[IMPO18]](#ref_IMPO18)</a>
 
