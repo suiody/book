@@ -56,11 +56,9 @@ Merkmal | Fabric | Sawtooth | Iroha | Indy | Burrow
 --- | --- | --- | --- | --- | ---
 Projekt Status | Aktiv | Aktiv | Aktiv | Inkubation | Inkubation
 Berechtigung | permissioned | permissioned / permissionless | permissioned | permissioned | permissioned
-Konsensus | SOLO, Kafka, SBFT* | PoET, RAFT | YAC (BFT) | RBFT <a>[[AUBL13]](#ref_aubl13)</a> | Tendermint
-Smart Contract / Business Model | ja | ja* | nein | nein | ja
+Konsensus | SOLO, Kafka, SBFT | PoET, RAFT | YAC (BFT) | RBFT <a>[[AUBL13]](#ref_aubl13)</a> | Tendermint
+Smart Contract / Business Model | ja | ja | nein | nein | ja
 SDK | Go, Node.JS, Java | Python, Go, Javascript | gRPC API | - | Solidity
-
-\*siehe entsprechenden Abschnitt
 
 #### Fabric
 Hyperledger Fabrik ist ein Distributed Ledger Framework für *permissioned*
@@ -138,7 +136,7 @@ Neben dem hier beschrieben Konsens Algorithmus  genannt und ist Standardmäßig
 Wie bei klassischen Client-Server-Architekturen stellt der Client, auch im
 Hyperledger Fabric Kontext, die vom Nutzer lokal ausgeführte Applikation dar.
 Für diesen Zweck stellt das Hyperledger Fabric Framework, eine Client-Bibliothek
-bereit, mit dem die Applikation mit den Peers und Ordering Service interagieren
+bereit, mit dem die Applikation mit den Peers und Ordering Services interagieren
 kann.
 
 ##### Chaincode
@@ -202,8 +200,48 @@ die Änderung übernommen haben, wird die Applikation über die Änderung des
 Distributed Ledgers benachrichtigt und die Transaktion damit abgeschlossen.
 
 #### Sawtooth
+Das Sawtooth Framework ist ebenfalls eine *permissioned* Blockchain Plattform,
+für die Entwicklung von Distributed Ledger Applikationen im Unternehmensumfeld.
+Auch wenn diese Blockchain Plattform ohne Berechtigungen betrieben werden kann,
+so sind die derzeit verfügbaren Konsens-Algorithmen nur für Netzwerke ausgelegt,
+in dem ein gewisses Vertrauen an die Teilnehmer vorausgesetzt wird.
 
-##### Transaction Family
+Wie in Abbildung 8.4.2.4 dargestellt, besteht das Netzwerk aus Peers
+(*Validator*), einer optionalen REST-Schnittstelle für die Client-Applikationen
+und den optionalen Transaction-Processoren.
+
+![Sawtooth Architektur](./images/hyperledger_sawtooth_components.png "Sawtooth Architektur")
+
+Abbildung 8.4.2.4 - Sawtooth Architektur (Quelle: <a>[[SAWT18]](#ref_sawt18)</a>)
+
+##### Validator
+Der Validator ist zuständig für das Ausführen, Validieren und Verteilen der
+Transaktionen an die restlichen Validatoren. Dazu werden zwei Netzwerk-Ebenen
+verwendet, um zum einen neue Transaktionen mit den benachbarten Peers
+auszutauschen und zum anderen mit den Transaction Processoren zu kommunizieren.
+Für die Kommunikation zwischen den Validatoren, wird das Open-Source Projekt 0MQ
+verwendet.
+
+##### Transaction Processor
+Für die Entwicklung einer Applikation auf Basis des Sawtooth Framworks, muss ein
+sogenannter Transaction Processor implementiert werden. Im Gegensatz zu Smart
+Contracts, wird die implementierte Applikation nicht in das Blockchain-Netzwerk
+zur Ausführung auf den Peers ausgeliefert. Stattdessen wird der Transaction
+Processor eigenständig ausgeführt und registriert sich bei den Peers zur
+Verarbeitung von Transaktionen eines bestimmten Typs (*Transaction Family*).
+Dabei gibt die Client Applikation in der Transaktion an, um welche Typ von
+Transaktion es sich handelt und serialisiert die Applikationsdaten in den
+Payload der Transaktion.
+
+Daher kann das Netzwerk an Validatoren als Tunnel zwischen dem Client und dem
+Transaction Processor betrachtet werden, während der State der Applikation im
+Distributed Ledger persistiert wird.
+
+##### REST-Schnittstelle
+Um den Zugriff auf das Blockchain-Netzwerk zu vereinfachen, kann die
+REST-Schnittstelle aus dem Framework verwendet werden. Der REST-Dienst verbindet
+sich mittels 0MQ, mit dem in der Konfiguration festgelegten Validator und stellt
+die Validator Funktionen über REST-Ressourcen bereit.
 
 #### Iroha
 
@@ -243,3 +281,5 @@ Tools (Truffle, etc.)
 [NAKA08] Nakamoto, S., Bitcoin: A peer-to-peer electronic cash system., 2008
 
 <a name="ref_owen17">[OWEN17]</a>: Owens, Luke: Cryptoasset Framework on Intel's Hyperledger Sawtooth. URL: <a>[https://fullmetalhealth.com/cryptoasset-framework-intels-hyperledger-sawtooth-part-one/](https://fullmetalhealth.com/cryptoasset-framework-intels-hyperledger-sawtooth-part-one/)</a>
+
+<a name="ref_sawt18">[SAWT18]</a>: Sawtooth Documentation. URL: <a>[https://sawtooth.hyperledger.org/docs/core/releases/latest/contents.html](https://sawtooth.hyperledger.org/docs/core/releases/latest/contents.html)</a>
