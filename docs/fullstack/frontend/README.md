@@ -2,6 +2,8 @@
 ## FRP
 ## React.js
 *Stand: Version 16.3.2*
+
+***Warum funktionieren die Links mit VuePress nicht?***
 - [Einführung](#Einführung)
   - [SPA / Progressive Web App](#SPA-/-Progressive-Web-App)
   - [JSX](#JSX)
