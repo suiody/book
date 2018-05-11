@@ -222,6 +222,16 @@ render() {
   );
 }
 ```
+===================
+TODO
+===================
+```jsx
+ReactDOM.render(
+  <AppComponent />,               // React Komponente
+  document.getElementById('root') // Element in der HTML-Datei, an der die      Komponente eingebaut wird
+);
+
+```
 ##### Bedingtes Rendern
 Aufgrund des in JSX - also Javascript - eingebetteten Codes für das Rendern von Komponenten, kann ein bedingtes Rendern relativ einfach eingebaut werden. Im folgenden Beispiel wird, abhängig vom Zustand der Komponente, entweder ein Button "Start"- oder ein "Stopp"-Button angezeigt. 
 
@@ -495,9 +505,47 @@ Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **
 [[TSON18]](#ref_tson18)
 #### Komposition vs. Vererbung
 #### Higher Order Components (HOCs)
-Higher order components erweitern Komponenten, indem sie ihnen zusätzliche Funktionalitäten oder Properties zur Verfügung stellen (ähnlich wie beim Decorator pattern). Möchte man beispielsweise bei jedem Mounting-Vogang von Komponnten ein Log-Nachricht ausgeben, so müsste man denselben Code an vielen Stellen des Projekts einbauen (jeweils in der componentDidMount-Methode der Komponenten).
-Eine HOC kann hier abhilfe schaffen:
+Higher order components erweitern Komponenten, indem sie ihnen zusätzliche Funktionalitäten oder Properties zur Verfügung stellen (ähnlich wie beim Decorator Pattern). Möchte man beispielsweise bei jedem Mounting-Vogang von Komponnten ein Log-Nachricht ausgeben, so müsste man denselben Code an vielen Stellen des Projekts einbauen (in der componentDidMount-Methode der jeweiligen Komponente).
+Eine HOC kann hier Abhilfe schaffen:
 
+```jsx
+// Beispielhafte Komponente, die später erweitert wird
+class Title extends React.Component {
+  render() {
+    return <h1>{this.props.title}</h1>;
+  }
+}
+
+// HOC
+function withLogger(WrappedComponent) {
+  return class extends React.Component {
+    componentDidMount() {
+      console.log(this.props.prefix + ' component did mount')
+    }
+
+    render() {
+      console.log(this.props.prefix + ' render')
+      // mit "{...this.props}" werden alle Properties des HOCs kopiert,
+      // sodass die erweiterte Komponente diese erhält.
+      // Es können auch weitere Properties hinzugefügt werden.
+      // Weitere Infos: Nach "Spread-Operator" suchen
+      return (
+        <WrappedComponent {...this.props}> />
+      )
+    }
+  }
+};
+```
+Komponente mit der Logger HOC erweitern:
+```jsx
+const LoggedComponent = withLogger(Title);
+```
+Komponente verwenden:
+```jsx
+<LoggedComponent 
+    prefix="LoggedComponent:" // Property für den Logger
+    title="test" />           // Property für die Komponente
+```
    
 
 
