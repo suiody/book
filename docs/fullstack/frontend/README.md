@@ -568,7 +568,7 @@ Die Actions verhalten sich analog zu den Actions des Flux Patterns, jedoch ist i
 
 *Randbemerkung*: 
 
-Es wird empfohlen möglichst wenig Nutzdaten in ein Aktion einzubinden. Statt der gesamtem Informationen kann beispielsweise ein Index übergeben werden, mithilfe dessen die Informationen aus einer Liste o.ä. entnommen werden können [[REDU18]](#ref_redu18). 
+Es wird empfohlen möglichst wenig Nutzdaten in eine Aktion einzubinden. Statt der gesamtem Informationen kann beispielsweise ein Index übergeben werden, mithilfe dessen die Informationen aus einer Liste o.ä. entnommen werden können [[REDU18]](#ref_redu18). 
 
 **Reducer**
 
