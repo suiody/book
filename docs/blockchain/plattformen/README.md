@@ -136,8 +136,6 @@ verteilen. Dadurch wird sichergestellt, dass genug Peers der Änderung zugestimm
 haben und alle Transaktionen in der selben Reihenfolge an den Ledger angehängt
 werden.
 
-Neben dem hier beschrieben Konsens Algorithmus  genannt und ist Standardmäßig
-
 ##### Client
 Wie bei klassischen Client-Server-Architekturen stellt der Client, auch im
 Hyperledger Fabric Kontext, die vom Nutzer lokal ausgeführte Applikation dar.
