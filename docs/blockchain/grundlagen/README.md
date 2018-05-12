@@ -425,29 +425,91 @@ Dezentrale Anwendungen (DApps) stellen eine Möglichkeit für die Umsetzung skal
 Während konventionelle Anwendung maßgeblich durch einzelne Anbieter betrieben werden, werden DApps auf einer Vielzahl von Anwendern verteilt.
 Durch die Verteilung werden die Anwenderdaten nicht zentralisiert gespeichert und verwaltet, wodurch durch das Peer-to-Peer-Modell ein bspw. serverbedingter Ausfall
 verhindert werden kann. 
-Dabei muss eine dezentrale Anwendung vier grundlegende Kriterien erfüllen:
-1. Die Anwendung muss quelloffen und autonom funktionsfähig sein. 
+
+![apps_vs_dapps](./images/appsvsdapps.jpg "Apps-vs-DApps")
+
+Abbildung entnommen aus <a>[[SCHI18]](#ref_schi18)</a>
+
+Bei konventionellen Anwendungen, sind die Nutzer mit dem Internet-Service-Provider verbunden, durch diesen wird die Verbindung zum Anbieter ermöglicht.
+Wohingegen bei DApps die Verbindung durch die ISPs zu den Anwendern untereinander ermöglicht wird, dies führt zur Redundanz eines zentralen Knotenpunktes.
+
+
+Dabei muss eine dezentrale Anwendung vier grundlegende Kriterien erfüllen, <a>[[JOHN15]](#ref_john15)</a>:
+1. Die Anwendung muss quelloffen und autonom funktionsfähig sein. Zudem existiert keine zentrale Instanz, die die zukünftigen Entwicklungen der Anwendung diktiert. 
+Zukünftige Entwicklungen werden durch den Konsens der Anwender entschieden.
 2. Die Daten und Protokolle der Operationen müssen kryptografisch mittels einer dezentralen und
-öffentlichen Blockchain gespeichert werden.
+öffentlichen Blockchain gespeichert werden. Somit wird ein zentraler Point-of-Failure ausgeschlossen. 
+So ist im Gegensatz zu konventioneller Anwendungen kein Angriff gegen eine zentrale Stelle möglich, da nur durch die Elimination aller Anwender ein Ausfall der Anwendung möglich ist. 
 3. Die Applikation muss kryptografische Token nutzen, die zum Zugang zur Anwendung genutzt werden. Dabei werden die Miner, die zur Tokengenerierung beigetragen haben entsprechend entlohnt.
 4. Die Anwendung muss die genutzten Token unter Berücksichtigung kryptografischer Algorithmen und Konsensverfahren, z.B. durch Proof of Work, generieren können.
 
-Durch das Einhalten dieser Kriterien wird eine Kontrolle durch ein einzelnes Gremium, wie z.B. ein Unternehmen, verhindert.
+Durch das Einhalten dieser Kriterien wird eine Kontrolle durch ein einzelnes Gremium verhindert. 
 
-#### Klassen
-Zur Klassifizierung von dezentralen Anwendungen werden drei verschiedene Typen berücksichtigt. 
-1. Type I Anwendungen nutzen eine eigene Blockchain, darunter fallen auch die sogenannten Altcoins, die durch Forks des Bitcoins entstanden sind.
-2. Type II Anwendungen sind Protokolle die die Blockchain einer Type I Anwendung nutzen. Jedoch werden die Token für die Nutzung der Anwendung benötigt. So sind Type II Anwendungen aufbauend auf Type I Anwendungen.
-3. Type III Anwendungen nutzen die Protokolle einer Type II Anwendung. 
+#### Klassifizierung von DApps
+Zur Klassifizierung von dezentralen Anwendungen werden drei verschiedene Typen berücksichtigt, <a>[[JOHN15]](#ref_john15)</a>: 
+1. **Type I** Anwendungen nutzen eine eigene Blockchain.
+2. **Type II** Anwendungen nutzen die Blockchain einer Type I Anwendung. Jedoch sind die Type II Anwendungen Protokolle, die Token zur Funktionalität nutzen.
+3. **Type III** Anwendungen nutzen die Protokolle einer Type II Anwendung. Dabei sind Type III Anwendungen ebenfalls Protokolle und nutzen ebenso Token zur Funktionalität.
 
 #### Entwicklung einer dezentralen Anwendung
 
-Die Entwicklung einer dezentralen Anwendung wird üblicherweise in drei Teilschritte gegliedert:
-1. Es wird ein Whitepaper veröffentlicht, dass die Funktionalitäten und Mechanismen der Anwendung beschreibt.
-2. Initiale Token werden verteilt. Des Weiteren wird, wie z.B. beim Bitcoin, eine Software veröffentlicht, die als Referenzprogramm zum Minen genutzt werden kann.
-3. Die Besitzanteile der Anwendung werden verbreitet, durch diese Verbreitung wird die Anwendung zunehmend dezentralisiert.
+Die Entwicklung einer dezentralen Anwendung wird üblicherweise in drei Teilschritte gegliedert, <a>[[JOHN15]](#ref_john15)</a>:
+1. Es wird ein Whitepaper veröffentlicht, dass die Funktionalitäten und Mechanismen der Anwendung beschreibt. Darunterfallen sowohl die Beschreibung des Anwendungszwecks als auch eine Erläuterung der technischen Mechanismen wie z.B. des Konsensverfahren.
+2. Die initialen Tokens werden ausgegeben. Des Weiteren wird, wie z.B. beim Bitcoin, eine Software veröffentlicht, die als Referenzprogramm zum Minen genutzt werden kann.
+3. Die Tokens der Anwendung werden verbreitet, wodurch die Anwendung zunehmend dezentralisiert wird.
+
 
 ### Web 3.0
+
+Ursprünglich existiert keine Versionierung des World Wide Web, erst mit der Definition des Web 2.0 als Mitmach-Internet erfolgte die weitere Klassifizierung.
+So ist die Urform als Web 1.0 bzw. Dokumenten- oder Downloadinternet zu bezeichnen. Das Web 1.0 besteht dabei aus vorwiegend statischen Inhalten, erst die Entwicklung zum Web 2.0
+ermöglichte es den Anwendern aktiv Inhalte hinzuzufügen und/oder zu editieren. Somit stellt das Web 2.0 eine Erweiterung des ursprünglichen World Wide Web dar. Wohingegen das Web 3.0, auch bekannt als Semantic Web,
+eine Erweiterung des Web 2.0 darstellt, mit dem Ziel maschinenlesbare Datenmodelle zu etablieren <a>[[STAP10]](#ref_stap10)</a>. 
+
+Das Resource Description Framework (RDF), erlaubt es Inhalte einer Webseite mit zusätzlichen Informationen zu ergänzen. 
+RDF wird dabei als Triple aus Subjekt, Prädikat und Objekt dargestellt, wobei ein Objekt auch als Property bezeichnet wird <a>[[WWWC04]](#ref_wwwc04)</a>.
+Ein RDF Triple besteht dabei aus den Komponenten:
+* Das Subjekt kann dabei eine RDF URI Referenz oder ein leerer Knoten des RDF-Graphen sein.
+* Das Prädikat ist eine RDF URI Referenz.
+* Das Objekt ist eine RDF URI Referenz, ein Literal oder ein leerer Knoten.
+
+Ähnlich der Zeile einer relationalen Datenbank kann ein RDF-Graph Daten repräsentieren.
+
+![rdf](./images/rdf.png "RDF-Graph mit leerem Knoten")
+
+Abbildung entnommen aus <a>[[WWWC04]](#ref_wwwc04)</a>.
+
+
+So ist in der Abbildung des RDF-Graphens zu sehen, dass die korrespondierende Adresse der STAFFID in die logischen Bestandteile der Straße, des Staates, der Stadt und der Postleitzahl gegliedert ist.
+Wobei das Subjekt jedes Triple der leere Knoten, ein Prädikat der Bezeichner des Attributs und das Objekt der zugeordnerte Wert ist. 
+
+Jedoch hat sich eine weitere Definition des Begriffs Web 3.0 im Zusammenhang mit der Blockchain-Technologie herauskristallisiert. 
+So haben sich in der Vergangenheit, begünstigt durch das Web 2.0 entsprechende Web-Services etabliert. Diese bewirkten im Gegensatz zum ursprünglichen Gedanken des Internets eine zunehmende Zentralisierung des Internets.
+Dabei muss zwischen einer zentralisierten, dezentralisierten und verteilten Systemarchitektur unterschieden werden.
+
+![centralized_decentralized_distributed](./images/centralised-decentralised-distributed.png "Zentralisiert vs Dezentralisiert vs Verteilt")
+
+Abbildung entnommen aus <a>[[GOYA15]](#ref_goya15)</a>.
+
+Die Zentralisierung ist der aktuelle Status quo vieler Webservices, so stellt ein zentraler Dienstleister ein Angebot für alle Nutzer des Systems zur Verfügung. Dies hat zur Folge, das ein einzelner Point-of-Failure existiert.
+Ebenso sind die entsprechenden Nutzerdaten gebündelt. Bei der verteilten Systemarchitektur, werden die Daten durch eine Vielzahl von Servern verwaltet und bearbeitet, jedoch wird dieses durch ein einzelnes Gremium, z.B. durch einen Konzern verwaltet und gesteuert.
+Beide Typen haben gemein, dass durch den Ausfall eines Knotens die Systemfunktionalität nicht gewährleistet ist.
+Beim dezentralen System, existiert eine Vielzahl von Knoten die voneinander unabhängig agieren können. Jedoch sind, bedingt durch die Definition einer dezentralen Anwendung, sämtliche Daten auf einer Blockchain abgebildet. So ist die Funktionalität einer Anwendung nicht von einem zentralen Knotenpunkt abhängig.
+
+Das dezentrale System spiegelt dabei die Grundlage für die Definition des Web 3.0 als dezentrales Internet wider. 
+Damit ist gemeint, dass das Web 3.0 als Plattform für dezentrale Anwendung zu verstehen ist. Die Ethereum-Blockchain ist dabei als "back end" für ein dezentralisiertes und sicheres Internet konzipiert, so sind Kernfunktionalitäten wie bspw. das Domain Name System realisierbar.
+So ist eine Blockchain als Infrastruktur für dezentrale Anwendungen zu sehen.
+
+Der Begriff Web 3.0 hat dementsprechend eine, bezogen auf den Kontext, unterschiedliche Definition. Jedoch ist eine Integration des ursprünglichen Web 3.0 bzw. des Semantic Webs in die Blockchain-Technologie möglich.
+So sind bspw. die RDF-Definitionen innerhalb einer Blockchain speicherbar, ebenso sind Protokolle nutzbar, die eine Interoperabilität von Blockchains ermöglichen zum Repräsentieren von RDF-Graphen. Auch ist die Zuordnung von Blockchain Daten zur RDF-Klassen die nicht auf der Blockchain abgebildet sind möglich <a>[[KIML18]](#ref_kiml18)</a>.
+Als Beispiel hat ein Blockchain Blöcke, diese wiederum haben Vorgänger als auch Nachfolger, mit Ausnahme des Genesisblock. Ein Block hat eine Liste von Transaktionen, ebenso ist diesem ein Miner zugeordnet. Resultierend ist der Aufbau eines Graphen, ähnlich des RDF-Graphen, möglich.
+
+![ethon](./images/ethon.png "EthOn-Modell eines Blocks")
+
+Abbildung entnommen aus <a>[[PFEF17]](#ref_pfef17)</a>.
+
+Folglich ist eine parallele Entwicklung der Blockchain-Technologie und des Semantic Webs vorstellbar, wodurch die Definition des Web 3.0 ergänzt zueinander sein kann.
+
 
 
 
@@ -473,9 +535,17 @@ http://pmg.csail.mit.edu/papers/osdi99.pdf
 
 <a name="ref_docu18">[DOCU18]</a>:  DocuSign Inc.: What are digital signatures?, San Francisco, 2018, URL: https://www.docusign.com/how-it-works/electronic-signature/digital-signature/digital-signature-faq (abgerufen am 04.05.2018)
 
+<a name="ref_ethc16">[ETHC16]</a>: Ethereum community: Web 3: A platform for decentralized apps. URL: http://ethdocs.org/en/latest/introduction/web3.html (abgerufen am 11.05.2018)
+
+<a name="ref_goya15">[GOYA15]</a>: Goyal, Saurabh: Centralized vs Decentralized vs Distributed. URL: https://medium.com/@bbc4468/centralized-vs-decentralized-vs-distributed-41d92d463868 (abgerufen am 11.05.2018)
+
 <a name="ref_gree15">[GREE15]</a>: Greenspan, Gideon: Private blockchains are more than “just” shared databases.  URL: https://www.multichain.com/blog/2015/10/private-blockchains-shared-databases/ (abgerufen am 29.04.2018)
 
+<a name="ref_hect17">[HECT179]</a>: Héctor Ugarte: Semantic Blockchain: A more realistic Web 3.0. URL: https://medium.com/@heeduugar/semantic-blockchain-a-more-realistic-web-3-0-9eda20867645
+
 <a name="ref_itwi18">[ITWI18]</a>: itwissen.info: Verteilte Datenbank  URL: https://www.itwissen.info/Verteilte-Datenbank-distributed-database-DDB.html?query=Datenbank (abgerufen am 29.04.2018)
+
+<a name="ref_john15">[JOHN15]</a>: Johnston, David: The General Theory of Decentralized Applications, Dapps URL: https://github.com/DavidJohnstonCEO/DecentralizedApplications (abgerufen am 06.05.2018)
 
 <a name="ref_kuesters11">[KÜST11]</a>: Küsters, Ralf ; Wilke, Thomas: Moderne Kryptographie : Eine Einführung. 1. Aufl. Wiesbaden : Vieweg + Teubner, 2011, ISBN: 978-3-519-00509-4
 
@@ -486,8 +556,12 @@ https://bitcoin.org/bitcoin.pdf
 
 <a name="ref_paar16">[PAAR16]</a>: Paar, Christof ; Pelzl, Jan: Kryptografie verständlich : Ein Lehrbuch für Studierende und Anwender. Berlin, Heidelberg : Springer Vieweg, 2016, ISBN: 978-3-662-49296-3
 
+<a name="ref_pfef17">[PFEF17]</a>: Pfeffer, Johannes: EthOn — introducing semantic Ethereum. URL: https://blockgeeks.com/what-is-semantic-ethereum/ (abgerufen am 12.05.2018)
+
 <a name="ref_rile18">[RILE18]</a>: Rile, Kynan: Understanding Hyperledger Sawtooth — Proof of Elapsed Time URL:
 https://medium.com/kokster/understanding-hyperledger-sawtooth-proof-of-elapsed-time-e0c303577ec1 (Abgerufen 05.05.2018)
+
+<a name="ref_schi18">[SCHI18]</a>: Blockchainwelt, Was ist eine DApp (dezentralisierte App)? URL: https://blockchainwelt.de/dapp-dezentralisierte-app-dapps/ (abgerufen am 09.05.2018)
 
 <a name="ref_schw14">[SCHW14]</a>: Schwartz, David ; Youngs, Noah ; Britto Arthur: The Ripple Protocol Consensus Algorithm URL: https://ripple.com/files/ripple_consensus_whitepaper.pdf (abgerfufen 10.05.2018)
 
@@ -496,6 +570,8 @@ https://courses.cs.ut.ee/MTAT.07.022/2017_fall/uploads/Main/janno-report-f17.pdf
 
 <a name="ref_ssl18">[SSL18]</a>:  SSL2BUY LLC.: Symmetric vs. Asymmetric Encryption – What are differences?. Anaheim, 2018 URL: https://www.ssl2buy.com/wiki/symmetric-vs-asymmetric-encryption-what-are-differences (abgerufen am 04.05.2018)
 
+<a name="ref_stap10">[STAP10]</a>: Stapelkamp, Torsten: Web X.0 Erfolgreiches Webdesign und professionelle Webkonzepte : Springer, 2010, ISBN: 978-3-642-02071-1
+
 <a name="ref_stop18">[STOP18]</a>: Stobitzer, Christian: Symmetrische Verschlüsselung. Karlsruhe. URL: http://www.kryptowissen.de/symmetrische-verschluesselung.html (abgerufen am 27.04.2018)
 
 <a name="ref_thom16">[THOM16]</a>: Thompson, Collin : Private Blockchain or Database?  URL: https://www.linkedin.com/pulse/private-blockchain-database-collin-thompson (abgerufen am 29.04.2018)
@@ -503,3 +579,9 @@ https://courses.cs.ut.ee/MTAT.07.022/2017_fall/uploads/Main/janno-report-f17.pdf
 <a name="ref_wiki18a">[WIKI18a]</a>: Wikipedia, ACID. URL: https://de.wikipedia.org/wiki/ACID (abgerufen am 29.04.2018)
 
 <a name="ref_wiki18b">[WIKI18b]</a>: Wikimedia: Message authentication code. URL: https://en.wikipedia.org/wiki/Message_authentication_code (abgerufen am 04.05.2018)
+
+<a name="ref_wwwc04">[WWWC04]</a>: World Wide Web Consortium: RDF 1.1 Concepts and Abstract Syntax. URL: https://www.w3.org/TR/rdf-concepts/ (abgerufen am 11.05.2018)
+
+<a name="ref_kiml18">[KIML18]</a>: Kim, Laskowski, Nan: A First Step in the Co-Evolution of Blockchain and Ontologies: Towards Engineering an Ontology of Governance at the Blockchain Protocol Level, CoRR, 2018
+
+
