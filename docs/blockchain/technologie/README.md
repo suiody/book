@@ -118,7 +118,7 @@ Während oben die Merkmale der öffentlichen und privaten Blockchain aufgezählt
 
 Autor: Björn Enders-Müller
 
-### Immutable
+### Immutability
 
 Der Begriff der „immutability“ bedeutet übersetzt Unveränderlichkeit und ist eine zentrale Eigenschaft einer Blockchain. Dieser Abschnitt soll dazu dienen die Unveränderlichkeit einer Blockchain zu erklären und verdeutlichen.
 
@@ -132,11 +132,110 @@ Eine theoretisch möglicher aber unwahrscheinlicher Angriff auf die Unveränderl
 
 Die Unveränderlichkeit der Blockchain kann auch durch ihre Konsensmechanismen angegriffen werden. Dies ist jedoch in der Regel schwer oder kostspielig. Bei der Bitcoin Blockchain könnte dies mit einem sogenannten „51% attack“ versucht werden. Dies bedeutet, dass ein Einzelner oder eine Gruppe mehr als 50% der Rechenleistung im Peer-to-Peer Netzwerk kontrolliert. Dies könnte dafür genutzt werden um das gesamte Netzwerk dahingeht zu lenken, dass eine manipulierte Blockchain akzeptiert wird und Transaktionen verfälscht werden. Im Bitcoin System wäre dieser Angriff sehr kostspielig. Die Hash-Power des gesamten Netzwerkes betrug im Oktober 2017 ca. 10.000.000 TH/s (1 TH/s eine Billionen/Tera Berechnungen pro Sekunde). Spezialisierte Hash-Hardware wie der Antminer S9 liefern 13,5 TH/s also spiegeln 740.741 dieser Gräte die gesamte Hash-Power des Systems wieder. Jedes dieser Geräte kostete am vierten Oktober letzten Jahres 1265 US-Dollar. Um also auf 51% Rechenleistung zu kommen wäre ca. 460 Millionen US-Dollar alleine an Hardware nötig.
 
+Anscheint wurden bisher die Unveränderlichkeit der Blockchain nur indirekt verletzt. Dies passiert, wenn ein sogenannter Blockchain „fork“ entsteht. Dies bedeutet so viel, dass sich die Blockchain nach einem bestimmten Block aufgabelt bzw. aufspaltet. Dies ist in der folgenden Abbildung nochmal verdeutlicht. Die Pfeile stellen die Hash-Werte, die jeweils auf den vorherigen Block zeigen dar. 
+
+<img src="./images/blockchain_simple_fork.png" >
+
+Beispiel für einen Blockchain Fork.
+Abbildung selbst erstellt
+
+Nach dem Block 3 folgen zwei unterschiedliche Block 4 Blöcke und auf diese jeweils ein Block 5. Solche Ereignisse können z.B. auftreten, wenn Änderungen an der Anwendersoftware durchgeführt werden oder diese durch ein andere ersetzt wird. Anwendersoftware für Blockchain Systeme sind häufig Open-Source und so für jeden frei zugänglich. So könnte z.B. jeder der in der dazu fähig ist die aktuelle Bitcoin Blockchain forken und seinen eigenen „Coin“ weiterführen. 
+
+So etwas Ähnliches ist bei der DAO passiert. Die DAO des Ethereum Netzwerk ist eine sogenannten „Decentralized Autonomous Organization“ und ist in dem entsprechenden Abschnitt genauer erläutert. Kurz beschrieben ist die DAO im Grunde ein „Unternehmen“, das durch kaufbare Stimmrechte (Tokens) gesteuert wurde. Die DAO arbeitet dabei stark mit Smart Contracts welche ebenfalls in ihrem eigenen Abschnitt beschrieben sind. Die Funktionsweise dieses Unternehmens und die damit verbundene Ethereum Blockchain wurde als unveränderlich angesehen. Ein Problem ist dann Anfang 2016 aufgetreten. Durch einen Softwarefehler in der DAO war es Angreifern gelungen Stimmrechte im Wert von 50 Millionen USD zu entwenden.
+
+Dieser Betrug trat eine ausschweifende Diskussion über die Unveränderlichkeit der Ethereum Blockchain los. Viele wünschten sich natürlich, dass dieser Betrug ausgeglichen wird und sprachen sich daher auch für eine Veränderung des Ethereum Protokolls aus. Eine weitere stark vertretene Meinung war die, dass der Quelltext als einzige Quelle von „Wahrheit“ niemals nachträglichen verändert werden darf, weil genau durch solche Eingriffe das sogenannte „immutability principle“ verletzt wird. Schlussendlich wurde die Diskussion gar nicht aufgelöst, sondern es wurde ein Fork der ursprünglichen Ethereum Blockchain erzeugt. Die Mehrheit der Anwender hat am Ende dafür gesorgt, dass die Blockchain angepasst wurde. Jedoch wird die alte Blockchain von einem Teil der Benutzer die alte Blockchain als Ethereum Classic weitergeführt. Wenn die DAO ein herkömmliches Unternehmen wäre hätte man diesen Betrug einfach zurückbuchen können, jedoch ist dies ein einer Blockchain durch die Konsensmechanismen nicht ohne weiteres möglich. Solche Probleme und der Umgang mit diesen erschüttern das Vertrauen der Benutzer und schädigen den Ruf von Blockchain Systemen. Die DAO zeigt schön auf wie die Unveränderlichkeit der Blockchain nur gegeben ist, wenn alle Benutzer im System damit einverstanden sind. 
+
 <a>[[HOFM17]](#ref_HOFM17)</a>
+
+In dem Fall der DAO spricht man davon, dass es sich um einen sogenannten „hard fork“ handelt. Von einem Hard-Fork wird gesprochen, wenn eine radikale Änderung am System vorgenommen wird. Das kann dazu führen das Blöcke und Transaktionen, die vor dem Fork invalide ware valide werden.  Anders herum könnte es auch gehen indem valide Blöcke invalide werden wie bei der DAO. Damit so etwas möglich ist müssen alle Knoten des Systems sich darüber einig sein was geändert werden soll und diese Änderung dann an ihrer Anwendersoftware durchführen. Dadurch entsteht dann der eigentlich Fork, weil die Blöcke des alten Systems im neuen abgelehnt werden und Blöcke des neuen Systems im alten System abgelehnt werden. Knoten die nicht die neuste Version verwenden können nicht mehr am System teilnehmen und updaten in der Regel daraufhin ihre Software. Beide Systeme unabhängig voneinander und folgen unterschiedlichen Regeln. In der folgenden Abbildung ist ein Hard-Fork einer Blockchain visualisiert.
+
+<img src="./images/blockchain_hard_fork.png" >
+
+Veraltete Knoten nehmen die neuen Blöcke nicht an und spalten die Blockchain.
+Abbildung entnommen aus
+<a>[[INVE18]](#ref_INVE18)</a>
+
+Von einem „soft fork“ wiederum wird gesprochen, wenn nach einem Fork nur eine der beiden neuen Blockchains weitergeführt wird und diese mit dem Teil vor dem Fork kompatible ist. Anders als beim Hard-Fork brauchen nur die Mehrheit ihre Anwendersoftware updaten. Ein Vorteil eines Soft-Fork ist, dass z.B. neue Arten von Transaktionen und Regeln zur deren Validierung in das System eingeführt werden können. Diese Erweiterungen müss lediglich den Sendern und Empfängern solcher Transaktionen bekannt sein. Für alle veralteten Knoten wird eine solche Transaktion als eine „pay-to-anybody“ Transaktion markiert.
+
+Ein Soft-Fork kann auch einfach dadurch entstehen, dass einige Miner ihre Software noch nicht aktualisiert haben und somit gegen eventuell neu hinzugefügte Konsensmechanismen verstoßen. Solche Forks sind nur temporär und die neu erzeugten aber veralteten Blöcke der nicht aktuellen Knoten werden dann von der Mehrheit der aktuellen Knoten abgestoßen. In der folgenden Abbildung ist dieser Prozess noch einmal verdeutlicht. Der grau gekennzeichnete Block wird nicht in die Blockchain eingefügt, weil er gegen die neuen Regeln verstößt.
+
+<img src="./images/blockchain_soft_fork.png" >
+
+Blöcke die von veralteten Knoten erzeugt wurden werden von der Mehrheit abgestoßen.
+Abbildung entnommen aus
+<a>[[INVE18]](#ref_INVE18)</a>
+
+Es müssen also nicht immer alle Knoten aktuell gehalten werden, weil die neuen Blöcke schlussendlich abwärtskompatible sind. Wenn, aus welchen Gründen auch immer, ein Soft-Fork rückgängig gemacht werden soll, so ist dies nur durch einen Hard-Fork möglich.
+
+<a>[[INVE18]](#ref_INVE18)</a>
 
 ### Transaktion
 
+In einem Blockchain System sind Transaktionen das was in den Blöcken der Blockchain gespeichert wird. Bei Bitcoin (BTC) z.B. besteht eine Transaktion aus der Übertragung von Bitcoins. Wenn z.B. die Benutzerin Alice 5 BTC and Bob senden würden dann müsste sie dies in einer Nachricht an das Netzwerk boadcasten. Die Nachricht könnte also „Sende 5.0 BTC von Alice zu Bob.“ lauten. Um allerdings sicherzustellen, dass diese Nachricht überhaupt von Alice geschickt wurde und nicht von einem Angreifer ist eine „digitale Signatur“ nötig. Eine solche Signatur agiert als eine Art Nachweis, dass Alice der Besitzer des Kontos ist aus dem die 5 BTC entnommen werden sollen. Um etwas zu signieren werden kryptografische Funktionen genutzt. Um diese Funktionen wiederum zu verwenden benötigt Alice zwei Schüssel, die auf spezielle weiß verknüpft sind, einen „public key“ und einen „private key“, genaueres zu der Funktionsweise ist in dem entsprechenden Abschnitt zu finden. Der Private-Schlüssel wird im folgenden als „secret key“ bzw. SK abgekürzt und der public key als PK. Alice kann ihren SK nutzen um ihre Nachricht mit ihrer Signatur zu versehen. Dies ist im Grunde eine digitale Unterschrift, die von anderen Nutzern mit dem PK überprüft werden kann, um sicherzustellen das tatsächlich Alice die Nachricht geschickt hat und das diese auf dem Weg durch das Netzwerk nicht verändert wurde. In der folgenden Abbildung ist dieser Vorgang nochmal verdeutlicht.
 
+<img src="./images/bitcoin_transaction_signature.png" width="430">
+
+Erzeugung von Signatur und Verifizierung mit SK und PK.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+Es ist zwingend notwendig das Alice niemals ihren SK preisgibt, da dieser auch den Zugriff auf ihre BTC sichert. Die Signatur ist sozusagen ein Proxy-Passwort, das bewiesen soll das Alice im besitz des echten SK ist. Bei jeder Transaktion die Alice durchführt erzeugt sie immer wieder eine neue Signatur, weil ansonsten ein Angreifer einfach die Signatur einer älteren Transaktion dahingehende missbrauchen das er sich als Alice ausgibt.
+
+In Systemen in denen Benutzer ein Konto besitzen, wie z.B. Bitcoin, wird häufig der PK als Zieladresse für Transaktionen genutzt. Mit dem bisher Beschriebenen lässt sich jedoch nicht Nachweißen, dass Alice überhaupt jemals im Besitz von 5 BTC war. Eine Transaktion besteht daher nicht nur aus der Signatur, Zieladresse und Menge an BTC, sondern aus vorherigen Transaktionen die beweisen das Alice 5 BTC besaß (Inputs). In der folgenden Abbildung ist die Transaktion visualisiert. Diese verweist auf zwei ältere Transaktionen in denen Alice der Empfänger (Outputs) war. Natürlich muss die gesamte Summe an erhaltenen BTC gleich oder größer dem zu versendenten Betrag (5 BTC) sein. Im Bitcoin System gibt es noch eine Besonderheit, dass wenn die nachgewiesene Summe den zu versendenden Betrag überschreitet eine zusätzliche Output-Transaktion eingefügt wird, die sozusagen das Wechselgeld and Alice zurück überweißt.
+
+<img src="./images/bitcoin_transaction_inputs.png" width="500">
+
+Eine Transaktion die auf zwei unverbrauchte Input-Transaktionen verweißt.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+Diese Verknüpfung von Transaktionen resultiert in einer Transaktionskette. Der wichtige Punkt ist, dass jede Transaktion mit älteren Transaktionen abgesichert ist. In der folgenden Abbildung ist die Transaktionskette dargestellt.
+
+<img src="./images/bitcoin_transaction_ownership_chain.png" width="430">
+
+Verkettung von Transaktionen.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+Nur weil Alice allerdings irgendwelche alten unverbrauchten Transaktionen aufführt heißt, dass nicht das diesen vertraut werden können. Daher müssen auch deren aufgeführten eingehenden Input-Transaktionen überprüft werden, natürlich können diesen ebenso nicht vertraut werden also müssen alle Transaktionen des gesamten Systems geprüft werden um sicherzustellen, dass keine manipuliert wurde. Auf den ersten Blick erscheint diese Aufgabe sehr zeitaufwendig jedoch kann sie mit unterschiedlichen Hilfsmitteln wie Indexen optimiert werden. Für Alice bedeutet dies auch, dass sie beim Überprüfen wie viel BTC sie noch besitzt sie alle unverbrauchten Input-Transaktionen aufaddieren muss um auf ihren Kontostand zu erhalten. Eine Transaktion kann also aus mehreren eingehenden und ausgehenden Transaktion bestehen. 
+
+Bitcoin z.B. unterstützt mehr als nur simple Überweisungen von einem Konto zum anderen. Um komplexere Transaktionen durchzuführen wird eine eigene Scriptsprache verwendet. Man kann sich, dass in etwa so vorstellen, dass Alice BTC in ein öffentlich zugängliches Bankschließfach deponiert und diesen mit einer Art mathematischem Rätsel absichert. Im simpelsten Fall gestaltet Alice das Rätsel so, dass nur ein Empfänger das Schließfach öffnen kann. Im Beispiel davor also Bob. Alternativ könnte sie z.B. dafür sorgen, dass mehrere Personen nötig sind um auf den Inhalt zuzugreifen. Dann wären z.B. zwei von drei Empfänger Signaturen nötig um das Schließfach zu öffnen. Eine weitere spezielle Transaktion ist die erste Transaktion im Bitcoin System. Diese konnte theoretisch von jedem gelöst werden. Diese speziellen Aspekte und die Scriptsprache werden häufig hinter Anwenderfreundlicher Software verstreckt. Auch wenn theoretisch jeder die Scriptsprache nutzen könnte ist davon abzuraten, da Fehler zu unerwünschten Ergebnissen führen können.
+
+Ein Problem mit dem bisher dargestellten System bleibt jedoch. Eine Transaktion über das Netzwerk zu verteilen brauch Zeit. Physikalisch weit entfernte Knoten erhalten die Nachricht über eine Transaktion später als dichtere Knoten. Es ist zwingend notwendig die Reihenfolge von Transaktionen festzulegen. Ein simpler Zeitstemple reicht jedoch leider nicht aus, da dieser einfach gefälscht werden könnte. Falls die Reihenfolge nicht eindeutig im System festgelegt werden kann ist ein sogenannter „double spend attack“ möglich. Dies bedeutet soviel wie, dass Geld zweimal ausgeben werden kann.
+
+Alice könnte also z.B. eine Transaktion an Bob schicken in der sie ihm z.B. 5 BTC überweißt. Daraufhin würde Bob beginnen ein Produkt zu liefern und Alice könnte eine zweite Transaktion mit dem selben Nachweisen für den besitz von BTC and sich selbst zurückschicken. Die Knoten im Netzwerk erhalten die Transaktionen in unterschiedlicher Reihenfolge und können nicht festlegen welche Transaktion valide ist und welche nicht, weil zweimal dieselben Input-Transaktionen verwendet wurden und dies nicht erlaubt ist. Um in einem Blockchain System die Reihenfolge von Transaktionen festzulegen, werden diese in verketteten Blöcken abgespeichert und die Blöcke untereinander verlinkt. Daher natürlich auch der Name Blockchain. 
+
+Für die Erzeugung von Blöcken existieren unterschiedliche Möglichkeiten wie z.B. „Proof of Work“ (POW). Diese Verfahren werden auch Konsensmechanismen genannten und werden in ihrem eigenen Abschnitt ausführlich erläutert. Kurz beschrieben sorgen diese Verfahren dafür, dass die Knoten im System Blöcke generieren, jedoch wird so das Problem der Reihenfolge nur von den Transaktionen auf die Blöcke verlagert.
+
+In Bitcoin wird POW verwendet und das System ist so organisiert, dass durchschnittlich all 10 Minuten ca. ein Block erzeugt wird und dabei 2400 Transaktionen abspeichert werden. Wenn aber zwei Blöcke fast zeitgleich im System erzeugt werden und an die anderen Knoten verteilt werden ist wieder unklar, welcher zuerst existiert hat und die Blockchain fortsetzen soll. Eine Möglichkeit ist es einfach den ersten erhaltenden zu verwenden und die anderen Blöcke parallel dazu, wie bei einem Fork, in die Blockchain zu hängen. Wenn dann der nächste Block im System gefunden wird und verteil wird zeigt sich durch die spezielle Hash-Verlinkung von Blöcken welcher der richtige war. Denn in einem Blockchain System kann kein Block erzeugt werden bevor nicht der Block davor erzeugt wurde, weil der Hash-Wert vorherigen Teil des darauffolgenden ist. Dies hat jedoch einen Hacken, die parallel eingebauten Blöcke werden verworfen und Transaktionen, die in diesen enthalten waren werden zurück in einen Topf von nicht verifizierten Transaktionen geschoben. Hierbei ist das Problem was mit den Blöcken der Blockchain selbst vermieden werden sollte wieder möglich, der Double-Spend-Attack. 
+
+Bitcoin verwendet, da die einfache Methode. Wenn mehrere neue Blöcke auf den letzten Block zeigen sind die parallel in der Blockchain bis ein längerer Strang entsteht. Der Grund dafür ist, dass in der längsten Blockchain am meisten Arbeit steckt, die in der Regel nur vom größten Teil des Systems geleistet werden kann. Somit ist die längste Blockchain auch die vertrauenswürdigsten ist. 
+
+Wie wäre also ein Angriff auf das Ender der Blockchain möglich? Kurz beschrieben könnte die Angreiferin Alice ein Produkt von Bob kaufen und hoffen, dass dieser es verschickt. Zu dem Zeitpunkt müsste Alice ein alternatives Ende der Blockchain zum Netzwerk präsentieren in dem sie die Input-Transaktion die ursprünglich an Bob gingen wieder an sich selbst überweißt. Daraufhin wäre die Transaktion an Bob invalide, weil die kürzere Blockchain verworfen wird. Die Transaktion an Bob würde dann in den Topf der nicht verifizierten Transaktionen umgeleitet werden. Jedoch würde die Transaktion nie validiert werden und verworfen werden, weil die Input-Transaktionen, welche die Transaktion an Bob unterstützen in der Blockchain von Alice verwendet wurden. Bob hätte also weder sein Geld noch sein Produkt. In der folgenden Abbildung ist dieser Angriff nochmal dargestellt. 
+
+<img src="./images/bitcoin_blockchain_double_spend.png" width="470">
+
+Double-Spend-Attack von Alice an Bob mit alternativem Blockchain Ende.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+Zum Glück ist dieses Szenario in einem POW System extrem unwahrscheinlich, weil die Erzeugung von Blöcken so schwer ist. Für einen einzelnen handelsüblichen Computer würde es Jahre dauern um einen einzelnen Block zu erzeugen. Alice bräuchte also sehr viel Glück bei der Erzeugung von Blöcken oder extrem leistungsfähige Hardware um schneller Blöcke als der Rest des Systems zu generieren, siehe 51% Angriff. Durch die Unklarheiten am Ende der Blockchain wird eine Transaktion umso sicherer je älter sie ist. Es wird empfohlen mehrere Blöcke z.B. mindestens sieben oder höher abzuwarten bis man eine Transaktion als unveränderlich betrachtet. In der folgenden Abbildung ist dies nochmal verdeutlich.
+
+<img src="./images/bitcoin_blockchain_confirmations_security.png" width="500">
+
+Unsicherheiten von Transaktionen bzw. Blöcken am Ende der Blockchain.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+Obwohl es so schwer ist das Ende der Blockchain zu manipulieren ist ein solcher Angriff theoretisch möglich. Es gibt viele Benutzer die sich zu sogenannten Mining-Gilden zusammenschließen und gemeinsam daran arbeiten Blöcke zu finden und den sogenannten „block reward“ unter sich aufzuteilen. Das Problem dieser Gilden ist, dass sie sehr große Anteile des Systems ausmachen können. So wurden z.B. von der Gruppierung „BTC Guild“, am 23. April 2013, sechs Blöcke in Folge gefunden, daraufhin hat die Gruppe selbst dafür gesorgt, dass dies in ihrem System nicht mehr möglich ist, damit das Vertrauen an Bitcoin nicht verloren geht. In der folgenden Abbildung ist die Wahrscheinlichkeit, dass ein solches Ereignis eintritt dargestellt. Dazu ist ausschlageben wie viel Rechenleistung der Angreifer im Verhältnis zum restlichen System besitzt.
+
+<img src="./images/bitcoin_probability_solving_multiple_blocks_in_row_bitcoin.png" width="450">
+
+Graph zur Wahrschenlichkeit, dass eine Gruppe oder einzelne Person sechs Blöcke in Folge generiert.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+<a>[[IMPO18]](#ref_IMPO18)</a>
 
 ### Blöcke
 
@@ -189,9 +288,16 @@ Zuerst wird für jede Transaktion (TX0 bis TX3) ein Hash-Wert (Hash0 bis Hash3) 
 
 Autor: Kevin Schima
 
-### Abgrenzung: Token / Coins
+### Fiatgeld
 
-... ...
+Fiatgeld (von lat. "fiat" - "es werde") ist ein Tauschmittel, dessen Gegenwert von den ausstellenden Notenbanken garantiert wird und dessen Verwendung als gesetzliches Zahlungsmittel von den jeweiligen Ländern vorgeschrieben ist. Die Schaffung eines eigenen Währungssystems ermöglicht einem Staat den Wert und das Wirtschaftssystem zu steuern.
+
+
+### Tokenization
+Tokenization (von Englisch "token": "Wertmarke") beschreibt den Prozess, ein digitales Abbild eines Assets (Edelmetalle, Immobilien usw.), über Smart Contracts bzw. Blockchain Technologie im Allgemeinen, handelbar zu machen. Schon vor der Entwicklung von Währungssystemen, wurden von Goldschmieden und Banken Wertscheine ausgestellt, die den Besitz einer hinterlegten Goldmenge bescheinigten, wodurch Händler einfacher Zahlungen untereinander tätigen konnten ohne physisch Gold auszutauschen. Später wurde durch Banknoten eine universelle Akzeptanz ermöglicht und durch elektronische Überweisungen der Transfer von Geld erleichtert.
+
+Durch Tokenization kann dieses Konzept noch weiter getrieben werden: Es gibt in der Regel keine zentrale Entität, der vertraut werden muss, Vertrauen wird geschaffen durch die Nutzung von Blockchain Technologie und durch die Offenlegung der Quellcodes, die eine Token Transaktion ausführen. Schließlich erlaubt die Verwendung von Token viele neue Anwendungsmöglichkeiten und eine weltweite potentielle Nutzerbasis.
+
 
 ### Arten von Token
   
@@ -217,11 +323,12 @@ Coins wie Bitcoin, Ethereum und ähnliche, sind zunächst spekulative Wertaufbew
 
 Unter Asset-based Token werden mit Assets, also mit Anlagegütern, gestützte Token verstanden. Beispiele dafür ist die mit Rohöl gedeckte, von der brasilianischen Regierung lancierte, aber umstrittene Kryptowährung "Petrol" oder der mit Gold gedeckte, noch nicht öffentliche gehandelte "Digix Gold Token (DGX)". Anteile an weiteren bespielhaften Anlagegütern sind möglich z.B. Windkraftanlagen, Immobilien, deren Finanzierung eventuell dadurch erst möglich ist. 
 
-### Tokenization
 
 ### Initial Coin Offering (ICO)
 
 Ein Initial Coin Offering ist eine, bis dato, weitgehend unregulierte Methode der Kapitalaufnahme bei der im Gegensatz zum klassischen Initial Public Offering (IPO) (deutsch: Börsengang), die Kapitalaufnahme in Form von Kryptowährungen erfolgt. Vergleichbar mit dem Börsenhandel bei dem mit Echtgeldwährungen (FIAT Währungen) Anteile an einem Unternehmen in Form von Aktien erworben werden können, werden bei einem ICO üblicherweise Token ausgegeben die mittels Kryptowährungen gekauft werden. Die Mindestinvestition ist, ähnlich wie bei Crowdfunding Finanzierungsmodellen, so niedrig, dass auch private Kleininvestoren partizipieren können. <a>[[HAHN18]](#ref_hahn18)</a>
+
+Im Jahr 2017 haben laut [ICODATA.IO](https://www.icodata.io/stats/2017) 871 ICOs insgesamt 6 Mrd. Dollar Kapital eingesammelt, wobei dieser Betrag je nach aktuellem Wechselkurs der Kryptowährungen schwanken kann.
 
 Während der traditionelle Finanzmarkt durch nationale und internationale Finanzaufsichten rechtlich stark reguliert ist, ist dies bei den neuartigen ICOs durch die rasante technische Entwicklung und unterstützt durch die anonymen bzw. pseudonymen Transaktionen von Kryptowährungen bisher kaum der Fall.
 
@@ -252,7 +359,39 @@ Für die Investoren des ICOs hat sich der Wert der Token im Idealfall durch medi
 
 * Aufgrund der anonymen Struktur von ICOs und der bisher kaum erfolgenden rechtlichen Regulierung kam es in der Vergangenheit wiederholt zu sogenannten exit-scams, dabei sind die Projektinitiatoren mit sämtlichen Investments untergetaucht
 
+### ERC Token Standards
 
+Die Etablierung von Token und ICOs wird vorallem ermöglicht durch eine vereinfachte Entwicklung, unterstützt durch die ERC Standards (Ethereum Request for Comments) für die Smart Contract Plattform der Ethereum Blockchain. 
+
+Sie bieten ein einheitliches Interface, dass alle grundlegenden Funktionalitäten, die ein Token benötigt, bereitstellt. Der erste und verbreiteste Tokenstandard ist ERC-20 <a>[[VOGE15]](#ref_voge15)</a>, daneben gibt es noch einige weitere, neuere Tokenstandards die mehr Funktionen bereitstellen, auf die and dieser Stelle nicht weiter eingegangen wird.
+
+#### ERC-20
+
+Hauptfunktionen:
+
+* totalSupply: 
+
+*Gesamtmenge an Token abfragen*
+
+* balanceOf: 
+
+*Token Anzahl einer Adresse abfragen*
+
+* transfer: 
+
+*Einer Adresse eine Anzahl Token senden*
+
+* transferFrom:
+
+*Eine Anzahl Token von einer bestimmten Adresse zu einer anderen übertragen*
+
+* approve: 
+
+*Einer Adresse, das Abheben einer definierten Tokenmenge erlauben*
+
+* allowance: 
+
+*Abhebelimit ermitteln, welches über approve zur Verfügung gestellt wurde* 
 
 ## Herausforderungen und Risiken
 
@@ -262,13 +401,14 @@ Autor: Fynn Klöpper
 Angriffsszenarios (Sybil attack, 51%-Attack)
 Skalierung (-sprobleme)
 
-Quellen:
-https://www.freehaven.net/anonbib/cache/sybil.pdf
+
 
 #### Angriffsszenarien
 
 ##### Sybil Attacke
-
+Quellen:
+https://www.freehaven.net/anonbib/cache/sybil.pdf
+https://publishup.uni-potsdam.de/opus4-ubp/frontdoor/deliver/index/docId/10314/file/tbhpi113.pdf
 ###### Definition
 Eine Sybil-Attacke beschreibt eine Art des Angriffs auf eine Blockchain, bei der eine schadhafte Entität mehrere Identitäten vorgibt, um einen substantiellen Teil des Systems zu kontrollieren und so die Sicherheit der Redundanz zu komprimieren.
 
@@ -291,12 +431,36 @@ Ein Schutz ohne dedizierte Identifizierungs-Authorität stellt sich als äußers
 Oftmals fällt der erste Gedanke auf ein System, bei dem ältere, etablierte Identitäten neue Identitäten kollektiv verifizieren. Dieser Lösungsansatz geht allerdings davon aus, dass die erste Generation von Identitäten vertrauenswürdig ist, welche bereits durch eine Sybil-Attacke komprimiert sein könnte und somit den weiteren Verlauf der Kette unsicher macht.  
 
 ##### 51%-Attack
+Quellen:
+http://fmt.cs.utwente.nl/files/sprojects/268.pdf
+
+###### Definition
+Eine 51%-Attacke beschreibt eine Attacke auf eine Blockchain, meist die Bitcoin-Blockchain, bei der ein Miningpool, der mehr als 50% der Hashrate des gesamten Netzwerks ausmacht, die Kontrolle über den weiteren Verlauf der Blockchain übernimmt.
+Der Angreifer ist daraufhin in der Lage Coins "doppelt" auszugeben, also einen Händler zu bezahlen und danach die Transaktion wieder rückgängig zu machen oder auch Transaktionen die Bestätigung zu verwehren und somit den Handel zwischen einigen oder auch allen Benutzern zu unterbrechen.    
+
+Auch wenn der Name der Attacke suggeriert, dass 51% der Rechenleistung des Netzwerks benötigt werden, um die Attacke durchzuführen, ist dies nicht notwendig.
+Bereits mit einer kleineren Anzahl an relativer Rechenleistung ist es möglich einen Angriff durchzuführen. In diesem Fall beträgt die Erfolgschance allerdings nicht 100%, sondern ist abhängig davon, wie viel relative Rechenleistung zur Verfügung steht und wie viele Blöcke zur Bestätigung ein Händler erwartet.
+Bild: https://www.btc-echo.de/tutorial/bitcoin-51-attacke/
+
+Falls der Angreifer über 51% relativer Rechenleistung verfügt und somit schneller Blöcke generieren kann als der Rest des Netzwerkes, kann er beliebig lange an seinem privaten Fork weiter Blöcke anhängen bis er länger als der öffentliche und vertrauenswürdige Branch ist. 
+Da immer der längere Branch vom System als der "richtige" Branch angenommen wird, kann somit der Angreifer bestimmen, welche Transaktionen mit in den Branch aufgenommen und welche Blöcke ungültig gemacht werden sollen. 
+###### Lösungsansätze
+- Bisher ein rein theoretischer Angriff in Anbetracht von Bitcoin
+- Bereits bestehende, gelockte Blöcke, können trotzdem nur sehr schwer verändert werden
+- Erhöhte Anzahl von Bestätigungen kann eine tatsächliche 51%-Attacke zwar nicht verhindern, allerdings eine Attacke eines Angreifers mit unter 51% unwahrscheinlicher machen, sowie die Angriffsdauer verlängern, was die Attacke unprofitabel machen kann.
+
+##### Cryptographie-Angriffe
 
 ###### Definition
 
 ###### Lösungsansätze
 
 #### Skalierung (-sprobleme)
+Quellen:
+https://publishup.uni-potsdam.de/opus4-ubp/frontdoor/deliver/index/docId/10314/file/tbhpi113.pdf
+
+##### Neue Nutzer
+##### Größeres Transaktionsaufkommen
 
 
 ### Ökonomische und gesellschaftliche Herausforderungen
@@ -311,7 +475,7 @@ betriebswirtschaftlich
 #### Ökonomische Implikationen
 Autor: Mario Cichonczyk
 
-Dass Blockchaintechnologien ein disruptives Potential aufweisen, scheint eine ihrer am häufigsten betonten Eigenschaften zu sein. Wie sie in konkreten Anwendungsfällen Veränderungen anstoßen können ist vielfach diskutiert. Ziel dieses Kapitels ist es, ein Verständnis zu entwickeln, warum die Blockchain einen für Marktprozesse relevanten Progressionsträger darstellen kann. Dabei wird explizit versucht das Eingehen auf einzelne Applikationen zu vermeiden und stattdessen ökonomische Zusammenhänge hervorzuheben, die nach Abstraktion den meisten wichtigen Wirtschaftsprozessen zugrunde liegen. Diese Herangehensweise soll es dem Leser ermöglichen, neue Anwendungsszenarien zu spezifizieren und einen Blick in die langfristige Zukunft des cyber-physischen Wirtschaftssystems zu wagen.
+Dass Blockchaintechnologien ein disruptives Potential aufweisen, scheint eine ihrer am häufigsten betonten Eigenschaften zu sein. Wie sie in konkreten Anwendungsfällen Veränderungen anstoßen können, ist vielfach diskutiert. Ziel dieses Kapitels ist es, ein Verständnis zu entwickeln, warum die Blockchain einen für Marktprozesse relevanten Progressionsträger darstellen kann. Dabei wird explizit versucht das Eingehen auf einzelne Applikationen zu vermeiden und stattdessen ökonomische Zusammenhänge hervorzuheben, die nach Abstraktion den meisten wichtigen Wirtschaftsprozessen zugrunde liegen. Diese Herangehensweise soll es dem Leser ermöglichen, neue Anwendungsszenarien zu spezifizieren und einen Blick in die langfristige Zukunft des cyber-physischen Wirtschaftssystems zu wagen.
 
 Beim Verschaffen eines Überblicks über die am stärksten betonten, ökonomischen Verwendungsbeispiele der Blockchain, scheinen sich drei kategorische Leitmotive hervorzuheben: Intermediation, Wirtschaftstransparenz und Wirtschaftsautomation.
 
@@ -325,7 +489,7 @@ Offensichtlich kann sich auf diese Weise eine komplexe Kette von Handelsstufen z
 Disintermediation als Prinzip der Eliminierung von Kettengliedern in Transmissionsmechanismen ist allerdings kein durch die Blockchain verursachtes Gedankenkonstrukt. <a>[[GELL96]](#ref_gell96)</a> beobachtete die ersten entsprechenden Phänomene  bereits in den 1970ern. Provoziert durch regulatorische Veränderungen im Investmentbankensystem entstand eine signifikante Differenz zwischen Zinszahlungen von Großbanken und anderen Formen der direkteren Kapitalanlage. Konsumenten wanderten aus diesem Grund verstärkt von etablierten Investmentbanken ab und brachten ihre Assets autark mit geringeren Transaktionskosten und größeren Erträgen gewinnbringend in einem selbstgesteuerten Portfolio unter. Banken wurden nicht länger als monopolistische Intermediäre wahrgenommen. Fortan festigte sich die Apperzeption von Disintermediationseinflüssen, sodass diese in der ökonomischen Literatur aufgenommen und reflektiert wurden. Besondere Aufmerksamkeit erhielt dabei die zunehmende Geltungskraft des Internets vor der Jahrtausendwende. Diese Phase ist aus heutiger Sicht aufgrund ihrer Korrelation zur Etablierung der Blockchain erneut bedeutsam. Realweltintermediäre sahen sich der denkbaren Disintermediation durch eCommerce ausgesetzt. Die Unternehmen, die damals als digitale Vorreiter erfolgreich in das Internetzeitalter übergingen, stehen nun vor dem gleichen Paradigmenwechsel wie jene Unternehmen, die sie einst verdrängten. Was das Internet für Realweltintermediäre in den 1990ern bedeutete, repräsentiert die Blockchain für Handelsprofiteure, die mit der Dotcom-Blase und dessen Nachwirkungen in die Moderne eingezogen sind.
 
 Um eine hypothetische Prognose über die Zukunft von Assetflows unter angenommener Konstituierung der Blockchain abgeben zu können, lohnt es sich die ökonomische Aufarbeitung des Jahrtausendwechsels als Schlüsselindikator heranzuziehen. So fasst <a>[[GIAG99]](#ref_giag99)</a> zusammen, dass der Markt grundsätzlich dazu tendiert, Intermediäre zu verdrängen. Ihre Margen führen zu einer direkten Erhöhung des Preises für den Verbraucher. Zusätzlich können Produzenten den vollen Marktwert ihrer Produkte nicht ausschöpfen. Das Aufkommen einer Technologie, die Produzent und Konsument näher zusammenbringt, wird - begründet durch die Majorität und Entbehrung dieser Interessensgruppe - positiv in das Wirtschaftssystem aufgenommen. Dieser Effekt initiiert für nun in Zwangslage geratene Intermediäre drei mögliche Szenarien: Disintermediation, Reintermediation oder Cybermediation <a>[[GIAG99]](#ref_giag99)</a>. Das offensichtliche, erste Szenario, ist der mit sinkenden Transaktionskosten verbundene Druck auf Vermittler, die an ihrer traditionellen Rolle festhalten und langfristig aus dem Markt geschwemmt werden. Wenn von "Disruption" gesprochen wird, scheint die Assoziation mit dem vollständigen Verschwinden von Handelsstufen vorherrschend. Durch das Konzept der Reintermediation präsentiert sich aber eine aus Sicht der Marktmanier natürlichere Option. In diesem Fall bewegen sich Intermediäre in Nischen, in denen sie weiterhin kommerzielle Transaktionen vermitteln können oder durch Produktaugmentierung einen Mehrwert generieren. Ihre angepasste Rolle erlaubt ihnen dann das Fortbestehen parallel zum transformierten Wirtschaftskreis. 
-Sind Vermittler aus dem Markt ausgeschieden oder haben sich in Nischen gerettet, existieren noch jene, die erst durch das neue Medium ihre Daseinsberechtigung erhalten und ihm vollends innewohnen. Diese Kategorie umfasst alle Aktuere, die mit ihren Geschäftsmodellen die Renditen der digitalen Wende einfahren. Und genau diese *Cybermediäre* scheinen nun durch die Blockchain mit der gleichen Wahl eines Zukunftsszenarios gegenübergestellt, wie ehemals ihre Vorgänger am Ende des letzten Jahrhunderts.
+Sind Vermittler aus dem Markt ausgeschieden oder haben sich in Nischen gerettet, existieren noch jene, die erst durch das neue Medium ihre Daseinsberechtigung erhalten und ihm vollends innewohnen. Diese Kategorie umfasst alle Akteure, die mit ihren Geschäftsmodellen die Renditen der digitalen Wende einfahren. Und genau diese *Cybermediäre* scheinen nun durch die Blockchain mit der gleichen Wahl eines Zukunftsszenarios gegenübergestellt, wie ehemals ihre Vorgänger am Ende des letzten Jahrhunderts.
 
 Unterschiedliche Marktfunktionen sind verschieden stark durch derartige Transformationsprozesse bedroht und äußern so auch differenzierte Effekte <a>[[GIAG99]](#ref_giag99)</a>. Die nachstehende Tabelle gibt einen Überblick über betroffene Anwendungsbereiche und deren beobachtete Reaktion.
 
@@ -346,19 +510,43 @@ Zweifelsohne repräsentiert die Blockchain eine Technologie, die Märkte revolut
 Die Beobachtungen, die der Digitalisierung der Wirtschaft zur Jahrtausendwende zugrunde liegen, geben den Eindruck, dass der dezentrale, transparente Markt zwar sicherlich erneut intermediärsfeindlich wirkt, deren Existenzwille aber primär zu veränderten und/oder neuartigen Vermittlungsdiensten führt. Disintermediation scheint nicht das zwingend folgende Ergebnis der Konstituierung der Blockchain zu sein. Vielmehr haben wir mit einer Landschaft hochspezialisierter, neuartiger  Dienstleistungen zu rechnen.
 
 ##### Wertschöpfungstransparenz
-...
+Im ersten Abschnitt wurde beschrieben, wie ein Asset über den Weg intermediärer Handelsstufen durch den Markt fließt. Der primäre Aspekt der Analyse lag also beim Einfluss der Blockchain auf die Vermittlung von Besitzübertragungsvorhaben. Diese Einsicht kann als abstrakte Beobachtung der *Bewegung* eines Produktes interpretiert werden. Der nachfolgende Abschnitt soll sich demgegenüber nun mit der *Veränderung* eines Wirtschaftsguts befassen.
+
+Naheliegend ist, dass ein Produkt verändert wird, um im Einflussbereich eines Marktsegmentes einen Bedarf zu decken. Es wird also ein Mehrwert generiert. Folgen mehrere solcher Veränderungsprozesse aufeinander, wird der Begriff der Wertschöpfungskette offensichtlich. Jedes Produkt, welches nicht unverändert und direkt vom Ersterzeuger an den Endverbraucher übergeht, ist das Ergebnis einer solchen Folge von Wertaugmentierungen. Mit dieser Wahrnehmung kommt das Verständnis, dass Wertschöpfungsketten - auch Supply Chains genannt – die Produktion, Vorhaltung und Distribution von Gütern und assoziierten Diensten ermöglichen und somit die Infrastruktur des globalen Wirtschaftssystems bilden <a>[[ NAGU07]](#ref_nagu07)</a>.
+
+Die Steuerung und Optimierung solcher Ketten wird als Supply Chain Management bezeichnet. <a>[[COOP97]](#ref_coop97)</a> beschreibt den Zweck von SCM mit der Reduzierung des Gesamtaufwands an Ressourcen, die notwendig sind, um das angestrebte Marktziel zu erreichen. Realisiert wird dies durch die Synchronisierung von Kundenanforderungen mit dem Materialfluss, Reduktion von Inventarinvestitionen und Verbesserungen von Dienstleistungen.  All diese Maßnahmen verschaffen einen kompetitiven Vorteil. Früh wurde die Beobachtung gemacht, dass der eigentliche Konkurrenzkampf nicht zwischen Unternehmen, sondern optimierten Supply Chains stattfindet <a>[[COOP97]](#ref_coop97)</a>. Productowner haben demnach ein wirtschaftliches Interesse, den Erzeugungsprozess ihres Assets unternehmensübergreifend mit zentralisierter Kontrolle zu steuern.
+
+Das identische Prinzip konsolidierter Kontrolleinheiten wird angewandt, um regulatorischen Bedürfnissen nachzukommen <a>[[TIAN16]](#ref_tian16)</a>. In diesem Fall ist das konkrete Ziel nicht die Sicherstellung optimaler Wirtschaftlichkeit, sondern die Einhaltung gesetzlicher Vorgaben, die mit der Erstellung eines Produkts geknüpft sind. 
+In beiden Fällen werden die besten Ergebnisse erzielt, wenn die Wertschöpfungskette maximal integriert ist <a>[[BAGC05]](#ref_bagc05)</a>. Integration beschreibt in diesem Kontext die informationstechnische Verknüpfung aller Wertaugmentierer. Der Schaffungsprozess eines wie beschrieben überwachten Produktes projiziert sich also auf ein verteiltes System. Es sollte nun klarwerden, welcher anhaftende Nachteil aufkommt. <a>[[TIAN16]](#ref_tian16)</a> sieht im modernen Supply Chain Management monopolistische, asymmetrische Informationssysteme mit dem Risiko der Manipulation durch Nutznießer, die entweder mit einem beträchtlichen Investment oder durch markterzwungene Abhängigkeiten in das System involviert sind. Kunden und Regulatoren können die Herkunft von Materialien oder die Einhaltung ethischer Aspekte im Herstellungsprozess nicht nachvollziehen ohne die Vertrauensfrage zu stellen, die für verteilte und gleichzeitig nicht dezentrale Systeme typisch ist <a>[[ETLA16]](#ref_etla16)</a>. Aus diesem Grund sind Nachhaltigkeitsstandards und Zertifizierungen mangels Überprüfbarkeit als wertlos zu erachten, da weder die Absicht der Supply Chain Betreiber noch die Integrität ihrer Datenquellen transparent ist <a>[[ABEY16]](#ref_abey16)</a>. Die Verstärkung der Sichtbarkeit von Wertschöpfungsketten ist also schon länger ein aktiv verfolgtes Vorhaben, wird aber durch die Art und Weise der Umsetzung von SCM eingeschränkt. Mit der Blockchain entstand nun eine Technologie, die das fundamentale Problem der SCM-Transparenz zu lösen vermag.
+
+<a>[[ABEY16]](#ref_abey16)</a> beschreibt, wie das Crypto-SCM strukturiert ist. Produkte werden mit einem in der Blockchain ablegbaren Identifikator versehen (zum Beispiel ein RFID-Tag oder QR-Code). Der Identifikator wird Teil des digitalen Produktprofils und kann vom temporalen Besitzer mit weiteren Informationen angereichert werden. Wenn dieses Profil in der Blockchain hinterlegt ist, kann jeder Systemteilnehmer zu jedem Zeitpunkt die perfekte Information über ein Produkt und dessen Historie abrufen. Dem Datensatz kann dabei im Sinne des Blockchain-Versprechens vertraut werden. Bei der Erstellung von Public-Private-Keypaaren werden diese eindeutig mit einem Wertaugmentierer verknüpft. Nicht nur kann das Produkt besser zurückverfolgt werden, es wird auch ein größeres Potential der Verantwortungsbindung geschaffen. 
+
+Die Blockchain als transformative Technologie im Supply Chain Management offeriert dementsprechend Vorteile für alle Stakeholder: Unternehmen, Staat und Kunden. Das Crypto-SCM ebnet den Weg für maximale, regulatorische Kontrolle und bietet eine technisch valide Unterstützung für Nachhaltigkeitsstandards. Gleichzeitig steht es dem Kunden immer frei sich vor oder nach seinem Kauf über das Produkt und dessen Entstehungsprozess im Detail zu informieren. Aus unternehmerischer Sicht bildet die Blockchain eine attraktive Basis für effizienteres Supply Chain Management ohne die Einstreuung von Misstrauen durch zentralisierte Systeme. Zusätzlich wird prognostiziert, dass die Blockchain einem der größten Probleme des Supply Chain Managements Einhalt gebieten kann: dem sogenannten Bullwhip-Effekt <a>[[SSEB17]](#ref_seeb17)</a>. Dieser manifestiert sich durch die serielle Propagation von Prognosen entlang der Supply Chain.  Wenn Nachfragen schwanken, wird das erste Kettenglied die Schwankung zwar akkurat, aber zur Reduktion von Risiken immer wohlwollend und damit etwas umfangreicher prognostizieren. Dessen Bestandsplanung hat wiederum Einfluss auf nachgelagerte Kettenglieder, welche die nun aus ihrer Sicht größere Nachfrageschwankung mit dem gleichen Motiv erneut wohlwollender Beziffern. Dieser Effekt wächst entlang der Wertschöpfungskette exponentiell, sodass kleine Oszillationen an einem Kettenende zu sehr großen Effekten - und somit ineffizienten Planungsverzerrungen - am anderen Ende führen. Die geteilte Information der Blockchain parallelisiert die Bestandsplanung aller Teilnehmer und eine Stabilisierung des Gesamtsystems ist die Folge.
+
+Auf den ersten Blick scheint die Blockchain im Supply Chain Management keinerlei Nachteile aufzuweisen und der Einzug von Crypto-SCM wirkt erwartbar. Allerdings beobachtet <a>[[APTE16]](#ref_apte16)</a> noch ein elementares Problem. Die genannten Vorzüge sind allesamt anerkannt, funktionieren aber nur unter der Annahme, dass die Information in der Blockchain mit der Realität kongruent ist. Es gibt nach aktuellem technischen Stand keinerlei Garantie, dass sich ein digitaler Identifikator, dessen angereichertes Produktprofil und das Realweltpendant spiegelgleichen. Ohne eine solche Sicherheit hat das Crypto-SCM noch keinen unanfechtbaren Mehrwert. Das virtualisierte Produkt unterliegt zwar dem Transparenzversprechen der Blockchain, die Verbindung zum physischen Gegenstück ist aber weiterhin im Wirkungsbereich Dritter. Somit wird das Vertrauensproblem nur verlagert. Maligne Systemteilnehmer haben weiterhin einen einfachen Hebel, ihre eigennützigen Interessen unkontrolliert durchzusetzen. Die Alternative wäre nach <a>[[APTE16]](#ref_apte16)</a> ein regelmäßiger Auditprozess. 
+
+Im Ausblick ist aufgrund dieser Problematik die Zukunft der digitalen Wertschöpfungskette undurchsichtig. Dass dessen Realisierung wünschenswert ist, sollte offensichtlich sein. Vorab muss die eindeutige, unveränderbare Identifikation von Gütern ein Forschungs- und Entwicklungsziel werden. Andernfalls bezieht sich das transformative Potential der Blockchain bloß auf das Problem, nicht auf die Lösung, denn die Notwendigkeit von Auditprozessen ist der gleiche Stand an dem wir uns aktuell befinden. Es sollte angemerkt werden, dass diese Sichtweise als Herausforderung für die akademisch-wirtschaftlichen Zukunftsträger verstanden werden kann und aufgrund der überwiegenden Vorteile der Veränderungsprozess im Supply Chain Management uneingeschränkt weiterläuft. <a>[[FRANC18]](#ref_franc18)</a> hebt den kompetitiven Druck durch immer besser informierte Endkunden hervor. Diese verlangen nicht länger nur einen guten Preis, sondern einen angemessenen Grad der Produkttransparenz. Es ist also zu erwarten, dass nicht zwingend die Existenz der Blockchain selbst den Fortschritt im SCM vorantreibt, sondern sie vielmehr eine Antwort auf die aufgeklärte Entwicklung des Konsummarkts darstellt.
+
 ##### Wirtschaftsautomation - M2M Transaktionen
 
 ...
 
 ## Literaturverzeichnis
+<a name="ref_abey16">[ABEY16]</a>:Abeyratne, Saveen ; Monfared, Radmehr: Blockchain Ready Manufacturing Supply Chain Using Distributed Ledger. International Journal of Research in Engineering and Technology. 05. 2016
+
 <a name="ref_Ande16">[ANDE16]</a>: Andersen, Nicolai: Vorstellung der
 Blockchain-Technologie
 „Hallo, Welt!”, Deloitte, 03.2016, URL: https://www2.deloitte.com/content/dam/Deloitte/de/Documents/Innovation/Vorstellung%20der%20Blockchain-Technologie.pdf (letzter Zugriff: 03.05.2018)
 
+<a name="ref_apte16">[APTE16]</a>:Apte, Shireesh: Will blockchain technology revolutionise excipient supply chain management?. Journal of Excipients and Food Chemicals, [S.l.], v. 7, n. 3, p. 76-78, 2016. ISSN 21502668.
+
+<a name="ref_bagc05">[BAGC05]</a>:Bagchi, Prabir K. ; Chun Ha , Byoung ; Skjoett‐Larsen, Tage ; Soerensen, Lars Boege:Supply chain integration: a European survey. The International Journal of Logistics Management, Vol. 16 Issue: 2, pp.275-294, 2005. DOI: 10.1108/09574090510634557
+
 <a name="ref_budic18">[BUDI18]</a>: BusinessDictionary.com : What is intermediation? definition and meaning ; URL: http://www.businessdictionary.com/definition/intermediation.html ; Date Accessed: April 29, 2018
 
 <a name="ref_Bute15">[BUTE15]</a>: Buterin, Vitalik: On Public and Private Blockchains, 07.08.2015, URL: https://blog.ethereum.org/2015/08/07/on-public-and-private-blockchains/ (letzter Zugriff: 03.05.2018)
+
+<a name="ref_coop97">[COOP97]</a>:Cooper, Martha C. ; Lambert, Douglas M. ; Pagh, Janus D.: Supply Chain Management: More Than a New Name for Logistics. The International Journal of Logistics Management, Vol. 8 Issue: 1, pp.1-14, 1997. DOI: 10.1108/09574099710805556
 
 <a name="ref_Demush">[DEMUSH]</a>: Demush, Rostyslav: How Companies Can Leverage Private Blockchains to Improve Efficiency and Streamline Business Processes, URL: https://perfectial.com/blog/leveraging-private-blockchains-improve-efficiency-streamline-business-processes/ (letzter Zugriff: 03.05.2018)
 
@@ -366,6 +554,8 @@ Blockchain-Technologie
 
 <a name="ref_eule18">[EULE18]</a>: Euler, T. : The Token Classification Framework: A multi-dimensional tool for under-standing the classifying crypto tokens. Web-Quelle, 2018,
 http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens/](http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens)
+
+<a name="ref_franc18">[FRANC18]</a>: Francisco, Kristoffer ; Swanson, David: The Supply Chain Has No Clothes: Technology Adoption of Blockchain for Supply Chain Transparency, Logistics, Volume 2, Issue 1, 2018, DOI: 10.3390/logistics2010002
 
 <a name="ref_gell96">[GELL96]</a>:Gellman, Robert: Disintermediation and the internet, Government Information Quarterly, Volume 13, Issue 1, 1996, Pages 1-8, ISSN: 0740-624X
 
@@ -377,11 +567,23 @@ http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimension
 
 <a name="ref_HOFM17">[HOFM17]</a>: Hofmann, Frank ; Wurster, Simone ; Eyal, Ron ; Böhmecke-Schwafert, Moritz : The immutability concept of blockchains and benefits of early standardization. Nanjing, China : ITU Kaleidoscope: Challenges for a Data-Driven Society (ITU K), 2017, ISBN: 978-9-2612-4281-7 
 
+<a name="ref_IMPO18">[IMPO18]</a>: Iimponderablethings.com : How Bitcoin Works Under the Hood  ; URL: http://www.imponderablethings.com/2013/07/how-bitcoin-works-under-hood.html ; Date Accessed: Mai 10, 2018
+
+<a name="ref_INVE18">[INVE18]</a>: Investopedia.com : Hard Fork & Soft Fork ; URL: https://www.investopedia.com/terms/h/hard-fork.asp & https://www.investopedia.com/terms/h/hard-fork.asp ; Date Accessed: Mai 09, 2018
+
+<a name="ref_nagu07">[NAGU07]</a>:Nagurney, Anna ; Liu, Zugang ; Woolley, Trisha: Sustainable Supply Chain and Transportation Networks, International Journal of Sustainable Transportation, 1:1, 29-51, 2007. DOI: 10.1080/15568310601060077
+
 <a name="ref_Schl16">[SCHL16]</a>: Schlatt, Vincent; Schweizer, André; Urbach, Nils; Fridgen, Gilbert: Blockchain: Grundlagen, Anwendungen und Potenziale, S. 8-12, Fraunhofer FIT, 12.2016, URL: https://www.fim-rc.de/Paperbibliothek/Veroeffentlicht/642/wi-642.pdf (letzter Zugriff: 04.05.2018)
 
 <a name="ref_schmidt99">[SCHM99]</a>: Schmidt, Reinhard ; Hackethal, Andreas ; Tyrell, Marcel: Disintermediation and the Role of Banks in Europe: An International Comparison, Journal of Financial Intermediation, Volume 8, Issues 1–2, 1999, Pages 36-67, ISSN: 1042-9573
 
+<a name="ref_seeb17">[SEEB17]</a>:Seebacher, Stefan ; Schueritz, Ronny: Blockchain Technology as an Enabler of Service Systems: A Structured Literature Review, Exploring Services Science, 2017, Springer International Publishing, pp.12-23, ISBN: 978-3-319-56925-3
+
 <a name="ref_shen16">[SHEN16]</a>: Shen, Ji ; Wei, Bin ; Yan, Hongjun: Financial Intermediation Chains in an OTC Market. 2016, SSRN: https://ssrn.com/abstract=2577497
+
+<a name="ref_tian16">[TIAN16]</a>:Tian, Feng: An agri-food supply chain traceability system for China based on RFID & blockchain technology. 13th International Conference on Service Systems and Service Management (ICSSSM), Kunming, 2016, pp. 1-6, 2016. DOI: 10.1109/ICSSSM.2016.7538424
+
+<a name="ref_voge15">[VOGE15]</a>: Vogelsteller, Fabian ; Buterin, Vitalik : ERC-20 Token Standard, URL: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md (letzter Zugriff: 12.05.2018)
 
 <a name="ref_VUJI18">[VUJI18]</a>: Vujičić, Dejan ; Jagodić, Dijana ; Ranđić, Siniša : Blockchain Technology, Bitcoin, and Ethereum: A Brief Overview. East Sarajevo, Bosnia and Herzegovina : IEEE INFOTEH-JAHORINA (INFOTEH), 17th International Symposium, 2018, ISBN: 978-1-5386-4907-7 
 
