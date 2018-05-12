@@ -4,25 +4,59 @@
 ## Architektur und Funktionsweise
 Autor: Sebastian Janzen
 
-Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transaktionshistorie festgehalten wird, wie zum Beispiel einem öffentlichen Konto. Jeder Block zeigt auf den Vorgänger bis auf den ersten Block einer Blockchain, den sogenannten "Genesisblock". <a>[[ZHENG17]](#ref_Zheng17)</a>
+Was ist eine Blockchain?  
+Es gibt mehrere Definitionen, da die Entwicklung der Blockchain noch recht jung ist. Eine Definition besagt, dass es ein elektronischer Register für Datensätze, Ereignisse oder Transaktionen ist, wo die Teilnehmer eines Netzwerkes diesen verwalten. Hier wird zwischen der Blockchain als Datenstruktur und dem zugehörigen Verwaltungssystem unterschieden.  
+Eine andere Definition ist, dass die Blockchain eine Datenbank ist in welcher Einträge chronologisch in Blöcken gruppiert und miteinander kryptografisch verknüpft werden. Wobei hier Blockchains von Distributed Ledgers abgegrenzt werden.  
+Die Blockchain-Verwaltungssysteme werden als verteilte Konsensussysteme bezeichnet, welche auf Kryptografie und P2P-Prinzipien aufbauen. So erreichen sie eine Verifikation des Systemsstatus im ganzen Netzwerk. Aus diesen Definitionen geht hervor, dass Blockchain-Systeme den verteilten Systemen angehören. <a>[[SCHL16]](#ref_Schl16)</a>
 
-Abbildung angepasst aus <a>[[ANDE16]](#ref_Ande16)</a>
+In anderen Worten: Ein Blockchain-System ist eine sequenzielle Datenbank mit konstanten Datensätzen, welche in einem P2P-Netzwerk mithilfe von Crypto-Economics und Konsensusalgorithmen validiert und gespeichert werden.
 
->___!!!Das nächste Unterkapitel "Block" überschneidet sich mit dem Unterkapitel "Blöcke" von Björn. Bleibt erstmal so stehen, wir entscheiden später wie wir vorgehen!!!___ 
+Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transaktionshistorie festgehalten wird, wie zum Beispiel einem öffentlichen Konto. Jeder Block zeigt auf den Vorgänger die ganze Blockkette entlang bis auf den ersten Block einer Blockchain, den sogenannten "Genesisblock". <a>[[ZHENG17]](#ref_Zheng17)</a>
+
+Die Abbildung "Blockchain Architektur" zeigt, dass eine zufällige Zeichenkette (Nonce) solange iteriert wird, bis ihr Hashwert den Zielvorgaben des Netzwerkes entspricht. Ist dies der Fall, kommt der Block in die Blockchain. <a>[[ANDE16]](#ref_Ande16)</a>
+
+![blockchain_architecture](./images/blockchain_architecture.png "Blockchain Architektur")
+
+_Blockchain Architektur_ Abbildung angepasst aus <a>[[ANDE16]](#ref_Ande16)</a>
 
 ### Block
 
+![blockchain_block](./images/blockchain_block.png "Blockchain block")
+
+_Blockchain Block_, Abbildung angepasst aus <a>[[ZHENG17]](#ref_Zheng17)</a>
+
+Der Block besteht aus einem Blockheader und Blockbody.
+In den Blockheader gehören: <a>[[ZHENG17]](#ref_Zheng17)</a>
+- __Block version:__			Beinhaltet die Regeln für die Validierung eines Blocks
+- __Merkle tree root hash:__	Ist der Hashwert aller Transaktionen im Block
+- __Timestamp:__				Aktueller Zeitwert in Sekunden seit 01.01.1970
+- __nBits:__ 					Schwellwert eines Hashes ab dem ein Block als valide gilt
+- __Nonce:__					Ist ein 4-Byte Feld, welches üblicherweise mit Null anfängt und pro Hash-Kalkulation inkrementiert
+- __Parent block hash:__		Ist ein 256-Bit Hashwert das auf den Vorgänger zeigt
+
+Der Body besteht aus dem Transaktionszähler und den Transaktionen selbst. Je nach Block- und Transaktionsgröße variiert die Anzahl der Transaktionen im Block. Zur Verifizierung von Transaktionen dient asymmetrische Kryptografie. <a>[[ZHENG17]](#ref_Zheng17)</a>
+
 ### Digitale Signatur
 
-### Hauptmerkmale einer Blockchain
+Jeder Benutzer besitzt ein Schlüsselpaar aus einem öffentlichen Schlüssel und einem privaten Schlüssel. Damit kann eine digitale Signatur generiert werden. Eine Nachricht oder Transaktion wird mit dem privaten Schlüssel signiert und an den Empfänger gesendet, der die Echtheit der Nachricht mit dem öffentlichen Schlüssel anhand der Signatur überprüfen kann. <a>[[ZHENG17]](#ref_Zheng17)</a>
+
+Aufgrund dessen, dass nur der Absender den privaten Schlüssel kennt, kann so die Authentizität der Nachricht und des Absenders sichergestellt werden. Des Weiteren kann die Nachricht nicht durch asymmetrische Verschlüsselung unbemerkt verändert werden. <a>[[SCHL16]](#ref_Schl16)</a>
+
+In diesem Unterkapitel wird die digitale Signatur nur am Rande erwähnt. Für mehr Informationen siehe Unterkapitel "Digitale Signaturen" in Kryptografie, Grundlagen.
+
+### Konzept einer Blockchain
 
 __Dezentralisierung__
 
+In zentralisierten Transaktionssystemen spielt eine Vertrauensperson, z. B. eine Zentralbank, die Rolle des Validierungsknoten, was häufig zu Engpässen in der Leistung führt. Für die Blockchain werden Konsensusalgorithmen verwendet, was den Einsatz von Dritten überflüssig macht und zu einer besseren Performance führt. <a>[[ZHENG17]](#ref_Zheng17)</a>
+
 __Beständigkeit__
+
+Transaktionen sind schnell validierbar und invalide Transaktionen werden gar nicht erst akzeptiert. Die Struktur der Blockchain macht eine Änderung an den gespeicherten Transaktionen kaum möglich. <a>[[ZHENG17]](#ref_Zheng17)</a>
 
 __Anonymität__
 
-__Nachvollziehbarkeit__
+Die Identität eines Benutzers ist geschützt, denn für die Interaktion mit der Blockchain wird eine generierte Adresse verwendet, aus der nicht ohne weiteres möglich ist auf einen Benutzer zurückzuführen. Dennoch gibt es keine hundertprozentige Garantie, dass ein Benutzers absolut anonym ist. <a>[[ZHENG17]](#ref_Zheng17)</a>
 
 ### Arten einer Blockchain 
 
@@ -30,30 +64,59 @@ Es gibt drei Arten von Blockchain: öffentliche, private und diejenigen welche e
 
 __Öffentlich__
 
+Die ursprüngliche Art einer Blockchain (siehe Bitcoin-Blockchain). Alle Einträge sind öffentlich sichtbar. Jeder kann im Netzwerk eine Transaktion tätigen und solange diese valide ist, wird sie auch einer Blockchain hinzugefügt. Es ist allen freigestellt am Konsensus teilzunehmen und sogar die Netzwerke zu verwalten. Im Gegenzug gibt es niemanden der das Alleinrecht im Netzwerk hat - alle Teilnehmer sind gleich. Aus diesem Grund wird ein öffentliches Blockchain auch _permissionless blockchain_ genannt.
+Der Einfluss ist proportional der Ressourcen eines Teilnehmers. Öffentliche Blockchains nutzen Crypto-Economics, eine Kombination aus Konsensalgorithmen und wirtschaftlichen Anreizen, als Ersatz für eine zentralen Entität der vertraut wird.  Die üblichen Konsensusalgorithmen sind Proof of Work und Proof of Stake (Bitcoin, Ethereum). Die Vorteile von öffentlichen Blockchains sind Transparenz und Anonymität, wobei die Skalierbarkeit und Effizienz eher zweitrangig sind. Diese Art der Blockchain wird als völlig dezentral bezeichnet. <a>[[DEMUSH]](#ref_Demush)</a>, <a>[[BUTE15]](#ref_Bute15)</a>
 
-Abbildung angepasst aus <a>[[DEMUSH]](#ref_Demush)</a>
+Im öffentlichen Blockchain-Netzwerk kann jeder Knoten am Konsensus teilnehmen, um den nächsten Block zu validieren. Ist die Validierung abgeschlossen, wird der Block der Blockchain hinzugefügt, siehe nächste Abbildung.
 
-Die ursprüngliche Art einer Blockchain (siehe Bitcoin-Blockchain).
+![blockchain_public](./images/blockchain_public.png "Public Blockchain")
+
+_Öffentliches Blockchain-Netzwerk_, eigene Abbildung
 
 __Privat und Konsortium__
 
+Wie der Name schon andeutet, sind private Blockchains nicht für jeden sichtbar und zugänglich. Sie werden aufgrund einer überschaulichen Anzahl von Knoten viel effektiver verwaltet. Die Schreibrechte an der Blockchain gehören üblicherweise einer einzigen Organisation, die Leserechte können zum Teil oder ganz öffentlich sein. Diese Art von Blockchain heißt _permissioned blockchain_. Die üblichen Verwendungszwecke sind Datenhaltung und Wirtschaftsprüfung im Rahmen einer einzigen Firma.  
+Konsortium-Blockchains unterscheiden sich insofern von privaten, dass nur vorausgewählte Knoten am Konsensus teilnehmen können. Diese Knoten können einer Gruppe von Banken gehören, wo jede Bank einen Knoten steuert. Wie im Falle der privaten Blockchain, kann das Leserecht teilweise oder ganz öffentlich sein, was dazu führt, dass Teilnehmern außerhalb des Konsortiums eine eingeschränkte Möglichkeit haben über eine API die Block Hashes zu überprüfen. Banken und Unternehmen bekommen damit eine Möglichkeit direkt ihre Vermögenswerte untereinander in Sekunden zu übertragen und die private P2P-Netzwerke zu überwachen. Diese Blockchains werden als teilweise dezentralisiert bezeichnet.
+<a>[[DEMUSH]](#ref_Demush)</a>, <a>[[BUTE15]](#ref_Bute15)</a>
 
-Abbildung angepasst aus <a>[[DEMUSH]](#ref_Demush)</a>
+Private bzw. Konsortium Blockchain-Netzwerke bestehen aus einer zugelassenen Anzahl von Knoten, was den Konsensusprozess erheblich beschleunigt. Zur Validierung eines Blocks sind öffentliche Knoten nicht zugelassen, siehe nächste Abbildung.
 
-Wie der Name schon andeutet, sind private Blockchains nicht für jeden sichtbar und zugänglich. Sie werden aufgrund von überschaulichen Anzahl von Knoten viel effektiver verwaltet. Die Schreibrechte an der Blockchain gehören üblicherweise einer einzigen Organisation, die Leserechte können zum Teil oder ganz öffentlich sein. Der üblichen Verwendungszwecke sind Datenhaltung und Wirtschaftsprüfung im Rahmen einer einzigen Firma. Konsortium-Blockchains unterscheiden sich insofern von privaten, dass nur vorausgewählte Knoten am Konsensus teilnehmen können. Diese Knoten können einer Gruppe von Banken gehören, wo jede Bank einen Knoten steuert. Wie im Falle der privaten Blockchain, kann das Leserecht teilweise oder ganz öffentlich sein, was dazu führt, dass Teilnehmern außerhalb des Konsortiums eine eingeschränkte Möglichkeit haben über eine API die Block Hashes zu überprüfen. Banken und Unternehmen bekommen damit eine Möglichkeit direkt ihre Vermögenswerte untereinander in Sekunden zu übertragen und die private P2P-Netzwerke zu überwachen. Diese Blockchains werden als teilweise dezentralisiert bezeichnet.
-<a>[[DEMUSH]](#ref_Demush)</a>, <a>[[BUTE16]](#ref_Bute16)</a>
+![blockchain_private](./images/blockchain_private.png "Private und Konsortium Blockchain")
 
-__Permissionless__
+_Privates und Konsortium Blockchain-Netzwerk_, eigene Abbildung
 
-__Permissioned__
+### Unterschiede zwischen permissionless und permissioned
 
+In dieser Tabelle sind die wichtigsten Unterschiede nochmals zusammengefasst.
 
-Alle ihre Einträge sind öffentlich sichtbar. Jeder kann im Netzwerk eine Transaktion tätigen und solange diese valide ist, wird sie auch einer Blockchain hinzugefügt. Es ist allen freigestellt am Konsensus teilzunehmen und sogar die Netzwerke zu verwalten. Im Gegenzug gibt es niemanden der das Alleinrecht im Netzwerk hat - alle Teilnehmer sind gleich. Der Einfluss ist proportional der Ressourcen eines Teilnehmers. Öffentliche Blockchains nutzen Crypto-Economics, eine Kombination aus Konsensalgorithmen und wirtschaftlichen Anreizen, als Ersatz für einen zentralen Trust.  Die üblichen Konsensusalgorithmen sind Proof of Work und Proof of Stake (Bitcoin, Ethereum). Die Vorteile von öffentlichen Blockchains sind Transparenz und Anonymität, wobei die Skalierbarkeit und Effizienz eher zweitrangig sind. Diese Art der Blockchain wird als völlig dezentral bezeichnet. <a>[[DEMUSH]](#ref_Demush)</a>, <a>[[BUTE16]](#ref_Bute16)</a>
+|                                                       | __Permissioned Blockchain__     | __Permissionless Blockchain__ |
+|-------------------------------------------------------|---------------------------------|-------------------------------|
+|_Instandhaltung:_                                      | Kleine Gruppe von Entitäten     | Jeder der will                |
+|_Schutz vor Unaufrichtigkeit:_                         | Reputationsschaden              | Crypto-Economics              |
+|_Transaktionsrechte:_                                  | Zugelassene Gruppe von Menschen | Jeder der will                |
+|_Zugang:_                                              | Kleine Gruppe von Entitäten     | Jeder der will                |
+|_Speicherort:_                                         | Zentraler Server                | Verteilt                      |
+|_Vertrauen in eine zentrale Entität zur Sicherheit:_   | Ja                              | Nein                          |
+|_Transaktionskosten:_                                  | Klein                           | Hoch                          |
+|_Geschwindigkeit:_                                     | Schnell                         | Langsam                       |
+|_Schutz vor Zensur:_                                   | Nein                            | Ja                            |
+|_Token:_                                               | Nein                            | Ja                            |
+
+_Blockchain Unterschiede_, Tabelle angepasst aus <a>[[GHAL15]](#ref_Ghal15)</a>
+
+In einer begrenzten Umgebung, bezogen auf die Knoten, spielt permissioned Blockchain ihre Stärken aus - hohe Geschwindigkeit und niedrige Transaktionskosten. Aufgrund ihres Grundprinzips sind Zensurresistenz, Offenheit und dezentrales Vertrauen hierfür unnötig, während sie für eine permissionless Blockchain unabdingbar sind. Ein Radar-Diagramm in der nächsten Abbildung macht nochmal die Unterschiede deutlich. 
+
+![blockchain_permissioned_vs_permissionless](./images/blockchain_permissioned_vs_permissionless.png "Permissioned vs Permissionless")
+
+_Permissioned vs Permissionless_, Abbildung aus <a>[[GHAL15]](#ref_Ghal15)</a>
+
+Während oben die Merkmale der öffentlichen und privaten Blockchain aufgezählt worden sind, gibt es außerdem die allgemeinen Eigenschaften einer Blockchain.
+
 ## Eigenschaften einer Blockchain 
 
 Autor: Björn Enders-Müller
 
-### Immutable
+### Immutability
 
 Der Begriff der „immutability“ bedeutet übersetzt Unveränderlichkeit und ist eine zentrale Eigenschaft einer Blockchain. Dieser Abschnitt soll dazu dienen die Unveränderlichkeit einer Blockchain zu erklären und verdeutlichen.
 
@@ -67,11 +130,110 @@ Eine theoretisch möglicher aber unwahrscheinlicher Angriff auf die Unveränderl
 
 Die Unveränderlichkeit der Blockchain kann auch durch ihre Konsensmechanismen angegriffen werden. Dies ist jedoch in der Regel schwer oder kostspielig. Bei der Bitcoin Blockchain könnte dies mit einem sogenannten „51% attack“ versucht werden. Dies bedeutet, dass ein Einzelner oder eine Gruppe mehr als 50% der Rechenleistung im Peer-to-Peer Netzwerk kontrolliert. Dies könnte dafür genutzt werden um das gesamte Netzwerk dahingeht zu lenken, dass eine manipulierte Blockchain akzeptiert wird und Transaktionen verfälscht werden. Im Bitcoin System wäre dieser Angriff sehr kostspielig. Die Hash-Power des gesamten Netzwerkes betrug im Oktober 2017 ca. 10.000.000 TH/s (1 TH/s eine Billionen/Tera Berechnungen pro Sekunde). Spezialisierte Hash-Hardware wie der Antminer S9 liefern 13,5 TH/s also spiegeln 740.741 dieser Gräte die gesamte Hash-Power des Systems wieder. Jedes dieser Geräte kostete am vierten Oktober letzten Jahres 1265 US-Dollar. Um also auf 51% Rechenleistung zu kommen wäre ca. 460 Millionen US-Dollar alleine an Hardware nötig.
 
+Anscheint wurden bisher die Unveränderlichkeit der Blockchain nur indirekt verletzt. Dies passiert, wenn ein sogenannter Blockchain „fork“ entsteht. Dies bedeutet so viel, dass sich die Blockchain nach einem bestimmten Block aufgabelt bzw. aufspaltet. Dies ist in der folgenden Abbildung nochmal verdeutlicht. Die Pfeile stellen die Hash-Werte, die jeweils auf den vorherigen Block zeigen dar. 
+
+<img src="./images/blockchain_simple_fork.png" >
+
+Beispiel für einen Blockchain Fork.
+Abbildung selbst erstellt
+
+Nach dem Block 3 folgen zwei unterschiedliche Block 4 Blöcke und auf diese jeweils ein Block 5. Solche Ereignisse können z.B. auftreten, wenn Änderungen an der Anwendersoftware durchgeführt werden oder diese durch ein andere ersetzt wird. Anwendersoftware für Blockchain Systeme sind häufig Open-Source und so für jeden frei zugänglich. So könnte z.B. jeder der in der dazu fähig ist die aktuelle Bitcoin Blockchain forken und seinen eigenen „Coin“ weiterführen. 
+
+So etwas Ähnliches ist bei der DAO passiert. Die DAO des Ethereum Netzwerk ist eine sogenannten „Decentralized Autonomous Organization“ und ist in dem entsprechenden Abschnitt genauer erläutert. Kurz beschrieben ist die DAO im Grunde ein „Unternehmen“, das durch kaufbare Stimmrechte (Tokens) gesteuert wurde. Die DAO arbeitet dabei stark mit Smart Contracts welche ebenfalls in ihrem eigenen Abschnitt beschrieben sind. Die Funktionsweise dieses Unternehmens und die damit verbundene Ethereum Blockchain wurde als unveränderlich angesehen. Ein Problem ist dann Anfang 2016 aufgetreten. Durch einen Softwarefehler in der DAO war es Angreifern gelungen Stimmrechte im Wert von 50 Millionen USD zu entwenden.
+
+Dieser Betrug trat eine ausschweifende Diskussion über die Unveränderlichkeit der Ethereum Blockchain los. Viele wünschten sich natürlich, dass dieser Betrug ausgeglichen wird und sprachen sich daher auch für eine Veränderung des Ethereum Protokolls aus. Eine weitere stark vertretene Meinung war die, dass der Quelltext als einzige Quelle von „Wahrheit“ niemals nachträglichen verändert werden darf, weil genau durch solche Eingriffe das sogenannte „immutability principle“ verletzt wird. Schlussendlich wurde die Diskussion gar nicht aufgelöst, sondern es wurde ein Fork der ursprünglichen Ethereum Blockchain erzeugt. Die Mehrheit der Anwender hat am Ende dafür gesorgt, dass die Blockchain angepasst wurde. Jedoch wird die alte Blockchain von einem Teil der Benutzer die alte Blockchain als Ethereum Classic weitergeführt. Wenn die DAO ein herkömmliches Unternehmen wäre hätte man diesen Betrug einfach zurückbuchen können, jedoch ist dies ein einer Blockchain durch die Konsensmechanismen nicht ohne weiteres möglich. Solche Probleme und der Umgang mit diesen erschüttern das Vertrauen der Benutzer und schädigen den Ruf von Blockchain Systemen. Die DAO zeigt schön auf wie die Unveränderlichkeit der Blockchain nur gegeben ist, wenn alle Benutzer im System damit einverstanden sind. 
+
 <a>[[HOFM17]](#ref_HOFM17)</a>
+
+In dem Fall der DAO spricht man davon, dass es sich um einen sogenannten „hard fork“ handelt. Von einem Hard-Fork wird gesprochen, wenn eine radikale Änderung am System vorgenommen wird. Das kann dazu führen das Blöcke und Transaktionen, die vor dem Fork invalide ware valide werden.  Anders herum könnte es auch gehen indem valide Blöcke invalide werden wie bei der DAO. Damit so etwas möglich ist müssen alle Knoten des Systems sich darüber einig sein was geändert werden soll und diese Änderung dann an ihrer Anwendersoftware durchführen. Dadurch entsteht dann der eigentlich Fork, weil die Blöcke des alten Systems im neuen abgelehnt werden und Blöcke des neuen Systems im alten System abgelehnt werden. Knoten die nicht die neuste Version verwenden können nicht mehr am System teilnehmen und updaten in der Regel daraufhin ihre Software. Beide Systeme unabhängig voneinander und folgen unterschiedlichen Regeln. In der folgenden Abbildung ist ein Hard-Fork einer Blockchain visualisiert.
+
+<img src="./images/blockchain_hard_fork.png" >
+
+Veraltete Knoten nehmen die neuen Blöcke nicht an und spalten die Blockchain.
+Abbildung entnommen aus
+<a>[[INVE18]](#ref_INVE18)</a>
+
+Von einem „soft fork“ wiederum wird gesprochen, wenn nach einem Fork nur eine der beiden neuen Blockchains weitergeführt wird und diese mit dem Teil vor dem Fork kompatible ist. Anders als beim Hard-Fork brauchen nur die Mehrheit ihre Anwendersoftware updaten. Ein Vorteil eines Soft-Fork ist, dass z.B. neue Arten von Transaktionen und Regeln zur deren Validierung in das System eingeführt werden können. Diese Erweiterungen müss lediglich den Sendern und Empfängern solcher Transaktionen bekannt sein. Für alle veralteten Knoten wird eine solche Transaktion als eine „pay-to-anybody“ Transaktion markiert.
+
+Ein Soft-Fork kann auch einfach dadurch entstehen, dass einige Miner ihre Software noch nicht aktualisiert haben und somit gegen eventuell neu hinzugefügte Konsensmechanismen verstoßen. Solche Forks sind nur temporär und die neu erzeugten aber veralteten Blöcke der nicht aktuellen Knoten werden dann von der Mehrheit der aktuellen Knoten abgestoßen. In der folgenden Abbildung ist dieser Prozess noch einmal verdeutlicht. Der grau gekennzeichnete Block wird nicht in die Blockchain eingefügt, weil er gegen die neuen Regeln verstößt.
+
+<img src="./images/blockchain_soft_fork.png" >
+
+Blöcke die von veralteten Knoten erzeugt wurden werden von der Mehrheit abgestoßen.
+Abbildung entnommen aus
+<a>[[INVE18]](#ref_INVE18)</a>
+
+Es müssen also nicht immer alle Knoten aktuell gehalten werden, weil die neuen Blöcke schlussendlich abwärtskompatible sind. Wenn, aus welchen Gründen auch immer, ein Soft-Fork rückgängig gemacht werden soll, so ist dies nur durch einen Hard-Fork möglich.
+
+<a>[[INVE18]](#ref_INVE18)</a>
 
 ### Transaktion
 
+In einem Blockchain System sind Transaktionen das was in den Blöcken der Blockchain gespeichert wird. Bei Bitcoin (BTC) z.B. besteht eine Transaktion aus der Übertragung von Bitcoins. Wenn z.B. die Benutzerin Alice 5 BTC and Bob senden würden dann müsste sie dies in einer Nachricht an das Netzwerk boadcasten. Die Nachricht könnte also „Sende 5.0 BTC von Alice zu Bob.“ lauten. Um allerdings sicherzustellen, dass diese Nachricht überhaupt von Alice geschickt wurde und nicht von einem Angreifer ist eine „digitale Signatur“ nötig. Eine solche Signatur agiert als eine Art Nachweis, dass Alice der Besitzer des Kontos ist aus dem die 5 BTC entnommen werden sollen. Um etwas zu signieren werden kryptografische Funktionen genutzt. Um diese Funktionen wiederum zu verwenden benötigt Alice zwei Schüssel, die auf spezielle weiß verknüpft sind, einen „public key“ und einen „private key“, genaueres zu der Funktionsweise ist in dem entsprechenden Abschnitt zu finden. Der Private-Schlüssel wird im folgenden als „secret key“ bzw. SK abgekürzt und der public key als PK. Alice kann ihren SK nutzen um ihre Nachricht mit ihrer Signatur zu versehen. Dies ist im Grunde eine digitale Unterschrift, die von anderen Nutzern mit dem PK überprüft werden kann, um sicherzustellen das tatsächlich Alice die Nachricht geschickt hat und das diese auf dem Weg durch das Netzwerk nicht verändert wurde. In der folgenden Abbildung ist dieser Vorgang nochmal verdeutlicht.
 
+<img src="./images/bitcoin_transaction_signature.png" width="430">
+
+Erzeugung von Signatur und Verifizierung mit SK und PK.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+Es ist zwingend notwendig das Alice niemals ihren SK preisgibt, da dieser auch den Zugriff auf ihre BTC sichert. Die Signatur ist sozusagen ein Proxy-Passwort, das bewiesen soll das Alice im besitz des echten SK ist. Bei jeder Transaktion die Alice durchführt erzeugt sie immer wieder eine neue Signatur, weil ansonsten ein Angreifer einfach die Signatur einer älteren Transaktion dahingehende missbrauchen das er sich als Alice ausgibt.
+
+In Systemen in denen Benutzer ein Konto besitzen, wie z.B. Bitcoin, wird häufig der PK als Zieladresse für Transaktionen genutzt. Mit dem bisher Beschriebenen lässt sich jedoch nicht Nachweißen, dass Alice überhaupt jemals im Besitz von 5 BTC war. Eine Transaktion besteht daher nicht nur aus der Signatur, Zieladresse und Menge an BTC, sondern aus vorherigen Transaktionen die beweisen das Alice 5 BTC besaß (Inputs). In der folgenden Abbildung ist die Transaktion visualisiert. Diese verweist auf zwei ältere Transaktionen in denen Alice der Empfänger (Outputs) war. Natürlich muss die gesamte Summe an erhaltenen BTC gleich oder größer dem zu versendenten Betrag (5 BTC) sein. Im Bitcoin System gibt es noch eine Besonderheit, dass wenn die nachgewiesene Summe den zu versendenden Betrag überschreitet eine zusätzliche Output-Transaktion eingefügt wird, die sozusagen das Wechselgeld and Alice zurück überweißt.
+
+<img src="./images/bitcoin_transaction_inputs.png" width="500">
+
+Eine Transaktion die auf zwei unverbrauchte Input-Transaktionen verweißt.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+Diese Verknüpfung von Transaktionen resultiert in einer Transaktionskette. Der wichtige Punkt ist, dass jede Transaktion mit älteren Transaktionen abgesichert ist. In der folgenden Abbildung ist die Transaktionskette dargestellt.
+
+<img src="./images/bitcoin_transaction_ownership_chain.png" width="430">
+
+Verkettung von Transaktionen.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+Nur weil Alice allerdings irgendwelche alten unverbrauchten Transaktionen aufführt heißt, dass nicht das diesen vertraut werden können. Daher müssen auch deren aufgeführten eingehenden Input-Transaktionen überprüft werden, natürlich können diesen ebenso nicht vertraut werden also müssen alle Transaktionen des gesamten Systems geprüft werden um sicherzustellen, dass keine manipuliert wurde. Auf den ersten Blick erscheint diese Aufgabe sehr zeitaufwendig jedoch kann sie mit unterschiedlichen Hilfsmitteln wie Indexen optimiert werden. Für Alice bedeutet dies auch, dass sie beim Überprüfen wie viel BTC sie noch besitzt sie alle unverbrauchten Input-Transaktionen aufaddieren muss um auf ihren Kontostand zu erhalten. Eine Transaktion kann also aus mehreren eingehenden und ausgehenden Transaktion bestehen. 
+
+Bitcoin z.B. unterstützt mehr als nur simple Überweisungen von einem Konto zum anderen. Um komplexere Transaktionen durchzuführen wird eine eigene Scriptsprache verwendet. Man kann sich, dass in etwa so vorstellen, dass Alice BTC in ein öffentlich zugängliches Bankschließfach deponiert und diesen mit einer Art mathematischem Rätsel absichert. Im simpelsten Fall gestaltet Alice das Rätsel so, dass nur ein Empfänger das Schließfach öffnen kann. Im Beispiel davor also Bob. Alternativ könnte sie z.B. dafür sorgen, dass mehrere Personen nötig sind um auf den Inhalt zuzugreifen. Dann wären z.B. zwei von drei Empfänger Signaturen nötig um das Schließfach zu öffnen. Eine weitere spezielle Transaktion ist die erste Transaktion im Bitcoin System. Diese konnte theoretisch von jedem gelöst werden. Diese speziellen Aspekte und die Scriptsprache werden häufig hinter Anwenderfreundlicher Software verstreckt. Auch wenn theoretisch jeder die Scriptsprache nutzen könnte ist davon abzuraten, da Fehler zu unerwünschten Ergebnissen führen können.
+
+Ein Problem mit dem bisher dargestellten System bleibt jedoch. Eine Transaktion über das Netzwerk zu verteilen brauch Zeit. Physikalisch weit entfernte Knoten erhalten die Nachricht über eine Transaktion später als dichtere Knoten. Es ist zwingend notwendig die Reihenfolge von Transaktionen festzulegen. Ein simpler Zeitstemple reicht jedoch leider nicht aus, da dieser einfach gefälscht werden könnte. Falls die Reihenfolge nicht eindeutig im System festgelegt werden kann ist ein sogenannter „double spend attack“ möglich. Dies bedeutet soviel wie, dass Geld zweimal ausgeben werden kann.
+
+Alice könnte also z.B. eine Transaktion an Bob schicken in der sie ihm z.B. 5 BTC überweißt. Daraufhin würde Bob beginnen ein Produkt zu liefern und Alice könnte eine zweite Transaktion mit dem selben Nachweisen für den besitz von BTC and sich selbst zurückschicken. Die Knoten im Netzwerk erhalten die Transaktionen in unterschiedlicher Reihenfolge und können nicht festlegen welche Transaktion valide ist und welche nicht, weil zweimal dieselben Input-Transaktionen verwendet wurden und dies nicht erlaubt ist. Um in einem Blockchain System die Reihenfolge von Transaktionen festzulegen, werden diese in verketteten Blöcken abgespeichert und die Blöcke untereinander verlinkt. Daher natürlich auch der Name Blockchain. 
+
+Für die Erzeugung von Blöcken existieren unterschiedliche Möglichkeiten wie z.B. „Proof of Work“ (POW). Diese Verfahren werden auch Konsensmechanismen genannten und werden in ihrem eigenen Abschnitt ausführlich erläutert. Kurz beschrieben sorgen diese Verfahren dafür, dass die Knoten im System Blöcke generieren, jedoch wird so das Problem der Reihenfolge nur von den Transaktionen auf die Blöcke verlagert.
+
+In Bitcoin wird POW verwendet und das System ist so organisiert, dass durchschnittlich all 10 Minuten ca. ein Block erzeugt wird und dabei 2400 Transaktionen abspeichert werden. Wenn aber zwei Blöcke fast zeitgleich im System erzeugt werden und an die anderen Knoten verteilt werden ist wieder unklar, welcher zuerst existiert hat und die Blockchain fortsetzen soll. Eine Möglichkeit ist es einfach den ersten erhaltenden zu verwenden und die anderen Blöcke parallel dazu, wie bei einem Fork, in die Blockchain zu hängen. Wenn dann der nächste Block im System gefunden wird und verteil wird zeigt sich durch die spezielle Hash-Verlinkung von Blöcken welcher der richtige war. Denn in einem Blockchain System kann kein Block erzeugt werden bevor nicht der Block davor erzeugt wurde, weil der Hash-Wert vorherigen Teil des darauffolgenden ist. Dies hat jedoch einen Hacken, die parallel eingebauten Blöcke werden verworfen und Transaktionen, die in diesen enthalten waren werden zurück in einen Topf von nicht verifizierten Transaktionen geschoben. Hierbei ist das Problem was mit den Blöcken der Blockchain selbst vermieden werden sollte wieder möglich, der Double-Spend-Attack. 
+
+Bitcoin verwendet, da die einfache Methode. Wenn mehrere neue Blöcke auf den letzten Block zeigen sind die parallel in der Blockchain bis ein längerer Strang entsteht. Der Grund dafür ist, dass in der längsten Blockchain am meisten Arbeit steckt, die in der Regel nur vom größten Teil des Systems geleistet werden kann. Somit ist die längste Blockchain auch die vertrauenswürdigsten ist. 
+
+Wie wäre also ein Angriff auf das Ender der Blockchain möglich? Kurz beschrieben könnte die Angreiferin Alice ein Produkt von Bob kaufen und hoffen, dass dieser es verschickt. Zu dem Zeitpunkt müsste Alice ein alternatives Ende der Blockchain zum Netzwerk präsentieren in dem sie die Input-Transaktion die ursprünglich an Bob gingen wieder an sich selbst überweißt. Daraufhin wäre die Transaktion an Bob invalide, weil die kürzere Blockchain verworfen wird. Die Transaktion an Bob würde dann in den Topf der nicht verifizierten Transaktionen umgeleitet werden. Jedoch würde die Transaktion nie validiert werden und verworfen werden, weil die Input-Transaktionen, welche die Transaktion an Bob unterstützen in der Blockchain von Alice verwendet wurden. Bob hätte also weder sein Geld noch sein Produkt. In der folgenden Abbildung ist dieser Angriff nochmal dargestellt. 
+
+<img src="./images/bitcoin_blockchain_double_spend.png" width="470">
+
+Double-Spend-Attack von Alice an Bob mit alternativem Blockchain Ende.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+Zum Glück ist dieses Szenario in einem POW System extrem unwahrscheinlich, weil die Erzeugung von Blöcken so schwer ist. Für einen einzelnen handelsüblichen Computer würde es Jahre dauern um einen einzelnen Block zu erzeugen. Alice bräuchte also sehr viel Glück bei der Erzeugung von Blöcken oder extrem leistungsfähige Hardware um schneller Blöcke als der Rest des Systems zu generieren, siehe 51% Angriff. Durch die Unklarheiten am Ende der Blockchain wird eine Transaktion umso sicherer je älter sie ist. Es wird empfohlen mehrere Blöcke z.B. mindestens sieben oder höher abzuwarten bis man eine Transaktion als unveränderlich betrachtet. In der folgenden Abbildung ist dies nochmal verdeutlich.
+
+<img src="./images/bitcoin_blockchain_confirmations_security.png" width="500">
+
+Unsicherheiten von Transaktionen bzw. Blöcken am Ende der Blockchain.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+Obwohl es so schwer ist das Ende der Blockchain zu manipulieren ist ein solcher Angriff theoretisch möglich. Es gibt viele Benutzer die sich zu sogenannten Mining-Gilden zusammenschließen und gemeinsam daran arbeiten Blöcke zu finden und den sogenannten „block reward“ unter sich aufzuteilen. Das Problem dieser Gilden ist, dass sie sehr große Anteile des Systems ausmachen können. So wurden z.B. von der Gruppierung „BTC Guild“, am 23. April 2013, sechs Blöcke in Folge gefunden, daraufhin hat die Gruppe selbst dafür gesorgt, dass dies in ihrem System nicht mehr möglich ist, damit das Vertrauen an Bitcoin nicht verloren geht. In der folgenden Abbildung ist die Wahrscheinlichkeit, dass ein solches Ereignis eintritt dargestellt. Dazu ist ausschlageben wie viel Rechenleistung der Angreifer im Verhältnis zum restlichen System besitzt.
+
+<img src="./images/bitcoin_probability_solving_multiple_blocks_in_row_bitcoin.png" width="450">
+
+Graph zur Wahrschenlichkeit, dass eine Gruppe oder einzelne Person sechs Blöcke in Folge generiert.
+Abbildung entnommen aus
+<a>[[IMPO18]](#ref_IMPO18)</a>
+
+<a>[[IMPO18]](#ref_IMPO18)</a>
 
 ### Blöcke
 
@@ -158,6 +320,8 @@ Unter Asset-based Token werden mit Assets, also mit Anlagegütern, gestützte To
 
 Ein Initial Coin Offering ist eine, bis dato, weitgehend unregulierte Methode der Kapitalaufnahme bei der im Gegensatz zum klassischen Initial Public Offering (IPO) (deutsch: Börsengang), die Kapitalaufnahme in Form von Kryptowährungen erfolgt. Vergleichbar mit dem Börsenhandel bei dem mit Echtgeldwährungen (FIAT Währungen) Anteile an einem Unternehmen in Form von Aktien erworben werden können, werden bei einem ICO üblicherweise Token ausgegeben die mittels Kryptowährungen gekauft werden. Die Mindestinvestition ist, ähnlich wie bei Crowdfunding Finanzierungsmodellen, so niedrig, dass auch private Kleininvestoren partizipieren können. <a>[[HAHN18]](#ref_hahn18)</a>
 
+Im Jahr 2017 haben laut [ICODATA.IO](https://www.icodata.io/stats/2017) 871 ICOs insgesamt 6 Mrd. Dollar Kapital eingesammelt, wobei dieser Betrag je nach aktuellem Wechselkurs der Kryptowährungen schwanken kann.
+
 Während der traditionelle Finanzmarkt durch nationale und internationale Finanzaufsichten rechtlich stark reguliert ist, ist dies bei den neuartigen ICOs durch die rasante technische Entwicklung und unterstützt durch die anonymen bzw. pseudonymen Transaktionen von Kryptowährungen bisher kaum der Fall.
 
 
@@ -197,13 +361,14 @@ Autor: Fynn Klöpper
 Angriffsszenarios (Sybil attack, 51%-Attack)
 Skalierung (-sprobleme)
 
-Quellen:
-https://www.freehaven.net/anonbib/cache/sybil.pdf
+
 
 #### Angriffsszenarien
 
 ##### Sybil Attacke
-
+Quellen:
+https://www.freehaven.net/anonbib/cache/sybil.pdf
+https://publishup.uni-potsdam.de/opus4-ubp/frontdoor/deliver/index/docId/10314/file/tbhpi113.pdf
 ###### Definition
 Eine Sybil-Attacke beschreibt eine Art des Angriffs auf eine Blockchain, bei der eine schadhafte Entität mehrere Identitäten vorgibt, um einen substantiellen Teil des Systems zu kontrollieren und so die Sicherheit der Redundanz zu komprimieren.
 
@@ -226,12 +391,36 @@ Ein Schutz ohne dedizierte Identifizierungs-Authorität stellt sich als äußers
 Oftmals fällt der erste Gedanke auf ein System, bei dem ältere, etablierte Identitäten neue Identitäten kollektiv verifizieren. Dieser Lösungsansatz geht allerdings davon aus, dass die erste Generation von Identitäten vertrauenswürdig ist, welche bereits durch eine Sybil-Attacke komprimiert sein könnte und somit den weiteren Verlauf der Kette unsicher macht.  
 
 ##### 51%-Attack
+Quellen:
+http://fmt.cs.utwente.nl/files/sprojects/268.pdf
+
+###### Definition
+Eine 51%-Attacke beschreibt eine Attacke auf eine Blockchain, meist die Bitcoin-Blockchain, bei der ein Miningpool, der mehr als 50% der Hashrate des gesamten Netzwerks ausmacht, die Kontrolle über den weiteren Verlauf der Blockchain übernimmt.
+Der Angreifer ist daraufhin in der Lage Coins "doppelt" auszugeben, also einen Händler zu bezahlen und danach die Transaktion wieder rückgängig zu machen oder auch Transaktionen die Bestätigung zu verwehren und somit den Handel zwischen einigen oder auch allen Benutzern zu unterbrechen.    
+
+Auch wenn der Name der Attacke suggeriert, dass 51% der Rechenleistung des Netzwerks benötigt werden, um die Attacke durchzuführen, ist dies nicht notwendig.
+Bereits mit einer kleineren Anzahl an relativer Rechenleistung ist es möglich einen Angriff durchzuführen. In diesem Fall beträgt die Erfolgschance allerdings nicht 100%, sondern ist abhängig davon, wie viel relative Rechenleistung zur Verfügung steht und wie viele Blöcke zur Bestätigung ein Händler erwartet.
+Bild: https://www.btc-echo.de/tutorial/bitcoin-51-attacke/
+
+Falls der Angreifer über 51% relativer Rechenleistung verfügt und somit schneller Blöcke generieren kann als der Rest des Netzwerkes, kann er beliebig lange an seinem privaten Fork weiter Blöcke anhängen bis er länger als der öffentliche und vertrauenswürdige Branch ist. 
+Da immer der längere Branch vom System als der "richtige" Branch angenommen wird, kann somit der Angreifer bestimmen, welche Transaktionen mit in den Branch aufgenommen und welche Blöcke ungültig gemacht werden sollen. 
+###### Lösungsansätze
+- Bisher ein rein theoretischer Angriff in Anbetracht von Bitcoin
+- Bereits bestehende, gelockte Blöcke, können trotzdem nur sehr schwer verändert werden
+- Erhöhte Anzahl von Bestätigungen kann eine tatsächliche 51%-Attacke zwar nicht verhindern, allerdings eine Attacke eines Angreifers mit unter 51% unwahrscheinlicher machen, sowie die Angriffsdauer verlängern, was die Attacke unprofitabel machen kann.
+
+##### Cryptographie-Angriffe
 
 ###### Definition
 
 ###### Lösungsansätze
 
 #### Skalierung (-sprobleme)
+Quellen:
+https://publishup.uni-potsdam.de/opus4-ubp/frontdoor/deliver/index/docId/10314/file/tbhpi113.pdf
+
+##### Neue Nutzer
+##### Größeres Transaktionsaufkommen
 
 
 ### Ökonomische und gesellschaftliche Herausforderungen
@@ -264,7 +453,7 @@ Sind Vermittler aus dem Markt ausgeschieden oder haben sich in Nischen gerettet,
 
 Unterschiedliche Marktfunktionen sind verschieden stark durch derartige Transformationsprozesse bedroht und äußern so auch differenzierte Effekte <a>[[GIAG99]](#ref_giag99)</a>. Die nachstehende Tabelle gibt einen Überblick über betroffene Anwendungsbereiche und deren beobachtete Reaktion.
 
-<img src="./images/threats_to_intermediaries.PNG" width=“300”>
+<img src="./images/threats_to_intermediaries.png" width=“300”>
 
 Abbildung entnommen aus <a>[[GIAG99]](#ref_giag99)</a>
 
@@ -287,29 +476,43 @@ Die Beobachtungen, die der Digitalisierung der Wirtschaft zur Jahrtausendwende z
 ...
 
 ## Literaturverzeichnis
-<a name="ref_giag99">[GIAG99]</a>: Giaglis, George M. ; Klein, Stefan ; O'Keefe, Robert M.: Disintermediation, Reintermediation, or Cybermediation? The Future of Intermediaries in Electronic Marketplaces, Global Networked Organizations, Proceedings 12 th Electronic Commerce Conference, Moderna organizacija, 1999, Pages 7-9
-
-<a name="ref_gell96">[GELL96]</a>:Gellman, Robert: Disintermediation and the internet, Government Information Quarterly, Volume 13, Issue 1, 1996, Pages 1-8, ISSN: 0740-624X
-
-<a name="ref_schmidt99">[SCHM99]</a>: Schmidt, Reinhard ; Hackethal, Andreas ; Tyrell, Marcel: Disintermediation and the Role of Banks in Europe: An International Comparison, Journal of Financial Intermediation, Volume 8, Issues 1–2, 1999, Pages 36-67, ISSN: 1042-9573
-
-<a name="ref_walter07">[WALTE07]</a>: Walter, Benedikt: Intermediation und Digitalisierung. Springer-Verlag, 2007, ISBN: 3835096303 
-
-<a name="ref_shen16">[SHEN16]</a>: Shen, Ji ; Wei, Bin ; Yan, Hongjun: Financial Intermediation Chains in an OTC Market. 2016, SSRN: https://ssrn.com/abstract=2577497
+<a name="ref_Ande16">[ANDE16]</a>: Andersen, Nicolai: Vorstellung der
+Blockchain-Technologie
+„Hallo, Welt!”, Deloitte, 03.2016, URL: https://www2.deloitte.com/content/dam/Deloitte/de/Documents/Innovation/Vorstellung%20der%20Blockchain-Technologie.pdf (letzter Zugriff: 03.05.2018)
 
 <a name="ref_budic18">[BUDI18]</a>: BusinessDictionary.com : What is intermediation? definition and meaning ; URL: http://www.businessdictionary.com/definition/intermediation.html ; Date Accessed: April 29, 2018
 
+<a name="ref_Bute15">[BUTE15]</a>: Buterin, Vitalik: On Public and Private Blockchains, 07.08.2015, URL: https://blog.ethereum.org/2015/08/07/on-public-and-private-blockchains/ (letzter Zugriff: 03.05.2018)
+
+<a name="ref_Demush">[DEMUSH]</a>: Demush, Rostyslav: How Companies Can Leverage Private Blockchains to Improve Efficiency and Streamline Business Processes, URL: https://perfectial.com/blog/leveraging-private-blockchains-improve-efficiency-streamline-business-processes/ (letzter Zugriff: 03.05.2018)
+
 <a name="ref_etla16">[ETLA16]</a>: ETLA; Mattila, Juri: The Blockchain Phenomenon – The Disruptive Potential of Distributed Consensus Architectures. ETLA Working Papers, 2016 ; ISSN: 2323-2420
 
-<a name="ref_ZHEN17">[ZHEN17]</a>: Zheng, Zibin ; Xie, Shaoan ; Dai, Hongning ; Chen, Xiangping ; Wang, Huaimin : An Overview of Blockchain Technology: Architecture, Consensus, and Future Trends. Honolulu, HI, USA : IEEE International Congress on Big Data, 2017, ISBN: 978-1-5386-1996-4
+<a name="ref_eule18">[EULE18]</a>: Euler, T. : The Token Classification Framework: A multi-dimensional tool for under-standing the classifying crypto tokens. Web-Quelle, 2018,
+http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens/](http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens)
+
+<a name="ref_gell96">[GELL96]</a>:Gellman, Robert: Disintermediation and the internet, Government Information Quarterly, Volume 13, Issue 1, 1996, Pages 1-8, ISSN: 0740-624X
+
+<a name="ref_Ghal15">[GHAL15]</a>: Ghalsim, Yacine: Why we should drop the whole “Bitcoin vs blockchain” discussion, 07.10.2015, URL: https://medium.com/@YacineGhalim/why-we-should-drop-the-whole-bitcoin-vs-blockchain-discussion-e3e38e9a5104 (letzter Zugriff: 04.05.2018)
+
+<a name="ref_giag99">[GIAG99]</a>: Giaglis, George M. ; Klein, Stefan ; O'Keefe, Robert M.: Disintermediation, Reintermediation, or Cybermediation? The Future of Intermediaries in Electronic Marketplaces, Global Networked Organizations, Proceedings 12 th Electronic Commerce Conference, Moderna organizacija, 1999, Pages 7-9
 
 <a name="ref_hahn18">[HAHN18]</a>: Hahn, Christopher ; Wons, Adrian: Initial Coin Offering (ICO) - Unternehmensfinanzierung auf Basis der Blockchain-Technologie. Gabler Verlag, 2018, ISBN: 978-3-658-21786-0
 
-<a name="ref_VUJI18">[VUJI18]</a>: Vujičić, Dejan ; Jagodić, Dijana ; Ranđić, Siniša : Blockchain Technology, Bitcoin, and Ethereum: A Brief Overview. East Sarajevo, Bosnia and Herzegovina : IEEE INFOTEH-JAHORINA (INFOTEH), 17th International Symposium, 2018, ISBN: 978-1-5386-4907-7 
-
 <a name="ref_HOFM17">[HOFM17]</a>: Hofmann, Frank ; Wurster, Simone ; Eyal, Ron ; Böhmecke-Schwafert, Moritz : The immutability concept of blockchains and benefits of early standardization. Nanjing, China : ITU Kaleidoscope: Challenges for a Data-Driven Society (ITU K), 2017, ISBN: 978-9-2612-4281-7 
 
-<a name="ref_eule18">[EULE18]</a>: Euler, T. : The Token Classification Framework: A multi-dimensional tool for under-standing the classifying crypto tokens. Web-Quelle, 2018,
-[http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens/](http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens)
+<a name="ref_IMPO18">[IMPO18]</a>: Iimponderablethings.com : How Bitcoin Works Under the Hood  ; URL: http://www.imponderablethings.com/2013/07/how-bitcoin-works-under-hood.html ; Date Accessed: Mai 10, 2018
 
+<a name="ref_INVE18">[INVE18]</a>: Investopedia.com : Hard Fork & Soft Fork ; URL: https://www.investopedia.com/terms/h/hard-fork.asp & https://www.investopedia.com/terms/h/hard-fork.asp ; Date Accessed: Mai 09, 2018
 
+<a name="ref_Schl16">[SCHL16]</a>: Schlatt, Vincent; Schweizer, André; Urbach, Nils; Fridgen, Gilbert: Blockchain: Grundlagen, Anwendungen und Potenziale, S. 8-12, Fraunhofer FIT, 12.2016, URL: https://www.fim-rc.de/Paperbibliothek/Veroeffentlicht/642/wi-642.pdf (letzter Zugriff: 04.05.2018)
+
+<a name="ref_schmidt99">[SCHM99]</a>: Schmidt, Reinhard ; Hackethal, Andreas ; Tyrell, Marcel: Disintermediation and the Role of Banks in Europe: An International Comparison, Journal of Financial Intermediation, Volume 8, Issues 1–2, 1999, Pages 36-67, ISSN: 1042-9573
+
+<a name="ref_shen16">[SHEN16]</a>: Shen, Ji ; Wei, Bin ; Yan, Hongjun: Financial Intermediation Chains in an OTC Market. 2016, SSRN: https://ssrn.com/abstract=2577497
+
+<a name="ref_VUJI18">[VUJI18]</a>: Vujičić, Dejan ; Jagodić, Dijana ; Ranđić, Siniša : Blockchain Technology, Bitcoin, and Ethereum: A Brief Overview. East Sarajevo, Bosnia and Herzegovina : IEEE INFOTEH-JAHORINA (INFOTEH), 17th International Symposium, 2018, ISBN: 978-1-5386-4907-7 
+
+<a name="ref_walter07">[WALTE07]</a>: Walter, Benedikt: Intermediation und Digitalisierung. Springer-Verlag, 2007, ISBN: 3835096303 
+
+<a name="ref_ZHEN17">[ZHEN17]</a>: Zheng, Zibin ; Xie, Shaoan ; Dai, Hongning ; Chen, Xiangping ; Wang, Huaimin : An Overview of Blockchain Technology: Architecture, Consensus, and Future Trends. Honolulu, HI, USA : IEEE International Congress on Big Data, 2017, ISBN: 978-1-5386-1996-4
