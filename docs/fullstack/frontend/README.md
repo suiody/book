@@ -16,7 +16,8 @@
   - [Styling](#Styling)
   - [Lifecycle](#Lifecycle)
 - [Patterns / Architektur](#Patterns-/-Architektur)
-  - [State management (Redux)](#State-management-(Redux))
+  - [State management](#State-management)
+    - TODO
   - [Komposition vs. Vererbung](#Komposition-vs.-Vererbung)
   - [Higher Order Components (HOCs)](#Higher-Order-Components-(HOCs))
   - [Flux](#Flux)
@@ -146,7 +147,7 @@ class Counter extends React.Component {
 }
 ```
 
-Bei der Verwendung des Status ist zu beachten, dass Werte von Statusvariablen mit der Methode *setState()* geändert werden müssen. Diese Methode erhält ein Objekt mit den Key-Value Paaren, die geändert werden sollen. Auf diese Art und Weise wird die Anzeige direkt nach dem Ändern eines Statuswerts aktualisiert. 
+Bei der Verwendung des Status ist zu beachten, dass Werte von Statusvariablen mit der asynchronen Methode *setState()* geändert werden müssen. Weitere Details zur Verwendung von setState() und alternative Möglichkeiten zum Verwalten des Zustands der Komponenten werden im Kapitel "State Management" beschrieben. Diese Methode erhält ein Objekt mit den Key-Value Paaren, die geändert werden sollen. Auf diese Art und Weise wird die Anzeige direkt nach dem Ändern eines Statuswerts aktualisiert. 
 Weitere Informationen zum "Lifecycle" von smart components finden sich im gleichnamigen Kapitel.
 
 
@@ -230,7 +231,7 @@ TODO
 ```jsx
 ReactDOM.render(
   <AppComponent />,               // React Komponente
-  document.getElementById('root') // Element in der HTML-Datei, an der die      Komponente eingebaut wird
+  document.getElementById('root') // Element in der HTML-Datei, an der die Komponente eingebaut wird
 );
 
 ```
@@ -546,9 +547,108 @@ Die Stores empfangen die Benachrichtigungen vom Dispatcher und ändern auf Basis
 
 Die Views dienen der Anzeige der Daten. Sie abonnieren Stores und können Actions auslösen. Bei React sind die Views die entsprechenden React Komponenten.
 
-#### State management mit Redux
+#### State Management
 
-Redux ist eine JavaScript Bibliothek, die einen "Zustands-Container" (*state-container*) zur Hilfe bei der Verwaltung des Datenflusses einer Applikation bereitstellt. Die Architktur erinnert stark an die Flux Architektur, siehe nachfolgende Abbildung. Für die Verwendung von Redux mit React kann man die Bibliothek [react-redux](https://github.com/reactjs/react-redux) verwenden.
+Das Erstellen von dynamischen Webseiten bedarf...
+TODO
+...
+
+##### setState
+
+Eine einsteigerfreundliche Variante des State Managements ist das Verwenden der bereits in vorherigen Kapiteln angesprochenen asynchronen setState-Methode. Jede smarte Komponente verfügt über einen Zustand. Dieser Zustand wird als JavaScript-Objekt in dem Klassenattribut *this.state* gespeichert und mithilfe der setState-Methode aktualisiert (vgl. Kapitel "Dump Components & Smart Components"). Mit steigender Anwendungsgröße steigt auch die Komplexität eines solchen direkten State Managements. Das rührt daher, dass die Verbindungen (Bindings) explizit als Property bis an die untersten Komponenten weitergeführt werden müssen, um dort aktiv zu werden [[LABO18]](#ref_labo18). 
+
+##### Context
+Um ein umständliches Weiterreichen der Statusinformationen in Form von Properties aus dem Weg zu gehen, verfügen die neusten React Versionen über das kontextbasierte Verfahren *Context*. Es sollte dort genutzt werden, wo bestimmte Daten als global angesehen werden können (z.B. Benutzerdaten und GUI-Themes).
+
+Das Verfahren verwendet einen "provider & consumer" Ansatz (Anbieter & Verbraucher).
+Die Provider verfügen über Daten, die von Consumern abonniert werden können. Letztere werden über Änderungen der abonnierten Daten informiert.
+
+Die Verwendung von Context ist recht simpel, [[FACE18f]](#ref_face18f):
+
+*Schritt 1: Kontext erzeugen*
+
+```javascript
+// Erzeugt ein Kontextpaar: {Provider, Consumer}
+// defaultValue wird von Consumern verwendet, die keinen 
+// passenden Provider im JSX-Baum "über" sich haben   
+const MyContext = React.createContext(defaultValue);
+```
+
+*Schritt 2: Kontext verwenden*
+```jsx
+<div>
+  // Kontext setzen
+  <MyContext.Provider value={someContextValue}>
+    ...
+    <MyContext.Consumer> {
+        contextValue => (
+          // Hier das Element rendern, das auf den Wert des Kontextes angewiesen ist.
+          // Der Kontext kann über "contextValue" gelesen werden
+        )
+    }
+    </MyContext.Consumer>
+    ...
+  </MyContext.Provider>
+</div>
+```
+
+##### MobX 
+Eine weitere Möglichkeit des State Managements bietet die JavaScript Bibliothek *MobX*. Sie basiert auf auf Observer und Observables, die auch aus dem Observer Pattern bekannt sind.
+
+Das Verwenden dieser Bibliothek gestaltet sich ebenfalls recht einfach, [[MOBX18]](#ref_mobx18):
+
+*Schritt 1: Status definieren und als observable kennzeichnen*
+
+```javascript
+import {observable} from 'mobx';
+
+var counterState = observable({
+    value: 0 
+});
+```
+
+*Schritt 2: Eine View als Observer erstellen*
+```jsx
+import {observer} from 'mobx-react';
+
+// ESnext Decorator, siehe MobX Doku für ES5 / ES6 Alternativen
+@observer
+class CounterView extends React.Component {
+    constructor(props) {
+      super(props);
+      this.increment = this.increment.bind(this);
+    }
+    render() {
+        return (
+          <div>
+            <button onClick={this.increment}>+1</button>
+            <h1>Aktueller Wert: {this.props.counterState.value}</h1>
+          </div>
+        );
+    }
+    
+    increment () {
+      // siehe Schritt 3
+      this.props.counterState.increment();
+    }
+};
+```
+
+*Schritt 3: Status modifizieren*
+```javascript
+counterState.increment = action(function reset() {
+    counterState.value += 1;
+});
+```
+
+*Schritt 4: Komponente und Status verbinden*
+```jsx
+// "counterState" wird als normale Property verwendet 
+ReactDOM.render(<Counter counterState={counterState} />, document.body);
+```
+
+##### Redux
+Redux ist eine weitere JavaScript Bibliothek, die einen "Zustands-Container" (*state-container*) zur Hilfe bei der Verwaltung des Datenflusses einer Applikation bereitstellt. Die Architktur erinnert stark an die Flux Architektur, siehe nachfolgende Abbildung. Für die Verwendung von Redux mit React kann man die Bibliothek [react-redux](https://github.com/reactjs/react-redux) verwenden.
 
 <a name="ref_redux_achitecture"></a>![ref_redux_achitecture](./images/redux-architecture.jpg "Redux Architektur")
 
@@ -556,7 +656,7 @@ Sie besteht aus vier Bestandteilen:
 
 **Action**
 
-Die Actions verhalten sich analog zu den Actions des Flux Patterns, jedoch ist ihr Aufbau leicht abgeändert:
+Die Actions verhalten sich analog zu den Actions des Flux Patterns, jedoch ist ihr Aufbau leicht abgeändert. Statt des Attributs "payload" werden die Nutzdaten direkt an das Action-Objekt angefügt:
 
 ```javascript
 {
@@ -605,14 +705,33 @@ const personReducer = (state, action) => {
 
 **React (View):** 
 
-Analog zu Flux.
+Die Anzeige; analog zu Flux.
 
 **Store** 
 
-Analog zu Flux.
+Das Model; analog zu Flux.
 
 
 [[TSON18]](#ref_tson18)
+
+##### Auswahlhilfe
+
+Neben den erwähnten Möglichkeiten existieren viele weitere Bibliotheken für das Verwalten von Zuständen. Die Auswahl des richtigen Werkzeugs ist dementsprechend nicht immer einfach. 
+
+Die folgenden Fragen sollen die Auswahl für die vorgestellten Verfahren vereinfachen [[LABO18]]:
+
+Soll es **keine externen Abhängigkeiten** geben?
+
+    setState oder Context verwenden
+
+Steht die **Einfachheit** im Vordergrund?
+    
+    MobX verwenden
+
+Ist die **Skalierbarkeit** wichtig?
+
+    Redux verwenden
+
 #### Komposition vs. Vererbung
 #### Higher Order Components (HOCs)
 Higher order components erweitern Komponenten, indem sie ihnen zusätzliche Funktionalitäten oder Properties zur Verfügung stellen (ähnlich wie beim Decorator Pattern) [[TSON18]](#ref_tson18). Möchte man beispielsweise bei jedem Mounting- und Rendervorgang von Komponenten ein Log-Nachricht ausgeben, so müsste man den gleichen Code an vielen Stellen des Projekts einbauen (in der componentDidMount- und der render-Methode der jeweiligen Komponente).
@@ -642,7 +761,7 @@ function withLogger(WrappedComponent) {
   }
 };
 ```
-Bei der HOC handelt es sich um eine Art Factory-Methode. die als Parameter die zu erweiternde Komponente erhält und auf Basis dieser die high-order Komponente erstellt.
+Bei der HOC handelt es sich um eine Art Factory-Methode, die als Parameter die zu erweiternde Komponente erhält und auf Basis dieser die high-order Komponente erstellt.
 
 Dementsprechend muss die Funktion wie folgt aufgerufen werden:
 ```jsx
@@ -716,9 +835,6 @@ TSLint
 
 Schnellstart: [link](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter)
 
-#### Context
-
-
 #### Error Handling (Error Boundaries)
 #### Code-Splitting
 #### Strict Mode
@@ -747,10 +863,19 @@ Schnellstart: [link](https://github.com/Microsoft/TypeScript-React-Starter#types
 <a name="ref_face18e">[FACE18e]</a>: Facebook Inc.: Typechecking With PropTypes. URL: https://reactjs.org/docs/typechecking-with-proptypes.html
 (abgerufen am 06.05.2018)
 
+<a name="ref_face18f">[FACE18f]</a>: Facebook Inc.: Context. URL: https://reactjs.org/docs/context.html#provider
+(abgerufen am 06.05.2018)
+
 <a name="ref_face14">[FACE14]</a>: 
 Facebook
 : Hacker Way: Rethinking Web App Development at Facebook. URL: https://www.youtube.com/watch?v=nYkdrAPrdcw&feature=youtu.be&t=568
 (abgerufen am 11.05.2018)
+
+<a name="ref_labo18">[LABO18]</a>: Labori, Gant: The React State Museum. URL: https://hackernoon.com/the-react-state-museum-a278c726315
+(abgerufen am 12.05.2018)
+
+<a name="ref_mobx18">[MOBX18]</a>: MobX: The gist of MobX. URL: https://mobx.js.org/intro/overview.html
+(abgerufen am 12.05.2018)
 
 <a name="ref_mozi18">[MOZI18]</a>: Mozilla and individual contributors: Arrow functions. URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 (abgerufen am 06.05.2018)
