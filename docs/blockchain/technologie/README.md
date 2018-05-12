@@ -286,9 +286,16 @@ Zuerst wird für jede Transaktion (TX0 bis TX3) ein Hash-Wert (Hash0 bis Hash3) 
 
 Autor: Kevin Schima
 
-### Abgrenzung: Token / Coins
+### Fiatgeld
 
-... ...
+Fiatgeld (von lat. "fiat" - "es werde") ist ein Tauschmittel, dessen Gegenwert von den ausstellenden Notenbanken garantiert wird und dessen Verwendung als gesetzliches Zahlungsmittel von den jeweiligen Ländern vorgeschrieben ist. Die Schaffung eines eigenen Währungssystems ermöglicht einem Staat den Wert und das Wirtschaftssystem zu steuern.
+
+
+### Tokenization
+Tokenization (von Englisch "token": "Wertmarke") beschreibt den Prozess, ein digitales Abbild eines Assets (Edelmetalle, Immobilien usw.), über Smart Contracts bzw. Blockchain Technologie im Allgemeinen, handelbar zu machen. Schon vor der Entwicklung von Währungssystemen, wurden von Goldschmieden und Banken Wertscheine ausgestellt, die den Besitz einer hinterlegten Goldmenge bescheinigten, wodurch Händler einfacher Zahlungen untereinander tätigen konnten ohne physisch Gold auszutauschen. Später wurde durch Banknoten eine universelle Akzeptanz ermöglicht und durch elektronische Überweisungen der Transfer von Geld erleichtert.
+
+Durch Tokenization kann dieses Konzept noch weiter getrieben werden: Es gibt in der Regel keine zentrale Entität, der vertraut werden muss, Vertrauen wird geschaffen durch die Nutzung von Blockchain Technologie und durch die Offenlegung der Quellcodes, die eine Token Transaktion ausführen. Schließlich erlaubt die Verwendung von Token viele neue Anwendungsmöglichkeiten und eine weltweite potentielle Nutzerbasis.
+
 
 ### Arten von Token
   
@@ -314,7 +321,6 @@ Coins wie Bitcoin, Ethereum und ähnliche, sind zunächst spekulative Wertaufbew
 
 Unter Asset-based Token werden mit Assets, also mit Anlagegütern, gestützte Token verstanden. Beispiele dafür ist die mit Rohöl gedeckte, von der brasilianischen Regierung lancierte, aber umstrittene Kryptowährung "Petrol" oder der mit Gold gedeckte, noch nicht öffentliche gehandelte "Digix Gold Token (DGX)". Anteile an weiteren bespielhaften Anlagegütern sind möglich z.B. Windkraftanlagen, Immobilien, deren Finanzierung eventuell dadurch erst möglich ist. 
 
-### Tokenization
 
 ### Initial Coin Offering (ICO)
 
@@ -351,7 +357,39 @@ Für die Investoren des ICOs hat sich der Wert der Token im Idealfall durch medi
 
 * Aufgrund der anonymen Struktur von ICOs und der bisher kaum erfolgenden rechtlichen Regulierung kam es in der Vergangenheit wiederholt zu sogenannten exit-scams, dabei sind die Projektinitiatoren mit sämtlichen Investments untergetaucht
 
+### ERC Token Standards
 
+Die Etablierung von Token und ICOs wird vorallem ermöglicht durch eine vereinfachte Entwicklung, unterstützt durch die ERC Standards (Ethereum Request for Comments) für die Smart Contract Plattform der Ethereum Blockchain. 
+
+Sie bieten ein einheitliches Interface, dass alle grundlegenden Funktionalitäten, die ein Token benötigt, bereitstellt. Der erste und verbreiteste Tokenstandard ist ERC-20 <a>[[VOGE15]](#ref_voge15)</a>, daneben gibt es noch einige weitere, neuere Tokenstandards die mehr Funktionen bereitstellen, auf die and dieser Stelle nicht weiter eingegangen wird.
+
+#### ERC-20
+
+Hauptfunktionen:
+
+* totalSupply: 
+
+*Gesamtmenge an Token abfragen*
+
+* balanceOf: 
+
+*Token Anzahl einer Adresse abfragen*
+
+* transfer: 
+
+*Einer Adresse eine Anzahl Token senden*
+
+* transferFrom:
+
+*Eine Anzahl Token von einer bestimmten Adresse zu einer anderen übertragen*
+
+* approve: 
+
+*Einer Adresse, das Abheben einer definierten Tokenmenge erlauben*
+
+* allowance: 
+
+*Abhebelimit ermitteln, welches über approve zur Verfügung gestellt wurde* 
 
 ## Herausforderungen und Risiken
 
@@ -510,6 +548,8 @@ http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimension
 <a name="ref_schmidt99">[SCHM99]</a>: Schmidt, Reinhard ; Hackethal, Andreas ; Tyrell, Marcel: Disintermediation and the Role of Banks in Europe: An International Comparison, Journal of Financial Intermediation, Volume 8, Issues 1–2, 1999, Pages 36-67, ISSN: 1042-9573
 
 <a name="ref_shen16">[SHEN16]</a>: Shen, Ji ; Wei, Bin ; Yan, Hongjun: Financial Intermediation Chains in an OTC Market. 2016, SSRN: https://ssrn.com/abstract=2577497
+
+<a name="ref_voge15">[VOGE15]</a>: Vogelsteller, Fabian ; Buterin, Vitalik : ERC-20 Token Standard, URL: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md (letzter Zugriff: 12.05.2018)
 
 <a name="ref_VUJI18">[VUJI18]</a>: Vujičić, Dejan ; Jagodić, Dijana ; Ranđić, Siniša : Blockchain Technology, Bitcoin, and Ethereum: A Brief Overview. East Sarajevo, Bosnia and Herzegovina : IEEE INFOTEH-JAHORINA (INFOTEH), 17th International Symposium, 2018, ISBN: 978-1-5386-4907-7 
 
