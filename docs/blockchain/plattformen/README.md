@@ -7,23 +7,29 @@ Bitcoin ist eine sogenannte Kryptowährung, die ohne eine zentrale Kontrollinsta
 
 ### Geschichte
 
-Das Bitcoin-Netzwerk wurde im Jahr 2008 erstmals theoretisch beschrieben und 2009 praktisch umgesetzt. Das Konzept kryptografischer Währungen wurde bereits 1998 veröffentlicht.
+Das Bitcoin-Netzwerk wurde im Jahr 2008 erstmals theoretisch unter dem Synonym Satoshi Nakamoto beschrieben und 2009 praktisch umgesetzt. Das Konzept kryptografischer Währungen wurde bereits 1998 veröffentlicht. Auch wenn der Bitcoin als Währung gedacht ist, so ist er in den letzten Jahren immer mehr zum Investitions- und Spekulationsobjekt geworden. Der Bitcoin-Wechselkurs erreichte Ende 2017 sein bisheriges Maximum von circa 16.000€ pro Bitcoin und steht derzeit (wenige Monate später) bei 7500€ pro Bitcoin.
 
 ### Bootstrapping
 
-Um sich initial mit anderen Knoten zu verbinden, nutzt der Bitcoin einen sogenannten "Bootstrapping"-Prozess. Mehrere Knoten des Netzwerks fungieren als Startknoten, die die Addressen weiterer Knoten an neue Knoten verteilen. Die Addressen der Startknoten sind im Domain-Name-System eingetragen, welches der Bitcoin-Client nutzt, um die Addressen der Startknoten zu erhalten. Nachdem die initiale Verbindung erfolgt ist und die Addressen weiterer Knoten von den startknoten weitergegeben wurden, kommmt das Bitcoin-Netzwerk auch ohne die Startknoten aus.
+Um sich initial mit anderen Knoten zu verbinden, nutzt der Bitcoin einen sogenannten "Bootstrapping"-Prozess. Mehrere Knoten des Netzwerks fungieren als Startknoten, die die Adressen weiterer Knoten an neue Knoten verteilen. Die Adressen der Startknoten sind im Domain-Name-System eingetragen, welches der Bitcoin-Client nutzt, um die Adressen der Startknoten zu erhalten. Nachdem die initiale Verbindung erfolgt ist und die Adressen weiterer Knoten von den Startknoten weitergegeben wurden, kommt das Bitcoin-Netzwerk auch ohne die Startknoten aus.
+
+### Blöcke
+
+Die Bitcoin-Blockchain ist aus 1 Megabyte großen Blöcken aufgebaut. Jeder Block kann mehrere Transaktionen beinhalten. Neue Blöcke werden mittels "Mining" erzeugt. Bei der Erzeugung von neuen Blöcken wird ein Algorithmus mit anpassbarer Schwierigkeit verwendet, so dass ein neuer Block etwa alle 10 Minuten erzeugt wird.
+
+#### Proof-of-Work
+
+Der Bitcoin nutzt einen Proof-of-Work Algorithmus zu Entscheidungsfindung über neue Blöcke. Dabei wird innerhalb des neuen Blocks ein spezieller Wert, eine sogenannte *Nonce*, angelegt. Dieser Wert wird solange erhöht, bis ein Hash für den Block gefunden wird, der mit einer bestimmten Anzahl Nullen beginnt. Über die benötigte Anzahl Nullen kann die Schwierigkeit des Proof-of-Work angepasst werden. Beim Bitcoin wird die Schwierigkeit automatisch so angepasst, dass ein neuer Block etwa alle 10 Minuten gefunden wird.
 
 ### Transaktionen 
 
-Jede Transaktion im Bitcoin-Netzwerk besteht aus der kryptografischen Signatur des Senders und dem mit dem Public-Key des Empfängers signierten Hash der vorherigen Transaktion. Auf diese Weise kann der Empfänger die Transaktion verifizieren. Transaktionen werden an alle Knoten im Netzwerk verteilt. [NAKA08] Jede Transaktion hat beim Bitcoin mehrere In- und Outputs, um die Transaktion in mehrere Teilbeträge zerlegen zu können.
+Jede Transaktion im Bitcoin-Netzwerk besteht aus der kryptografischen Signatur des Senders und dem mit dem Public-Key des Empfängers signierten Hash der vorherigen Transaktion. Auf diese Weise kann der Empfänger die Transaktion verifizieren. Transaktionen werden an alle Knoten im Netzwerk verteilt. <a>[[NAKA08]](#ref_naka08)</a> Jede Transaktion hat beim Bitcoin mehrere In- und Outputs, um die Transaktion in mehrere Teilbeträge zerlegen zu können.
+Das Bitcoin-Netzwerk kann maximal 7 Transaktionen pro Sekunde verarbeiten. Jede Transaktion muss zuerst in einen Block eingefügt und zur Blockchain hinzugefügt werden, bevor sie von anderen Knoten verifiziert werden kann.
 
 ### Zeitstempel
 
-Damit jeder Knoten die Transaktionen zeitlich einordnen kann, implementiert Bitcoin einen verteilten Zeitstempel-Server. [NAKA08] Der Zeitstempel besteht aus dem Hashwert der Daten, die einen Zeitstempel erhalten sollen, sowie dem Hashwert des vorherigen Zeitstempels.
+Damit jeder Knoten die Transaktionen zeitlich einordnen kann, implementiert Bitcoin einen verteilten Zeitstempel-Server. <a>[[NAKA08]](#ref_naka08)</a> Der Zeitstempel besteht aus dem Hashwert der Daten, die einen Zeitstempel erhalten sollen, sowie dem Hashwert des vorherigen Zeitstempels.
 
-### Proof-of-Work
-
-Der Bitcoin nutzt einen Proof-of-Work Algorithmus zu Entscheidungsfindung über neue Blöcke. Dabei wird innerhalb des neuen Blocks ein spezieller Wert, eine sogennante *Nonce*, angelegt. Dieser Wert wird solange erhöht, bis ein Hash für den Block gefunden wird, der mit einer bestimmten Anzahl Nullen beginnt. Über die benötigte Anzahl Nullen kann die Schwierigkeit des Proof-of-Work angepasst werden. Beim Bitcoin wird die Schwierigkeit automatisch so angepasst, dass ein neuer Block etwa alle 10 Minuten gefunden wird.
 
 ### Protokoll
 
@@ -235,7 +241,7 @@ Payload der Transaktion.
 
 Daher kann das Netzwerk an Validatoren als Tunnel zwischen dem Client und dem
 Transaction Processor betrachtet werden, während der State der Applikation im
-Distributed Ledger persistiert wird.
+[Distributed Ledger persistiert wird.
 
 ##### REST-Schnittstelle
 Um den Zugriff auf das Blockchain-Netzwerk zu vereinfachen, kann die
@@ -278,8 +284,10 @@ Tools (Truffle, etc.)
 
 <a name="ref_fabr18">[FABR18]</a>: Fabric Documentation. URL: <a>[http://hyperledger-fabric.readthedocs.io/en/release-1.1/peers/peers.html](http://hyperledger-fabric.readthedocs.io/en/release-1.1/peers/peers.html)</a>
 
-[NAKA08] Nakamoto, S., Bitcoin: A peer-to-peer electronic cash system., 2008
+<a name="ref_naka08">[NAKA08]</a>: Nakamoto, S., Bitcoin: A peer-to-peer electronic cash system., 2008
 
 <a name="ref_owen17">[OWEN17]</a>: Owens, Luke: Cryptoasset Framework on Intel's Hyperledger Sawtooth. URL: <a>[https://fullmetalhealth.com/cryptoasset-framework-intels-hyperledger-sawtooth-part-one/](https://fullmetalhealth.com/cryptoasset-framework-intels-hyperledger-sawtooth-part-one/)</a>
 
 <a name="ref_sawt18">[SAWT18]</a>: Sawtooth Documentation. URL: <a>[https://sawtooth.hyperledger.org/docs/core/releases/latest/contents.html](https://sawtooth.hyperledger.org/docs/core/releases/latest/contents.html)</a>
+
+<a name="ref_zhen17">[ZHEN17]</a>: Z. Zheng, et al.: An Overview of Blockchain Technology: Architecture, Consensus, and Future Trends, 2017 IEEE 6th International Congress on Big Data, 2017
