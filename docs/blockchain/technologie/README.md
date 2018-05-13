@@ -401,7 +401,7 @@ Hauptfunktionen:
 #### Pump-and-dump
 
 Unter Pump-and-dump wird im Allgemeinen eine illegale Praktik im Finanzwesen bezeichnet, bewusst falsche Informationen zu verbreiten, die im Falle von börsennotierten Unternehmen, eine Kurssteigerung auslösen (pump). Zuvor hat der Verbreiter dieser Informationen, in Unternehmensanteile (Aktien) des Unternehmens investiert oder Optionen auf eine Kurssteigerung platziert. Sobald die (überbewerteten) Unternehmensanteile nach einem Kursanstieg schlagartig verkauft werden (dump), fällt der Aktienkurs dramatisch.
-Im Umfeld der Kryptowährung wurden ähnliche Praktiken angewendet: Mit der Aussicht auf erheblichen finanziellen Gewinn, wurden beispielsweise im Instant-Messaging-Dienst Telegram viele sogenannter "pump-and-dump" Gruppen gegründet <a>[[MART18]](ref_mart18)</a>, die Privatinvestoren anziehen. In diesen Gruppen werden Zeitpunkte publiziert an denen Einheiten einer Kryptowährung gekauft werden sollen, mit dem Ziel, den Kurs ansteigen zu lassen. Die Teilnehmer dieser Gruppen sind der Auffassung einen Gewinn erzielen zu können, da sie die Information vor der breiten Öffentlichkeit erhalten haben und der Kurs zunächst auch steigt, ausgelöst durch die erhöhte Nachfrage.
+Im Umfeld der Kryptowährung wurden ähnliche Praktiken angewendet: Mit der Aussicht auf erheblichen finanziellen Gewinn, wurden beispielsweise im Instant-Messaging-Dienst Telegram viele sogenannter "pump-and-dump" Gruppen gegründet <a>[[MART18]](#ref_mart18)</a>, die Privatinvestoren anziehen. In diesen Gruppen werden Zeitpunkte publiziert an denen Einheiten einer Kryptowährung gekauft werden sollen, mit dem Ziel, den Kurs ansteigen zu lassen. Die Teilnehmer dieser Gruppen sind der Auffassung einen Gewinn erzielen zu können, da sie die Information vor der breiten Öffentlichkeit erhalten haben und der Kurs zunächst auch steigt, ausgelöst durch die erhöhte Nachfrage.
 Die Gründer dieser Nachrichtengruppen haben in der Regel schon vor Verbreitung des Kaufsignals hohe Kapitalmengen investiert. Sie stoßen als Erste schlagartig alle Anteile ab, worauf der Kurs, ausgelöst durch weitere Panikverkäufe, zusammenbricht.
 
 ## Herausforderungen und Risiken
@@ -579,7 +579,7 @@ Blockchain-Technologie
 <a name="ref_etla16">[ETLA16]</a>: ETLA; Mattila, Juri: The Blockchain Phenomenon – The Disruptive Potential of Distributed Consensus Architectures. ETLA Working Papers, 2016 ; ISSN: 2323-2420
 
 <a name="ref_eule18">[EULE18]</a>: Euler, T. : The Token Classification Framework: A multi-dimensional tool for under-standing the classifying crypto tokens. Web-Quelle, 2018,
-http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens/](http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens)
+[http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens/](http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens) (letzter Zugriff: 13.05.2018)
 
 <a name="ref_franc18">[FRANC18]</a>: Francisco, Kristoffer ; Swanson, David: The Supply Chain Has No Clothes: Technology Adoption of Blockchain for Supply Chain Transparency, Logistics, Volume 2, Issue 1, 2018, DOI: 10.3390/logistics2010002
 
@@ -605,7 +605,7 @@ http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimension
 
 <a name="ref_krav17">[KRAV17]</a>: Kravitz, David W. ; Cooper, Jason: Securing user identity and transactions symbiotically: IoT meets blockchain. 2017 Global Internet of Things Summit (GIoTS), Geneva, 2017, pp. 1-6. DOI: 10.1109/GIOTS.2017.8016280
 
-<a name="ref_mart18">[MART18]</a>: Martineau, Paris (The Outline) : Inside the group chats where people pump and dump cryptocurrency, URL: https://theoutline.com/post/3074/inside-the-group-chats-where-people-pump-and-dump-cryptocurrency (letzter Zugriff: 13.05.2018)
+<a name="ref_mart18">[MART18]</a>: Martineau, Paris (The Outline) : Inside the group chats where people pump and dump cryptocurrency, URL: [https://theoutline.com/post/3074/inside-the-group-chats-where-people-pump-and-dump-cryptocurrency](https://theoutline.com/post/3074/inside-the-group-chats-where-people-pump-and-dump-cryptocurrency) (letzter Zugriff: 13.05.2018)
 
 <a name="ref_nagu07">[NAGU07]</a>:Nagurney, Anna ; Liu, Zugang ; Woolley, Trisha: Sustainable Supply Chain and Transportation Networks, International Journal of Sustainable Transportation, 1:1, 29-51, 2007. DOI: 10.1080/15568310601060077
 
@@ -627,7 +627,7 @@ http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimension
 
 <a name="ref_tian16">[TIAN16]</a>:Tian, Feng: An agri-food supply chain traceability system for China based on RFID & blockchain technology. 13th International Conference on Service Systems and Service Management (ICSSSM), Kunming, 2016, pp. 1-6, 2016. DOI: 10.1109/ICSSSM.2016.7538424
 
-<a name="ref_voge15">[VOGE15]</a>: Vogelsteller, Fabian ; Buterin, Vitalik : ERC-20 Token Standard, URL: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md (letzter Zugriff: 12.05.2018)
+<a name="ref_voge15">[VOGE15]</a>: Vogelsteller, Fabian ; Buterin, Vitalik : ERC-20 Token Standard, URL: [https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) (letzter Zugriff: 12.05.2018)
 
 <a name="ref_VUJI18">[VUJI18]</a>: Vujičić, Dejan ; Jagodić, Dijana ; Ranđić, Siniša : Blockchain Technology, Bitcoin, and Ethereum: A Brief Overview. East Sarajevo, Bosnia and Herzegovina : IEEE INFOTEH-JAHORINA (INFOTEH), 17th International Symposium, 2018, ISBN: 978-1-5386-4907-7 
 
