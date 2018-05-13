@@ -7,27 +7,43 @@ Bitcoin ist eine sogenannte Kryptowährung, die ohne eine zentrale Kontrollinsta
 
 ### Geschichte
 
-Das Bitcoin-Netzwerk wurde im Jahr 2008 erstmals theoretisch beschrieben und 2009 praktisch umgesetzt. Das Konzept kryptografischer Währungen wurde bereits 1998 veröffentlicht.
+Das Bitcoin-Netzwerk wurde im Jahr 2008 erstmals theoretisch unter dem Synonym Satoshi Nakamoto beschrieben und 2009 praktisch umgesetzt. Das Konzept kryptografischer Währungen wurde bereits 1998 veröffentlicht. Auch wenn der Bitcoin als Währung gedacht ist, so ist er in den letzten Jahren immer mehr zum Investitions- und Spekulationsobjekt geworden. Der Bitcoin-Wechselkurs erreichte Ende 2017 sein bisheriges Maximum von circa 16.000€ pro Bitcoin und steht derzeit (wenige Monate später) bei 7500€ pro Bitcoin.
 
 ### Bootstrapping
 
-Um sich initial mit anderen Knoten zu verbinden, nutzt der Bitcoin einen sogenannten "Bootstrapping"-Prozess. Mehrere Knoten des Netzwerks fungieren als Startknoten, die die Addressen weiterer Knoten an neue Knoten verteilen. Die Addressen der Startknoten sind im Domain-Name-System eingetragen, welches der Bitcoin-Client nutzt, um die Addressen der Startknoten zu erhalten. Nachdem die initiale Verbindung erfolgt ist und die Addressen weiterer Knoten von den startknoten weitergegeben wurden, kommmt das Bitcoin-Netzwerk auch ohne die Startknoten aus.
+Um sich initial mit anderen Knoten zu verbinden, nutzt der Bitcoin einen sogenannten "Bootstrapping"-Prozess. Mehrere Knoten des Netzwerks fungieren als Startknoten, die die Adressen weiterer Knoten an neue Knoten verteilen. Die Adressen der Startknoten sind im Domain-Name-System eingetragen, welches der Bitcoin-Client nutzt, um die Adressen der Startknoten zu erhalten. Nachdem die initiale Verbindung erfolgt ist und die Adressen weiterer Knoten von den Startknoten weitergegeben wurden, kommt das Bitcoin-Netzwerk auch ohne die Startknoten aus.
+
+### Blöcke
+
+Die Bitcoin-Blockchain ist aus 1 Megabyte großen Blöcken aufgebaut. Jeder Block kann mehrere Transaktionen beinhalten. Neue Blöcke werden mittels "Mining" erzeugt. Bei der Erzeugung von neuen Blöcken wird ein Algorithmus mit anpassbarer Schwierigkeit verwendet, so dass ein neuer Block etwa alle 10 Minuten erzeugt wird.
+
+#### Proof-of-Work
+
+Der Bitcoin nutzt einen Proof-of-Work Algorithmus zu Entscheidungsfindung über neue Blöcke. Dabei wird innerhalb des neuen Blocks ein spezieller Wert, eine sogenannte *Nonce*, angelegt. Dieser Wert wird solange erhöht, bis ein Hash für den Block gefunden wird, der mit einer bestimmten Anzahl Nullen beginnt. Über die benötigte Anzahl Nullen kann die Schwierigkeit des Proof-of-Work angepasst werden. Beim Bitcoin wird die Schwierigkeit automatisch so angepasst, dass ein neuer Block etwa alle 10 Minuten gefunden wird.
 
 ### Transaktionen 
 
-Jede Transaktion im Bitcoin-Netzwerk besteht aus der kryptografischen Signatur des Senders und dem mit dem Public-Key des Empfängers signierten Hash der vorherigen Transaktion. Auf diese Weise kann der Empfänger die Transaktion verifizieren. Transaktionen werden an alle Knoten im Netzwerk verteilt. [NAKA08] Jede Transaktion hat beim Bitcoin mehrere In- und Outputs, um die Transaktion in mehrere Teilbeträge zerlegen zu können.
+Jede Transaktion im Bitcoin-Netzwerk besteht aus der kryptografischen Signatur des Senders und dem mit dem Public-Key des Empfängers signierten Hash der vorherigen Transaktion. Auf diese Weise kann der Empfänger die Transaktion verifizieren. Transaktionen werden an alle Knoten im Netzwerk verteilt. <a>[[NAKA08]](#ref_naka08)</a> Jede Transaktion hat beim Bitcoin mehrere In- und Outputs, um die Transaktion in mehrere Teilbeträge zerlegen zu können. Abbildung 8.4.1.1 zeigt den Prozess.
+
+![Bitcoin Transaktionen](./images/btc_transaction.png "Bitcoin Transaktionen")
+
+Abbildung 8.4.1.1 - Bitcoin Transaktionen (Quelle: <a>[[MONA15]](#ref_mona15)</a>)
+
+Die Outputs einer Transaktion können auch "unspent" sein. Beträge, die "unspent" sind, wurden noch nicht in einer weiteren Transaktion ausgegeben und werden dem Empfänger der Transaktion zugerechnet.
+Das Bitcoin-Netzwerk kann maximal 7 Transaktionen pro Sekunde verarbeiten. Jede Transaktion muss zuerst in einen Block eingefügt und zur Blockchain hinzugefügt werden, bevor sie von anderen Knoten verifiziert werden kann.
+Jede Transaktion wird mit einer Steuer belegt. Diese Transaktionssteuer geht an den "Miner" des Blockes, mit dem diese Transaktion zur Blockchain hinzugefügt wird.
+
+### Mining
+
+Die Aufgabe des "Mining" ist es, Transaktionen zu Blöcken zusammenzufügen und in der Blockchain zu veröffentlichen. Dabei wird der "Proof-of-Work" Algorithmus genutzt. Für das erfolgreiche minen neuer Blöcke werden neue Bitcoins an den erfolgreichen Miner vergeben. Über diesen Mechanismus werden neue Bitcoins erzeugt. Die Amzahl an Bitcoins, die mit jedem neuen Block erzeugt werden, halbiert sich alle 210.000 Blöcke.
 
 ### Zeitstempel
 
-Damit jeder Knoten die Transaktionen zeitlich einordnen kann, implementiert Bitcoin einen verteilten Zeitstempel-Server. [NAKA08] Der Zeitstempel besteht aus dem Hashwert der Daten, die einen Zeitstempel erhalten sollen, sowie dem Hashwert des vorherigen Zeitstempels.
-
-### Proof-of-Work
-
-Der Bitcoin nutzt einen Proof-of-Work Algorithmus zu Entscheidungsfindung über neue Blöcke. Dabei wird innerhalb des neuen Blocks ein spezieller Wert, eine sogennante *Nonce*, angelegt. Dieser Wert wird solange erhöht, bis ein Hash für den Block gefunden wird, der mit einer bestimmten Anzahl Nullen beginnt. Über die benötigte Anzahl Nullen kann die Schwierigkeit des Proof-of-Work angepasst werden. Beim Bitcoin wird die Schwierigkeit automatisch so angepasst, dass ein neuer Block etwa alle 10 Minuten gefunden wird.
+Damit jeder Knoten die Transaktionen zeitlich einordnen kann, implementiert Bitcoin einen verteilten Zeitstempel-Server. <a>[[NAKA08]](#ref_naka08)</a> Der Zeitstempel besteht aus dem Hashwert der Daten, die einen Zeitstempel erhalten sollen, sowie dem Hashwert des vorherigen Zeitstempels.
 
 ### Protokoll
 
-Mining, UTXO etc.
+UTXO etc.
 
 ## Hyperledger
 Autor: Cem Basoglu
@@ -130,8 +146,6 @@ verteilen. Dadurch wird sichergestellt, dass genug Peers der Änderung zugestimm
 haben und alle Transaktionen in der selben Reihenfolge an den Ledger angehängt
 werden.
 
-Neben dem hier beschrieben Konsens Algorithmus  genannt und ist Standardmäßig
-
 ##### Client
 Wie bei klassischen Client-Server-Architekturen stellt der Client, auch im
 Hyperledger Fabric Kontext, die vom Nutzer lokal ausgeführte Applikation dar.
@@ -231,11 +245,15 @@ Processor eigenständig ausgeführt und registriert sich bei den Peers zur
 Verarbeitung von Transaktionen eines bestimmten Typs (*Transaction Family*).
 Dabei gibt die Client Applikation in der Transaktion an, um welche Typ von
 Transaktion es sich handelt und serialisiert die Applikationsdaten in den
-Payload der Transaktion.
+Payload der Transaktion. Daher kann das Netzwerk an Validatoren als Tunnel
+zwischen dem Client und dem Transaction Processor betrachtet werden,
+während der State der Applikation im Distributed Ledger persistiert wird.
 
 Daher kann das Netzwerk an Validatoren als Tunnel zwischen dem Client und dem
 Transaction Processor betrachtet werden, während der State der Applikation im
-Distributed Ledger persistiert wird.
+[Distributed Ledger persistiert wird.
+Durch die Erweiterung Sawtooth-Seth, können Ebenfalls Ethereum kompatible Smart
+Contracts in der Sawtooth Blockchain ausgeführt werden.
 
 ##### REST-Schnittstelle
 Um den Zugriff auf das Blockchain-Netzwerk zu vereinfachen, kann die
@@ -244,19 +262,28 @@ sich mittels 0MQ, mit dem in der Konfiguration festgelegten Validator und stellt
 die Validator Funktionen über REST-Ressourcen bereit.
 
 #### Iroha
+Das Hyperledger Iroha Framework ist eine *permissioned* Blockchain Plattform mit
+dem Fokus digitale Assets, Identitäten und serialisierte Daten in einem
+Distributed Ledger zu verwalten <a>[[IROH18]](#ref_iroh18)</a>.
 
-https://github.com/hyperledger/iroha/issues/249
+Während Iroha auf dem Fabric Framework basiert, sind im Gegensatz dazu keine
+Smart Contracts möglich <a>[[MAKA17]](#ref_maka17)</a>. Damit beschränkt sich
+der Use-Case für Iroha, in der Verwaltung, Abfrage und dem Transfer von
+digitalen Objekten innerhalb des Distributed Ledgers. Dazu werden bereits
+generierte gRPC Clients für C++, Java, Objective-C, Swift, Python und NodeJS
+bereitgestellt.  
 
-#### Indy
-
-#### Burrow
+#### Indy & Burrow
+Während Hyperledger Indy eine weitere Blockchain Plattform zur Verwaltung von
+Identitäten darstellt, wird mit dem Burrow Framework die Ausführung von Ethereum
+Smart Contracts (Solidity) auf Basis der Fabric Plattform ermöglicht. Beide
+Projekte befinden sich noch in der Inkubation.
 
 ### Tools
 
 #### Composer
 
-#### ...
-weitere relevante Tools
+#### Cello
 
 ## Ethereum
 
@@ -268,7 +295,6 @@ Tools (Truffle, etc.)
 
 
 ## Literaturverzeichnis
-<a name="ref_example04">[EXAMPLE04]</a>: John, Doe: Dummy Titel. Main-Verlag, 2004, ISBN: XXXXX
 
 <a name="ref_andr18">[ANDR18]</a>: Androulaki, Elli, et al. Hyperledger fabric: a distributed operating system for permissioned blockchains. arXiv preprint arXiv:1801.10228, 2018
 
@@ -278,8 +304,16 @@ Tools (Truffle, etc.)
 
 <a name="ref_fabr18">[FABR18]</a>: Fabric Documentation. URL: <a>[http://hyperledger-fabric.readthedocs.io/en/release-1.1/peers/peers.html](http://hyperledger-fabric.readthedocs.io/en/release-1.1/peers/peers.html)</a>
 
-[NAKA08] Nakamoto, S., Bitcoin: A peer-to-peer electronic cash system., 2008
+<a name="ref_iroh18">[IROH18]</a>: Iroha Dokumentation. URL: <a>[http://iroha.readthedocs.io/en/latest/overview.html](http://iroha.readthedocs.io/en/latest/overview.html)</a>
+
+<a name="ref_maka17">[MAKA17]</a>: Makato, Takemiya: Design for smart contracts. URL: <a>[https://github.com/hyperledger/iroha/issues/249](https://github.com/hyperledger/iroha/issues/249)</a>
+
+<a name="ref_mona15">[MONA15]</a>: Monaco, V.: Time intervals as a Behavioral Biometric, 2015
+
+<a name="ref_naka08">[NAKA08]</a>: Nakamoto, S., Bitcoin: A peer-to-peer electronic cash system., 2008
 
 <a name="ref_owen17">[OWEN17]</a>: Owens, Luke: Cryptoasset Framework on Intel's Hyperledger Sawtooth. URL: <a>[https://fullmetalhealth.com/cryptoasset-framework-intels-hyperledger-sawtooth-part-one/](https://fullmetalhealth.com/cryptoasset-framework-intels-hyperledger-sawtooth-part-one/)</a>
 
 <a name="ref_sawt18">[SAWT18]</a>: Sawtooth Documentation. URL: <a>[https://sawtooth.hyperledger.org/docs/core/releases/latest/contents.html](https://sawtooth.hyperledger.org/docs/core/releases/latest/contents.html)</a>
+
+<a name="ref_zhen17">[ZHEN17]</a>: Z. Zheng, et al.: An Overview of Blockchain Technology: Architecture, Consensus, and Future Trends, 2017 IEEE 6th International Congress on Big Data, 2017
