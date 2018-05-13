@@ -293,13 +293,13 @@ Autor: Kevin Schima
 
 ### Fiatgeld
 
-Fiatgeld (von lat. "fiat" - "es werde") ist ein Tauschmittel, dessen Gegenwert von den ausstellenden Notenbanken garantiert wird und dessen Verwendung als gesetzliches Zahlungsmittel von den jeweiligen Ländern vorgeschrieben ist. Die Schaffung eines eigenen Währungssystems ermöglicht einem Staat den Wert und das Wirtschaftssystem zu steuern.
+Unter Fiatgeld (von lat. "fiat" - "es werde") werden Finanzwährungen zusammengefasst, deren Wert die ausstellenden Notenbanken garantieren und die als gesetzliches Zahlungsmittel von den ausgebenden Ländern vorgeschrieben sind. Die Schaffung eines eigenen Währungssystems ermöglicht einem Staat den Wert bzw. die Inflation zu steuern und Einfluss auf das Wirtschaftssystem zu nehmen.
 
 
 ### Tokenization
-Tokenization (von Englisch "token": "Wertmarke") beschreibt den Prozess, ein digitales Abbild eines Assets (Edelmetalle, Immobilien usw.), über Smart Contracts bzw. Blockchain Technologie im Allgemeinen, handelbar zu machen. Schon vor der Entwicklung von Währungssystemen, wurden von Goldschmieden und Banken Wertscheine ausgestellt, die den Besitz einer hinterlegten Goldmenge bescheinigten, wodurch Händler einfacher Zahlungen untereinander tätigen konnten ohne physisch Gold auszutauschen. Später wurde durch Banknoten eine universelle Akzeptanz ermöglicht und durch elektronische Überweisungen der Transfer von Geld erleichtert.
+Tokenization (von Englisch "token": "Wertmarke") beschreibt den Prozess, ein digitales Abbild eines Assets / Anlageguts (Edelmetalle, Immobilien usw.), über Smart Contracts bzw. Blockchain Technologie im Allgemeinen, handelbar zu machen. Schon vor der Entwicklung von Währungssystemen, wurden von Goldschmieden und Banken Wertscheine ausgestellt, die den Besitz einer hinterlegten Goldmenge bescheinigten, wodurch Händler einfacher Zahlungen untereinander tätigen konnten ohne physisch Gold auszutauschen. Später wurde durch Banknoten eine universelle Akzeptanz ermöglicht und durch elektronische Überweisungen der Transfer von Geld erleichtert.
 
-Durch Tokenization kann dieses Konzept noch weiter getrieben werden: Es gibt in der Regel keine zentrale Entität, der vertraut werden muss, Vertrauen wird geschaffen durch die Nutzung von Blockchain Technologie und durch die Offenlegung der Quellcodes, die eine Token Transaktion ausführen. Schließlich erlaubt die Verwendung von Token viele neue Anwendungsmöglichkeiten und eine weltweite potentielle Nutzerbasis.
+Tokenization erlaubt erweiterte Möglichkeiten: Es gibt in der Regel keine zentrale Entität, der vertraut werden muss, Vertrauen wird geschaffen durch die Nutzung von Blockchain Technologie und durch die Offenlegung der Token Quellcodes. Schließlich erlaubt die Verwendung von Token neuartige Anwendungsmöglichkeiten und eine weltweite potentielle Nutzerbasis.
 
 
 ### Arten von Token
