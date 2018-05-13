@@ -136,8 +136,6 @@ verteilen. Dadurch wird sichergestellt, dass genug Peers der Änderung zugestimm
 haben und alle Transaktionen in der selben Reihenfolge an den Ledger angehängt
 werden.
 
-Neben dem hier beschrieben Konsens Algorithmus  genannt und ist Standardmäßig
-
 ##### Client
 Wie bei klassischen Client-Server-Architekturen stellt der Client, auch im
 Hyperledger Fabric Kontext, die vom Nutzer lokal ausgeführte Applikation dar.
@@ -237,11 +235,15 @@ Processor eigenständig ausgeführt und registriert sich bei den Peers zur
 Verarbeitung von Transaktionen eines bestimmten Typs (*Transaction Family*).
 Dabei gibt die Client Applikation in der Transaktion an, um welche Typ von
 Transaktion es sich handelt und serialisiert die Applikationsdaten in den
-Payload der Transaktion.
+Payload der Transaktion. Daher kann das Netzwerk an Validatoren als Tunnel
+zwischen dem Client und dem Transaction Processor betrachtet werden,
+während der State der Applikation im Distributed Ledger persistiert wird.
 
 Daher kann das Netzwerk an Validatoren als Tunnel zwischen dem Client und dem
 Transaction Processor betrachtet werden, während der State der Applikation im
 [Distributed Ledger persistiert wird.
+Durch die Erweiterung Sawtooth-Seth, können Ebenfalls Ethereum kompatible Smart
+Contracts in der Sawtooth Blockchain ausgeführt werden.
 
 ##### REST-Schnittstelle
 Um den Zugriff auf das Blockchain-Netzwerk zu vereinfachen, kann die
@@ -250,19 +252,28 @@ sich mittels 0MQ, mit dem in der Konfiguration festgelegten Validator und stellt
 die Validator Funktionen über REST-Ressourcen bereit.
 
 #### Iroha
+Das Hyperledger Iroha Framework ist eine *permissioned* Blockchain Plattform mit
+dem Fokus digitale Assets, Identitäten und serialisierte Daten in einem
+Distributed Ledger zu verwalten <a>[[IROH18]](#ref_iroh18)</a>.
 
-https://github.com/hyperledger/iroha/issues/249
+Während Iroha auf dem Fabric Framework basiert, sind im Gegensatz dazu keine
+Smart Contracts möglich <a>[[MAKA17]](#ref_maka17)</a>. Damit beschränkt sich
+der Use-Case für Iroha, in der Verwaltung, Abfrage und dem Transfer von
+digitalen Objekten innerhalb des Distributed Ledgers. Dazu werden bereits
+generierte gRPC Clients für C++, Java, Objective-C, Swift, Python und NodeJS
+bereitgestellt.  
 
-#### Indy
-
-#### Burrow
+#### Indy & Burrow
+Während Hyperledger Indy eine weitere Blockchain Plattform zur Verwaltung von
+Identitäten darstellt, wird mit dem Burrow Framework die Ausführung von Ethereum
+Smart Contracts (Solidity) auf Basis der Fabric Plattform ermöglicht. Beide
+Projekte befinden sich noch in der Inkubation.
 
 ### Tools
 
 #### Composer
 
-#### ...
-weitere relevante Tools
+#### Cello
 
 ## Ethereum
 
@@ -274,7 +285,6 @@ Tools (Truffle, etc.)
 
 
 ## Literaturverzeichnis
-<a name="ref_example04">[EXAMPLE04]</a>: John, Doe: Dummy Titel. Main-Verlag, 2004, ISBN: XXXXX
 
 <a name="ref_andr18">[ANDR18]</a>: Androulaki, Elli, et al. Hyperledger fabric: a distributed operating system for permissioned blockchains. arXiv preprint arXiv:1801.10228, 2018
 
@@ -283,6 +293,10 @@ Tools (Truffle, etc.)
 <a name="ref_cach16">[CHAC16]</a>: Cachin, Christian: Architecture of the Hyperledger Blockchain Fabric. Workshop on Distributed Cryptocurrencies and Consensus Ledgers, 2016
 
 <a name="ref_fabr18">[FABR18]</a>: Fabric Documentation. URL: <a>[http://hyperledger-fabric.readthedocs.io/en/release-1.1/peers/peers.html](http://hyperledger-fabric.readthedocs.io/en/release-1.1/peers/peers.html)</a>
+
+<a name="ref_iroh18">[IROH18]</a>: Iroha Dokumentation. URL: <a>[http://iroha.readthedocs.io/en/latest/overview.html](http://iroha.readthedocs.io/en/latest/overview.html)</a>
+
+<a name="ref_maka17">[MAKA17]</a>: Makato, Takemiya: Design for smart contracts. URL: <a>[https://github.com/hyperledger/iroha/issues/249](https://github.com/hyperledger/iroha/issues/249)</a>
 
 <a name="ref_naka08">[NAKA08]</a>: Nakamoto, S., Bitcoin: A peer-to-peer electronic cash system., 2008
 
