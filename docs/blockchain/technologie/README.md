@@ -465,13 +465,9 @@ https://publishup.uni-potsdam.de/opus4-ubp/frontdoor/deliver/index/docId/10314/f
 
 ### Ökonomische und gesellschaftliche Herausforderungen
 
-Autoren: Mario Cichonczyk und Martin Teuber
+#### Soziale Implikationen
+Autor: Martin Teuber
 
-Konsequenzen
-Sozial-wissenschaftlich
-betriebswirtschaftlich
-
-=======
 #### Ökonomische Implikationen
 Autor: Mario Cichonczyk
 
@@ -528,8 +524,16 @@ Auf den ersten Blick scheint die Blockchain im Supply Chain Management keinerlei
 Im Ausblick ist aufgrund dieser Problematik die Zukunft der digitalen Wertschöpfungskette undurchsichtig. Dass dessen Realisierung wünschenswert ist, sollte offensichtlich sein. Vorab muss die eindeutige, unveränderbare Identifikation von Gütern ein Forschungs- und Entwicklungsziel werden. Andernfalls bezieht sich das transformative Potential der Blockchain bloß auf das Problem, nicht auf die Lösung, denn die Notwendigkeit von Auditprozessen ist der gleiche Stand an dem wir uns aktuell befinden. Es sollte angemerkt werden, dass diese Sichtweise als Herausforderung für die akademisch-wirtschaftlichen Zukunftsträger verstanden werden kann und aufgrund der überwiegenden Vorteile der Veränderungsprozess im Supply Chain Management uneingeschränkt weiterläuft. <a>[[FRANC18]](#ref_franc18)</a> hebt den kompetitiven Druck durch immer besser informierte Endkunden hervor. Diese verlangen nicht länger nur einen guten Preis, sondern einen angemessenen Grad der Produkttransparenz. Es ist also zu erwarten, dass nicht zwingend die Existenz der Blockchain selbst den Fortschritt im SCM vorantreibt, sondern sie vielmehr eine Antwort auf die aufgeklärte Entwicklung des Konsummarkts darstellt.
 
 ##### Wirtschaftsautomation - M2M Transaktionen
+Bisher wurde in diesem Kapitel angenommen, dass Kaufentscheidungen grundsätzlich von menschlichen Käufern getroffen werden. Zwar werden automatisierte Bestellungsauslösungen bereits in hochintegrierten Supply Chains eingesetzt, im Konsumentenmarkt und bei Business2Business-Transaktionen ohne gemeinsame IT-Integration stecken sie aber noch in den Anfängen. Maschinen wurden in der Vergangenheit an der autarken Marktteilnahme mangels ausreichendem Vertrauen und Identifizierbarkeit gehindert. Mit der Blockchain und dem Trend des Internet-of-Things ändert sich dieses Faktum nun dramatisch: Maschinen bekommen die Möglichkeit, künstlich intelligent ökonomischen Anreizen zu folgen <a>[[HEGA16]](#ref_hega16)</a>. Implizit wurde die Bedeutung der Blockchain für das Bankensystem bereits im Abschnitt zur Intermediation behandelt, dennoch soll an dieser Stelle betont werden, dass mit der Automation von finanziellen Transaktionen ein eigenes Marktvolumen entstehen könnte, welches keinerlei Aufsicht durch Intermediäre bedarf <a>[[HEGA16]](#ref_hega16)</a>. 
 
-...
+Das Internet-of-Things verbindet physische Objekte mit dem virtuellen Raum, in welchem sie nun selbstständig Teil von Geschäftsprozessen werden können. Dem Grundgedanken von IoT folgend, wird die Partizipation solcher intelligenten Objekte am Markt auf einer ad-hoc Basis auch außerhalb fester Strukturen zu erwarten sein <a>[[WILU13]](#ref_wilu13)</a>. M2M-Transaktionen in heterogenen Umgebungen sind bereits vor mehreren Jahren umfangreich vorgedacht worden. Damals wurden aber die fehlenden ubiquitären Sicherheitskonzepte mit dem nachgelagerten Vertrauensmangel und die ausbleibende, globale Anwendbarkeitsgarantie als primäre Progressionshürden identifiziert <a>[[GONC10]](#ref_gonc10)</a>. Mittlerweile gilt die Blockchain als ideale Lösung für die einst postulierten Probleme <a>[[KRAV17]](#ref_krav17)</a>. Smart Devices, die unabhängig Finanztransaktionen ausführen können, werden nun Teil einer "Economy-of-Things" um einen ökonomischen Mehrwert für Nutzer und Besitzer zu generieren <a>[[BECK16]](#ref_beck16)</a>. 
+
+Die Kombination von IoT und Blockchain-Technologien erlaubt die Monetarisierung von (Privat-)Eigentum in uneingeschränktem Umfang und bildet so die Basis der demokratischen, dezentralen "Sharing Economy" <a>[[HUCK16]](#ref_huck16)</a>. "Smart Contracts" und "Dapps" sind die Werkzeuge, die intelligente Geräte und wirtschaftliche Absichten in einen gemeinsamen Kontext bringen (siehe die jeweiligen Kapitel für eine detailliertere Definition). Die teilende Wirtschaft beschreibt den kollaborativen Konsum durch das Überlassen, Austauschen oder Verleihen von Ressourcen ohne eine Eigentumsbeziehung <a>[[PUSC16]](#ref_pusc16)</a>. Das Ziel ist es, unausgelastete Assets zur Nutzung am Markt bereitzustellen. Bislang war ein solches Vorhaben mit der aktiven Anbahnung und Abwicklung eines Tauschgeschäftes verbunden. Der kaufmännische Zusatzaufwand gepaart mit dem Argwohn der unbeaufsichtigten Besitzvergabe haben das Wachstum der Sharing Economy bisher nachvollziehbar eingeschränkt. M2M-Geschäfte mit Unterstützung durch eindeutige, evidente Smart-Contracts lösen diese Hemmnis, da sie den Transaktionsoverhead in einem Rahmen reduzieren, der auch für Privatanwender Akzeptanz und Klarheit schafft <a>[[SUN16]](#ref_sun16)</a>.
+
+<a>[[REDL18]](#ref_redl18)</a> fast zusammen, wie die Zukunft der etablierten Sharing Economy auszusehen vermag, wenn Menschen sich und ihr Eigentum vernetzen und gemeinsam Wert schöpfen. Dieses Prinzip der *commons-based peer production* sorge für neue Wertschöpfungsmuster, die entgegen traditioneller Konzepte auf Offenheit basieren und kollaborativer sowie dezentraler Natur sind. Konsumenten verstünden sich auch als Produzenten, sodass die Abhängigkeit von Unternehmen an Bedeutung verliert und die Grenze zwischen professioneller und nicht-professioneller Sphäre verschwimmt. Unternehmen müssten sich dann als Systemteilnehmer der Sharing Economy unterordnen und würden die Rolle einnehmen, Kollaborationsinfrastrukturen bereitzustellen oder kollaborativ erarbeitete Artefakte effizient zu produzieren. Hochtechnologische, stark spezialisierte Unternehmen wären dann zusätzlich in der Pflicht, ihre Produktentwicklung unter Einbezug von Communities im Sinne von *co-creation* durchzuführen.
+
+Zu beachten ist, dass es sich bei dieser Einschätzung um eine fakultative Zukunftsvision handelt. Sowohl selbst <a>[[REDL18]](#ref_redl18)</a> als auch <a>[[SUND16]](#ref_sund16)</a> sehen eine große Barriere, die den Fortgang zur Sharing Economy verhindert. Auch wenn die Gesellschaft zu einer stärkeren Vernetzung mit geringerem Misstrauen in die autonomen Smart-Devices und Peers tendiert, ist die regulatorische Basis unserer gemeinschaftlichen Jurisdiktion auf der historischen Entwicklung einer Industrie gewachsen, deren Wertschöpfungsverständnis fundamental von der prognostizierten Zukunft verschieden ist. Ökonomische Konstrukte hatten immer einen *top-down approach*. Mit der progressiven *bottom-up* Idee müssen neue juristische Rahmenbedingungen abgesteckt werden. Es ist schwierig vorzustellen, dass sich Privatpersonen mit der Absicht, ihre Smart-Devices in die Sharing-Economy einzubringen, auf bereits etablierte Besteuerungskonzepte abbilden lassen. Sie scheinen weder Einzelunternehmer noch Freiberufler zu sein. Diese sehr einfache Beobachtung zieht umfassend weitere Fragen ähnlicher Natur nach sich. Sind geteilte Wohnungen regulatorisch wie Hotels zu behandeln? Sind geteilte Autos regulatorisch wie Taxis zu behandeln? Beide dieser Probleme sind in aktueller Diskussion und es ist zu erwarten, dass wir in der Zukunft auf vermutlich größere Hürden dieser Art stoßen.
+
 
 ## Literaturverzeichnis
 <a name="ref_abey16">[ABEY16]</a>:Abeyratne, Saveen ; Monfared, Radmehr: Blockchain Ready Manufacturing Supply Chain Using Distributed Ledger. International Journal of Research in Engineering and Technology. 05. 2016
@@ -541,6 +545,8 @@ Blockchain-Technologie
 <a name="ref_apte16">[APTE16]</a>:Apte, Shireesh: Will blockchain technology revolutionise excipient supply chain management?. Journal of Excipients and Food Chemicals, [S.l.], v. 7, n. 3, p. 76-78, 2016. ISSN 21502668.
 
 <a name="ref_bagc05">[BAGC05]</a>:Bagchi, Prabir K. ; Chun Ha , Byoung ; Skjoett‐Larsen, Tage ; Soerensen, Lars Boege:Supply chain integration: a European survey. The International Journal of Logistics Management, Vol. 16 Issue: 2, pp.275-294, 2005. DOI: 10.1108/09574090510634557
+
+<a name="ref_beck16">[BECK16]</a>:Beck, Roman ; Stenum Czepluch, Jacob; Lollike, Nikolaj; and Malone, Simon: BLOCKCHAIN – THE GATEWAY TO TRUST-FREE CRYPTOGRAPHIC TRANSACTIONS. Twenty-Fourth European Conference on Information Systems (ECIS), İstanbul,Turkey, 2016. Springer Publishing Company, 2016. p. 1-14.
 
 <a name="ref_budic18">[BUDI18]</a>: BusinessDictionary.com : What is intermediation? definition and meaning ; URL: http://www.businessdictionary.com/definition/intermediation.html ; Date Accessed: April 29, 2018
 
@@ -563,15 +569,27 @@ http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimension
 
 <a name="ref_giag99">[GIAG99]</a>: Giaglis, George M. ; Klein, Stefan ; O'Keefe, Robert M.: Disintermediation, Reintermediation, or Cybermediation? The Future of Intermediaries in Electronic Marketplaces, Global Networked Organizations, Proceedings 12 th Electronic Commerce Conference, Moderna organizacija, 1999, Pages 7-9
 
+<a name="ref_gonc10">[GONC10]</a>: Gonçalves, Vania ; Dobbelaere, Philippe: Business Scenarios for Machine-to-Machine Mobile Applications. 2010 Ninth International Conference on Mobile Business,2010 Ninth Global Mobility Roundtable (ICMB-GMR), Athens, Greece, 2010, pp. 394-401. DOI: 10.1109/ICMB-GMR.2010.61
+
 <a name="ref_hahn18">[HAHN18]</a>: Hahn, Christopher ; Wons, Adrian: Initial Coin Offering (ICO) - Unternehmensfinanzierung auf Basis der Blockchain-Technologie. Gabler Verlag, 2018, ISBN: 978-3-658-21786-0
 
+<a name="ref_hega16">[HEGA16]</a>: Hegadekatti, Kartik: Automation Processes and Blockchain Systems. 2016. Available at SSRN: https://ssrn.com/abstract=2890435
+
 <a name="ref_HOFM17">[HOFM17]</a>: Hofmann, Frank ; Wurster, Simone ; Eyal, Ron ; Böhmecke-Schwafert, Moritz : The immutability concept of blockchains and benefits of early standardization. Nanjing, China : ITU Kaleidoscope: Challenges for a Data-Driven Society (ITU K), 2017, ISBN: 978-9-2612-4281-7 
+
+<a name="ref_huck16">[HUCK16]</a>:Huckle, Steve ; Bhattacharya, Rituparna ; White, Martin ; Beloff, Natalia: Internet of Things, Blockchain and Shared Economy Applications, Procedia Computer Science, Volume 98, 2016, pp.461-466, ISSN: 1877-0509
 
 <a name="ref_IMPO18">[IMPO18]</a>: Iimponderablethings.com : How Bitcoin Works Under the Hood  ; URL: http://www.imponderablethings.com/2013/07/how-bitcoin-works-under-hood.html ; Date Accessed: Mai 10, 2018
 
 <a name="ref_INVE18">[INVE18]</a>: Investopedia.com : Hard Fork & Soft Fork ; URL: https://www.investopedia.com/terms/h/hard-fork.asp & https://www.investopedia.com/terms/h/hard-fork.asp ; Date Accessed: Mai 09, 2018
 
+<a name="ref_krav17">[KRAV17]</a>: Kravitz, David W. ; Cooper, Jason: Securing user identity and transactions symbiotically: IoT meets blockchain. 2017 Global Internet of Things Summit (GIoTS), Geneva, 2017, pp. 1-6. DOI: 10.1109/GIOTS.2017.8016280
+
 <a name="ref_nagu07">[NAGU07]</a>:Nagurney, Anna ; Liu, Zugang ; Woolley, Trisha: Sustainable Supply Chain and Transportation Networks, International Journal of Sustainable Transportation, 1:1, 29-51, 2007. DOI: 10.1080/15568310601060077
+
+<a name="ref_pusc16">[PUSC16]</a>:Puschmann, Thomas ; Alt, Rainer: Sharing Economy, 2016, Business & Information Systems Engineering: Vol. 58: Iss. 1, pp.93-99.
+
+<a name="ref_redl18">[REDL18]</a>:Redlich, Tobias ; Moritz, Manuel: Die Zukunft der Wertschoepfung -- dezentral, vernetzt und kollaborativ, Interdisziplinaere Perspektiven zur Zukunft der Wertschoepfung, 2018, Springer Fachmedien Wiesbaden, Wiesbaden, pp.1-6, ISBN: 978-3-658-20265-1
 
 <a name="ref_Schl16">[SCHL16]</a>: Schlatt, Vincent; Schweizer, André; Urbach, Nils; Fridgen, Gilbert: Blockchain: Grundlagen, Anwendungen und Potenziale, S. 8-12, Fraunhofer FIT, 12.2016, URL: https://www.fim-rc.de/Paperbibliothek/Veroeffentlicht/642/wi-642.pdf (letzter Zugriff: 04.05.2018)
 
@@ -581,6 +599,10 @@ http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimension
 
 <a name="ref_shen16">[SHEN16]</a>: Shen, Ji ; Wei, Bin ; Yan, Hongjun: Financial Intermediation Chains in an OTC Market. 2016, SSRN: https://ssrn.com/abstract=2577497
 
+<a name="ref_sun16">[SUN16]</a>:Sun, Jianjun ; Yan, Jiaqi ; Zhang, Kem Z. K.: Blockchain-based sharing services: What blockchain technology can contribute to smart cities. Financial Innovation, 2016, Vol.2, No.1, p.26, ISSN: 2199-4730
+
+<a name="ref_sund16">[SUND16]</a>: Sundararajan, Arun: The Sharing Economy: The End of Employment and the Rise of Crowd-Based Capitalism. MIT Press, 2016.
+
 <a name="ref_tian16">[TIAN16]</a>:Tian, Feng: An agri-food supply chain traceability system for China based on RFID & blockchain technology. 13th International Conference on Service Systems and Service Management (ICSSSM), Kunming, 2016, pp. 1-6, 2016. DOI: 10.1109/ICSSSM.2016.7538424
 
 <a name="ref_voge15">[VOGE15]</a>: Vogelsteller, Fabian ; Buterin, Vitalik : ERC-20 Token Standard, URL: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md (letzter Zugriff: 12.05.2018)
@@ -588,5 +610,7 @@ http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimension
 <a name="ref_VUJI18">[VUJI18]</a>: Vujičić, Dejan ; Jagodić, Dijana ; Ranđić, Siniša : Blockchain Technology, Bitcoin, and Ethereum: A Brief Overview. East Sarajevo, Bosnia and Herzegovina : IEEE INFOTEH-JAHORINA (INFOTEH), 17th International Symposium, 2018, ISBN: 978-1-5386-4907-7 
 
 <a name="ref_walter07">[WALTE07]</a>: Walter, Benedikt: Intermediation und Digitalisierung. Springer-Verlag, 2007, ISBN: 3835096303 
+
+<a name="ref_wilu13">[WILU13]</a>: Wilusz, Daniel ; Rykowski, Jarogniew: The Architecture of Coupon-Based, Semi-off-Line, Anonymous Micropayment System for Internet of Things, Technological Innovation for the Internet of Things, 2013, Springer Berlin Heidelberg, Berlin, Heidelberg, pp.125-132, ISBN: 978-3-642-37291-9
 
 <a name="ref_ZHEN17">[ZHEN17]</a>: Zheng, Zibin ; Xie, Shaoan ; Dai, Hongning ; Chen, Xiangping ; Wang, Huaimin : An Overview of Blockchain Technology: Architecture, Consensus, and Future Trends. Honolulu, HI, USA : IEEE International Congress on Big Data, 2017, ISBN: 978-1-5386-1996-4
