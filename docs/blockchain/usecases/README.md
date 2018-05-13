@@ -64,12 +64,12 @@ Ein Anwendungsfall für Blockchain Technologien abseits der weit verbreiteten Ei
 - Sollte ein Nachweis über eine erbrachte Leistung wie z.B. eine Urkunde zu einem Abschluss verloren gehen, ist es zeitaufwändig, diesen zu ersetzen, da die Bildungseinrichtung kontaktiert und ein neuer Nachweis ausgestellt werden muss.
 - Durch die fehlende Transparenz des Bildungssystems kann es zu Betrug kommen, bei dem nicht erbrachte Leistungen oder nicht vorhandene Abschlüsse vorgetäuscht werden. [[CHEN18]](#ref_chen18)
 
-Durch den Einsatz von Blockchain Technologien kann diesen Problemen entgegengewirkt werden. Durch die Verwendung eines einheitlichen Standarts innerhalb einer Blockchain ist es möglich, erbrachte Leistungen weltweit vergleichbar und übertragbar zu machen und so die administrativen und sprachlichen Hürden für den Austausch von Bildungseinrichtungen auf internationaler Ebene deutlich zu verringern. Im Bereich von Hochschulen würde es so z.B. Studierenden ermöglicht, während des Studiums einfach das Land zu wechseln, in dem Leistungen erbracht werden.
+Durch den Einsatz von Blockchain Technologien kann diesen Problemen entgegengewirkt werden. Durch die Verwendung eines einheitlichen Standarts innerhalb einer Blockchain ist es möglich, erbrachte Leistungen weltweit vergleichbar und übertragbar zu machen und so die administrativen und sprachlichen Hürden für den Austausch von Bildungseinrichtungen auf internationaler Ebene deutlich zu verringern. Im Bereich von Hochschulen würde es so z.B. Studierenden ermöglicht, während des Studiums einfach das Land zu wechseln, in dem Leistungen erbracht werden. [[TURK18]](#ref_turk18) 
 
 Durch die Transparenz und Unveränderbarkeit von Blockchains kann nachvollzogen werden, wann ein Teilnehmer eine Leistung erbracht hat. Hieraus ergeben sich im Hinblick auf Bildung die folgenden Vorteile:
 - Es ist möglich, Betrugsfälle einfacher aufzudecken, da z.B. gefälschte Abschlüsse nicht in der Blockchain enthalten sind und durch die Dezentralisierung eine Wiederspruchsfreiheit der meisten Knoten garantiert werden kann. [[CHEN18]](#ref_chen18)
 - Wenn in der Blockchain zusätzlich die Interaktion zwischen Lehrenden und Lernenden festgehalten wird, hat dies für beide Parteien den Vorteil, dass die Zusammenarbeit nachvollzogen werden kann. Dies ermöglicht einerseits den Lernfortschritt zu überprüfen, aber auch zu ermitteln, ob durch den Lehrenden ausreichend Unterstützung gegeben worden ist. [[CHEN18]](#ref_chen18)
-- Durch die öffentliche Einsehbarkeit der Blockchain wird es Arbeitgebern ermöglicht, den Wissensstand eines potenziellen neuen Mitarbeiters besser zu bewerten und so geeignete Personen zu finden. [[CHEN18]](#ref_chen18)
+- Durch die öffentliche Einsehbarkeit der Blockchain wird es Arbeitgebern ermöglicht, den Wissensstand eines potenziellen neuen Mitarbeiters besser zu bewerten und so geeignete Personen zu finden. [[CHEN18]](#ref_chen18) [[TURK18]](#ref_turk18) 
 
 Durch diese öffentliche Zugänglichkeit ergeben sich jedoch auch Probleme, da ein einfaches, öffentliches Blockchain System bedeuten würde, dass sensible, personenbezogene Daten einsehbar wären. Daher sollte bei einer Anwendung von Blockchain Technologien im Bereich der Bildung darauf geachtet werden, dass die Privatsphäre der Nutzer nicht beeinträchtigt wird.
 
@@ -79,10 +79,11 @@ Im Folgenden werden Beispiele für die Anwendung von Blockchains im Bereich der 
 
 ### EduCTX
 
-EduCTX ist eine globale Credit-Platform im Bereich der höheren Bildung, die sich an dem europäischen System zur Übertragung und Akkumulierung von Studienleistungen (ECTS) orientiert. [[TURK18]](#ref_turk18) 
+EduCTX ist eine globale Credit-Platform im Bereich der höheren Bildung, die sich an dem europäischen System zur Übertragung und Akkumulierung von Studienleistungen (ECTS) orientiert. [[TURK18]](#ref_turk18)
 Durch die Einführung eines neuen, weltweit angewendeten Standarts soll es möglich werden, dass bestehende sprachliche und administrative Hürden abgebaut werden, die zur Zeit für Studenten bestehen, die ihren Studienort in ein anderes Land verlegen wollen.
 
 Ein Prototyp von EduCTX wurde auf Basis der Ark Blockchain Platform implementiert. In diesem System bilden Bildungseinrichtungen die Peers und damit Netzwerkknoten. Studenten sind die Nutzer der Blockchain und verfügen jeweils über eine eigene sog. Wallet, in der Creditpunkte gespeichert werden können. Erbringt ein Student eine Leistung, für die eine vorgegebene Anzahl von Credits vergeben werden, so sendet die zuständige Bildungseinrichtung dem Studenten die entsprechende Menge an Punkten zusammen mit weiteren Informationen zur bestandenen Prüfung an seine Wallet.
+
 Der Student kann nun mit Hilfe seiner Wallet weltweit nachweisen, welche Leistungen er erbracht hat und kann weiterhin einem potentiellen Arbeitgeber einen Einblick in seine Ausbildung geben.
 Die folgende Abbildung stellt dieses Sytem dar:
 
