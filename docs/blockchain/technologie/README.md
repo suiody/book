@@ -394,7 +394,15 @@ Hauptfunktionen:
 
 * allowance: 
 
-*Abhebelimit ermitteln, welches über approve zur Verfügung gestellt wurde* 
+*Abhebelimit ermitteln, welches über approve zur Verfügung gestellt wurde*
+
+### Risiken
+
+#### Pump-and-dump
+
+Unter Pump-and-dump wird im Allgemeinen eine illegale Praktik im Finanzwesen bezeichnet, bewusst falsche Informationen zu verbreiten, die im Falle von börsennotierten Unternehmen, eine Kurssteigerung auslösen (pump). Zuvor hat der Verbreiter dieser Informationen, in Unternehmensanteile (Aktien) des Unternehmens investiert oder Optionen auf eine Kurssteigerung platziert. Sobald die (überbewerteten) Unternehmensanteile nach einem Kursanstieg schlagartig verkauft werden (dump), fällt der Aktienkurs dramatisch.
+Im Umfeld der Kryptowährung wurden ähnliche Praktiken angewendet: Mit der Aussicht auf erheblichen finanziellen Gewinn, wurden beispielsweise im Instant-Messaging-Dienst Telegram viele sogenannter "pump-and-dump" Gruppen gegründet <a>[[MART18]](ref_mart18)</a>, die Privatinvestoren anziehen. In diesen Gruppen werden Zeitpunkte publiziert an denen Einheiten einer Kryptowährung gekauft werden sollen, mit dem Ziel, den Kurs ansteigen zu lassen. Die Teilnehmer dieser Gruppen sind der Auffassung einen Gewinn erzielen zu können, da sie die Information vor der breiten Öffentlichkeit erhalten haben und der Kurs zunächst auch steigt, ausgelöst durch die erhöhte Nachfrage.
+Die Gründer dieser Nachrichtengruppen haben in der Regel schon vor Verbreitung des Kaufsignals hohe Kapitalmengen investiert. Sie stoßen als Erste schlagartig alle Anteile ab, worauf der Kurs, ausgelöst durch weitere Panikverkäufe, zusammenbricht.
 
 ## Herausforderungen und Risiken
 
@@ -596,6 +604,8 @@ http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimension
 <a name="ref_INVE18">[INVE18]</a>: Investopedia.com : Hard Fork & Soft Fork ; URL: https://www.investopedia.com/terms/h/hard-fork.asp & https://www.investopedia.com/terms/h/hard-fork.asp ; Date Accessed: Mai 09, 2018
 
 <a name="ref_krav17">[KRAV17]</a>: Kravitz, David W. ; Cooper, Jason: Securing user identity and transactions symbiotically: IoT meets blockchain. 2017 Global Internet of Things Summit (GIoTS), Geneva, 2017, pp. 1-6. DOI: 10.1109/GIOTS.2017.8016280
+
+<a name="ref_mart18">[MART18]</a>: Martineau, Paris (The Outline) : Inside the group chats where people pump and dump cryptocurrency, URL: https://theoutline.com/post/3074/inside-the-group-chats-where-people-pump-and-dump-cryptocurrency (letzter Zugriff: 13.05.2018)
 
 <a name="ref_nagu07">[NAGU07]</a>:Nagurney, Anna ; Liu, Zugang ; Woolley, Trisha: Sustainable Supply Chain and Transportation Networks, International Journal of Sustainable Transportation, 1:1, 29-51, 2007. DOI: 10.1080/15568310601060077
 
