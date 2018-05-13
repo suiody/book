@@ -90,6 +90,7 @@ Die folgende Abbildung stellt dieses Sytem dar:
 <a name="eductx_aufbau"></a>![eductx_aufbau](./images/eductx_aufbau.png "EduCTX Aufbau") Quelle: [[TURK18]](#ref_turk18)
 
 ### Disciplina
+
 Bei Disciplina handelt es sich um ein Konzept für den Einsatz von Blockchain Technologien zur Speicherung bildungsbezogener Daten von Personen. Das Ziel des Konzeptes ist es, eine Möglichkeit zu finden, den Vorteil der öffentlichen Verifizierbarkeit von public Blockchains wie Etherium mit dem Vorteil keine privaten Daten preiszugeben von privaten Ketten wie Hyperledger zu vereinen. [[KUVS18]](#ref_kuvs18)
 Der Aufbau von Disciplina lässt sich anhand der folgenden Abbildung nachvollziehen:
 
@@ -107,7 +108,26 @@ Autor: Matthias Kersting
 
 ## Blockchain und KI
 
-* https://arxiv.org/abs/1802.04451
+Im Verlauf der letzten Jahre hat es in dem Bereich der Blockchaintechnologien eine immer schneller werdende Entwicklung gegeben, da nicht zuletzt durch die vierte industrielle Revolution Software in weiten Bereichen der Gesellschaft Anwendung findet und so immer mehr Ressourcen in die Erforschung von neuen Technologien investiert werden. 
+Die weite Verbreitung von Software sorgt dafür, dass sich immer mehr Menschen auf die korrekte Funktionsweise der Programme verlassen müssen. Dies ist auch im Fall von Blockchaintechnologien der Fall und obwohl diese häufig als dezentralisiert bezeichnet werden, werden die zugrundeliegenden Programme, wie z.B. die Smart Contracts von Ethereum, dennoch von einigen wenigen Menschen entwickelt, wodurch ungewolltes Verhalten auftreten kann. [[MARW18]](#ref_marw18)
+In der Vergangenheit haben verschiedene Sicherheitslücken in Smart Contracts von Etherium es Hackern mehrfach ermöglicht Schäden im mehrstelligen Millionenbereich (2016: 50 Mio. USD, 2017: 180 Mio. USD) zu verursachen. [[MARW18]](#ref_marw18)
+
+Um Blockchains gegen derartige Risiken abzusichern kann auf den Einsatz von künstlicher Intelligenz zurückgegriffen werden, um die Menschen, die an der Entwicklung beteiligt sind zu unterstützen und z.B. Fehler in Smart Contracts zu verhindern, bevor diese eingesetzt werden.
+
+Wie an der folgenden Abbildung zu sehen ist, kann KI zusätzlich auch angewendet werden, um andere Bereiche von Blockchains zu optimieren:
+
+<a name="ai_blockchain"></a>![ai_blockchain](./images/ai_blockchain.png "Anwendungen von KI im Bereich von Blockchains") Quelle: [[MARW18]](#ref_marw18)
+
+Für die Blockchains ergeben sich Vorteile, da
+- die Skalierbarkeit erhöht wird und es so möglich wird, dass immer mehr Nutzer an einer Blockchain teilnehmen können
+- Sicherheitslücken schneller aufgedeckt und behoben werden können
+- die Effizienz erhöht werden kann, indem die Schwierigkeit von Mining-Aufgaben besser angepasst werden kann
+
+Die durch künstliche Intelligenz erreichbaren Vorteile wirken sich dabei aber auch auf Gebiete auserhalb von Blockchains aus. 
+- Wird die Menge an Energie verringert, die für den Betrieb von Blockchainsystemen notwendig ist, indem z.B. die Architektur der Mining-Hardware optimiert wird, kann der Ausstoß von Treibhausgasen und der Verbrauch von nicht erneuerbaren Energien verringert werden.
+- Durch die Verbesserung von Hash-Algorithmen kann besser sichergestellt werden, dass private Daten von Nutzern, die sich in Blockchains befinden besser geschützt werden können.
+
+Durch die stetige Entwicklung von neuen Technologien im Bereich der künstlichen Intelligenz werden sich auch in Zukunft noch weitere Anwendungsfälle im Bezug auf Blockchaintechnologien ergeben.
 
 Autor: Matthias Kersting
 
@@ -128,6 +148,8 @@ potential applications for education ; URL: <a>https://link.springer.com/article
 <a name="ref_korm17">[KORM17]</a>: Korman, Zachary ; 19.12.2017: Legal Tech: The Era of Bad Ideas ; URL: <a>https://www.law.ox.ac.uk/business-law-blog/blog/2017/12/legal-tech-era-bad-ideas</a> (abgerufen am 06.05.2018)
 
 <a name="ref_kuvs18">[KUVS18]</a>: Kuvshinov, Kirill et al. ; 30.01.2018: Disciplina: Blockchain for Education ; URL: <a>https://disciplina.io/yellowpaper.pdf</a> (abgerufen am 05.05.2018)
+
+<a name="ref_marw18">[MARW18]</a>: Marwala, Tshilidzi et al. ; 13.02.2018: Blockchain and Artificial Intelligence ; URL: <a>https://arxiv.org/abs/1802.04451</a> (abgerufen am 10.05.2018)
 
 <a name="ref_nort16">[NORT16]</a>: Norton, Steven ; 20.05.2016: Downfall of DAO Digital Currency Fund Shows Blockchain Reputational Risk ; URL: <a>https://blogs.wsj.com/cio/2016/06/20/downfall-of-dao-digital-currency-fund-shows-blockchain-reputational-risk/</a> (abgerufen am 04.05.2018)
 
