@@ -237,6 +237,7 @@ Abbildung entnommen aus
 
 <a>[[IMPO18]](#ref_IMPO18)</a>
 
+<!--
 ### Blöcke
 
 Der Begriff Blockchain setzt sich aus den englischen Wörten „block“ und „chain“ zusammen. Dies übersetzt bedeutet so viel wie Blockkette, Kette aus Blöcken oder verkettete Blöcke. Dieser Abschnitt behandelt den Aufbau eines einzelnen Blockes der Blockchain.
@@ -256,6 +257,8 @@ Abbildung entnommen aus
 Aufbau eines einzelnen Blocks.
 Abbildung entnommen aus
 <a>[[ZHEN17]](#ref_ZHEN17)</a>
+
+-->
 
 Wie in der Abbildung zu sehen ist besteht der Block aus unterschiedlichen Elementen. Der Header unterteilt sich in die folgenden sechs Teile:
 
