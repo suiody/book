@@ -366,7 +366,7 @@ Für die Investoren des ICOs hat sich der Wert der Token im Idealfall durch medi
 
 Die Etablierung von Token und ICOs wird vorallem ermöglicht durch eine vereinfachte Entwicklung, unterstützt durch die ERC Standards (Ethereum Request for Comments) für die Smart Contract Plattform der Ethereum Blockchain. 
 
-Sie bieten ein einheitliches Interface, dass alle grundlegenden Funktionalitäten, die ein Token benötigt, bereitstellt. Der erste und verbreiteste Tokenstandard ist ERC-20 <a>[[VOGE15]](#ref_voge15)</a>, daneben gibt es noch einige weitere, neuere Tokenstandards die mehr Funktionen bereitstellen, auf die and dieser Stelle nicht weiter eingegangen wird.
+Sie bieten ein einheitliches Interface, dass alle grundlegenden Funktionalitäten, die ein Token benötigt, bereitstellt. Der erste und verbreiteste Tokenstandard ist ERC-20 <a>[[VOGE15]](#ref_voge15)</a>, daneben gibt es noch einige weitere, neuere Tokenstandards die mehr Funktionen bereitstellen, auf die and dieser Stelle nicht weiter eingegangen wird. Um einen eigenen ERC-20 Token zu generieren ist kaum Aufwand erforderlich, es kann ein Template ([https://github.com/bokkypoobah/Tokens/blob/master/contracts/FixedSupplyToken.sol](https://github.com/bokkypoobah/Tokens/blob/master/contracts/FixedSupplyToken.sol)) verwendet werden, indem die Bezeichnung, Abkürzung und die Maximalmenge definiert bzw. verändert wird. Anschließend kann der Token auf der Ethereum Blockchain veröffentlicht werden.
 
 #### ERC-20
 
@@ -397,6 +397,11 @@ Hauptfunktionen:
 *Abhebelimit ermitteln, welches über approve zur Verfügung gestellt wurde*
 
 ### Risiken
+
+#### Exit Scams
+
+In der traditionellen Geschäftswelt bezeichnet ein Exit Scam eine Betrugspraktik, bei der ein ursprünglich legitimes Unternehmen beginnt, Dienstleistung oder Waren die gegen Geldzahlungen angeboten werden, nicht mehr zu erfüllen oder zu versenden. Sobald der Betrug öffentlich wird, verschwinden die Urheber des Betrugs mit den unrechtmäßig erhaltenen Zahlungen.
+Auch bei ICOs, unterstützt durch die Anonymität der Finanztransaktionen und fehlender rechtlicher Regulierung, ist diese Betrugsmethode wiederholt erfolgt. Ein Beispiel ist der ICO "Pincoin" eines vietnamesischen Entwicklerkollektivs, bei dem Anfang 2018 ca. 660 Millionen Dollar von 32.000 Investoren eingenommen wurden. Der ICO wurde unteranderem mit dem Versprechen beworben, eine garantierte konstante Rendite auszuzahlen. Wie schon bei anderen ICOs, die dies nicht einhalten konnten, verschwanden die Entwickler nach dem ICO mit dem eingenommenem Kapital. <a>[[BIGG18]](#ref_bigg18)</a>
 
 #### Pump-and-dump
 
@@ -567,6 +572,9 @@ Blockchain-Technologie
 <a name="ref_bagc05">[BAGC05]</a>:Bagchi, Prabir K. ; Chun Ha , Byoung ; Skjoett‐Larsen, Tage ; Soerensen, Lars Boege:Supply chain integration: a European survey. The International Journal of Logistics Management, Vol. 16 Issue: 2, pp.275-294, 2005. DOI: 10.1108/09574090510634557
 
 <a name="ref_beck16">[BECK16]</a>:Beck, Roman ; Stenum Czepluch, Jacob; Lollike, Nikolaj; and Malone, Simon: BLOCKCHAIN – THE GATEWAY TO TRUST-FREE CRYPTOGRAPHIC TRANSACTIONS. Twenty-Fourth European Conference on Information Systems (ECIS), İstanbul,Turkey, 2016. Springer Publishing Company, 2016. p. 1-14.
+
+<a name="ref_bigg18">[BIGG18]</a>: Biggs, John (Techcrunch) : Exit scammers run off with $660 million in ICO earnings. Web-Quelle, 2018,
+[https://techcrunch.com/2018/04/13/exit-scammers-run-off-with-660-million-in-ico-earnings/](https://techcrunch.com/2018/04/13/exit-scammers-run-off-with-660-million-in-ico-earnings/) (letzter Zugriff: 13.05.2018)
 
 <a name="ref_budic18">[BUDI18]</a>: BusinessDictionary.com : What is intermediation? definition and meaning ; URL: http://www.businessdictionary.com/definition/intermediation.html ; Date Accessed: April 29, 2018
 
