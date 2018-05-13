@@ -79,17 +79,27 @@ Im Folgenden werden Beispiele für die Anwendung von Blockchains im Bereich der 
 
 ### EduCTX
 
+EduCTX ist eine globale Credit-Platform im Bereich der höheren Bildung, die sich an dem europäischen System zur Übertragung und Akkumulierung von Studienleistungen (ECTS) orientiert. [[TURK18]](#ref_turk18) 
+Durch die Einführung eines neuen, weltweit angewendeten Standarts soll es möglich werden, dass bestehende sprachliche und administrative Hürden abgebaut werden, die zur Zeit für Studenten bestehen, die ihren Studienort in ein anderes Land verlegen wollen.
+
+Ein Prototyp von EduCTX wurde auf Basis der Ark Blockchain Platform implementiert. In diesem System bilden Bildungseinrichtungen die Peers und damit Netzwerkknoten. Studenten sind die Nutzer der Blockchain und verfügen jeweils über eine eigene sog. Wallet, in der Creditpunkte gespeichert werden können. Erbringt ein Student eine Leistung, für die eine vorgegebene Anzahl von Credits vergeben werden, so sendet die zuständige Bildungseinrichtung dem Studenten die entsprechende Menge an Punkten zusammen mit weiteren Informationen zur bestandenen Prüfung an seine Wallet.
+Der Student kann nun mit Hilfe seiner Wallet weltweit nachweisen, welche Leistungen er erbracht hat und kann weiterhin einem potentiellen Arbeitgeber einen Einblick in seine Ausbildung geben.
+Die folgende Abbildung stellt dieses Sytem dar:
+
+<a name="eductx_aufbau"></a>![eductx_aufbau](./images/eductx_aufbau.png "EduCTX Aufbau") Quelle: [[TURK18]](#ref_turk18)
+
 ### Disciplina
 Bei Disciplina handelt es sich um ein Konzept für den Einsatz von Blockchain Technologien zur Speicherung bildungsbezogener Daten von Personen. Das Ziel des Konzeptes ist es, eine Möglichkeit zu finden, den Vorteil der öffentlichen Verifizierbarkeit von public Blockchains wie Etherium mit dem Vorteil keine privaten Daten preiszugeben von privaten Ketten wie Hyperledger zu vereinen. [[KUVS18]](#ref_kuvs18)
 Der Aufbau von Disciplina lässt sich anhand der folgenden Abbildung nachvollziehen:
 
 <a name="disciplina_aufbau"></a>![disciplina_aufbau](./images/disciplina_aufbau.png "Disciplina Aufbau") Quelle: [[KUVS18]](#ref_kuvs18)
 
-Um die privaten Daten der Nutzer zu schützen, kommen bei Disciplina zwei unterschiedliche Blockchains zum Einsatz:
-- Die erste Kette, in der Abbildung mit "Educators" beschriftet, ist eine private Blockchain, die nur Lehrenden zugänglich ist. Hier werden von diesen Blöcke angelegt, die die genauen Daten zu erbrachten Leistungen beinhalten.
-- Die zweite Blockchain ist öffentlich und enthält keinerlei personenbezogene Daten, sondern speichert lediglich Hashwerte, die anhand von Einträgen in der privaten Kette gebildet werden.
+Um die privaten Daten der Nutzer zu schützen, kommen bei Disciplina zwei unterschiedliche Blockchaintypen zum Einsatz:
+- Jeder Educator betreibt eine eigene, private Blockchain, in der die Daten zu erbrachten Leistungen der Lernenden abgelegt werden. Der Inhalt dieser Kette kann nach einer Anfrage von einem Arbeitgeber eingesehen werden.
+- Eine öffentliche Blockchain, die keinerlei personenbezogene Daten enthält, sondern lediglich Hashwerte speichert, die anhand von Einträgen in den privaten Ketten gebildet werden. Der Konsens über valide Blöcke innerhalb dieser Blockchain wird zwischen den sog. Witnesses gebildet.
 
-Durch diese Trennung ist es möglich, zu garantieren, dass die private Blockchain nicht manipuliert werden kann und gleichzeitig zu verhindern, dass private Daten öffentlich zugänglich sind.
+Durch diese Trennung ist es möglich, zu garantieren, dass die privaten Blockchains nicht manipuliert werden können und gleichzeitig zu verhindern, dass private Daten öffentlich zugänglich sind.
+Um zu verhindern, dass die public Blockchain mit unnötigen Daten überfüllt wird, müssen Lehrende für das Eintragen von neuen Ergebnissen eine Gebühr entrichten. Diese wird daraufhin verwendet, um die Witnesses zu entlohnen, die den Konsens über die Kette bilden.
 
 Autor: Matthias Kersting
 
