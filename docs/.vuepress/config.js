@@ -69,12 +69,6 @@ module.exports = {
         ]
       },
       {
-        title: 'VR / AR',
-        children: [
-          '/vr-ar/'
-        ]
-      },
-      {
         title: 'Blockchain',
         children: [
           '/blockchain/grundlagen/',
