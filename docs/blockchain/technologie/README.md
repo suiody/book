@@ -11,7 +11,9 @@ Die Blockchain-Verwaltungssysteme werden als verteilte Konsensussysteme bezeichn
 
 In anderen Worten: Ein Blockchain-System ist eine sequenzielle Datenbank mit konstanten Datensätzen, welche in einem P2P-Netzwerk mithilfe von Crypto-Economics und Konsensusalgorithmen validiert und gespeichert werden.
 
-Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transaktionshistorie festgehalten wird, wie zum Beispiel einem öffentlichen Konto. Jeder Block zeigt auf den Vorgänger die ganze Blockkette entlang bis auf den ersten Block einer Blockchain, den sogenannten "Genesisblock". <a>[[ZHENG17]](#ref_Zheng17)</a>
+Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transaktionshistorie festgehalten wird, wie zum Beispiel einem öffentlichen Konto. Jeder Block zeigt auf den Vorgänger die ganze Blockkette entlang bis auf den ersten Block einer Blockchain, den sogenannten "Genesisblock".   
+Er ist der erste und älteste Block der Blockchain. Als Ursprungsblock kann nur er alleine keinen sogenannten „parent block“, frei übersetzt Elternblock, haben. Jeder andere Block der Blockchain verweist jeweils auf den vorherigen Block. Die Blockchain ähnelt somit der Datenstruktur einer einfach verketteten Liste.  
+Die Aufgabe von Blöcken ist es Transaktionen innerhalb der Blockchain zu bündeln. Diese Blöcke werden dann mit unterschiedlichsten Verfahren auf alle Netzwerkknoten verteilt. Ein Block lässt sich in einen „block header“ und den „block body“ unterteilen. Der Block header enthält Metainformationen über den Block selbst, Elternblock und die Transaktionen. <a>[[ZHENG17]](#ref_Zheng17)</a>, [Björn Enders-Müller"]
 
 Die Abbildung "Blockchain Architektur" zeigt, dass eine zufällige Zeichenkette (Nonce) solange iteriert wird, bis ihr Hashwert den Zielvorgaben des Netzwerkes entspricht. Ist dies der Fall, kommt der Block in die Blockchain. <a>[[ANDE16]](#ref_Ande16)</a>
 
@@ -235,6 +237,7 @@ Abbildung entnommen aus
 
 <a>[[IMPO18]](#ref_IMPO18)</a>
 
+<!--
 ### Blöcke
 
 Der Begriff Blockchain setzt sich aus den englischen Wörten „block“ und „chain“ zusammen. Dies übersetzt bedeutet so viel wie Blockkette, Kette aus Blöcken oder verkettete Blöcke. Dieser Abschnitt behandelt den Aufbau eines einzelnen Blockes der Blockchain.
@@ -254,6 +257,8 @@ Abbildung entnommen aus
 Aufbau eines einzelnen Blocks.
 Abbildung entnommen aus
 <a>[[ZHEN17]](#ref_ZHEN17)</a>
+
+-->
 
 Wie in der Abbildung zu sehen ist besteht der Block aus unterschiedlichen Elementen. Der Header unterteilt sich in die folgenden sechs Teile:
 
@@ -286,9 +291,16 @@ Zuerst wird für jede Transaktion (TX0 bis TX3) ein Hash-Wert (Hash0 bis Hash3) 
 
 Autor: Kevin Schima
 
-### Abgrenzung: Token / Coins
+### Fiatgeld
 
-... ...
+Unter Fiatgeld (von lat. "fiat" - "es werde") werden Finanzwährungen zusammengefasst, deren Wert die ausstellenden Notenbanken garantieren und die als gesetzliches Zahlungsmittel von den ausgebenden Ländern vorgeschrieben sind. Die Schaffung eines eigenen Währungssystems ermöglicht einem Staat den Wert bzw. die Inflation zu steuern und Einfluss auf das Wirtschaftssystem zu nehmen.
+
+
+### Tokenization
+Tokenization (von Englisch "token": "Wertmarke") beschreibt den Prozess, ein digitales Abbild eines Assets / Anlageguts (Edelmetalle, Immobilien usw.), über Smart Contracts bzw. Blockchain Technologie im Allgemeinen, handelbar zu machen. Schon vor der Entwicklung von Währungssystemen, wurden von Goldschmieden und Banken Wertscheine ausgestellt, die den Besitz einer hinterlegten Goldmenge bescheinigten, wodurch Händler einfacher Zahlungen untereinander tätigen konnten ohne physisch Gold auszutauschen. Später wurde durch Banknoten eine universelle Akzeptanz ermöglicht und durch elektronische Überweisungen der Transfer von Geld erleichtert.
+
+Tokenization erlaubt erweiterte Möglichkeiten: Es gibt in der Regel keine zentrale Entität, der vertraut werden muss, Vertrauen wird geschaffen durch die Nutzung von Blockchain Technologie und durch die Offenlegung der Token Quellcodes. Schließlich erlaubt die Verwendung von Token neuartige Anwendungsmöglichkeiten und eine weltweite potentielle Nutzerbasis.
+
 
 ### Arten von Token
   
@@ -312,9 +324,8 @@ Coins wie Bitcoin, Ethereum und ähnliche, sind zunächst spekulative Wertaufbew
 
 #### Asset-backed Token
 
-Unter Asset-based Token werden mit Assets, also mit Anlagegütern, gestützte Token verstanden. Beispiele dafür ist die mit Rohöl gedeckte, von der brasilianischen Regierung lancierte, aber umstrittene Kryptowährung "Petrol" oder der mit Gold gedeckte, noch nicht öffentliche gehandelte "Digix Gold Token (DGX)". Anteile an weiteren bespielhaften Anlagegütern sind möglich z.B. Windkraftanlagen, Immobilien, deren Finanzierung eventuell dadurch erst möglich ist. 
+Unter Asset-based Token werden mit Assets, also mit Anlagegütern, gestützte Token verstanden. Beispiele dafür ist die mit Rohöl gedeckte, von der brasilianischen Regierung lancierte, aber umstrittene Kryptowährung "Petrol" oder der mit Gold gedeckte, noch nicht öffentliche gehandelte "Digix Gold Token (DGX)". Anteile an weiteren beispielhaften Anlagegütern sind möglich z.B. Windkraftanlagen, Immobilien, deren Finanzierung eventuell dadurch erst möglich ist. 
 
-### Tokenization
 
 ### Initial Coin Offering (ICO)
 
@@ -327,19 +338,19 @@ Während der traditionelle Finanzmarkt durch nationale und internationale Finanz
 
 #### Typischer Ablauf eines ICOs basierend auf Ethereum (ERC20) Token
 
-* Ein Unternehmen bzw. loses Entwicklerkollektiv veröffentlich ein Whitepaper in dem eine Geschäftsidee / Anwendungsbereich für den Token und eventuell zukünftige Entwicklungsziele formuliert sind
+* Ein Unternehmen bzw. loses Entwicklerkollektiv veröffentlicht ein Whitepaper in dem eine Geschäftsidee / Anwendungsbereich für den Token und eventuell zukünftige Entwicklungsziele formuliert sind
 
 * Ein Smart Contract auf ERC20 Basis wird für den ICO erstellt, um Investoren Anteile an dem Projekt zur Verfügung zu stellen, in diesem Smart Contract wird unteranderem Bezeichnung und Maximalmenge an Token definiert
 
 * Optionale nicht-öffentliche Pre-Sale bzw. Pre-ICO Phase für Großinvestoren, die individuelle Konditionen beinhaltet
  
-* Der öffentliche Token Verkauf (Sale) beginnt, der ICO Ersteller legt einen initialen Verkaufspreis fest, bespielsweise 1000 Token / 1 Ether.
+* Der öffentliche Token Verkauf (Sale) beginnt, der ICO Ersteller legt einen initialen Verkaufspreis fest, beispielsweise 1000 Token / 1 Ether.
 
 * Der Token Sale endet erfolgreich wenn mindestens das Soft-Cap (Mindestausgabemenge) innerhalb einer zeitlichen Deadline erreicht ist bzw. spätestens wenn das Hard-Cap erreicht ist (Maximalausgabemenge)
 
 * Der Token wird an speziellen Kryptowährungs / Token Börsen gelistet, und kann öffentlich gehandelt werden, der Wert der Token wird durch die Marktmechanismen Angebot/Nachfrage bestimmt
 
-Für die Investoren des ICOs hat sich der Wert der Token im Idealfall durch mediale Aufmerksamkeit, Entwicklungsfortschritt und Kooperationen mit anderen Unternehmen gegenüber des intialen Sales bzw. Pre-Sales vervielfacht. 
+Für die Investoren des ICOs hat sich der Wert der Token im Idealfall durch mediale Aufmerksamkeit, Entwicklungsfortschritt und Kooperationen mit anderen Unternehmen gegenüber des initialen Sales bzw. Pre-Sales vervielfacht. 
 
 #### Vorteile
 
@@ -351,7 +362,52 @@ Für die Investoren des ICOs hat sich der Wert der Token im Idealfall durch medi
 
 * Aufgrund der anonymen Struktur von ICOs und der bisher kaum erfolgenden rechtlichen Regulierung kam es in der Vergangenheit wiederholt zu sogenannten exit-scams, dabei sind die Projektinitiatoren mit sämtlichen Investments untergetaucht
 
+### ERC Token Standards
 
+Die Etablierung von Token und ICOs wird vorallem ermöglicht durch eine vereinfachte Entwicklung, unterstützt durch die ERC Standards (Ethereum Request for Comments) für die Smart Contract Plattform der Ethereum Blockchain. 
+
+Sie bieten ein einheitliches Interface, dass alle grundlegenden Funktionalitäten, die ein Token benötigt, bereitstellt. Der erste und verbreiteste Tokenstandard ist ERC-20 <a>[[VOGE15]](#ref_voge15)</a>, daneben gibt es noch einige weitere, neuere Tokenstandards die mehr Funktionen bereitstellen, auf die and dieser Stelle nicht weiter eingegangen wird. Um einen eigenen ERC-20 Token zu generieren ist kaum Aufwand erforderlich, es kann ein Template ([https://github.com/bokkypoobah/Tokens/blob/master/contracts/FixedSupplyToken.sol](https://github.com/bokkypoobah/Tokens/blob/master/contracts/FixedSupplyToken.sol)) verwendet werden, indem die Bezeichnung, Abkürzung und die Maximalmenge definiert bzw. verändert wird. Anschließend kann der Token auf der Ethereum Blockchain veröffentlicht werden.
+
+#### ERC-20
+
+Hauptfunktionen:
+
+* totalSupply: 
+
+*Gesamtmenge an Token abfragen*
+
+* balanceOf: 
+
+*Token Anzahl einer Adresse abfragen*
+
+* transfer: 
+
+*Einer Adresse eine Anzahl Token senden*
+
+* transferFrom:
+
+*Eine Anzahl Token von einer bestimmten Adresse zu einer anderen übertragen*
+
+* approve: 
+
+*Einer Adresse, das Abheben einer definierten Tokenmenge erlauben*
+
+* allowance: 
+
+*Abhebelimit ermitteln, welches über approve zur Verfügung gestellt wurde*
+
+### Risiken
+
+#### Exit Scams
+
+In der traditionellen Geschäftswelt bezeichnet ein Exit Scam eine Betrugspraktik, bei der ein ursprünglich legitimes Unternehmen beginnt, Dienstleistung oder Waren die gegen Geldzahlungen angeboten werden, nicht mehr zu erfüllen oder zu versenden. Sobald der Betrug öffentlich wird, verschwinden die Urheber des Betrugs mit den unrechtmäßig erhaltenen Zahlungen.
+Auch bei ICOs, unterstützt durch die Anonymität der Finanztransaktionen und fehlender rechtlicher Regulierung, ist diese Betrugsmethode wiederholt erfolgt. Ein Beispiel ist der ICO "Pincoin" eines vietnamesischen Entwicklerkollektivs, bei dem Anfang 2018 ca. 660 Millionen Dollar von 32.000 Investoren eingenommen wurden. Der ICO wurde unteranderem mit dem Versprechen beworben, eine garantierte konstante Rendite auszuzahlen. Wie schon bei anderen ICOs, die dies nicht einhalten konnten, verschwanden die Entwickler nach dem ICO mit dem eingenommenem Kapital. <a>[[BIGG18]](#ref_bigg18)</a>
+
+#### Pump-and-dump
+
+Unter Pump-and-dump wird im Allgemeinen eine illegale Praktik im Finanzwesen bezeichnet, bewusst falsche Informationen zu verbreiten, die im Falle von börsennotierten Unternehmen, eine Kurssteigerung auslösen (pump). Zuvor hat der Verbreiter dieser Informationen, in Unternehmensanteile (Aktien) des Unternehmens investiert oder Optionen auf eine Kurssteigerung platziert. Sobald die (überbewerteten) Unternehmensanteile nach einem Kursanstieg schlagartig verkauft werden (dump), fällt der Aktienkurs dramatisch.
+Im Umfeld der Kryptowährung wurden ähnliche Praktiken angewendet: Mit der Aussicht auf erheblichen finanziellen Gewinn, wurden beispielsweise im Instant-Messaging-Dienst Telegram viele sogenannter "pump-and-dump" Gruppen gegründet <a>[[MART18]](#ref_mart18)</a>, die Privatinvestoren anziehen. In diesen Gruppen werden Zeitpunkte publiziert an denen Einheiten einer Kryptowährung gekauft werden sollen, mit dem Ziel, den Kurs ansteigen zu lassen. Die Teilnehmer dieser Gruppen sind der Auffassung einen Gewinn erzielen zu können, da sie die Information vor der breiten Öffentlichkeit erhalten haben und der Kurs zunächst auch steigt, ausgelöst durch die erhöhte Nachfrage.
+Die Gründer dieser Nachrichtengruppen haben in der Regel schon vor Verbreitung des Kaufsignals hohe Kapitalmengen investiert. Sie stoßen als Erste schlagartig alle Anteile ab, worauf der Kurs, ausgelöst durch weitere Panikverkäufe, zusammenbricht.
 
 ## Herausforderungen und Risiken
 
@@ -425,17 +481,13 @@ https://publishup.uni-potsdam.de/opus4-ubp/frontdoor/deliver/index/docId/10314/f
 
 ### Ökonomische und gesellschaftliche Herausforderungen
 
-Autoren: Mario Cichonczyk und Martin Teuber
+#### Soziale Implikationen
+Autor: Martin Teuber
 
-Konsequenzen
-Sozial-wissenschaftlich
-betriebswirtschaftlich
-
-=======
 #### Ökonomische Implikationen
 Autor: Mario Cichonczyk
 
-Dass Blockchaintechnologien ein disruptives Potential aufweisen, scheint eine ihrer am häufigsten betonten Eigenschaften zu sein. Wie sie in konkreten Anwendungsfällen Veränderungen anstoßen können ist vielfach diskutiert. Ziel dieses Kapitels ist es, ein Verständnis zu entwickeln, warum die Blockchain einen für Marktprozesse relevanten Progressionsträger darstellen kann. Dabei wird explizit versucht das Eingehen auf einzelne Applikationen zu vermeiden und stattdessen ökonomische Zusammenhänge hervorzuheben, die nach Abstraktion den meisten wichtigen Wirtschaftsprozessen zugrunde liegen. Diese Herangehensweise soll es dem Leser ermöglichen, neue Anwendungsszenarien zu spezifizieren und einen Blick in die langfristige Zukunft des cyber-physischen Wirtschaftssystems zu wagen.
+Dass Blockchaintechnologien ein disruptives Potential aufweisen, scheint eine ihrer am häufigsten betonten Eigenschaften zu sein. Wie sie in konkreten Anwendungsfällen Veränderungen anstoßen können, ist vielfach diskutiert. Ziel dieses Kapitels ist es, ein Verständnis zu entwickeln, warum die Blockchain einen für Marktprozesse relevanten Progressionsträger darstellen kann. Dabei wird explizit versucht das Eingehen auf einzelne Applikationen zu vermeiden und stattdessen ökonomische Zusammenhänge hervorzuheben, die nach Abstraktion den meisten wichtigen Wirtschaftsprozessen zugrunde liegen. Diese Herangehensweise soll es dem Leser ermöglichen, neue Anwendungsszenarien zu spezifizieren und einen Blick in die langfristige Zukunft des cyber-physischen Wirtschaftssystems zu wagen.
 
 Beim Verschaffen eines Überblicks über die am stärksten betonten, ökonomischen Verwendungsbeispiele der Blockchain, scheinen sich drei kategorische Leitmotive hervorzuheben: Intermediation, Wirtschaftstransparenz und Wirtschaftsautomation.
 
@@ -449,7 +501,7 @@ Offensichtlich kann sich auf diese Weise eine komplexe Kette von Handelsstufen z
 Disintermediation als Prinzip der Eliminierung von Kettengliedern in Transmissionsmechanismen ist allerdings kein durch die Blockchain verursachtes Gedankenkonstrukt. <a>[[GELL96]](#ref_gell96)</a> beobachtete die ersten entsprechenden Phänomene  bereits in den 1970ern. Provoziert durch regulatorische Veränderungen im Investmentbankensystem entstand eine signifikante Differenz zwischen Zinszahlungen von Großbanken und anderen Formen der direkteren Kapitalanlage. Konsumenten wanderten aus diesem Grund verstärkt von etablierten Investmentbanken ab und brachten ihre Assets autark mit geringeren Transaktionskosten und größeren Erträgen gewinnbringend in einem selbstgesteuerten Portfolio unter. Banken wurden nicht länger als monopolistische Intermediäre wahrgenommen. Fortan festigte sich die Apperzeption von Disintermediationseinflüssen, sodass diese in der ökonomischen Literatur aufgenommen und reflektiert wurden. Besondere Aufmerksamkeit erhielt dabei die zunehmende Geltungskraft des Internets vor der Jahrtausendwende. Diese Phase ist aus heutiger Sicht aufgrund ihrer Korrelation zur Etablierung der Blockchain erneut bedeutsam. Realweltintermediäre sahen sich der denkbaren Disintermediation durch eCommerce ausgesetzt. Die Unternehmen, die damals als digitale Vorreiter erfolgreich in das Internetzeitalter übergingen, stehen nun vor dem gleichen Paradigmenwechsel wie jene Unternehmen, die sie einst verdrängten. Was das Internet für Realweltintermediäre in den 1990ern bedeutete, repräsentiert die Blockchain für Handelsprofiteure, die mit der Dotcom-Blase und dessen Nachwirkungen in die Moderne eingezogen sind.
 
 Um eine hypothetische Prognose über die Zukunft von Assetflows unter angenommener Konstituierung der Blockchain abgeben zu können, lohnt es sich die ökonomische Aufarbeitung des Jahrtausendwechsels als Schlüsselindikator heranzuziehen. So fasst <a>[[GIAG99]](#ref_giag99)</a> zusammen, dass der Markt grundsätzlich dazu tendiert, Intermediäre zu verdrängen. Ihre Margen führen zu einer direkten Erhöhung des Preises für den Verbraucher. Zusätzlich können Produzenten den vollen Marktwert ihrer Produkte nicht ausschöpfen. Das Aufkommen einer Technologie, die Produzent und Konsument näher zusammenbringt, wird - begründet durch die Majorität und Entbehrung dieser Interessensgruppe - positiv in das Wirtschaftssystem aufgenommen. Dieser Effekt initiiert für nun in Zwangslage geratene Intermediäre drei mögliche Szenarien: Disintermediation, Reintermediation oder Cybermediation <a>[[GIAG99]](#ref_giag99)</a>. Das offensichtliche, erste Szenario, ist der mit sinkenden Transaktionskosten verbundene Druck auf Vermittler, die an ihrer traditionellen Rolle festhalten und langfristig aus dem Markt geschwemmt werden. Wenn von "Disruption" gesprochen wird, scheint die Assoziation mit dem vollständigen Verschwinden von Handelsstufen vorherrschend. Durch das Konzept der Reintermediation präsentiert sich aber eine aus Sicht der Marktmanier natürlichere Option. In diesem Fall bewegen sich Intermediäre in Nischen, in denen sie weiterhin kommerzielle Transaktionen vermitteln können oder durch Produktaugmentierung einen Mehrwert generieren. Ihre angepasste Rolle erlaubt ihnen dann das Fortbestehen parallel zum transformierten Wirtschaftskreis. 
-Sind Vermittler aus dem Markt ausgeschieden oder haben sich in Nischen gerettet, existieren noch jene, die erst durch das neue Medium ihre Daseinsberechtigung erhalten und ihm vollends innewohnen. Diese Kategorie umfasst alle Aktuere, die mit ihren Geschäftsmodellen die Renditen der digitalen Wende einfahren. Und genau diese *Cybermediäre* scheinen nun durch die Blockchain mit der gleichen Wahl eines Zukunftsszenarios gegenübergestellt, wie ehemals ihre Vorgänger am Ende des letzten Jahrhunderts.
+Sind Vermittler aus dem Markt ausgeschieden oder haben sich in Nischen gerettet, existieren noch jene, die erst durch das neue Medium ihre Daseinsberechtigung erhalten und ihm vollends innewohnen. Diese Kategorie umfasst alle Akteure, die mit ihren Geschäftsmodellen die Renditen der digitalen Wende einfahren. Und genau diese *Cybermediäre* scheinen nun durch die Blockchain mit der gleichen Wahl eines Zukunftsszenarios gegenübergestellt, wie ehemals ihre Vorgänger am Ende des letzten Jahrhunderts.
 
 Unterschiedliche Marktfunktionen sind verschieden stark durch derartige Transformationsprozesse bedroht und äußern so auch differenzierte Effekte <a>[[GIAG99]](#ref_giag99)</a>. Die nachstehende Tabelle gibt einen Überblick über betroffene Anwendungsbereiche und deren beobachtete Reaktion.
 
@@ -470,26 +522,74 @@ Zweifelsohne repräsentiert die Blockchain eine Technologie, die Märkte revolut
 Die Beobachtungen, die der Digitalisierung der Wirtschaft zur Jahrtausendwende zugrunde liegen, geben den Eindruck, dass der dezentrale, transparente Markt zwar sicherlich erneut intermediärsfeindlich wirkt, deren Existenzwille aber primär zu veränderten und/oder neuartigen Vermittlungsdiensten führt. Disintermediation scheint nicht das zwingend folgende Ergebnis der Konstituierung der Blockchain zu sein. Vielmehr haben wir mit einer Landschaft hochspezialisierter, neuartiger  Dienstleistungen zu rechnen.
 
 ##### Wertschöpfungstransparenz
-...
-##### Wirtschaftsautomation - M2M Transaktionen
+Im ersten Abschnitt wurde beschrieben, wie ein Asset über den Weg intermediärer Handelsstufen durch den Markt fließt. Der primäre Aspekt der Analyse lag also beim Einfluss der Blockchain auf die Vermittlung von Besitzübertragungsvorhaben. Diese Einsicht kann als abstrakte Beobachtung der *Bewegung* eines Produktes interpretiert werden. Der nachfolgende Abschnitt soll sich demgegenüber nun mit der *Veränderung* eines Wirtschaftsguts befassen.
 
-...
+Naheliegend ist, dass ein Produkt verändert wird, um im Einflussbereich eines Marktsegmentes einen Bedarf zu decken. Es wird also ein Mehrwert generiert. Folgen mehrere solcher Veränderungsprozesse aufeinander, wird der Begriff der Wertschöpfungskette offensichtlich. Jedes Produkt, welches nicht unverändert und direkt vom Ersterzeuger an den Endverbraucher übergeht, ist das Ergebnis einer solchen Folge von Wertaugmentierungen. Mit dieser Wahrnehmung kommt das Verständnis, dass Wertschöpfungsketten - auch Supply Chains genannt – die Produktion, Vorhaltung und Distribution von Gütern und assoziierten Diensten ermöglichen und somit die Infrastruktur des globalen Wirtschaftssystems bilden <a>[[ NAGU07]](#ref_nagu07)</a>.
+
+Die Steuerung und Optimierung solcher Ketten wird als Supply Chain Management bezeichnet. <a>[[COOP97]](#ref_coop97)</a> beschreibt den Zweck von SCM mit der Reduzierung des Gesamtaufwands an Ressourcen, die notwendig sind, um das angestrebte Marktziel zu erreichen. Realisiert wird dies durch die Synchronisierung von Kundenanforderungen mit dem Materialfluss, Reduktion von Inventarinvestitionen und Verbesserungen von Dienstleistungen.  All diese Maßnahmen verschaffen einen kompetitiven Vorteil. Früh wurde die Beobachtung gemacht, dass der eigentliche Konkurrenzkampf nicht zwischen Unternehmen, sondern optimierten Supply Chains stattfindet <a>[[COOP97]](#ref_coop97)</a>. Productowner haben demnach ein wirtschaftliches Interesse, den Erzeugungsprozess ihres Assets unternehmensübergreifend mit zentralisierter Kontrolle zu steuern.
+
+Das identische Prinzip konsolidierter Kontrolleinheiten wird angewandt, um regulatorischen Bedürfnissen nachzukommen <a>[[TIAN16]](#ref_tian16)</a>. In diesem Fall ist das konkrete Ziel nicht die Sicherstellung optimaler Wirtschaftlichkeit, sondern die Einhaltung gesetzlicher Vorgaben, die mit der Erstellung eines Produkts geknüpft sind. 
+In beiden Fällen werden die besten Ergebnisse erzielt, wenn die Wertschöpfungskette maximal integriert ist <a>[[BAGC05]](#ref_bagc05)</a>. Integration beschreibt in diesem Kontext die informationstechnische Verknüpfung aller Wertaugmentierer. Der Schaffungsprozess eines wie beschrieben überwachten Produktes projiziert sich also auf ein verteiltes System. Es sollte nun klarwerden, welcher anhaftende Nachteil aufkommt. <a>[[TIAN16]](#ref_tian16)</a> sieht im modernen Supply Chain Management monopolistische, asymmetrische Informationssysteme mit dem Risiko der Manipulation durch Nutznießer, die entweder mit einem beträchtlichen Investment oder durch markterzwungene Abhängigkeiten in das System involviert sind. Kunden und Regulatoren können die Herkunft von Materialien oder die Einhaltung ethischer Aspekte im Herstellungsprozess nicht nachvollziehen ohne die Vertrauensfrage zu stellen, die für verteilte und gleichzeitig nicht dezentrale Systeme typisch ist <a>[[ETLA16]](#ref_etla16)</a>. Aus diesem Grund sind Nachhaltigkeitsstandards und Zertifizierungen mangels Überprüfbarkeit als wertlos zu erachten, da weder die Absicht der Supply Chain Betreiber noch die Integrität ihrer Datenquellen transparent ist <a>[[ABEY16]](#ref_abey16)</a>. Die Verstärkung der Sichtbarkeit von Wertschöpfungsketten ist also schon länger ein aktiv verfolgtes Vorhaben, wird aber durch die Art und Weise der Umsetzung von SCM eingeschränkt. Mit der Blockchain entstand nun eine Technologie, die das fundamentale Problem der SCM-Transparenz zu lösen vermag.
+
+<a>[[ABEY16]](#ref_abey16)</a> beschreibt, wie das Crypto-SCM strukturiert ist. Produkte werden mit einem in der Blockchain ablegbaren Identifikator versehen (zum Beispiel ein RFID-Tag oder QR-Code). Der Identifikator wird Teil des digitalen Produktprofils und kann vom temporalen Besitzer mit weiteren Informationen angereichert werden. Wenn dieses Profil in der Blockchain hinterlegt ist, kann jeder Systemteilnehmer zu jedem Zeitpunkt die perfekte Information über ein Produkt und dessen Historie abrufen. Dem Datensatz kann dabei im Sinne des Blockchain-Versprechens vertraut werden. Bei der Erstellung von Public-Private-Keypaaren werden diese eindeutig mit einem Wertaugmentierer verknüpft. Nicht nur kann das Produkt besser zurückverfolgt werden, es wird auch ein größeres Potential der Verantwortungsbindung geschaffen. 
+
+Die Blockchain als transformative Technologie im Supply Chain Management offeriert dementsprechend Vorteile für alle Stakeholder: Unternehmen, Staat und Kunden. Das Crypto-SCM ebnet den Weg für maximale, regulatorische Kontrolle und bietet eine technisch valide Unterstützung für Nachhaltigkeitsstandards. Gleichzeitig steht es dem Kunden immer frei sich vor oder nach seinem Kauf über das Produkt und dessen Entstehungsprozess im Detail zu informieren. Aus unternehmerischer Sicht bildet die Blockchain eine attraktive Basis für effizienteres Supply Chain Management ohne die Einstreuung von Misstrauen durch zentralisierte Systeme. Zusätzlich wird prognostiziert, dass die Blockchain einem der größten Probleme des Supply Chain Managements Einhalt gebieten kann: dem sogenannten Bullwhip-Effekt <a>[[SSEB17]](#ref_seeb17)</a>. Dieser manifestiert sich durch die serielle Propagation von Prognosen entlang der Supply Chain.  Wenn Nachfragen schwanken, wird das erste Kettenglied die Schwankung zwar akkurat, aber zur Reduktion von Risiken immer wohlwollend und damit etwas umfangreicher prognostizieren. Dessen Bestandsplanung hat wiederum Einfluss auf nachgelagerte Kettenglieder, welche die nun aus ihrer Sicht größere Nachfrageschwankung mit dem gleichen Motiv erneut wohlwollender Beziffern. Dieser Effekt wächst entlang der Wertschöpfungskette exponentiell, sodass kleine Oszillationen an einem Kettenende zu sehr großen Effekten - und somit ineffizienten Planungsverzerrungen - am anderen Ende führen. Die geteilte Information der Blockchain parallelisiert die Bestandsplanung aller Teilnehmer und eine Stabilisierung des Gesamtsystems ist die Folge.
+
+Auf den ersten Blick scheint die Blockchain im Supply Chain Management keinerlei Nachteile aufzuweisen und der Einzug von Crypto-SCM wirkt erwartbar. Allerdings beobachtet <a>[[APTE16]](#ref_apte16)</a> noch ein elementares Problem. Die genannten Vorzüge sind allesamt anerkannt, funktionieren aber nur unter der Annahme, dass die Information in der Blockchain mit der Realität kongruent ist. Es gibt nach aktuellem technischen Stand keinerlei Garantie, dass sich ein digitaler Identifikator, dessen angereichertes Produktprofil und das Realweltpendant spiegelgleichen. Ohne eine solche Sicherheit hat das Crypto-SCM noch keinen unanfechtbaren Mehrwert. Das virtualisierte Produkt unterliegt zwar dem Transparenzversprechen der Blockchain, die Verbindung zum physischen Gegenstück ist aber weiterhin im Wirkungsbereich Dritter. Somit wird das Vertrauensproblem nur verlagert. Maligne Systemteilnehmer haben weiterhin einen einfachen Hebel, ihre eigennützigen Interessen unkontrolliert durchzusetzen. Die Alternative wäre nach <a>[[APTE16]](#ref_apte16)</a> ein regelmäßiger Auditprozess. 
+
+Im Ausblick ist aufgrund dieser Problematik die Zukunft der digitalen Wertschöpfungskette undurchsichtig. Dass dessen Realisierung wünschenswert ist, sollte offensichtlich sein. Vorab muss die eindeutige, unveränderbare Identifikation von Gütern ein Forschungs- und Entwicklungsziel werden. Andernfalls bezieht sich das transformative Potential der Blockchain bloß auf das Problem, nicht auf die Lösung, denn die Notwendigkeit von Auditprozessen ist der gleiche Stand an dem wir uns aktuell befinden. Es sollte angemerkt werden, dass diese Sichtweise als Herausforderung für die akademisch-wirtschaftlichen Zukunftsträger verstanden werden kann und aufgrund der überwiegenden Vorteile der Veränderungsprozess im Supply Chain Management uneingeschränkt weiterläuft. <a>[[FRANC18]](#ref_franc18)</a> hebt den kompetitiven Druck durch immer besser informierte Endkunden hervor. Diese verlangen nicht länger nur einen guten Preis, sondern einen angemessenen Grad der Produkttransparenz. Es ist also zu erwarten, dass nicht zwingend die Existenz der Blockchain selbst den Fortschritt im SCM vorantreibt, sondern sie vielmehr eine Antwort auf die aufgeklärte Entwicklung des Konsummarkts darstellt.
+
+##### Wirtschaftsautomation - M2M Transaktionen
+Bisher wurde in diesem Kapitel angenommen, dass Kaufentscheidungen grundsätzlich von menschlichen Käufern getroffen werden. Zwar werden automatisierte Bestellungsauslösungen bereits in hochintegrierten Supply Chains eingesetzt, im Konsumentenmarkt und bei Business2Business-Transaktionen ohne gemeinsame IT-Integration stecken sie aber noch in den Anfängen. Maschinen wurden in der Vergangenheit an der autarken Marktteilnahme mangels ausreichendem Vertrauen und Identifizierbarkeit gehindert. Mit der Blockchain und dem Trend des Internet-of-Things ändert sich dieses Faktum nun dramatisch: Maschinen bekommen die Möglichkeit, künstlich intelligent ökonomischen Anreizen zu folgen <a>[[HEGA16]](#ref_hega16)</a>. Implizit wurde die Bedeutung der Blockchain für das Bankensystem bereits im Abschnitt zur Intermediation behandelt, dennoch soll an dieser Stelle betont werden, dass mit der Automation von finanziellen Transaktionen ein eigenes Marktvolumen entstehen könnte, welches keinerlei Aufsicht durch Intermediäre bedarf <a>[[HEGA16]](#ref_hega16)</a>. 
+
+Das Internet-of-Things verbindet physische Objekte mit dem virtuellen Raum, in welchem sie nun selbstständig Teil von Geschäftsprozessen werden können. Dem Grundgedanken von IoT folgend, wird die Partizipation solcher intelligenten Objekte am Markt auf einer ad-hoc Basis auch außerhalb fester Strukturen zu erwarten sein <a>[[WILU13]](#ref_wilu13)</a>. M2M-Transaktionen in heterogenen Umgebungen sind bereits vor mehreren Jahren umfangreich vorgedacht worden. Damals wurden aber die fehlenden ubiquitären Sicherheitskonzepte mit dem nachgelagerten Vertrauensmangel und die ausbleibende, globale Anwendbarkeitsgarantie als primäre Progressionshürden identifiziert <a>[[GONC10]](#ref_gonc10)</a>. Mittlerweile gilt die Blockchain als ideale Lösung für die einst postulierten Probleme <a>[[KRAV17]](#ref_krav17)</a>. Smart Devices, die unabhängig Finanztransaktionen ausführen können, werden nun Teil einer "Economy-of-Things" um einen ökonomischen Mehrwert für Nutzer und Besitzer zu generieren <a>[[BECK16]](#ref_beck16)</a>. 
+
+Die Kombination von IoT und Blockchain-Technologien erlaubt die Monetarisierung von (Privat-)Eigentum in uneingeschränktem Umfang und bildet so die Basis der demokratischen, dezentralen "Sharing Economy" <a>[[HUCK16]](#ref_huck16)</a>. "Smart Contracts" und "Dapps" sind die Werkzeuge, die intelligente Geräte und wirtschaftliche Absichten in einen gemeinsamen Kontext bringen (siehe die jeweiligen Kapitel für eine detailliertere Definition). Die teilende Wirtschaft beschreibt den kollaborativen Konsum durch das Überlassen, Austauschen oder Verleihen von Ressourcen ohne eine Eigentumsbeziehung <a>[[PUSC16]](#ref_pusc16)</a>. Das Ziel ist es, unausgelastete Assets zur Nutzung am Markt bereitzustellen. Bislang war ein solches Vorhaben mit der aktiven Anbahnung und Abwicklung eines Tauschgeschäftes verbunden. Der kaufmännische Zusatzaufwand gepaart mit dem Argwohn der unbeaufsichtigten Besitzvergabe haben das Wachstum der Sharing Economy bisher nachvollziehbar eingeschränkt. M2M-Geschäfte mit Unterstützung durch eindeutige, evidente Smart-Contracts lösen diese Hemmnis, da sie den Transaktionsoverhead in einem Rahmen reduzieren, der auch für Privatanwender Akzeptanz und Klarheit schafft <a>[[SUN16]](#ref_sun16)</a>.
+
+<a>[[REDL18]](#ref_redl18)</a> fast zusammen, wie die Zukunft der etablierten Sharing Economy auszusehen vermag, wenn Menschen sich und ihr Eigentum vernetzen und gemeinsam Wert schöpfen. Dieses Prinzip der *commons-based peer production* sorge für neue Wertschöpfungsmuster, die entgegen traditioneller Konzepte auf Offenheit basieren und kollaborativer sowie dezentraler Natur sind. Konsumenten verstünden sich auch als Produzenten, sodass die Abhängigkeit von Unternehmen an Bedeutung verliert und die Grenze zwischen professioneller und nicht-professioneller Sphäre verschwimmt. Unternehmen müssten sich dann als Systemteilnehmer der Sharing Economy unterordnen und würden die Rolle einnehmen, Kollaborationsinfrastrukturen bereitzustellen oder kollaborativ erarbeitete Artefakte effizient zu produzieren. Hochtechnologische, stark spezialisierte Unternehmen wären dann zusätzlich in der Pflicht, ihre Produktentwicklung unter Einbezug von Communities im Sinne von *co-creation* durchzuführen.
+
+Zu beachten ist, dass es sich bei dieser Einschätzung um eine fakultative Zukunftsvision handelt. Sowohl selbst <a>[[REDL18]](#ref_redl18)</a> als auch <a>[[SUND16]](#ref_sund16)</a> sehen eine große Barriere, die den Fortgang zur Sharing Economy verhindert. Auch wenn die Gesellschaft zu einer stärkeren Vernetzung mit geringerem Misstrauen in die autonomen Smart-Devices und Peers tendiert, ist die regulatorische Basis unserer gemeinschaftlichen Jurisdiktion auf der historischen Entwicklung einer Industrie gewachsen, deren Wertschöpfungsverständnis fundamental von der prognostizierten Zukunft verschieden ist. Ökonomische Konstrukte hatten immer einen *top-down approach*. Mit der progressiven *bottom-up* Idee müssen neue juristische Rahmenbedingungen abgesteckt werden. Es ist schwierig vorzustellen, dass sich Privatpersonen mit der Absicht, ihre Smart-Devices in die Sharing-Economy einzubringen, auf bereits etablierte Besteuerungskonzepte abbilden lassen. Sie scheinen weder Einzelunternehmer noch Freiberufler zu sein. Diese sehr einfache Beobachtung zieht umfassend weitere Fragen ähnlicher Natur nach sich. Sind geteilte Wohnungen regulatorisch wie Hotels zu behandeln? Sind geteilte Autos regulatorisch wie Taxis zu behandeln? Beide dieser Probleme sind in aktueller Diskussion und es ist zu erwarten, dass wir in der Zukunft auf vermutlich größere Hürden dieser Art stoßen.
+
+##### Zusammenfassung
+"Disruption" - diese Vorstellung beschreibt die Zukunft der Märkte, wenn wir den Versprechungen der derzeit sprießenden Blockchain-StartUps vertrauen. Das vorliegende Kapitel hatte das Ziel, jene Prozesse der globalen Wirtschaft zu identifizieren, die durch die Blockchain am stärksten beeinflusst werden, um eine Prognose über deren Entwicklung abzugeben. Dabei wurde versucht, Marketingversprechungen kritisch zu hinterfragen und aus objektiver Perspektive einzuordnen. Drei ökonomische Prinzipen wurden beleuchtet: Intermediation, Wirtschaftstransparenz und Wirtschaftsautomation. Dass die Blockchain zwingend Disintermediation verursacht, scheint unwahrscheinlich. Naheliegender ist die Neuaufstellung von aktuellen Marktteilnehmern mit veränderten oder neuartigen Diensten. Diese werden sich transparenter, integrierter und positiver für alle Stakeholder - also Unternehmen, Regulatoren und Konsumenten – konkretisieren. Insbesondere der Konsument ändert dabei seine Rolle zum aktiven Teilnehmer einer intelligenteren Ökonomie.
+
+Es ist eine komplexe Fragestellung, mit welcher Schwere diese Eindrücke die Zukunft formen. In den einzelnen Abschnitten wurden Probleme und Hürden erläutert, die noch vom transformativen Prozess zu nehmen sind. Die Blockchain als disruptive Technologie, in Kombination mit der von ihren Advokaten angetriebenen Medien- und Gründungswelle, befindet sich an einem Punkt, der Parallelen beobachten lässt, die an die disruptiven Versprechungen der Cypherpunks der späten 1980er erinnern. Damals wurden neuartige, asymmetrische Kryptoverfahren als Werkzeug der garantierten Destabilisierung von etablierten Institutionen und Regierungen proklamiert. Der omnipräsent durchsetzbaren Privatsphäre wurden durchschlagende Einflüsse auf die soziale und politische Landschaft nachgesagt <a>[[ARVI13]](#ref_arvi13)</a>. Heute haben diese Verschlüsselungstechnologien Einzug in den Alltag gefunden und werden täglich mit einer integrierten Selbstverständlichkeit benutzt, die dem Anwender vollständiges Nichtwissen über ihr Dasein oder ihre Funktionsweise erlaubt. Gleichzeitig sind aber die Nachwirkungen der Offenlegung staatlicher Überwachung im Rahmen der Snowden-Affäre noch immer zu spüren. Zweifelsohne befinden wir uns nicht in der Zukunftsversion der Cypherpunks.
+
+Diese Parallelen geben den Anreiz, die Blockchain-Zukunft mit Bedacht zu erwarten. Sie wird sicherlich Transformationen mit sich bringen, aber wir sollten uns auf eine Perspektive einstellen, in der die Veränderungsprozesse subtiler stattfinden als derzeit versprochen. Wir werden die neuen Dienste der intelligenten Wirtschaft mit einer Selbstverständlichkeit in Anspruch nehmen, die vom Wissen über die Existenz der zugrundeliegenden Blockchain losgelöst ist.
+
 
 ## Literaturverzeichnis
+<a name="ref_abey16">[ABEY16]</a>:Abeyratne, Saveen ; Monfared, Radmehr: Blockchain Ready Manufacturing Supply Chain Using Distributed Ledger. International Journal of Research in Engineering and Technology. 05. 2016
+
 <a name="ref_Ande16">[ANDE16]</a>: Andersen, Nicolai: Vorstellung der
 Blockchain-Technologie
 „Hallo, Welt!”, Deloitte, 03.2016, URL: https://www2.deloitte.com/content/dam/Deloitte/de/Documents/Innovation/Vorstellung%20der%20Blockchain-Technologie.pdf (letzter Zugriff: 03.05.2018)
 
+<a name="ref_apte16">[APTE16]</a>:Apte, Shireesh: Will blockchain technology revolutionise excipient supply chain management?. Journal of Excipients and Food Chemicals, [S.l.], v. 7, n. 3, p. 76-78, 2016. ISSN 21502668.
+
+<a name="ref_arvi13">[ARVI13]</a>:Narayanan, Arvind: What Happened to the Crypto Dream?, Part 1. in IEEE Security & Privacy, Vol. 11, No. 2, pp.75-76, 2013., DOI: 10.1109/MSP.2013.45
+
+<a name="ref_bagc05">[BAGC05]</a>:Bagchi, Prabir K. ; Chun Ha , Byoung ; Skjoett‐Larsen, Tage ; Soerensen, Lars Boege:Supply chain integration: a European survey. The International Journal of Logistics Management, Vol. 16 Issue: 2, pp.275-294, 2005. DOI: 10.1108/09574090510634557
+
+<a name="ref_beck16">[BECK16]</a>:Beck, Roman ; Stenum Czepluch, Jacob; Lollike, Nikolaj; and Malone, Simon: BLOCKCHAIN – THE GATEWAY TO TRUST-FREE CRYPTOGRAPHIC TRANSACTIONS. Twenty-Fourth European Conference on Information Systems (ECIS), İstanbul,Turkey, 2016. Springer Publishing Company, 2016. p. 1-14.
+
+<a name="ref_bigg18">[BIGG18]</a>: Biggs, John (Techcrunch) : Exit scammers run off with $660 million in ICO earnings. Web-Quelle, 2018,
+[https://techcrunch.com/2018/04/13/exit-scammers-run-off-with-660-million-in-ico-earnings/](https://techcrunch.com/2018/04/13/exit-scammers-run-off-with-660-million-in-ico-earnings/) (letzter Zugriff: 13.05.2018)
+
 <a name="ref_budic18">[BUDI18]</a>: BusinessDictionary.com : What is intermediation? definition and meaning ; URL: http://www.businessdictionary.com/definition/intermediation.html ; Date Accessed: April 29, 2018
 
 <a name="ref_Bute15">[BUTE15]</a>: Buterin, Vitalik: On Public and Private Blockchains, 07.08.2015, URL: https://blog.ethereum.org/2015/08/07/on-public-and-private-blockchains/ (letzter Zugriff: 03.05.2018)
+
+<a name="ref_coop97">[COOP97]</a>:Cooper, Martha C. ; Lambert, Douglas M. ; Pagh, Janus D.: Supply Chain Management: More Than a New Name for Logistics. The International Journal of Logistics Management, Vol. 8 Issue: 1, pp.1-14, 1997. DOI: 10.1108/09574099710805556
 
 <a name="ref_Demush">[DEMUSH]</a>: Demush, Rostyslav: How Companies Can Leverage Private Blockchains to Improve Efficiency and Streamline Business Processes, URL: https://perfectial.com/blog/leveraging-private-blockchains-improve-efficiency-streamline-business-processes/ (letzter Zugriff: 03.05.2018)
 
 <a name="ref_etla16">[ETLA16]</a>: ETLA; Mattila, Juri: The Blockchain Phenomenon – The Disruptive Potential of Distributed Consensus Architectures. ETLA Working Papers, 2016 ; ISSN: 2323-2420
 
 <a name="ref_eule18">[EULE18]</a>: Euler, T. : The Token Classification Framework: A multi-dimensional tool for under-standing the classifying crypto tokens. Web-Quelle, 2018,
-http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens/](http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens)
+[http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens/](http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens) (letzter Zugriff: 13.05.2018)
+
+<a name="ref_franc18">[FRANC18]</a>: Francisco, Kristoffer ; Swanson, David: The Supply Chain Has No Clothes: Technology Adoption of Blockchain for Supply Chain Transparency, Logistics, Volume 2, Issue 1, 2018, DOI: 10.3390/logistics2010002
 
 <a name="ref_gell96">[GELL96]</a>:Gellman, Robert: Disintermediation and the internet, Government Information Quarterly, Volume 13, Issue 1, 1996, Pages 1-8, ISSN: 0740-624X
 
@@ -497,22 +597,50 @@ http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimension
 
 <a name="ref_giag99">[GIAG99]</a>: Giaglis, George M. ; Klein, Stefan ; O'Keefe, Robert M.: Disintermediation, Reintermediation, or Cybermediation? The Future of Intermediaries in Electronic Marketplaces, Global Networked Organizations, Proceedings 12 th Electronic Commerce Conference, Moderna organizacija, 1999, Pages 7-9
 
+<a name="ref_gonc10">[GONC10]</a>: Gonçalves, Vania ; Dobbelaere, Philippe: Business Scenarios for Machine-to-Machine Mobile Applications. 2010 Ninth International Conference on Mobile Business,2010 Ninth Global Mobility Roundtable (ICMB-GMR), Athens, Greece, 2010, pp. 394-401. DOI: 10.1109/ICMB-GMR.2010.61
+
 <a name="ref_hahn18">[HAHN18]</a>: Hahn, Christopher ; Wons, Adrian: Initial Coin Offering (ICO) - Unternehmensfinanzierung auf Basis der Blockchain-Technologie. Gabler Verlag, 2018, ISBN: 978-3-658-21786-0
 
+<a name="ref_hega16">[HEGA16]</a>: Hegadekatti, Kartik: Automation Processes and Blockchain Systems. 2016. Available at SSRN: https://ssrn.com/abstract=2890435
+
 <a name="ref_HOFM17">[HOFM17]</a>: Hofmann, Frank ; Wurster, Simone ; Eyal, Ron ; Böhmecke-Schwafert, Moritz : The immutability concept of blockchains and benefits of early standardization. Nanjing, China : ITU Kaleidoscope: Challenges for a Data-Driven Society (ITU K), 2017, ISBN: 978-9-2612-4281-7 
+
+<a name="ref_huck16">[HUCK16]</a>:Huckle, Steve ; Bhattacharya, Rituparna ; White, Martin ; Beloff, Natalia: Internet of Things, Blockchain and Shared Economy Applications, Procedia Computer Science, Volume 98, 2016, pp.461-466, ISSN: 1877-0509
 
 <a name="ref_IMPO18">[IMPO18]</a>: Iimponderablethings.com : How Bitcoin Works Under the Hood  ; URL: http://www.imponderablethings.com/2013/07/how-bitcoin-works-under-hood.html ; Date Accessed: Mai 10, 2018
 
 <a name="ref_INVE18">[INVE18]</a>: Investopedia.com : Hard Fork & Soft Fork ; URL: https://www.investopedia.com/terms/h/hard-fork.asp & https://www.investopedia.com/terms/h/hard-fork.asp ; Date Accessed: Mai 09, 2018
 
+<a name="ref_krav17">[KRAV17]</a>: Kravitz, David W. ; Cooper, Jason: Securing user identity and transactions symbiotically: IoT meets blockchain. 2017 Global Internet of Things Summit (GIoTS), Geneva, 2017, pp. 1-6. DOI: 10.1109/GIOTS.2017.8016280
+
+<a name="ref_mart18">[MART18]</a>: Martineau, Paris (The Outline) : Inside the group chats where people pump and dump cryptocurrency, URL: [https://theoutline.com/post/3074/inside-the-group-chats-where-people-pump-and-dump-cryptocurrency](https://theoutline.com/post/3074/inside-the-group-chats-where-people-pump-and-dump-cryptocurrency) (letzter Zugriff: 13.05.2018)
+
+<a name="ref_nagu07">[NAGU07]</a>:Nagurney, Anna ; Liu, Zugang ; Woolley, Trisha: Sustainable Supply Chain and Transportation Networks, International Journal of Sustainable Transportation, 1:1, 29-51, 2007. DOI: 10.1080/15568310601060077
+
+<a name="ref_pusc16">[PUSC16]</a>:Puschmann, Thomas ; Alt, Rainer: Sharing Economy, 2016, Business & Information Systems Engineering: Vol. 58: Iss. 1, pp.93-99.
+
+<a name="ref_redl18">[REDL18]</a>:Redlich, Tobias ; Moritz, Manuel: Die Zukunft der Wertschoepfung -- dezentral, vernetzt und kollaborativ, Interdisziplinaere Perspektiven zur Zukunft der Wertschoepfung, 2018, Springer Fachmedien Wiesbaden, Wiesbaden, pp.1-6, ISBN: 978-3-658-20265-1
+
 <a name="ref_Schl16">[SCHL16]</a>: Schlatt, Vincent; Schweizer, André; Urbach, Nils; Fridgen, Gilbert: Blockchain: Grundlagen, Anwendungen und Potenziale, S. 8-12, Fraunhofer FIT, 12.2016, URL: https://www.fim-rc.de/Paperbibliothek/Veroeffentlicht/642/wi-642.pdf (letzter Zugriff: 04.05.2018)
 
 <a name="ref_schmidt99">[SCHM99]</a>: Schmidt, Reinhard ; Hackethal, Andreas ; Tyrell, Marcel: Disintermediation and the Role of Banks in Europe: An International Comparison, Journal of Financial Intermediation, Volume 8, Issues 1–2, 1999, Pages 36-67, ISSN: 1042-9573
 
+<a name="ref_seeb17">[SEEB17]</a>:Seebacher, Stefan ; Schueritz, Ronny: Blockchain Technology as an Enabler of Service Systems: A Structured Literature Review, Exploring Services Science, 2017, Springer International Publishing, pp.12-23, ISBN: 978-3-319-56925-3
+
 <a name="ref_shen16">[SHEN16]</a>: Shen, Ji ; Wei, Bin ; Yan, Hongjun: Financial Intermediation Chains in an OTC Market. 2016, SSRN: https://ssrn.com/abstract=2577497
+
+<a name="ref_sun16">[SUN16]</a>:Sun, Jianjun ; Yan, Jiaqi ; Zhang, Kem Z. K.: Blockchain-based sharing services: What blockchain technology can contribute to smart cities. Financial Innovation, 2016, Vol.2, No.1, p.26, ISSN: 2199-4730
+
+<a name="ref_sund16">[SUND16]</a>: Sundararajan, Arun: The Sharing Economy: The End of Employment and the Rise of Crowd-Based Capitalism. MIT Press, 2016.
+
+<a name="ref_tian16">[TIAN16]</a>:Tian, Feng: An agri-food supply chain traceability system for China based on RFID & blockchain technology. 13th International Conference on Service Systems and Service Management (ICSSSM), Kunming, 2016, pp. 1-6, 2016. DOI: 10.1109/ICSSSM.2016.7538424
+
+<a name="ref_voge15">[VOGE15]</a>: Vogelsteller, Fabian ; Buterin, Vitalik : ERC-20 Token Standard, URL: [https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) (letzter Zugriff: 12.05.2018)
 
 <a name="ref_VUJI18">[VUJI18]</a>: Vujičić, Dejan ; Jagodić, Dijana ; Ranđić, Siniša : Blockchain Technology, Bitcoin, and Ethereum: A Brief Overview. East Sarajevo, Bosnia and Herzegovina : IEEE INFOTEH-JAHORINA (INFOTEH), 17th International Symposium, 2018, ISBN: 978-1-5386-4907-7 
 
 <a name="ref_walter07">[WALTE07]</a>: Walter, Benedikt: Intermediation und Digitalisierung. Springer-Verlag, 2007, ISBN: 3835096303 
+
+<a name="ref_wilu13">[WILU13]</a>: Wilusz, Daniel ; Rykowski, Jarogniew: The Architecture of Coupon-Based, Semi-off-Line, Anonymous Micropayment System for Internet of Things, Technological Innovation for the Internet of Things, 2013, Springer Berlin Heidelberg, Berlin, Heidelberg, pp.125-132, ISBN: 978-3-642-37291-9
 
 <a name="ref_ZHEN17">[ZHEN17]</a>: Zheng, Zibin ; Xie, Shaoan ; Dai, Hongning ; Chen, Xiangping ; Wang, Huaimin : An Overview of Blockchain Technology: Architecture, Consensus, and Future Trends. Honolulu, HI, USA : IEEE International Congress on Big Data, 2017, ISBN: 978-1-5386-1996-4
