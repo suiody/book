@@ -311,8 +311,37 @@ Allgemein kann man eine Datenbank als eine organisierte Sammlung von elektronisc
 Dabei sollen hierbei viele Datensätze effizient, konsistent und dauerhaft verwaltet werden können. Zudem können Datenbanken logische Zusammenhänge zwischen den einzelnen Daten abbilden. 
 Beispielsweise können sie in Tabellen abgebildet werden, wobei jede Reihe eine Entität und jede Spalte ein Attribut, welches die Entität beschreibt, darstellt. 
 Zur Manipulation der Datenbanken sind Transaktionen notwendig. Dabei beinhaltet eine Transaktion ein oder mehrere Manipulationen der Datenbank (Datensatz anlegen, ändern oder löschen). 
-Bei der Ausführung der Transaktion wird sie auf ihre Richtigkeit überprüft und entweder als ganzes oder gar nicht ausgeführt (getreu dem ACID-(bei RDBs) bzw. dem BASE-Theorem (bei NoSQL-DBs) <a>[[WIKI18]](#ref_wiki18a)</a>). Die Richtigkeit wird u.a. durch Regeln wie Unique Keys, Forein keys oder Check constraints. 
+Bei der Ausführung der Transaktion wird sie auf ihre Richtigkeit überprüft und entweder als ganzes oder gar nicht ausgeführt (getreu dem ACID-(bei RDBs) bzw. dem BASE-Theorem (bei NoSQL-DBs) <a>[[TAI17]](#ref_tai17)</a> <a>[[CUSC18]](#ref_cusc18)</a> <a>[[WIKI18a]](#ref_wiki18a)</a>). Die Richtigkeit wird u.a. durch Regeln wie Unique Keys, Forein keys oder Check constraints. 
 Wichtig dabei ist, dass die Datenbank nach jeder Transaktion einen validen Zustand erreicht und entsprechend konsistente Daten beinhaltet.	
+
+### ACID Transaktionen <a>[[TAI17]](#ref_tai17)</a> <a>[[CUSC18]](#ref_cusc18)</a>
+Um Konsistenz zu gewährleisten, nutzen Relationelle Datenbanken (wie MySQL) Transaktionen, die dem ACID-Modell entsprechen:
+
+| Eigenschaft |   |
+| --- | --- |
+| **A**tomicity (Atomar) | Entweder wird die Transaktion als Ganzes (d.h. alle enthaltenen Operationen werden ausgeführt) oder gar nicht ausgeführt. |
+| **C**onsistency (Konsistenz) | Jede Transaktion überführt das System von einem gültigen Zustand zum nächsten gültigen Zustand. |
+| **I**solation | Gleichzeitige Transaktionen werden so ausgeführt, sodass das System den gleichen Zustand erreicht, als seien sie sequenziell ausgeführt worden. |
+| **D**urability (Langlebigkeit) | Jede terminierte Transaktion ist persistent, d.h. sie kann nicht rückgängig gemacht werden. Neue Transaktionen können ursprüngliche Operationen am System „rückgängig“ machen (z.B. eine Überweisung zurücküberweisen; dies ist jedoch eine eigene Operation und kein Storno der ursprünglichen Operation). |
+
+Trotz einer Ähnlichkeit in der Transaktionsabwicklung scheinen Distributed Ledgers Unterschiede aufzuweisen: 
+- Transaktionen können persistent und konsistent sein, sofern der Konsens nicht anders entscheidet und die Transaktion billigt.
+- Gleichzeitige Transaktionen können unterschiedlich ausgeführt werden. Die Reihenfolge der Transaktionen wird z.B. vom Gewinner-Miner entschieden, welcher variieren kann. Dies widerspricht der Philosophie der ACID bzgl. Konsistenz, da unterschiedliche Reihenfolgen unterschiedliche Zustände hervorrufen können.
+- DLTs bearbeiten die Transaktionen sequentiell und nicht parallel. 
+
+### BASE Systeme <a>[[TAI17]](#ref_tai17)</a> <a>[[CUSC18]](#ref_cusc18)</a>
+Um u.a. Verfügbarkeit zu gewährleisten, nutzen Verteilte Datenbanken meist das BASE-Modell (NoSQL): 
+
+| Eigenschaft |   |
+| --- | --- |
+| **B**asically **A**vailable (theoretisch verfügbar) | Die Verantwortung für die Daten ist verteilt, um u.a. einen totalen Systemausfall vorzubeugen. Bei Teilversagen sind nur die Daten nicht verfügbar, die von dem versagenden Knoten ausgehen. D.h. auch, dass das System einen Fehler zurückgeben kann, sofern auf Daten zugegriffen wird, die zu dem Zeitpunkt nicht verfügbar, inkonsistent oder verändert werden. |
+| **S**oft state (weicher Zustand) | Daten können sich über die Zeit ändern, obwohl keine Veränderungen vorgenommen werden. Daten können z.B. flüchtig gespeichert werden und eine Mindestlaufzeit haben, bevor sie gelöscht oder archiviert werden. |
+| **E**ventual consistency (vielleicht konsistent) | Das System ist konsistent, sofern keine weiteren Veränderungen vorgenommen werden und alle knoten denselben Stand haben. |
+
+Wenn man die DLTs mit BASE-System vergleicht, fallen diese Aspekte auf:
+-	DLTs sind nicht nur theoretisch verfügbar, sondern sie sind es. 
+-	DLTs haben keinen Soft State. Sie sind unveränderbar.
+-	DLTs sind nicht nur vielleicht konsistent. Sie sind es immer.
 
 ### Distributed Ledger Technologie (DLT) <a>[[METZ18]](#ref_metz18)</a>
 Blockchain basiert auf der Distributed Ledger Technologie, welche das Verarbeiten und Speichern von Daten ermöglicht.
@@ -325,6 +354,27 @@ Bezüglich der Zugangsmöglichkeiten lassen sich die Ledgers folgend unterteilen
 | Unpermissioned Ledger | Diese Ledger sind am bekanntesten (z.B. durch Bitcoin). Sie sind prinzipiell für alle zugänglich und erfordern keine Authentifizierung. Entsprechend wird PoW als Konsensveriante eingesetzt, sodass kein Vertrauen zwischen den Teilnehmern notwendig ist. |
 | Permissioned Legder | Bei diesen Ledgern  müssen sich die Teilnehmer registriert sein und entsprechende Auflagen(z.B. bzgl. Vertrauen) erfüllen, damit sie an dem Konsens teilnehmen dürfen. Dadurch können PoS oder PBFT-Mechanismen eingesetzt werden, welche im Gegensatz zu PoW  Rechenkapazitäten sparen.|
 
+### SALT <a>[[TAI17]](#ref_tai17)</a> <a>[[CUSC18]](#ref_cusc18)</a>
+Das SALT-Modell beschreibt Eigenschaften für dezentrale Datenbanken für Transaktionen und das System, welche DLTs wie Blockchain u.a. befolgen:
+
+a. Transaktion-Kontext:
+
+| Eigenschaft |   |
+| --- | --- |
+| Sequential (Sequenziell) | Die Transaktionen werden sequentiell ausgeführt. Die Reihenfolge wird hierbei vom Gewinner-Miner bestimmt. |
+| Agreed (Vereinbart) | Ein Konsens bestimmt über die Gültigkeit der Daten und Transaktionen (siehe PoW, PoS). | 
+| Ledgered (Buchführung) | Alle genehmigten Transaktionen werden zeitlich in einem elektronischen Appendonly-Transaktionenbuch festgehalten und verifiziert. | 
+| Tamper-resistant (manipulationssicher) | Terminierte Transaktionen sind persistent und bräuchten eine signifikante Mehrheit des Konsens, um sie zu verändern. |
+
+b. Systemcontext:
+
+| Eigenschaft |   |
+| --- | --- |
+| Symmetric (Symmetrisch) | Jeder Knoten kann seine Daten validieren. |
+| Admin-free (keine zentrale Systemverwaltung) | Das System funktioniert dezentralisiert und wird durch den Konsens verwaltet. |
+| Ledgered (Buchführung) | Alle Teilnehmer pflegen die Buchführung bzgl. derselben Daten. Damit die Buchführung konsistent bleibt, müssen sie sich auf eine Ordnung einigen. Da das finden einen Konsens kostspielig ist, werden mehrere Transaktionen in Blöcken zusammengefasst, damit man pro Konsensrunde mehrere Transaktionen validiert. |
+| Time-consensual (Zeitkonsens) | Es gibt ein (berechenbares) Zeitintervall zwischen der Entstehung der Blöcke. |  
+
 ### Abgrenzung zu Datenbanken
 
 Prinzipiell sind Distributed Ledger verteilte Datenbanken, welchen Nutzern, die kein richtiges Vertrauen ineinander haben, einen Konsens über den Inhalt und der Verwaltung der Datenbank ermöglichen. <a>[[BROW16]](#ref_brow16)</a> <a>[[COLA18]](#ref_cola18)</a>
@@ -334,6 +384,21 @@ Im Gegensatz verwalten verteilte Datenbanken im herkömmlichen Sinne ihre Daten 
 | --- | --- |
 | verteilte Datenbank <a>[[BROW16]](#ref_brow16)</a> | distributed Ledger <a>[[BROW16]](#ref_brow16)</a> |
 
+Im Bezug auf die jeweiligen Datenbankschemen kann man DLT's und Datenbanken wie folgt abgrenzen:
+ 
+| 										| ACID 	| BASE 	| SALT 	|
+| :--- 									| :---: | :---:	| :---: |
+| Atomar 								| X 	| 		| (x)<sup>1</sup>	|
+| Konsistenz 							| X 	| 		| (x)<sup>2</sup> |
+| Isolation								| X		| 		| X		|
+| Replica Konsistenz 					| 		| 		| X 	|
+| Persistenz 							| X 	| X 	| X 	|
+| verteilt 								| 		| X 	| X 	|
+| dezentral 							| 		| 		| X 	|
+| CAP <a>[[NELA18]](#ref_nela18)</a> 	| CA	| CP/AP	| CP/AP	|
+
+ <sup>1</sup>: Jede Operation ist eine Transaktion in SALT. Jedoch gibt es *Stored procedures*.  
+ <sup>2</sup>: Konsistenz hängt vom Konsens ab. 
 
 ## Verteilte Systeme
 
@@ -616,6 +681,8 @@ http://pmg.csail.mit.edu/papers/osdi99.pdf
 
 <a name="ref_cout17">[COUT17]</a>:  Couteau, Geoffroy: Zero-Knowledge Proofs for Secure Computation. Cryptography and Security. PSL research University, 2017
 
+<a name="ref_cusc18">[CUSC18]</a Cusce, C.: SALT: A Descriptive Model For Blockchain. URL: https://medium.com/@collin.cusce/blockchain-salt-a-descriptive-model-b19c973fef5f (abgerufen am 14.05.2018)
+
 <a name="ref_docu18">[DOCU18]</a>:  DocuSign Inc.: What are digital signatures?, San Francisco, 2018, URL: https://www.docusign.com/how-it-works/electronic-signature/digital-signature/digital-signature-faq (abgerufen am 04.05.2018)
 
 <a name="ref_ethc16">[ETHC16]</a>: Ethereum community: Web 3: A platform for decentralized apps. URL: http://ethdocs.org/en/latest/introduction/web3.html (abgerufen am 11.05.2018)
@@ -638,6 +705,8 @@ http://people.scs.carleton.ca/~maheshwa/courses/4109/Seminar11/ZKP%20Seminar.pdf
 <a name="ref_metz18">[METZ18]</a>: Metzger, Jochen: Distributed Ledger Technologie (DLT)  URL: https://wirtschaftslexikon.gabler.de/definition/distributed-ledger-technologie-dlt-54410 (abgerufen am 29.04.2018)
 
 <a name "ref_naka08">[NAKA08]</a>: Nakamoto, Satoshi: Bitcoin: A Peer-to-Peer Electronic Cash System URL: https://bitcoin.org/bitcoin.pdf
+
+<a name="ref_nela18">[NELA18]</a Nelaturi, K.: Understanding Blockchain Tech – CAP Theorem. URL: http://www.mangoresearch.co/understanding-blockchain-tech-cap-theorem/ (abgerufen am 14.05.2018)
 
 <a name="ref_orcu17">[ORCU17]</a>: Orcutt, Mike. ["A mind-bending cryptographic trick promises to take blockchains mainstream"](https://www.technologyreview.com/s/609448/a-mind-bending-cryptographic-trick-promises-to-take-blockchains-mainstream). _MIT Technology Review_. Abgerufen am 10.05.2018.
 
@@ -662,6 +731,8 @@ https://courses.cs.ut.ee/MTAT.07.022/2017_fall/uploads/Main/janno-report-f17.pdf
 <a name="ref_stap10">[STAP10]</a>: Stapelkamp, Torsten: Web X.0 Erfolgreiches Webdesign und professionelle Webkonzepte : Springer, 2010, ISBN: 978-3-642-02071-1
 
 <a name="ref_stop18">[STOP18]</a>: Stobitzer, Christian: Symmetrische Verschlüsselung. Karlsruhe. URL: http://www.kryptowissen.de/symmetrische-verschluesselung.html (abgerufen am 27.04.2018)
+
+<a name="ref_tai17">[ TAI17]</a>: Tai S., Eberhardt J., Klems M.: Not ACID, not BASE, but SALT: A Transaction Processing Perspective on Blockchains. URL: http://www.ise.tu-berlin.de/fileadmin/fg308/publications/2017/2017-tai-eberhardt-klems-SALT.pdf (abgerufen am 14.05.2018)
 
 <a name="ref_thom16">[THOM16]</a>: Thompson, Collin : Private Blockchain or Database?  URL: https://www.linkedin.com/pulse/private-blockchain-database-collin-thompson (abgerufen am 29.04.2018)
 
