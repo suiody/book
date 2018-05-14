@@ -414,69 +414,101 @@ Die Gründer dieser Nachrichtengruppen haben in der Regel schon vor Verbreitung 
 ### Technische Herausforderungen
 Autor: Fynn Klöpper
 
-Angriffsszenarios (Sybil attack, 51%-Attack)
-Skalierung (-sprobleme)
-
-
-
 #### Angriffsszenarien
 
 ##### Sybil Attacke
-Quellen:
-https://www.freehaven.net/anonbib/cache/sybil.pdf
-https://publishup.uni-potsdam.de/opus4-ubp/frontdoor/deliver/index/docId/10314/file/tbhpi113.pdf
+
 ###### Definition
 Eine Sybil-Attacke beschreibt eine Art des Angriffs auf eine Blockchain, bei der eine schadhafte Entität mehrere Identitäten vorgibt, um einen substantiellen Teil des Systems zu kontrollieren und so die Sicherheit der Redundanz zu komprimieren.
 
 Für Peer-to-Peer-Systeme ist es essentiell, dass Daten redundant gespeichert werden. Durch die Redundanz der Speicherung derselben Daten auf verschiedenen Entitäten kann so die Integrität der Daten sichergestellt werden. Weiterhin setzen viele P2P-Systeme auf die Fragmentierung der Daten, um sich gegen Datenlecks abzusichern.
-   
-Falls das System scheitert Identitäten zu Entitäten zu mappen, kann nun eine Entität mehrere Identitäten vortäuschen und von dem System mehrmals Daten oder zusammenhängende Daten zugewiesen bekommen. Hierdurch wäre die Redundanz, als auch die Fragmentierung der Daten komprimiert. 
+
+Falls das System scheitert Identitäten zu Entitäten zu mappen, kann eine Entität mehrere Identitäten vortäuschen und von dem System mehrmals Daten oder zusammenhängende Daten zugewiesen bekommen. Hierdurch wäre die Redundanz, als auch die Fragmentierung der Daten komprimiert. <a name="ref_Douc02">[DOUC02]</a>
+
+Dies könnte in einem Blockchain-Netzwerk dazu genutzt werden, um einen Nutzer von dem "ehrlichen" Netzwerk abzutrennen und so verhindern, dass Blöcke und Transaktionen von anderen Benutzern an das Opfer durchgestellt werden können.
+Daraufhin könnte der Angreifer beispielsweise nur noch von ihm erstellte Blöcke zu dem Opfer durchlassen und ihn so für Double-Spending Angriffe verwundbar machen.   
+
 ###### Lösungsansätze
 
-Mit Identifizierungs-Authorität:
-- VeriSign
-- CFS
-- SFS
-- EMBASSY
-- ICANN / Wave Systems
+Die einfachste und auch effektivste Möglichkeit zum Schutz vor einer Sybil-Attacke, funktioniert mithilfe einer Identifizierungs-Authorität.
+Die zentralisierte Authorität validiert hierbei, dass eine Entität zu genau einer Identität korrespondiert. Douceur beweist in seiner Arbeit <a name="ref_Douc02">[DOUC02]</a>, dass dies die einzige Möglichkeit ist, die das System potentiell komplett absichern kann.
 
+In der praktischen Anwendung lässt sich eine zentrale Identifizierungs-Authorität allerdings nur schwer umsetzen, da theoretisch jede Identität manuell überprüft werden müsste. Dies ist gerade bei Systemen mit einer großen Nutzeranzahl, wie es eine Blockchain meist ist, praktisch nicht umsetzbar. <a name="ref_Bala12">[BALA12]</a> Hinzu kommt auch, dass eine zentrale Authorität gegen den eigentlichen Dezentralisierungs-Gedanken der Blockchain verstößt.  
 
-Ohne Identifzierungs-Authorität:
-
-Ein Schutz ohne dedizierte Identifizierungs-Authorität stellt sich als äußerst schwierig heraus.
-Oftmals fällt der erste Gedanke auf ein System, bei dem ältere, etablierte Identitäten neue Identitäten kollektiv verifizieren. Dieser Lösungsansatz geht allerdings davon aus, dass die erste Generation von Identitäten vertrauenswürdig ist, welche bereits durch eine Sybil-Attacke komprimiert sein könnte und somit den weiteren Verlauf der Kette unsicher macht.  
+Aufgrund des vielfach genutzten Proof-Of-Work-Systems in Blockchain-Netzwerken, können Sybil-Attacken in diesen allerdings sehr unwirtschaftlich gemacht und somit auch ohne Identifizierungs-Authorität effektiv verhindert werden. Einer Entität ist es im Blockchain-System zwar möglich mehrere Identitäten vorzugeben und somit auch einen Node von dem vertrauenswürdigen Netzwerk abzuschneiden, allerdings kann der Angreifer dem Opfer keine neuen Blöcke vortäuschen ohne einen Proof-Of-Work mit der aktuellen Schwierigkeit zu liefern. Um dies zu tun, bräuchte der Angreifer eine immense Rechenleistung und der Angriff käme eher einer 51%-Attacke nahe.   
 
 ##### 51%-Attack
-Quellen:
-http://fmt.cs.utwente.nl/files/sprojects/268.pdf
 
 ###### Definition
-Eine 51%-Attacke beschreibt eine Attacke auf eine Blockchain, meist die Bitcoin-Blockchain, bei der ein Miningpool, der mehr als 50% der Hashrate des gesamten Netzwerks ausmacht, die Kontrolle über den weiteren Verlauf der Blockchain übernimmt.
-Der Angreifer ist daraufhin in der Lage Coins "doppelt" auszugeben, also einen Händler zu bezahlen und danach die Transaktion wieder rückgängig zu machen oder auch Transaktionen die Bestätigung zu verwehren und somit den Handel zwischen einigen oder auch allen Benutzern zu unterbrechen.    
+Eine 51%-Attacke beschreibt eine Attacke auf eine Blockchain, bei der ein Miningpool, der mehr als 50% der Hashrate des gesamten Netzwerks ausmacht, die Kontrolle über den weiteren Verlauf der Blockchain übernimmt. <a name="ref_Bast18">[BAST18]</a>
+Der Angreifer ist daraufhin in der Lage Coins "doppelt" auszugeben, also einen Händler zu bezahlen und danach die Transaktion wieder rückgängig zu machen oder auch bestimmten Transaktionen die Bestätigung zu verwehren und somit den Handel zwischen einigen oder auch allen Benutzern zu unterbrechen.    
 
-Auch wenn der Name der Attacke suggeriert, dass 51% der Rechenleistung des Netzwerks benötigt werden, um die Attacke durchzuführen, ist dies nicht notwendig.
-Bereits mit einer kleineren Anzahl an relativer Rechenleistung ist es möglich einen Angriff durchzuführen. In diesem Fall beträgt die Erfolgschance allerdings nicht 100%, sondern ist abhängig davon, wie viel relative Rechenleistung zur Verfügung steht und wie viele Blöcke zur Bestätigung ein Händler erwartet.
-Bild: https://www.btc-echo.de/tutorial/bitcoin-51-attacke/
+Auch wenn der Name der Attacke suggeriert, dass 51% der Rechenleistung des Netzwerks benötigt werden, um die Attacke durchzuführen, ist dies nicht der Fall.
+Bereits mit einer kleineren Anzahl an relativer Rechenleistung ist es möglich einen Angriff durchzuführen. In diesem Fall beträgt die Erfolgschance allerdings nicht 100%, sondern ist abhängig davon, wie viel relative Rechenleistung zur Verfügung steht und wie viele Blöcke zur Bestätigung ein Händler erwartet. Die Veränderung der Erfolgswahrscheinlichkeit in Abhängigkeit zur relativen Hash-Rate des Angreifers, beziehungsweise zu der Anzahl der geforderten Blöcke zur Bestätigung, kann in der folgenden Abbildung betrachtet werden.
+<img src="./images/51plot.png" width=“300”>
 
-Falls der Angreifer über 51% relativer Rechenleistung verfügt und somit schneller Blöcke generieren kann als der Rest des Netzwerkes, kann er beliebig lange an seinem privaten Fork weiter Blöcke anhängen bis er länger als der öffentliche und vertrauenswürdige Branch ist. 
-Da immer der längere Branch vom System als der "richtige" Branch angenommen wird, kann somit der Angreifer bestimmen, welche Transaktionen mit in den Branch aufgenommen und welche Blöcke ungültig gemacht werden sollen. 
-###### Lösungsansätze
-- Bisher ein rein theoretischer Angriff in Anbetracht von Bitcoin
-- Bereits bestehende, gelockte Blöcke, können trotzdem nur sehr schwer verändert werden
-- Erhöhte Anzahl von Bestätigungen kann eine tatsächliche 51%-Attacke zwar nicht verhindern, allerdings eine Attacke eines Angreifers mit unter 51% unwahrscheinlicher machen, sowie die Angriffsdauer verlängern, was die Attacke unprofitabel machen kann.
+Abbildung entnommen aus <a>[[BTCE18]](#ref_Btce18)</a>
 
-##### Cryptographie-Angriffe
 
-###### Definition
+Falls der Angreifer über 51% relativer Rechenleistung verfügt und somit schneller Blöcke generieren kann als der Rest des Netzwerkes, kann er beliebig lange an seinem privaten Fork weiter Blöcke anhängen bis er länger als der öffentliche und vertrauenswürdige Branch ist.
+Da immer der längere Branch vom System als der "richtige" Branch angenommen wird, kann somit der Angreifer bestimmen, welche Transaktionen mit in den Branch aufgenommen und welche Blöcke ungültig gemacht werden sollen.
 
 ###### Lösungsansätze
+
+Durch den Trend der Mining-Pools kommt es häufig vor, dass diese den größten Anteil an Rechenkapazität in einem Blockchain-Netzwerk ausmachen. In der folgenden Abbildung kann der aktuelle Prozentanteil der einzelnen Pools im Bitcoin-Netzwerk eingesehen werden.
+
+<img src="./images/miningpools2.png" width=“300”>
+
+Abbildung entnommen aus <a name="ref_Blci18">[BLCI18]</a>
+
+Nachdem im Juli 2014 der Mining-Pool Ghash.io mehr als 50 Prozent der Rechenkapazität erreichte, wurde ein Aufsichtskomitee ins Leben gerufen, welches überwacht, dass alle Mining-Pools unter 40 Prozent der Hashrate bleiben. <a name="ref_Mein17">[MEIN17]</a>
+
+Zusätzlich ist es nur schwer einen 51 Prozent Angriff tatsächlich wirtschaftlich zu gestalten. Das Aufrechterhalten der 51 Prozent kostet eine immense finanzielle Summe und sobald bekannt wird, dass ein Mining-Pool die Grenze überschritten hat, würden die meisten Benutzer mehr Bestätigungen für ihre Transaktionen anfordern, was die Dauer des Angriffs zwangsläufig verlängern und somit den Angriff noch unwirtschaftlicher machen würde.
+
+Trotz dessen stellt ein 51 Prozent Angriff, gerade für kleinere Blockchain-Netzwerke, eine reelle Gefahr dar. So wurden die auf Ethereum basierenden Blockchains Krypton und Shift im August 2016 angegriffen und deren Entwickler von den Angreifern erpresst <a name="ref_Invo18">[INVO18]</a>. Gerade zu den Anfangsphasen, in denen es leichter ist die 51 Prozent zu erreichen, sollte somit kontinuierlich auf die Aufteilung der Hashraten im Netzwerk geachtet werden.         
 
 #### Skalierung (-sprobleme)
-Quellen:
-https://publishup.uni-potsdam.de/opus4-ubp/frontdoor/deliver/index/docId/10314/file/tbhpi113.pdf
+Aufgrund eben dieses schnellen Wachstums und der aktuellen Popularität der Blockchain-Technologie, muss sich das Feld stark mit der Problematik der Skalierung auseinandersetzen.
 
 ##### Neue Nutzer
+Die Anzahl der Benutzer beliebter Blockchain-Systemen stieg in den letzten Jahren rasant an. Stand 2017 existierten rund 14 Millionen Bitcoin-Wallets, während zwei Jahre zuvor die Anzahl der Wallets noch bei drei Millionen lag. <a>[[GERR17]](#ref_Gerr17)</a>
+
+Diese Nutzer werden aufgeteilt in vollständige (full node) und leichtgewichtige (lightweight node) Nutzer.
+
+Ein vollständiger Nutzer muss eine komplette Kopie der Blockchain speichern. Dies ist notwendig, damit von ihm Transaktionen verifiziert werden können. Problematisch ist hierbei, dass die Blockchain alle jemals im System getätigten Transaktionen aufzeichnet, und die benötigte Speichergröße dementsprechend stetig weiterwächst. Stand Mai 2018 enthält die Bitcoin-Blockchain bereits 157 GB an Daten. <a>[[CHBT18]](#ref_Chbt18)</a>
+
+Nur die wenigsten Nutzer möchten so eine große Menge an Speicherkapazität zur Verfügung stellen, weshalb der Großteil der Benutzer von lightweight Nodes ausgemacht wird. Leichtgewichtige Nutzer speichern lediglich die Block-Header und Informationen, die seine eigenen Transaktionen betreffen. Anhand dieser Daten kann der Nutzer ermitteln, ob seine Transaktion in einem Block aufgenommen wurde und wie viele Blöcke bereits angehängt wurden. Durch diese Methode braucht der Großteil der Nutzer des Bitcoin-Systems keine großen Mengen an Speicherkapazitäten zur Verfügung stellen.
+
+Diese Aufteilung von leichtgewichtigen und vollständigen Benutzern bringt allerdings auch Probleme mit sich. Die Anzahl der leichtgewichtigen Nutzer ist im Bitcoin-Netzwerk zurzeit geschätzt 13 mal größer, als die der vollständigen Nutzer. Beide dieser Werte steigen ungleichmäßig und die Anzahl der Full Nodes ist in den letzten Monaten sogar zurückgegangen. <a>[[MEIN17]](#ref_Mein17)</a><a>[[BITN18]](#ref_Bitn18)</a> Im Bitcoin-System bietet es keinen monetären Vorteil, sich als Full Node anzubieten, weshalb die meisten Full Nodes auch minende Nodes sind. Die minenden Nodes schließen sich, aufgrund wirtschaftlicher Vorteile, immer mehr zu sogenannten Mining-Pools zusammen, was an sich bereits ein Problem für die Dezentralisierung darstellt. Dadurch, dass die minenden Nodes auch den Großteil der Full Nodes ausmachen, geht der Trend immer mehr dahin, dass eine Instanz für sowohl das Mining neuer Blöcke, als auch die Validierung dieser Blöcke, zuständig ist.
+
+Eine hohe Anzahl von nicht minenden Full Nodes ist somit wünschenswert, um Betrug durch die Mining-Pools zu verhindern und der Zentralisierung entgegen zu wirken.
+
+Diese Problematik könnte dadurch gelöst werden, dass auch nicht minende Full Nodes belohnt werden, wie es beispielsweise die Kryptowährung DASH vormacht. <a>[[BTUM17]](#ref_Btum17)</a>
+
 ##### Größeres Transaktionsaufkommen
+Zusammen mit den immer größer werdenenden Nutzerzahlen, steigt auch das Transaktionsaufkommen in den Systemen.
+
+Dass hohe Transaktionszahlen für Blockchain-Systeme ein Problem darstellen, lässt sich zurzeit am Beispiel von Bitcoin erkennen.
+
+Die Blöcke im Bitcoin-System haben eine Größe von 1 MB und es wird alle zehn Minuten ein neuer Block angehängt. Durch die Blockgröße beschränkt, ergibt es sich, dass circa 2.500 Transaktionen in einem Block aufgenommen werden können (4 Transaktionen/s). <a name="ref_Mein17">[MEIN17]</a>
+Wenn man dies mit den aktuell getätigten Transaktionszahlen anderer zentraler Lösungsanbieter, wie beispielsweise PayPal (60 Transaktionen/s) oder VISA (1.700 Transaktionen/s) vergleicht, fällt auf, dass Bitcoin in der aktuellen Form nicht für größere Benutzerzahlen skaliert werden kann. <a name="ref_Beck17">[BECK17]</a>   
+
+Dies ist bereits ein Problem an sich, jedoch kommt noch dazu, dass die Miner in der Lage sind Transaktionen zu priorisieren und somit den Transaktionen mit höheren Gebühren Vortritt gewähren. Transaktionen, bei denen wenig oder keine Gebühren fällig werden, werden somit aufgeschoben und müssen warten, bis sie in die Chain aufgenommen werden. Der Austausch von kleineren Währungsmengen ist somit eher ungeeignet. <a name="ref_Mein17">[MEIN17]</a>
+
+Eine kurzfristige Lösung, um die Anzahl der möglichen Transaktionen zu erhöhen, wäre es, die Blockgröße hoch zu setzen. Dies würde allerdings das Minen erschweren und somit größere Mining-Pools fördern, was wiederum die Dezentralisierung mindert. Ein entsprechender Vorschlag zur Vergrößerung, wurde von den Bitcoin-Entwicklern abgelehnt. <a name="ref_Beck17">[BECK17]</a>
+
+Eine weitere Verbesserung verspricht das sogenannte "Lightning Network", welches nicht nur von Bitcoin, sondern von einer Vielzahl von Kryptowährungen, wie Litecoin, Ether und Ripple, benutzt werden soll.
+Das Lightning Network benutzt "Payment Channels", welche eine direkte Verbindung zwischen zwei Nutzern aufbauen und zur Versendung kleinerer Mengen an Coins genutzt werden sollen. Die verbundenen Benutzer können so mehrmals kleinere Beträge versenden, ohne dass diese Transaktionen direkt in der Blockchain festgehalten werden. Der Payment Channel kann solange aufrecht erhalten werden, bis sich einer der Benutzer dazu entscheidet, ihn zu schließen. Bei Beendigung des Payment Channels, werden die einzeln versendeten Beträge zusammengerechnet und in einer finalen Transaktion in der Blockchain festgehalten. <a name="ref_Beck17">[BECK17]</a>  
+
+Das Implementieren des Lightning Networks würde somit die Transaktionsmenge, insbesondere in Anbetracht der kleineren Transaktionen, entlasten und könnte, zusammen mit der Erhöhung der Blockgröße, einen großen Teil zur zukünftigen Skalierung des Bitcoin-Netzwerkes, beitragen.
+
+Auch Ethereum wird in Zukunft zur Skalierung auf eine Art des Lightning Networks setzen. Hinzu kommt allerdings, dass Ethereum auch "drastischere" Methoden in Erwägung zieht, um die Skalierbarkeit positiv zu beeinflussen.
+
+Eine dieser Methoden ist die Umstellung vom Proof-Of-Work- zu einem Proof-Of-Stake-System. Dies sorgt dafür, dass Blöcke durch den Besitz von Tokens und nicht mehr durch pure Rechenleistung, validiert werden. Durch diese Umstellung kann das Minen effizienter gestaltet werden, was dafür sorgt, dass das Minen und somit auch das gesamte System weniger Energie verbraucht, was ein großer Kritikpunkt an der Blockchain-Technologie ist. Als Konsequenz hieraus wäre das Minen von Blöcken lohnenswerter und würde neue Miner anlocken.     
+
+Als weiterer Ansatz zur Skalierung des Systems, gilt das "Sharding". Hierbei handelt es sich um eine Möglichkeit, Berechnungen zu parallelisieren und Transaktionen nur von einer Teilmenge des Systems (eines Shards), anstatt von allen Teilnehmern des Netzwerks, validieren zu lassen. Innerhalb der einzelnen Shards des Systems würden Transaktionen wie zuvor ablaufen, jedoch würden Shard übergreifende Transaktionen eine Problematik darstellen.
+
+Insgesamt fällt auf, dass der Großteil der Blockchain-Technologien Probleme mit den Transaktionsmengen, sowie der kontinuierlich steigenden benötigten Speicherkapazität hat. Dies sind Probleme, die von der Natur der Blockchain herrühren und je nach Fokus der jeweiligen Anwendung, anders gelöst werden können beziehungsweise müssen.   
 
 
 ### Ökonomische und gesellschaftliche Herausforderungen
@@ -571,18 +603,36 @@ Blockchain-Technologie
 
 <a name="ref_bagc05">[BAGC05]</a>:Bagchi, Prabir K. ; Chun Ha , Byoung ; Skjoett‐Larsen, Tage ; Soerensen, Lars Boege:Supply chain integration: a European survey. The International Journal of Logistics Management, Vol. 16 Issue: 2, pp.275-294, 2005. DOI: 10.1108/09574090510634557
 
+<a name="ref_Bala12">[BALA12]</a>: Balachandran, Nitish; Sanyal, Sugata: A Review of Techniques to Mitigate Sybil Attacks, URL: https://arxiv.org/ftp/arxiv/papers/1207/1207.2617.pdf (letzter Zugriff: 10.05.2018)
+
+<a name="ref_Bast18">[BAST18]</a>: Bastiaan, Martijn: Preventing the 51%-Attack: a Stochastic Analysis of Two Phase Proof of Work in Bitcoin, URL: http://fmt.cs.utwente.nl/files/sprojects/268.pdf (letzter Zugriff: 13.05.2018)
+
 <a name="ref_beck16">[BECK16]</a>:Beck, Roman ; Stenum Czepluch, Jacob; Lollike, Nikolaj; and Malone, Simon: BLOCKCHAIN – THE GATEWAY TO TRUST-FREE CRYPTOGRAPHIC TRANSACTIONS. Twenty-Fourth European Conference on Information Systems (ECIS), İstanbul,Turkey, 2016. Springer Publishing Company, 2016. p. 1-14.
+
+<a name="ref_Beck17">[BECK17]</a>: Beckel, Christoph: Skalieren Blockchains? Sorgen und Lösungsansätze, 2017, URL: http://site.blocklab.de/2017/Skalierung/ (letzter Zugriff: 12.05.2018)
 
 <a name="ref_bigg18">[BIGG18]</a>: Biggs, John (Techcrunch) : Exit scammers run off with $660 million in ICO earnings. Web-Quelle, 2018,
 [https://techcrunch.com/2018/04/13/exit-scammers-run-off-with-660-million-in-ico-earnings/](https://techcrunch.com/2018/04/13/exit-scammers-run-off-with-660-million-in-ico-earnings/) (letzter Zugriff: 13.05.2018)
 
+<a name="ref_Bitn18">[BITN18]</a>: Bitnodes, URL: https://bitnodes.earn.com/dashboard/?days=90 (letzter Zugriff: 11.05.2018)
+
+<a name="ref_Blci18">[BLCI18]</a>: BlockChain.info, URL: https://blockchain.info/de/pools?timespan=4days (letzter Zugriff: 13.05.2018)
+
 <a name="ref_budic18">[BUDI18]</a>: BusinessDictionary.com : What is intermediation? definition and meaning ; URL: http://www.businessdictionary.com/definition/intermediation.html ; Date Accessed: April 29, 2018
 
+<a name="ref_Btce18">[BTCE18]</a>: BTC-ECHO: Was ist eine 51%-Attacke und wie funktioniert sie?, URL: https://www.btc-echo.de/tutorial/bitcoin-51-attacke/ (letzter Zugriff: 10.05.2018)
+
+<a name="ref_Btum17">[BTUM17]</a>: Blockchain Research TUM, 28.03.2017, URL: https://www.blockchain.tum.de/index.php?id=95&L=1&tx_ttnews%5Btt_news%5D=1&cHash=f31347bf636c0038f4652b42ffd4bc64 (letzter Zugriff: 11.05.2018)
+
 <a name="ref_Bute15">[BUTE15]</a>: Buterin, Vitalik: On Public and Private Blockchains, 07.08.2015, URL: https://blog.ethereum.org/2015/08/07/on-public-and-private-blockchains/ (letzter Zugriff: 03.05.2018)
+
+<a name="ref_Chbt18">[CHBT18]</a>: Charts.Bitcoin: Blockchain Size, URL: https://charts.bitcoin.com/chart/blockchain-size (letzter Zugriff: 10.05.2018)
 
 <a name="ref_coop97">[COOP97]</a>:Cooper, Martha C. ; Lambert, Douglas M. ; Pagh, Janus D.: Supply Chain Management: More Than a New Name for Logistics. The International Journal of Logistics Management, Vol. 8 Issue: 1, pp.1-14, 1997. DOI: 10.1108/09574099710805556
 
 <a name="ref_Demush">[DEMUSH]</a>: Demush, Rostyslav: How Companies Can Leverage Private Blockchains to Improve Efficiency and Streamline Business Processes, URL: https://perfectial.com/blog/leveraging-private-blockchains-improve-efficiency-streamline-business-processes/ (letzter Zugriff: 03.05.2018)
+
+<a name="ref_Douc02">[DOUC02]</a>: Douceur, John R.: The Sybil Attack, URL: https://www.freehaven.net/anonbib/cache/sybil.pdf (letzter Zugriff: 10.05.2018)
 
 <a name="ref_etla16">[ETLA16]</a>: ETLA; Mattila, Juri: The Blockchain Phenomenon – The Disruptive Potential of Distributed Consensus Architectures. ETLA Working Papers, 2016 ; ISSN: 2323-2420
 
@@ -592,6 +642,8 @@ Blockchain-Technologie
 <a name="ref_franc18">[FRANC18]</a>: Francisco, Kristoffer ; Swanson, David: The Supply Chain Has No Clothes: Technology Adoption of Blockchain for Supply Chain Transparency, Logistics, Volume 2, Issue 1, 2018, DOI: 10.3390/logistics2010002
 
 <a name="ref_gell96">[GELL96]</a>:Gellman, Robert: Disintermediation and the internet, Government Information Quarterly, Volume 13, Issue 1, 1996, Pages 1-8, ISSN: 0740-624X
+
+<a name="ref_Gerr17">[GERR17]</a>: Pecksen, Gerrit: Bitcoin in Zahlen, Daten und Fakten, 03.07.2017, URL: https://innovationsblog.dzbank.de/2017/07/03/bitcoin-in-zahlen-daten-und-fakten/ (letzter Zugriff: 10.05.2018)
 
 <a name="ref_Ghal15">[GHAL15]</a>: Ghalsim, Yacine: Why we should drop the whole “Bitcoin vs blockchain” discussion, 07.10.2015, URL: https://medium.com/@YacineGhalim/why-we-should-drop-the-whole-bitcoin-vs-blockchain-discussion-e3e38e9a5104 (letzter Zugriff: 04.05.2018)
 
@@ -603,7 +655,7 @@ Blockchain-Technologie
 
 <a name="ref_hega16">[HEGA16]</a>: Hegadekatti, Kartik: Automation Processes and Blockchain Systems. 2016. Available at SSRN: https://ssrn.com/abstract=2890435
 
-<a name="ref_HOFM17">[HOFM17]</a>: Hofmann, Frank ; Wurster, Simone ; Eyal, Ron ; Böhmecke-Schwafert, Moritz : The immutability concept of blockchains and benefits of early standardization. Nanjing, China : ITU Kaleidoscope: Challenges for a Data-Driven Society (ITU K), 2017, ISBN: 978-9-2612-4281-7 
+<a name="ref_HOFM17">[HOFM17]</a>: Hofmann, Frank ; Wurster, Simone ; Eyal, Ron ; Böhmecke-Schwafert, Moritz : The immutability concept of blockchains and benefits of early standardization. Nanjing, China : ITU Kaleidoscope: Challenges for a Data-Driven Society (ITU K), 2017, ISBN: 978-9-2612-4281-7
 
 <a name="ref_huck16">[HUCK16]</a>:Huckle, Steve ; Bhattacharya, Rituparna ; White, Martin ; Beloff, Natalia: Internet of Things, Blockchain and Shared Economy Applications, Procedia Computer Science, Volume 98, 2016, pp.461-466, ISSN: 1877-0509
 
@@ -611,9 +663,13 @@ Blockchain-Technologie
 
 <a name="ref_INVE18">[INVE18]</a>: Investopedia.com : Hard Fork & Soft Fork ; URL: https://www.investopedia.com/terms/h/hard-fork.asp & https://www.investopedia.com/terms/h/hard-fork.asp ; Date Accessed: Mai 09, 2018
 
+<a name="ref_Invo18">[INVO18]</a>: Investopedia, URL:https://www.investopedia.com/terms/1/51-attack.asp (letzter Zugriff: 13.05.2018)
+
 <a name="ref_krav17">[KRAV17]</a>: Kravitz, David W. ; Cooper, Jason: Securing user identity and transactions symbiotically: IoT meets blockchain. 2017 Global Internet of Things Summit (GIoTS), Geneva, 2017, pp. 1-6. DOI: 10.1109/GIOTS.2017.8016280
 
 <a name="ref_mart18">[MART18]</a>: Martineau, Paris (The Outline) : Inside the group chats where people pump and dump cryptocurrency, URL: [https://theoutline.com/post/3074/inside-the-group-chats-where-people-pump-and-dump-cryptocurrency](https://theoutline.com/post/3074/inside-the-group-chats-where-people-pump-and-dump-cryptocurrency) (letzter Zugriff: 13.05.2018)
+
+<a name="ref_Mein17">[MEIN17]</a>: Meinel, Christoph; Gayvoronskaya, Tatiana; Schnjakin, Maxim: Blockchain: Hype oder Innovation, Pages 52-56, ISSN: 1613-5652 , URL: https://publishup.uni-potsdam.de/opus4-ubp/frontdoor/deliver/index/docId/10314/file/tbhpi113.pdf (letzter Zugriff: 11.05.2018)
 
 <a name="ref_nagu07">[NAGU07]</a>:Nagurney, Anna ; Liu, Zugang ; Woolley, Trisha: Sustainable Supply Chain and Transportation Networks, International Journal of Sustainable Transportation, 1:1, 29-51, 2007. DOI: 10.1080/15568310601060077
 
@@ -637,9 +693,9 @@ Blockchain-Technologie
 
 <a name="ref_voge15">[VOGE15]</a>: Vogelsteller, Fabian ; Buterin, Vitalik : ERC-20 Token Standard, URL: [https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) (letzter Zugriff: 12.05.2018)
 
-<a name="ref_VUJI18">[VUJI18]</a>: Vujičić, Dejan ; Jagodić, Dijana ; Ranđić, Siniša : Blockchain Technology, Bitcoin, and Ethereum: A Brief Overview. East Sarajevo, Bosnia and Herzegovina : IEEE INFOTEH-JAHORINA (INFOTEH), 17th International Symposium, 2018, ISBN: 978-1-5386-4907-7 
+<a name="ref_VUJI18">[VUJI18]</a>: Vujičić, Dejan ; Jagodić, Dijana ; Ranđić, Siniša : Blockchain Technology, Bitcoin, and Ethereum: A Brief Overview. East Sarajevo, Bosnia and Herzegovina : IEEE INFOTEH-JAHORINA (INFOTEH), 17th International Symposium, 2018, ISBN: 978-1-5386-4907-7
 
-<a name="ref_walter07">[WALTE07]</a>: Walter, Benedikt: Intermediation und Digitalisierung. Springer-Verlag, 2007, ISBN: 3835096303 
+<a name="ref_walter07">[WALTE07]</a>: Walter, Benedikt: Intermediation und Digitalisierung. Springer-Verlag, 2007, ISBN: 3835096303
 
 <a name="ref_wilu13">[WILU13]</a>: Wilusz, Daniel ; Rykowski, Jarogniew: The Architecture of Coupon-Based, Semi-off-Line, Anonymous Micropayment System for Internet of Things, Technological Innovation for the Internet of Things, 2013, Springer Berlin Heidelberg, Berlin, Heidelberg, pp.125-132, ISBN: 978-3-642-37291-9
 
