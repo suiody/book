@@ -384,15 +384,17 @@ Im Bezug auf die jeweiligen Datenbankschemen kann man DLT's und Datenbanken wie 
  
 | 										| ACID 	| BASE 	| SALT 	|
 | :--- 									| :---: | :---:	| :---: |
-| Atomar 								| X 	| 		| (x)^1	|
-| Konsistenz 							| X 	| 		| (x)^2 |
+| Atomar 								| X 	| 		| (x)<sup>1</sup>	|
+| Konsistenz 							| X 	| 		| (x)<sup>2</sup> |
 | Isolation								| X		| 		| X		|
 | Replica Konsistenz 					| 		| 		| X 	|
 | Persistenz 							| X 	| X 	| X 	|
 | verteilt 								| 		| X 	| X 	|
 | dezentral 							| 		| 		| X 	|
 | CAP <a>[[NELA18]](#ref_nela18)</a> 	| CA	| CP/AP	| CP/AP	|
-| ^1: Jede Operation ist eine Transaktion in SALT. Jedoch gibt es *Stored procedures*. <br/> ^2: Konsistenz hängt vom Konsens ab. ||||
+
+ <sup>1</sup>: Jede Operation ist eine Transaktion in SALT. Jedoch gibt es *Stored procedures*.  
+ <sup>2</sup>: Konsistenz hängt vom Konsens ab. 
 
 ## Verteilte Systeme
 
