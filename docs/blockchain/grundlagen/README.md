@@ -469,7 +469,7 @@ finden, damit seine eigene Blockchain schneller wächst als die Blockchain an de
 Dezentralisierung gewährleistet. Sollte allerdings eine Person oder Organisation mehr als 51% der Rechenleistung kontrollieren, könnte diese
 Organisation den Verlauf der Blockchain manipulieren. <a>[[NAKA08]](#ref_naka08)</a>
 
-### Proof-of-Stake
+#### Proof-of-Stake
 Auch bei dem sogenannten Proof-of-Stake geht es darum einen Block mit Transaktionen zu finden, auf den sich das gesamte Netzwerk einigen kann.
 Anders als bei dem Proof-of-Work Algorithmus muss dazu allerdings kein Hashwert erraten werden. Beim Proof-of-Stake wird eine Node im Netzwerk
 zufällig ausgelost. Die ausgeloste Node darf dann einen neuen Block zur Blockchain hinzufügen. Zusätzlich erhält die ausgewählte Node eine
@@ -486,7 +486,7 @@ In der Praxis zeigt sich allerdings ein anders Bild. Der Proof-of-Stake zeigte s
 Großinvestoren im Allgemeinfall einen ökonomischen Anreiz haben die Blockchain frei von forks zu halten, so gibt es keinen eingebauten
 mechanischen Mechanismus der Miner davon abhält jeden Block zu validieren um an die Blockreward zu gelangen. <a>[[SIIM17]](#ref_siim17)</a>
 
-### Practical Byzantine Fault Tolerance
+###m Practical Byzantine Fault Tolerance
 Der Practical Byzabtibe Fault Tolerance (PBFT) ist der erste hier vorgestellte Konsens-Algorithmus welchem Nodes nicht frei beitreten können (permissioned).
 Während bei PoW und PoS jeder Computer im Netzwerk beim Finden eines neuen Blockes mithelfen kann, so gibt es beim PBFT ein zentrales Netzwerk an
 Nodes, welche die Entscheidung über einen neuen Block treffen. Diese Nodes wurden von einer zentralen Organisation oder Komitee bestimmt. Diese
@@ -507,7 +507,7 @@ n = 3f+1 kann herausgefunden werden, wie viele fehlerhafte Nodes das System aush
 f die Anzahl der Fehlerhaften Nodes. In einem System mit 4 Nodes könnte also eine Node fehlerhaft sein. Über die 3 funktionieren Nodes kann
 eine 3/4 Mehrheit erreicht werden, was zu einem Konsens führen würde. Bei 2 fehlerhaften Node würde die 2/3 nicht erreicht werden können. <a>[[CAST99]](#ref_cast99)</a>
 
-### Proof of Elapsed Time
+#### Proof of Elapsed Time
 Der Proof-of-Elapsed-Time (PoET) ist ein von Intel entwickelter Konsens Algorithmus. Dabei erstellen Nodes einen Timer, welcher eine zufällige
 Ablaufzeit besitzt. Falls der Timer einer Node abgelaufen ist, darf diese Node einen Block zur Blockchain hinzufügen. Die Schwierigkeit die es
 zu überwinden gilt ist zum einen wie die Erstellung des Timers gehandhabt wird und zum anderen wie kontrolliert werden kann das die gewählte Zeit
@@ -525,7 +525,7 @@ Nachteil das ein Teil des Vertrauens nicht von dem Netzwerk selber aufgebaut wir
 CPU Hersteller, erbracht wird. Dieser Umstand sollte genau genommen von einem Konsens Algorithmus vermieden werden, da im Falle von PoET ein
 Potentieller Schwachpunkt direkt auf der Hand liegt, nämlich der Prozessor selbst. <a>[[RILE18]](#ref_rile18)</a>
 
-### Federated Byzantine Agreement
+#### Federated Byzantine Agreement
 Im Federated Byzantine Agreement (FBA) versucht das Netzwerk über ein Mehrheitsvotum einen nachfolgenden Block zu finden. Ein einfaches Mehrheitsvotum in einem dezentralen System bringt allerdings den Nachteil mit sich, dass  bei einem Netzwerk von vielen tausend Nodes ein gewaltiger Overhead an zu verschickenden Nachrichten entsteht. Um diesen Overhead zu verringern werden von den Nodes im Netzwerk Teilmengen gebildet. Bei der Erstellung einer Node muss deshalb vom Ersteller eine Liste mit bereits vorhandenen Nodes im Netzwerk angelegt werden. Des Weiteren müssen mindestens 40 Prozent der angegebenen Nodes auf Listen von bereits bestehenden Nodes stehen. Die Mindestanzahl an Nodes auf dieser Liste liegt bei 1000 Nodes, dies gewährleistet das alle Nodes im Netzwerk erreichbar sind. Diese Liste an Nodes sind nun Validatoren der neuen Node.
 
 Wie bei anderen Konsens Algorithmen auch werden zunächst alle empfangen Transaktionen von jeder Node zu einem Block zusammengefasst. Dieser Block wird anschließend alle Node auf der inital definierten Liste verschickt. Nun besitzt jede Node
