@@ -1,6 +1,6 @@
 # Populäre Blockchain Plattformen
 
-## Bitcoin 
+## Bitcoin
 Autor: Nils Dralle
 
 Bitcoin ist eine sogenannte Kryptowährung, die ohne eine zentrale Kontrollinstanz (wie z.b. eine Bank) auskommt. Stattdessen bilden alle, die am Zahlungsverkehr mit Bitcoin teilnehmen wollen, ein Netzwerk von Knoten, eine sogenannte Blockchain. Die Bitcoin-Blockchain fungiert als Kontrollinstanz. In ihr werden alle Transaktionen mit Bitcoins vermerkt, und alle Teilnehmer des Netzwerks sind gemeinsam dafür verantwortlich, dass die zugrunde liegende Blockchain aktuell und konsistent ist. Um eine Überweisung mit Bitcoins vornehmen zu können, müssen Sender und Empfänger eine aktuelle Kopie der Blockchain haben. Jede Transaktion im Bitcoin-Netzwerk wird kryptografisch abgesichert.
@@ -18,7 +18,7 @@ Um sich initial mit anderen Knoten zu verbinden, nutzt der Bitcoin einen sogenan
 Die Bitcoin-Blockchain ist aus 1 Megabyte großen Blöcken aufgebaut. Jeder Block kann mehrere Transaktionen beinhalten. Neue Blöcke werden mittels "Mining" erzeugt. Bei der Erzeugung von neuen Blöcken wird ein Algorithmus mit anpassbarer Schwierigkeit verwendet, so dass ein neuer Block etwa alle 10 Minuten erzeugt wird.
 Jeder Block in der Blockchain verweist auf den vorherigen Block mit dem Hashwert des vorherigen Blockes. Eine Manipulation eines Blockes vor dem aktuellen ist damit nicht möglich. Eine Sonderstellung nimmt der sogenannte Genesis-Block (der erste Block) ein: Dieser hat keinen Vorgänger und wurde nicht von der Blockchain berechnet. Beim Bitcoin ist der Genesis-Block zudem im Quellcode fest integriert.
 
-### Transaktionen 
+### Transaktionen
 
 Jede Transaktion im Bitcoin-Netzwerk besteht aus der kryptografischen Signatur des Senders und dem mit dem Public-Key des Empfängers signierten Hash der vorherigen Transaktion. Auf diese Weise kann der Empfänger die Transaktion verifizieren. Transaktionen werden an alle Knoten im Netzwerk verteilt. <a>[[NAKA08]](#ref_naka08)</a> Jede Transaktion hat beim Bitcoin mehrere In- und Outputs, um die Transaktion in mehrere Teilbeträge zerlegen zu können. Abbildung 8.4.1.1 zeigt den Prozess.
 
@@ -306,14 +306,6 @@ Diese Schablonen werden im Anschluss in ein *Business Network Archiv* gebündelt
 und können als Chaincode in die Fabric Blockchain deployed werden. Zusätzlich
 kann aus dieser eine Client-Bibliothek generiert werden, um den Zugriff auf die
 Funktionen in dem Chaincode zu ermöglichen.
-
-## Ethereum
-
-Autor: Philipp Möller
-
-Testing, Verifikation, etc.
-
-Tools (Truffle, etc.)
 
 
 ## Literaturverzeichnis
