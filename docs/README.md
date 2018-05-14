@@ -36,7 +36,7 @@ Bleibt erstmal temporär hier, ansonsten reicht die Sidebar Navigation
   * [Ethik](/ethik/)
 
 ### [Embedded Computing](/embedded/)
-  * IoT
+  * [IoT](/iot/)
   * Softwarequalität
 
 ### [VR / AR](/vr-ar/)

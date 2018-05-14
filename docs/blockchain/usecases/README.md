@@ -77,38 +77,73 @@ Zusammenfassend sind viele Bereiche des juristischen Marktes durch technologisch
 Ein Anwendungsfall für Blockchain Technologien abseits der weit verbreiteten Einsatzmöglichkeit zur Realisierung von dezentralisierten Währungen wie Bitcoin oder Ethereum findet sich im Bereich der Bildung. In diesem Zusammenhang können die Vorteile von Blockchains dazu genutzt werden um Probleme, die in sich im aktuellen Bildungssystem ergeben zu lösen. Zu diesen Schwierigkeiten zählen:
 - Bildungseinrichtungen welteit verwenden unterschiedliche Standarts und Technologien, um die Fortschritte der Lernenden festzuhalten. Durch diese Unterschiede ist es schwierig, erbrachte Leistungen in ein anderes System zu übertragen und so anzuerkennen.
 - Sollte ein Nachweis über eine erbrachte Leistung wie z.B. eine Urkunde zu einem Abschluss verloren gehen, ist es zeitaufwändig, diesen zu ersetzen, da die Bildungseinrichtung kontaktiert und ein neuer Nachweis ausgestellt werden muss.
-- Durch die fehlende Transparenz des Bildungssystems kann es zu Betrug kommen, bei dem nicht erbrachte Leistungen oder nicht vorhandene Abschlüsse vorgetäuscht werden.
+- Durch die fehlende Transparenz des Bildungssystems kann es zu Betrug kommen, bei dem nicht erbrachte Leistungen oder nicht vorhandene Abschlüsse vorgetäuscht werden. [[CHEN18]](#ref_chen18)
 
-Durch den Einsatz von Blockchain Technologien kann diesen Problemen entgegengewirkt werden. Durch die Verwendung eines einheitlichen Standarts innerhalb einer Blockchain ist es möglich, erbrachte Leistungen weltweit übertragbar zu machen und so die administrativen und sprachlichen Hürden für den Austausch von Bildungseinrichtungen auf internationaler Ebene deutlich zu verringern. Im Bereich von Hochschulen würde es so z.B. Studierenden ermöglicht, während des Studiums einfach das Land zu wechseln, in dem Leistungen erbracht werden.
+Durch den Einsatz von Blockchain Technologien kann diesen Problemen entgegengewirkt werden. Durch die Verwendung eines einheitlichen Standarts innerhalb einer Blockchain ist es möglich, erbrachte Leistungen weltweit vergleichbar und übertragbar zu machen und so die administrativen und sprachlichen Hürden für den Austausch von Bildungseinrichtungen auf internationaler Ebene deutlich zu verringern. Im Bereich von Hochschulen würde es so z.B. Studierenden ermöglicht, während des Studiums einfach das Land zu wechseln, in dem Leistungen erbracht werden. [[TURK18]](#ref_turk18) 
+
 Durch die Transparenz und Unveränderbarkeit von Blockchains kann nachvollzogen werden, wann ein Teilnehmer eine Leistung erbracht hat. Hieraus ergeben sich im Hinblick auf Bildung die folgenden Vorteile:
-- Es ist möglich, Betrugsfälle einfacher aufzudecken, da z.B. gefälschte Abschlüsse nicht in der Blockchain enthalten sind und durch die Dezentralisierung eine Wiederspruchsfreiheit der meisten Knoten garantiert werden kann.
-- Wenn in der Blockchain zusätzlich die Interaktion zwischen Lehrenden und Lernenden festgehalten wird, hat dies für beide Parteien den Vorteil, dass die Zusammenarbeit nachvollzogen werden kann. Dies ermöglicht einerseits den Lernfortschritt zu überprüfen, aber auch zu ermitteln, ob durch den Lehrenden ausreichend Unterstützung gegeben worden ist.
-- Durch die öffentliche Einsehbarkeit der Blockchain wird es Arbeitgebern ermöglicht, den Wissensstand eines potenziellen neuen Mitarbeiters besser zu bewerten und so geeignete Personen zu finden.
+- Es ist möglich, Betrugsfälle einfacher aufzudecken, da z.B. gefälschte Abschlüsse nicht in der Blockchain enthalten sind und durch die Dezentralisierung eine Wiederspruchsfreiheit der meisten Knoten garantiert werden kann. [[CHEN18]](#ref_chen18)
+- Wenn in der Blockchain zusätzlich die Interaktion zwischen Lehrenden und Lernenden festgehalten wird, hat dies für beide Parteien den Vorteil, dass die Zusammenarbeit nachvollzogen werden kann. Dies ermöglicht einerseits den Lernfortschritt zu überprüfen, aber auch zu ermitteln, ob durch den Lehrenden ausreichend Unterstützung gegeben worden ist. [[CHEN18]](#ref_chen18)
+- Durch die öffentliche Einsehbarkeit der Blockchain wird es Arbeitgebern ermöglicht, den Wissensstand eines potenziellen neuen Mitarbeiters besser zu bewerten und so geeignete Personen zu finden. [[CHEN18]](#ref_chen18) [[TURK18]](#ref_turk18) 
 
-Durch diese öffentliche Zugänglichkeit ergeben sich jedoch auch Probleme, da ein solches Blockchain System bedeuten würde, dass sensible, personenbezogene Daten einsehbar wären. Daher sollte bei einer Anwendung von Blockchain Technologien im Bereich der Bildung darauf geachtet werden, dass die Privatsphäre der Nutzer nicht beeinträchtigt wird.
+Durch diese öffentliche Zugänglichkeit ergeben sich jedoch auch Probleme, da ein einfaches, öffentliches Blockchainsystem bedeuten würde, dass sensible, personenbezogene Daten einsehbar wären. Daher sollte bei einer Anwendung von Blockchain Technologien im Bereich der Bildung darauf geachtet werden, dass die Privatsphäre der Nutzer nicht beeinträchtigt wird.
+
+Soll in die Blockchain auch die Bewertung von erbrachten Leistungen in Form von Smart Contracts aufgenommen werden, stellt sich weiterhin die Problematik, dass die Benotung von bestimmten Abgaben, wie z.B. Aufsätzen, nur schwierig erfolgen kann. [[CHEN18]](#ref_chen18)
+
 Im Folgenden werden Beispiele für die Anwendung von Blockchains im Bereich der Bildung vorgestellt.
 
 ### EduCTX
 
+EduCTX ist eine globale Credit-Platform im Bereich der höheren Bildung, die sich an dem europäischen System zur Übertragung und Akkumulierung von Studienleistungen (ECTS) orientiert. [[TURK18]](#ref_turk18)
+Durch die Einführung eines neuen, weltweit angewendeten Standarts soll es möglich werden, dass bestehende sprachliche und administrative Hürden abgebaut werden, die zur Zeit für Studenten bestehen, die ihren Studienort in ein anderes Land verlegen wollen.
+
+Ein Prototyp von EduCTX wurde auf Basis der Ark Blockchain Platform implementiert. In diesem System bilden Bildungseinrichtungen die Peers und damit Netzwerkknoten. Studenten sind die Nutzer der Blockchain und verfügen jeweils über eine eigene sog. Wallet, in der Creditpunkte gespeichert werden können. Erbringt ein Student eine Leistung, für die eine vorgegebene Anzahl von Credits vergeben werden, so sendet die zuständige Bildungseinrichtung dem Studenten die entsprechende Menge an Punkten zusammen mit weiteren Informationen zur bestandenen Prüfung an seine Wallet.
+
+Der Student kann nun mit Hilfe seiner Wallet weltweit nachweisen, welche Leistungen er erbracht hat und kann weiterhin einem potentiellen Arbeitgeber einen Einblick in seine Ausbildung geben.
+Die folgende Abbildung stellt dieses System dar:
+
+<a name="eductx_aufbau"></a>![eductx_aufbau](./images/eductx_aufbau.png "EduCTX Aufbau") Quelle: [[TURK18]](#ref_turk18)
+
 ### Disciplina
-Bei Disciplina handelt es sich um ein Konzept für den Einsatz von Blockchain Technologien zur Speicherung bildungsbezogener Daten von Personen.
-Das Ziel des Konzeptes ist es, eine Möglichkeit zu finden, den Vorteil der öffentlichen Verifizierbarkeit von public Blockchains wie Etherium mit dem Vorteil keine privaten Daten preiszugeben von privaten Ketten wie Hyperledger zu vereinen.
+
+Bei Disciplina handelt es sich um ein Konzept für den Einsatz von Blockchain Technologien zur Speicherung bildungsbezogener Daten von Personen. Das Ziel des Konzeptes ist es, eine Möglichkeit zu finden, den Vorteil der öffentlichen Verifizierbarkeit von public Blockchains wie Etherium mit dem Vorteil keine privaten Daten preiszugeben von privaten Ketten wie Hyperledger zu vereinen. [[KUVS18]](#ref_kuvs18)
 Der Aufbau von Disciplina lässt sich anhand der folgenden Abbildung nachvollziehen:
 
-<a name="disciplina_aufbau"></a>![disciplina_aufbau](./images/disciplina_aufbau.png "Disciplina Aufbau")
+<a name="disciplina_aufbau"></a>![disciplina_aufbau](./images/disciplina_aufbau.png "Disciplina Aufbau") Quelle: [[KUVS18]](#ref_kuvs18)
 
-Um die privaten Daten der Nutzer zu schützen, kommen bei Disciplina zwei unterschiedliche Blockchains zum Einsatz:
-- Die erste Kette, in der Abbildung mit "Educators" beschriftet, ist eine private Blockchain, die nur Lehrenden zugänglich ist. Hier werden von diesen Blöcke angelegt, die die genauen Daten zu erbrachten Leistungen beinhalten.
-- Die zweite Blockchain ist öffentlich und enthält keinerlei personenbezogene Daten, sondern speichert lediglich Hashwerte, die anhand von Einträgen in der privaten Kette gebildet werden.
+Um die privaten Daten der Nutzer zu schützen, kommen bei Disciplina zwei unterschiedliche Blockchaintypen zum Einsatz:
+- Jeder Educator betreibt eine eigene, private Blockchain, in der die Daten zu erbrachten Leistungen der Lernenden abgelegt werden. Der Inhalt dieser Kette kann nach einer Anfrage von einem Arbeitgeber eingesehen werden.
+- Eine öffentliche Blockchain, die keinerlei personenbezogene Daten enthält, sondern lediglich Hashwerte speichert, die anhand von Einträgen in den privaten Ketten gebildet werden. Der Konsens über valide Blöcke innerhalb dieser Blockchain wird zwischen den sog. Witnesses gebildet.
 
-Durch diese Trennung ist es möglich, zu garantieren, dass die private Blockchain nicht manipuliert werden kann und gleichzeitig zu verhindern, dass private Daten öffentlich zugänglich sind.
+Durch diese Trennung ist es möglich, zu garantieren, dass die privaten Blockchains nicht manipuliert werden können und gleichzeitig zu verhindern, dass private Daten öffentlich zugänglich sind.
+Um zu verhindern, dass die public Blockchain mit unnötigen Daten überfüllt wird, müssen Lehrende für das Eintragen von neuen Ergebnissen eine Gebühr entrichten. Diese wird daraufhin verwendet, um die Witnesses zu entlohnen, die den Konsens über die Kette bilden.
 
 Autor: Matthias Kersting
 
 
 ## Blockchain und KI
 
-* https://arxiv.org/abs/1802.04451
+Im Verlauf der letzten Jahre hat es in dem Bereich der Blockchaintechnologien eine immer schneller werdende Entwicklung gegeben, da nicht zuletzt durch die vierte industrielle Revolution Software in weiten Bereichen der Gesellschaft Anwendung findet und so immer mehr Ressourcen in die Erforschung von neuen Technologien investiert werden. 
+Die weite Verbreitung von Software sorgt dafür, dass sich immer mehr Menschen auf die korrekte Funktionsweise der Programme verlassen müssen. Dies ist auch bei Blockchaintechnologien der Fall und obwohl diese häufig als dezentralisiert bezeichnet werden, werden die zugrundeliegenden Programme, wie z.B. die Smart Contracts von Ethereum, dennoch von einigen wenigen Menschen entwickelt, wodurch ungewolltes Verhalten auftreten kann. [[MARW18]](#ref_marw18)
+
+In der Vergangenheit haben daher z.B. verschiedene Sicherheitslücken in Smart Contracts von Etherium Hackern mehrfach ermöglicht Schäden im mehrstelligen Millionenbereich (2016: 50 Mio. USD, 2017: 180 Mio. USD) zu verursachen. [[MARW18]](#ref_marw18)
+
+Um Blockchains gegen derartige Risiken abzusichern kann auf den Einsatz von künstlicher Intelligenz zurückgegriffen werden, um die Menschen, die an der Entwicklung beteiligt sind zu unterstützen und z.B. Fehler in Smart Contracts zu verhindern, bevor diese eingesetzt werden.
+
+Wie an der folgenden Abbildung zu sehen ist, kann KI zusätzlich auch angewendet werden, um andere Bereiche von Blockchains zu optimieren:
+
+<a name="ai_blockchain"></a>![ai_blockchain](./images/ai_blockchain.png "Anwendungen von KI im Bereich von Blockchains") Quelle: [[MARW18]](#ref_marw18)
+
+Für die Blockchains ergeben sich durch den Einsatz von KI Vorteile, da
+- die Skalierbarkeit erhöht wird und es so möglich wird, dass immer mehr Nutzer an einer Blockchain teilnehmen können
+- Sicherheitslücken schneller aufgedeckt und behoben werden können
+- die Effizienz erhöht werden kann, indem die Schwierigkeit von Mining-Aufgaben besser angepasst werden kann
+
+Die durch künstliche Intelligenz erreichbaren Vorteile wirken sich dabei aber auch auf Gebiete außerhalb von Blockchains aus:
+- Wird die Menge an Energie verringert, die für den Betrieb von Blockchainsystemen notwendig ist, indem z.B. die Architektur der Mining-Hardware optimiert wird, kann der Ausstoß von Treibhausgasen und der Verbrauch von nicht erneuerbaren Energien verringert werden.
+- Durch die Verbesserung von Hash-Algorithmen kann besser sichergestellt werden, dass private Daten von Nutzern, die sich in Blockchains befinden, besser geschützt werden können.
+
+Durch die stetige Entwicklung von neuen Technologien im Bereich der künstlichen Intelligenz werden sich auch in Zukunft noch weitere Anwendungsfälle im Bezug auf Blockchaintechnologien ergeben.
 
 Autor: Matthias Kersting
 
@@ -120,6 +155,9 @@ Autor: Matthias Kersting
 <a name="ref_blt18">[BLT18]</a>: Berlin Legal Tech: Hackathon & Conference ; URL: <a>https://berlinlegal.tech/center/</a> (abgerufen am 08.05.2018)
 
 <a name="ref_chai17">[CHAI17]</a>: Chainfrog: What are smart contracts? 2017 ; URL: <a>http://www.chainfrog.com/wp-content/uploads/2017/08/smart-contracts.pdf</a> (abgerufen am 03.05.2018)
+
+<a name="ref_chen18">[CHEN18]</a>: Chen, Guang et al. ; 03.01.2018: Exploring blockchain technology and its
+potential applications for education ; URL: <a>https://link.springer.com/article/10.1186/s40561-017-0050-x</a> (abgerufen am 05.05.2018)
 
 <a name="ref_eup08">[EUP08]</a>: EU Parlament und Rat ; 24.09.2008: Verordnung Nr. 1008/2008 : URL: <a>http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2008:293:0003:0020:de:PDF</a> (abgerufen am 08.05.2018)
 
@@ -133,9 +171,13 @@ Autor: Matthias Kersting
 
 <a name="ref_korm17">[KORM17]</a>: Korman, Zachary ; 19.12.2017: Legal Tech: The Era of Bad Ideas ; URL: <a>https://www.law.ox.ac.uk/business-law-blog/blog/2017/12/legal-tech-era-bad-ideas</a> (abgerufen am 06.05.2018)
 
+<a name="ref_kuvs18">[KUVS18]</a>: Kuvshinov, Kirill et al. ; 30.01.2018: Disciplina: Blockchain for Education ; URL: <a>https://disciplina.io/yellowpaper.pdf</a> (abgerufen am 05.05.2018)
+
 <a name="ref_ltb18a">[LTB18a]</a>: Legal Tech Blog ; 07.01.2018: 10 Legal Tech Trends for 2018 (Part 1) ; URL: <a>https://legal-tech-blog.de/10-legal-tech-trends-for-2018-part-1</a> (abgerufen am 08.05.2018)
 
 <a name="ref_ltb18b">[LTB18b]</a>: Legal Tech Blog ; 04.05.2018: Goethe 2.0: Legaltech an der Johann Wolfgang Goethe-Universität Frankfurt ; URL: <a>https://legal-tech-blog.de/goethe-2-0-legaltech-an-der-johann-wolfgang-goethe-universitaet-frankfurt</a> (abgerufen am 08.05.2018)
+
+<a name="ref_marw18">[MARW18]</a>: Marwala, Tshilidzi et al. ; 13.02.2018: Blockchain and Artificial Intelligence ; URL: <a>https://arxiv.org/abs/1802.04451</a> (abgerufen am 10.05.2018)
 
 <a name="ref_nort16">[NORT16]</a>: Norton, Steven ; 20.05.2016: Downfall of DAO Digital Currency Fund Shows Blockchain Reputational Risk ; URL: <a>https://blogs.wsj.com/cio/2016/06/20/downfall-of-dao-digital-currency-fund-shows-blockchain-reputational-risk/</a> (abgerufen am 04.05.2018)
 
@@ -152,3 +194,5 @@ Autor: Matthias Kersting
 <a name="ref_stem18">[STEM18]</a>: Stemplewski, Jan ; 23.02.2018: Legal Tech Berlin: Kurzvorträge zu industriellen Rechtsdienstleistungen ; URL: <a>https://youtu.be/oMhCIQmsAQg</a> (abgerufen am 06.05.2018)
 
 <a name="ref_szab96">[SZAB96]</a>: Smart Contracts: Building Blocks for Digital Markets 1996 ; URL: <a>http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart_contracts_2.html</a> (abgerufen am 03.05.2018)
+
+<a name="ref_turk18">[TURK18]</a>: Turkanović, Muhamed et al. ; 05.01.2018: EduCTX: A Blockchain-Based Higher Education Credit Platform ; URL: <a>https://ieeexplore.ieee.org/document/8247166/</a>

@@ -293,13 +293,13 @@ Autor: Kevin Schima
 
 ### Fiatgeld
 
-Fiatgeld (von lat. "fiat" - "es werde") ist ein Tauschmittel, dessen Gegenwert von den ausstellenden Notenbanken garantiert wird und dessen Verwendung als gesetzliches Zahlungsmittel von den jeweiligen Ländern vorgeschrieben ist. Die Schaffung eines eigenen Währungssystems ermöglicht einem Staat den Wert und das Wirtschaftssystem zu steuern.
+Unter Fiatgeld (von lat. "fiat" - "es werde") werden Finanzwährungen zusammengefasst, deren Wert die ausstellenden Notenbanken garantieren und die als gesetzliches Zahlungsmittel von den ausgebenden Ländern vorgeschrieben sind. Die Schaffung eines eigenen Währungssystems ermöglicht einem Staat den Wert bzw. die Inflation zu steuern und Einfluss auf das Wirtschaftssystem zu nehmen.
 
 
 ### Tokenization
-Tokenization (von Englisch "token": "Wertmarke") beschreibt den Prozess, ein digitales Abbild eines Assets (Edelmetalle, Immobilien usw.), über Smart Contracts bzw. Blockchain Technologie im Allgemeinen, handelbar zu machen. Schon vor der Entwicklung von Währungssystemen, wurden von Goldschmieden und Banken Wertscheine ausgestellt, die den Besitz einer hinterlegten Goldmenge bescheinigten, wodurch Händler einfacher Zahlungen untereinander tätigen konnten ohne physisch Gold auszutauschen. Später wurde durch Banknoten eine universelle Akzeptanz ermöglicht und durch elektronische Überweisungen der Transfer von Geld erleichtert.
+Tokenization (von Englisch "token": "Wertmarke") beschreibt den Prozess, ein digitales Abbild eines Assets / Anlageguts (Edelmetalle, Immobilien usw.), über Smart Contracts bzw. Blockchain Technologie im Allgemeinen, handelbar zu machen. Schon vor der Entwicklung von Währungssystemen, wurden von Goldschmieden und Banken Wertscheine ausgestellt, die den Besitz einer hinterlegten Goldmenge bescheinigten, wodurch Händler einfacher Zahlungen untereinander tätigen konnten ohne physisch Gold auszutauschen. Später wurde durch Banknoten eine universelle Akzeptanz ermöglicht und durch elektronische Überweisungen der Transfer von Geld erleichtert.
 
-Durch Tokenization kann dieses Konzept noch weiter getrieben werden: Es gibt in der Regel keine zentrale Entität, der vertraut werden muss, Vertrauen wird geschaffen durch die Nutzung von Blockchain Technologie und durch die Offenlegung der Quellcodes, die eine Token Transaktion ausführen. Schließlich erlaubt die Verwendung von Token viele neue Anwendungsmöglichkeiten und eine weltweite potentielle Nutzerbasis.
+Tokenization erlaubt erweiterte Möglichkeiten: Es gibt in der Regel keine zentrale Entität, der vertraut werden muss, Vertrauen wird geschaffen durch die Nutzung von Blockchain Technologie und durch die Offenlegung der Token Quellcodes. Schließlich erlaubt die Verwendung von Token neuartige Anwendungsmöglichkeiten und eine weltweite potentielle Nutzerbasis.
 
 
 ### Arten von Token
@@ -366,7 +366,7 @@ Für die Investoren des ICOs hat sich der Wert der Token im Idealfall durch medi
 
 Die Etablierung von Token und ICOs wird vorallem ermöglicht durch eine vereinfachte Entwicklung, unterstützt durch die ERC Standards (Ethereum Request for Comments) für die Smart Contract Plattform der Ethereum Blockchain. 
 
-Sie bieten ein einheitliches Interface, dass alle grundlegenden Funktionalitäten, die ein Token benötigt, bereitstellt. Der erste und verbreiteste Tokenstandard ist ERC-20 <a>[[VOGE15]](#ref_voge15)</a>, daneben gibt es noch einige weitere, neuere Tokenstandards die mehr Funktionen bereitstellen, auf die and dieser Stelle nicht weiter eingegangen wird.
+Sie bieten ein einheitliches Interface, dass alle grundlegenden Funktionalitäten, die ein Token benötigt, bereitstellt. Der erste und verbreiteste Tokenstandard ist ERC-20 <a>[[VOGE15]](#ref_voge15)</a>, daneben gibt es noch einige weitere, neuere Tokenstandards die mehr Funktionen bereitstellen, auf die and dieser Stelle nicht weiter eingegangen wird. Um einen eigenen ERC-20 Token zu generieren ist kaum Aufwand erforderlich, es kann ein Template ([https://github.com/bokkypoobah/Tokens/blob/master/contracts/FixedSupplyToken.sol](https://github.com/bokkypoobah/Tokens/blob/master/contracts/FixedSupplyToken.sol)) verwendet werden, indem die Bezeichnung, Abkürzung und die Maximalmenge definiert bzw. verändert wird. Anschließend kann der Token auf der Ethereum Blockchain veröffentlicht werden.
 
 #### ERC-20
 
@@ -394,7 +394,20 @@ Hauptfunktionen:
 
 * allowance: 
 
-*Abhebelimit ermitteln, welches über approve zur Verfügung gestellt wurde* 
+*Abhebelimit ermitteln, welches über approve zur Verfügung gestellt wurde*
+
+### Risiken
+
+#### Exit Scams
+
+In der traditionellen Geschäftswelt bezeichnet ein Exit Scam eine Betrugspraktik, bei der ein ursprünglich legitimes Unternehmen beginnt, Dienstleistung oder Waren die gegen Geldzahlungen angeboten werden, nicht mehr zu erfüllen oder zu versenden. Sobald der Betrug öffentlich wird, verschwinden die Urheber des Betrugs mit den unrechtmäßig erhaltenen Zahlungen.
+Auch bei ICOs, unterstützt durch die Anonymität der Finanztransaktionen und fehlender rechtlicher Regulierung, ist diese Betrugsmethode wiederholt erfolgt. Ein Beispiel ist der ICO "Pincoin" eines vietnamesischen Entwicklerkollektivs, bei dem Anfang 2018 ca. 660 Millionen Dollar von 32.000 Investoren eingenommen wurden. Der ICO wurde unteranderem mit dem Versprechen beworben, eine garantierte konstante Rendite auszuzahlen. Wie schon bei anderen ICOs, die dies nicht einhalten konnten, verschwanden die Entwickler nach dem ICO mit dem eingenommenem Kapital. <a>[[BIGG18]](#ref_bigg18)</a>
+
+#### Pump-and-dump
+
+Unter Pump-and-dump wird im Allgemeinen eine illegale Praktik im Finanzwesen bezeichnet, bewusst falsche Informationen zu verbreiten, die im Falle von börsennotierten Unternehmen, eine Kurssteigerung auslösen (pump). Zuvor hat der Verbreiter dieser Informationen, in Unternehmensanteile (Aktien) des Unternehmens investiert oder Optionen auf eine Kurssteigerung platziert. Sobald die (überbewerteten) Unternehmensanteile nach einem Kursanstieg schlagartig verkauft werden (dump), fällt der Aktienkurs dramatisch.
+Im Umfeld der Kryptowährung wurden ähnliche Praktiken angewendet: Mit der Aussicht auf erheblichen finanziellen Gewinn, wurden beispielsweise im Instant-Messaging-Dienst Telegram viele sogenannter "pump-and-dump" Gruppen gegründet <a>[[MART18]](#ref_mart18)</a>, die Privatinvestoren anziehen. In diesen Gruppen werden Zeitpunkte publiziert an denen Einheiten einer Kryptowährung gekauft werden sollen, mit dem Ziel, den Kurs ansteigen zu lassen. Die Teilnehmer dieser Gruppen sind der Auffassung einen Gewinn erzielen zu können, da sie die Information vor der breiten Öffentlichkeit erhalten haben und der Kurs zunächst auch steigt, ausgelöst durch die erhöhte Nachfrage.
+Die Gründer dieser Nachrichtengruppen haben in der Regel schon vor Verbreitung des Kaufsignals hohe Kapitalmengen investiert. Sie stoßen als Erste schlagartig alle Anteile ab, worauf der Kurs, ausgelöst durch weitere Panikverkäufe, zusammenbricht.
 
 ## Herausforderungen und Risiken
 
@@ -560,6 +573,9 @@ Blockchain-Technologie
 
 <a name="ref_beck16">[BECK16]</a>:Beck, Roman ; Stenum Czepluch, Jacob; Lollike, Nikolaj; and Malone, Simon: BLOCKCHAIN – THE GATEWAY TO TRUST-FREE CRYPTOGRAPHIC TRANSACTIONS. Twenty-Fourth European Conference on Information Systems (ECIS), İstanbul,Turkey, 2016. Springer Publishing Company, 2016. p. 1-14.
 
+<a name="ref_bigg18">[BIGG18]</a>: Biggs, John (Techcrunch) : Exit scammers run off with $660 million in ICO earnings. Web-Quelle, 2018,
+[https://techcrunch.com/2018/04/13/exit-scammers-run-off-with-660-million-in-ico-earnings/](https://techcrunch.com/2018/04/13/exit-scammers-run-off-with-660-million-in-ico-earnings/) (letzter Zugriff: 13.05.2018)
+
 <a name="ref_budic18">[BUDI18]</a>: BusinessDictionary.com : What is intermediation? definition and meaning ; URL: http://www.businessdictionary.com/definition/intermediation.html ; Date Accessed: April 29, 2018
 
 <a name="ref_Bute15">[BUTE15]</a>: Buterin, Vitalik: On Public and Private Blockchains, 07.08.2015, URL: https://blog.ethereum.org/2015/08/07/on-public-and-private-blockchains/ (letzter Zugriff: 03.05.2018)
@@ -571,7 +587,7 @@ Blockchain-Technologie
 <a name="ref_etla16">[ETLA16]</a>: ETLA; Mattila, Juri: The Blockchain Phenomenon – The Disruptive Potential of Distributed Consensus Architectures. ETLA Working Papers, 2016 ; ISSN: 2323-2420
 
 <a name="ref_eule18">[EULE18]</a>: Euler, T. : The Token Classification Framework: A multi-dimensional tool for under-standing the classifying crypto tokens. Web-Quelle, 2018,
-http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens/](http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens)
+[http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens/](http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens) (letzter Zugriff: 13.05.2018)
 
 <a name="ref_franc18">[FRANC18]</a>: Francisco, Kristoffer ; Swanson, David: The Supply Chain Has No Clothes: Technology Adoption of Blockchain for Supply Chain Transparency, Logistics, Volume 2, Issue 1, 2018, DOI: 10.3390/logistics2010002
 
@@ -597,6 +613,8 @@ http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimension
 
 <a name="ref_krav17">[KRAV17]</a>: Kravitz, David W. ; Cooper, Jason: Securing user identity and transactions symbiotically: IoT meets blockchain. 2017 Global Internet of Things Summit (GIoTS), Geneva, 2017, pp. 1-6. DOI: 10.1109/GIOTS.2017.8016280
 
+<a name="ref_mart18">[MART18]</a>: Martineau, Paris (The Outline) : Inside the group chats where people pump and dump cryptocurrency, URL: [https://theoutline.com/post/3074/inside-the-group-chats-where-people-pump-and-dump-cryptocurrency](https://theoutline.com/post/3074/inside-the-group-chats-where-people-pump-and-dump-cryptocurrency) (letzter Zugriff: 13.05.2018)
+
 <a name="ref_nagu07">[NAGU07]</a>:Nagurney, Anna ; Liu, Zugang ; Woolley, Trisha: Sustainable Supply Chain and Transportation Networks, International Journal of Sustainable Transportation, 1:1, 29-51, 2007. DOI: 10.1080/15568310601060077
 
 <a name="ref_pusc16">[PUSC16]</a>:Puschmann, Thomas ; Alt, Rainer: Sharing Economy, 2016, Business & Information Systems Engineering: Vol. 58: Iss. 1, pp.93-99.
@@ -617,7 +635,7 @@ http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimension
 
 <a name="ref_tian16">[TIAN16]</a>:Tian, Feng: An agri-food supply chain traceability system for China based on RFID & blockchain technology. 13th International Conference on Service Systems and Service Management (ICSSSM), Kunming, 2016, pp. 1-6, 2016. DOI: 10.1109/ICSSSM.2016.7538424
 
-<a name="ref_voge15">[VOGE15]</a>: Vogelsteller, Fabian ; Buterin, Vitalik : ERC-20 Token Standard, URL: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md (letzter Zugriff: 12.05.2018)
+<a name="ref_voge15">[VOGE15]</a>: Vogelsteller, Fabian ; Buterin, Vitalik : ERC-20 Token Standard, URL: [https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) (letzter Zugriff: 12.05.2018)
 
 <a name="ref_VUJI18">[VUJI18]</a>: Vujičić, Dejan ; Jagodić, Dijana ; Ranđić, Siniša : Blockchain Technology, Bitcoin, and Ethereum: A Brief Overview. East Sarajevo, Bosnia and Herzegovina : IEEE INFOTEH-JAHORINA (INFOTEH), 17th International Symposium, 2018, ISBN: 978-1-5386-4907-7 
 

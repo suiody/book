@@ -5,9 +5,9 @@ Autor: Nils Dralle
 
 Bitcoin ist eine sogenannte Kryptowährung, die ohne eine zentrale Kontrollinstanz (wie z.b. eine Bank) auskommt. Stattdessen bilden alle, die am Zahlungsverkehr mit Bitcoin teilnehmen wollen, ein Netzwerk von Knoten, eine sogenannte Blockchain. Die Bitcoin-Blockchain fungiert als Kontrollinstanz. In ihr werden alle Transaktionen mit Bitcoins vermerkt, und alle Teilnehmer des Netzwerks sind gemeinsam dafür verantwortlich, dass die zugrunde liegende Blockchain aktuell und konsistent ist. Um eine Überweisung mit Bitcoins vornehmen zu können, müssen Sender und Empfänger eine aktuelle Kopie der Blockchain haben. Jede Transaktion im Bitcoin-Netzwerk wird kryptografisch abgesichert.
 
-### Geschichte
+### "Geschichte" des Bitcoin
 
-Das Bitcoin-Netzwerk wurde im Jahr 2008 erstmals theoretisch unter dem Synonym Satoshi Nakamoto beschrieben und 2009 praktisch umgesetzt. Das Konzept kryptografischer Währungen wurde bereits 1998 veröffentlicht. Auch wenn der Bitcoin als Währung gedacht ist, so ist er in den letzten Jahren immer mehr zum Investitions- und Spekulationsobjekt geworden. Der Bitcoin-Wechselkurs erreichte Ende 2017 sein bisheriges Maximum von circa 16.000€ pro Bitcoin und steht derzeit (wenige Monate später) bei 7500€ pro Bitcoin.
+Das Bitcoin-Netzwerk wurde im Jahr 2008 erstmals theoretisch unter dem Pseudonym Satoshi Nakamoto beschrieben und 2009 praktisch umgesetzt. Das Konzept kryptografischer Währungen wurde bereits 1998 veröffentlicht. Auch wenn der Bitcoin als Währung gedacht ist, so ist er in den letzten Jahren immer mehr zum Investitions- und Spekulationsobjekt geworden. Der Bitcoin-Wechselkurs erreichte Ende 2017 sein bisheriges Maximum von circa 16.000€ pro Bitcoin und steht derzeit (wenige Monate später) bei 7500€ pro Bitcoin.
 
 ### Bootstrapping
 
@@ -16,10 +16,7 @@ Um sich initial mit anderen Knoten zu verbinden, nutzt der Bitcoin einen sogenan
 ### Blöcke
 
 Die Bitcoin-Blockchain ist aus 1 Megabyte großen Blöcken aufgebaut. Jeder Block kann mehrere Transaktionen beinhalten. Neue Blöcke werden mittels "Mining" erzeugt. Bei der Erzeugung von neuen Blöcken wird ein Algorithmus mit anpassbarer Schwierigkeit verwendet, so dass ein neuer Block etwa alle 10 Minuten erzeugt wird.
-
-#### Proof-of-Work
-
-Der Bitcoin nutzt einen Proof-of-Work Algorithmus zu Entscheidungsfindung über neue Blöcke. Dabei wird innerhalb des neuen Blocks ein spezieller Wert, eine sogenannte *Nonce*, angelegt. Dieser Wert wird solange erhöht, bis ein Hash für den Block gefunden wird, der mit einer bestimmten Anzahl Nullen beginnt. Über die benötigte Anzahl Nullen kann die Schwierigkeit des Proof-of-Work angepasst werden. Beim Bitcoin wird die Schwierigkeit automatisch so angepasst, dass ein neuer Block etwa alle 10 Minuten gefunden wird.
+Jeder Block in der Blockchain verweist auf den vorherigen Block mit dem Hashwert des vorherigen Blockes. Eine Manipulation eines Blockes vor dem aktuellen ist damit nicht möglich. Eine Sonderstellung nimmt der sogenannte Genesis-Block (der erste Block) ein: Dieser hat keinen Vorgänger und wurde nicht von der Blockchain berechnet. Beim Bitcoin ist der Genesis-Block zudem im Quellcode fest integriert.
 
 ### Transaktionen 
 
@@ -30,20 +27,20 @@ Jede Transaktion im Bitcoin-Netzwerk besteht aus der kryptografischen Signatur d
 Abbildung 8.4.1.1 - Bitcoin Transaktionen (Quelle: <a>[[MONA15]](#ref_mona15)</a>)
 
 Die Outputs einer Transaktion können auch "unspent" sein. Beträge, die "unspent" sind, wurden noch nicht in einer weiteren Transaktion ausgegeben und werden dem Empfänger der Transaktion zugerechnet.
-Das Bitcoin-Netzwerk kann maximal 7 Transaktionen pro Sekunde verarbeiten. Jede Transaktion muss zuerst in einen Block eingefügt und zur Blockchain hinzugefügt werden, bevor sie von anderen Knoten verifiziert werden kann.
-Jede Transaktion wird mit einer Steuer belegt. Diese Transaktionssteuer geht an den "Miner" des Blockes, mit dem diese Transaktion zur Blockchain hinzugefügt wird.
+Das Bitcoin-Netzwerk kann maximal 7 Transaktionen pro Sekunde verarbeiten. Jede Transaktion muss zuerst in einen Block eingefügt und zur Blockchain hinzugefügt werden, bevor sie von anderen Knoten verifiziert (und vom Empfänger verwendet) werden kann.
+Jede Transaktion wird mit einer Gebühr belegt. Diese Transaktionsgebühr geht an den "Miner" des Blockes, mit dem diese Transaktion zur Blockchain hinzugefügt wird.
 
 ### Mining
 
-Die Aufgabe des "Mining" ist es, Transaktionen zu Blöcken zusammenzufügen und in der Blockchain zu veröffentlichen. Dabei wird der "Proof-of-Work" Algorithmus genutzt. Für das erfolgreiche minen neuer Blöcke werden neue Bitcoins an den erfolgreichen Miner vergeben. Über diesen Mechanismus werden neue Bitcoins erzeugt. Die Amzahl an Bitcoins, die mit jedem neuen Block erzeugt werden, halbiert sich alle 210.000 Blöcke.
+Die Aufgabe des "Mining" ist es, Transaktionen zu Blöcken zusammenzufügen und in der Blockchain zu veröffentlichen. Dabei wird der "Proof-of-Work" Algorithmus genutzt. Für das erfolgreiche minen neuer Blöcke werden neue Bitcoins an den erfolgreichen Miner vergeben. Über diesen Mechanismus werden neue Bitcoins erzeugt. Die Anzahl an Bitcoins, die mit jedem neuen Block erzeugt werden, halbiert sich alle 210.000 Blöcke.
+
+#### Proof-of-Work
+
+Der Bitcoin nutzt einen Proof-of-Work Algorithmus zu Entscheidungsfindung über neue Blöcke. Dabei wird innerhalb des neuen Blocks ein spezieller Wert, eine sogenannte *Nonce*, angelegt. Dieser Wert wird solange erhöht, bis ein Hash für den Block gefunden wird, der mit einer bestimmten Anzahl Nullen beginnt. Über die benötigte Anzahl Nullen kann die Schwierigkeit des Proof-of-Work angepasst werden. Beim Bitcoin wird die Schwierigkeit automatisch so angepasst, dass ein neuer Block etwa alle 10 Minuten gefunden wird.
 
 ### Zeitstempel
 
 Damit jeder Knoten die Transaktionen zeitlich einordnen kann, implementiert Bitcoin einen verteilten Zeitstempel-Server. <a>[[NAKA08]](#ref_naka08)</a> Der Zeitstempel besteht aus dem Hashwert der Daten, die einen Zeitstempel erhalten sollen, sowie dem Hashwert des vorherigen Zeitstempels.
-
-### Protokoll
-
-UTXO etc.
 
 ## Hyperledger
 Autor: Cem Basoglu
@@ -280,10 +277,35 @@ Smart Contracts (Solidity) auf Basis der Fabric Plattform ermöglicht. Beide
 Projekte befinden sich noch in der Inkubation.
 
 ### Tools
+Neben den Blockchain Plattformen, gehören auch diverse Tools rund um das Thema
+Distributed Ledger zum Hyperledger Projekt. So kann beispielsweise mit dem Tool
+*Caliper*, die Performance der Blockchain Plattform gemessen. Während diese
+Tools eher in die Kategorie Administration eingeordnet werden können, bietet
+folgendes Entwicklungswerkzeug Unterstützung bei der Entwicklung von Distributed
+Ledger Applikationen.
 
 #### Composer
+Das als Webapplikation ausgelegte Entwicklungswerkzeuge Composer, bietet die
+Möglichkeit Distributed Ledger Applikationen für das Fabric Framework zu
+entwickeln. Dabei werden die Funktionalitäten von Fabric gekapselt und dem
+Benutzer eine auf folgende Schablonen reduzierte Umgebung bereitgestellt.
 
-#### Cello
+* **Model File** Mit dieser Schablonen können Daten modelliert werden,
+  die im Distributed Ledger abgelegt werden sollen.
+
+* **Script File** Mittels Javascript kann mit dieser Schablone die Applikations-
+  und Business-Logik implementiert werden.
+
+* **Query File** Eine SQL ähnliche Abfrage Sprache, um unter Verwendung der
+  Models, Abfragen gegen den Distributed Ledger zu formulieren.
+
+* **Access Control File** Definiert welche Rollen und Benutzer Zugriff auf
+  welche Daten dieser Applikation im Distributed Ledger haben.
+
+Diese Schablonen werden im Anschluss in ein *Business Network Archiv* gebündelt
+und können als Chaincode in die Fabric Blockchain deployed werden. Zusätzlich
+kann aus dieser eine Client-Bibliothek generiert werden, um den Zugriff auf die
+Funktionen in dem Chaincode zu ermöglichen.
 
 ## Ethereum
 
