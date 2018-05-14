@@ -1,8 +1,7 @@
-# Cheat Sheet - Präsentation:
-
-[Click me](https://docs.google.com/presentation/d/1NIlEgz439n10PML5Zsk6VAiJYydIWHd1uk4vXjwuJYk/edit?usp=sharing)
 
 # Grundlagen
+
+[Click me](https://docs.google.com/presentation/d/1NIlEgz439n10PML5Zsk6VAiJYydIWHd1uk4vXjwuJYk/edit?usp=sharing)
 
 ## Kryptographie
 Autor: Lukas Stuckstette und Patrick Vogt
@@ -43,14 +42,14 @@ Ein wichtiger Grundsatz der Kryptographie wurde 1883 von Auguste Kerkchoffs von 
 
 >Die Sicherheit eines Kryptosystems liegt allein in der Schwierigkeit, den Schlüssel zu finden – sie darf nicht auf der Geheimhaltung des Systems beruhen. <a>[[BAUM14]](#ref_baum14)</a>
 
-Alle heutzutage gängigen Verschlüsselungsverfahren folgen diesem Grundsatz. 
+Alle heutzutage gängigen Verschlüsselungsverfahren folgen diesem Grundsatz.
 Befolgt man diesen Grundsatz nicht, erhält ein potentieller Angreifer Zugriff auf alle Daten, sobald das Verfahren, z.B. aufgrund eines Informationslecks, bekannt wird. Des Weiteren ermöglicht dies, dass Experten über die Sicherheit der Verfahren offen diskutieren können und ggf. auftretende Sicherheitslücken erkannt und behoben werden können.
 
 ### Hashfunktionen
 Autor: Patrick Vogt
 
-Hashfunktionen bilden einen wichtigen Bestandteil innerhalb der Kryptographie. Sie berechnen aus einer gegebenen Nachricht einen sogenannten *Hashwert* fester Länge. Aus kryptografischer Sicht können Hashwerte als eine Prüfsumme gesehen werden. 
-Hierbei handelt es sich im Prinzip um eine "Einwegfunktion", bei der der Weg vom Definitionsbereich hin zum Bildbereich einfach durchzuführen ist, die Rückrichtung jedoch nur mit großem Aufwand bestimmbar ist. Selbst wenn es einem Angreifer gelingen sollte einen passenden Wert für einen gegebenen Hashwert zu berechnen, so ist sein Ergebnis nicht eindeutig <a>[[PAAR16]](#ref_paar16)</a>. 
+Hashfunktionen bilden einen wichtigen Bestandteil innerhalb der Kryptographie. Sie berechnen aus einer gegebenen Nachricht einen sogenannten *Hashwert* fester Länge. Aus kryptografischer Sicht können Hashwerte als eine Prüfsumme gesehen werden.
+Hierbei handelt es sich im Prinzip um eine "Einwegfunktion", bei der der Weg vom Definitionsbereich hin zum Bildbereich einfach durchzuführen ist, die Rückrichtung jedoch nur mit großem Aufwand bestimmbar ist. Selbst wenn es einem Angreifer gelingen sollte einen passenden Wert für einen gegebenen Hashwert zu berechnen, so ist sein Ergebnis nicht eindeutig <a>[[PAAR16]](#ref_paar16)</a>.
 
 Der Grund hierfür ist, dass sogenannte *Kollisionen* auftreten können. Das bedeutet, dass aufgrund des eingeschränkten Bildbereichs (begrenzte Anzahl an Zeichen) und des gleichzeitig unbegrenzten Definitionsbereichs (quasi beliebig lange Zeichenfolge) zwangsweise Überschneidungen auftreten können. Je schwieriger man für eine gegebene Nachricht eine weitere Nachricht mit identischem Hashwert finden kann, desto *kollisionssicherer* ist das Hashverfahren.
 
@@ -62,22 +61,22 @@ Autor: Patrick Vogt
 
 *Symmetrische Verschlüsselung*
 
-Eine Art der Verschlüsselung ist die symmetrische Verschlüsselung. Bereits Gaius Julius Caesar (* 100 v. Chr., † 44 v. Chr.)  verwendete diese Art der Verschlüsselung zur Kommunikation mit seinen Generälen 
+Eine Art der Verschlüsselung ist die symmetrische Verschlüsselung. Bereits Gaius Julius Caesar (* 100 v. Chr., † 44 v. Chr.)  verwendete diese Art der Verschlüsselung zur Kommunikation mit seinen Generälen
 (die sogenannte *Caesarchiffre*). Die Schlüssel dieser Verfahren werden *symmetrische Schlüssel* genannt, da Chiffrier- und Dechiffrierschlüssel identisch sind, siehe nachfolgende Abbildung.
 
 <a name="ref_sym_encryption"></a>![sym_encryption](./images/sym_verschl.png "Symmetrische Verschlüsselung")
 
 Abbildung entnommen aus <a>[[SSL18]](#ref_ssl18)</a>
 
-Nicht optimal ist hierbei, dass Sender und Empfänger den gemeinsamen Schlüssel einmalig vor der ersten Übertragung austauschen müssen. 
+Nicht optimal ist hierbei, dass Sender und Empfänger den gemeinsamen Schlüssel einmalig vor der ersten Übertragung austauschen müssen.
 Es wird somit ein Kommunikationskanal benötigt, in dem die Teilnehmer ihren Schlüssel auf sichere Art und Weise austauschen können, siehe nachfolgende Abbildung.
- 
+
 ![sym_encryption](./images/sym_verschl2.png "Symmetrische Verschlüsselung")
 
 Abbildung entnommen aus <a>[[BAUM14]](#ref_baum14)</a>
 
-In der Abbildung ist außerdem zu erkennen, dass das zuvor vorgestellte Kerckhoffs’sche Prinzip eingehalten wird, indem alle Algorithmen öffentlich bekannt sind. 
-Ebenso ist zu erwähnen, dass die Anzahl der benötigten Schlüssel mit der Anzahl der Kommunikationspartner drastisch steigt. Damit N Teilnehmer sicher miteinander kommunizieren können, werden 
+In der Abbildung ist außerdem zu erkennen, dass das zuvor vorgestellte Kerckhoffs’sche Prinzip eingehalten wird, indem alle Algorithmen öffentlich bekannt sind.
+Ebenso ist zu erwähnen, dass die Anzahl der benötigten Schlüssel mit der Anzahl der Kommunikationspartner drastisch steigt. Damit N Teilnehmer sicher miteinander kommunizieren können, werden
 **N(N-1)/2** Schlüssel benötigt <a>[[KÜST11]](#ref_kuesters11)</a>.
 Als Vorteil ist unter anderem die hohe Geschwindigkeit für das Ver- und Entschlüsseln der Daten zu nennen, da diese Verfahren meist auf effizienten Operationen (z.B. XOR) beruhen <a>[[STOP18]](#ref_stop18)</a>.
 
@@ -85,9 +84,9 @@ Als Vorteil ist unter anderem die hohe Geschwindigkeit für das Ver- und Entschl
 *Asymmetrische Verschlüsselung*
 
 Im Gegensatz zur symmetrischen Verschlüsselung verwendet die asymmetrische Verschlüsselung verschiedene Schlüssel zur Ver- und Entschlüsselung.
-Es existiert ein *Schlüsselpaar*, das aus einem öffentlichen Schlüssel (public key) sowie einem privaten Schlüssel (private key/secret key) besteht. Das grundsätzliche Verfahren ist in der folgenden Abbildung 
-dargestellt. 
-  
+Es existiert ein *Schlüsselpaar*, das aus einem öffentlichen Schlüssel (public key) sowie einem privaten Schlüssel (private key/secret key) besteht. Das grundsätzliche Verfahren ist in der folgenden Abbildung
+dargestellt.
+
 ![asym_encryption](./images/asym_verschl.png "Asymmetrische Verschlüsselung")
 Abbildung entnommen aus <a>[[SSL18]](#ref_ssl18)</a>
 
@@ -111,8 +110,8 @@ Die nachfolgende Abbildung zeigt den prinzipiellen Ablauf beim Übermitteln digi
 ![dig_signature](./images/digital_sign.svg "Prinzip der digitalen Signatur")
 Abbildung entnommen aus <a>[[DOCU18]](#ref_docu18)</a>
 
-Das zu signierende Dokument wird mithilfe einer Hashfunktion verarbeitet und anschließend mit dem privaten Schlüssel des Absenders ("Signierers") verschlüsselt und an das originale Dokument angefügt. Das nun signierte Dokument wird an den Empfänger gesendet, wo die Signatur mithilfe des öffentlichen Schlüssels des Signierers entschlüsselt wird. Der Empfänger wendet anschließend den gleichen Hash-Algorithmus wie der Absender 
-auf das Dokument an und vergleicht sein Ergebnis mit der empfangenen Signatur. Stimmen die beiden Hashwerte überein, wurde der Text mit sehr hoher Wahrscheinlichkeit von der angegebenen Person signiert und nicht verändert. 
+Das zu signierende Dokument wird mithilfe einer Hashfunktion verarbeitet und anschließend mit dem privaten Schlüssel des Absenders ("Signierers") verschlüsselt und an das originale Dokument angefügt. Das nun signierte Dokument wird an den Empfänger gesendet, wo die Signatur mithilfe des öffentlichen Schlüssels des Signierers entschlüsselt wird. Der Empfänger wendet anschließend den gleichen Hash-Algorithmus wie der Absender
+auf das Dokument an und vergleicht sein Ergebnis mit der empfangenen Signatur. Stimmen die beiden Hashwerte überein, wurde der Text mit sehr hoher Wahrscheinlichkeit von der angegebenen Person signiert und nicht verändert.
 
 Im Gegensatz zu anderen (auf symmetrischen Verfahren basierenden) Signaturverfahren kann der Empfänger der Nachricht jedem, der ebenfalls den öffentlichen Schlüssel des Signierers kennt, beweisen, dass dieser die Nachricht verfasst hat.
 Solche digitalen Signaturverfahren können deshalb auch zur juristischen Beweisführung verwendet werden <a>[[PAAR16]](#ref_paar16)</a>.
@@ -148,7 +147,7 @@ Der gesamte Vorgang läuft prinzipiell wie bei digitalen Signaturen ab:
 
 Abbildung entnommen aus <a>[[WIKI18b]](#ref_wiki18b)</a>
 
-Der Sender bildet mithilfe des gemeinsamen Schlüssels und der Nachricht eine Prüfsumme und verschickt die Nachricht mit angehängter Prüfsumme. Der Empfänger führt den gleichen Vorgang durch und prüft seine berechnete Prüfsumme mit der erhaltenen. 
+Der Sender bildet mithilfe des gemeinsamen Schlüssels und der Nachricht eine Prüfsumme und verschickt die Nachricht mit angehängter Prüfsumme. Der Empfänger führt den gleichen Vorgang durch und prüft seine berechnete Prüfsumme mit der erhaltenen.
 
 ### Public Key Infrastructure (PKI)
 Autor: Patrick Vogt
@@ -184,7 +183,7 @@ Im Bereich der Kryptographie gibt es eine Vielzahl von verschiedenen Algorithmen
 | Merkle-Signaturen  | Merkle-Tree & Einmalsignatur | Signatur            | mehrstufige Hash-Verfahren zu einem einzigen Hashwert zusammenfassen (als öffentlicher Schlüssel) |
 
 
-In <a>[[BSI18c]](#ref_bsi18c)</a> werden im speziellen folgende Algorithmen empfohlenen: 
+In <a>[[BSI18c]](#ref_bsi18c)</a> werden im speziellen folgende Algorithmen empfohlenen:
 
 Blockchiffren (symmetrisches Verfahren für Blöcke fester Längen):
 * AES-128
@@ -226,14 +225,14 @@ Schlüsseltransport (asymmetrische Verfahren):
 ### Zero knowledge Proofs
 Autor: Lukas Stuckstette
 
-Ein zero-knowledge proof (im Folgenden ZKP), teilweise auch als zero-knowledge protocol bezeichnet, stellt eine Methode der Kryptographie dar, welche es einem Individuum ermöglicht einer zweiten Partei zu beweisen, dass es ein Geheimnis kennt/ eine Behauptung wahr ist - ohne dabei Informationen über das Geheimnis/die Behauptung preis zu geben. 
+Ein zero-knowledge proof (im Folgenden ZKP), teilweise auch als zero-knowledge protocol bezeichnet, stellt eine Methode der Kryptographie dar, welche es einem Individuum ermöglicht einer zweiten Partei zu beweisen, dass es ein Geheimnis kennt/ eine Behauptung wahr ist - ohne dabei Informationen über das Geheimnis/die Behauptung preis zu geben.
 ZKPs wurden erstmals 1985 von Shafi Goldwasser, Silvio Micali und Charles Rackoff in dem wissenschaftlichen Papier "The Knowledge Complexity of Interactive Proof-Systems" beschrieben.
 <a>[[EWAN11]](#ref_ewan11)</a>
 
 
-#### Abstraktes Beispiel 
+#### Abstraktes Beispiel
 Anders als bei üblichen Beispielen in der Kryptographie wird bei ZKPs nicht von Alice und Bob gesprochen, sondern von Peggy (prover ~= Beweisender) und Victor (verifier = Verifizierer).
-Um zunächst ein grobes Verständnis für ZKPs zu erlangen, lohnt es sich einen Blick auf das wissenschaftliche Papier "How to Explain Zero-Knowledge Protocols to Your Children" von J.-J. Quisquater zu werfen. 
+Um zunächst ein grobes Verständnis für ZKPs zu erlangen, lohnt es sich einen Blick auf das wissenschaftliche Papier "How to Explain Zero-Knowledge Protocols to Your Children" von J.-J. Quisquater zu werfen.
 Das Paper enthält Beispiele von ZKPs in form von Geschichten - im folgenden wir die Geschichte von Ali Babas Höhle erläutert:
 
 The Strange Cave of Ali Baba:
@@ -301,7 +300,7 @@ Nachdem Victor Peggys Antwort erhalten hat, kann er je nach Anfrage die korrekth
 Falls Peggy den Wert von x kennt, kann sie in jedem Fall antworten. Falls sie den Wert nicht kennt, jedoch die genaue Reihenfolge der Anfragen von Victor wüsste, könnte sie passende Folgen von $C$s erzeugen, welche in sich konsistent wären:
 
 1. Bei Anfrage von r:  generiere r und sende C = g^r mod p
-2. Bei Anfrage von (x+r)mod(p-1):  generiere neues r' und sende C' = g^{r'}*(g^x)^{-1}
+2. Bei Anfrage von (x+r)mod(p-1):  generiere neues r' und sende C' = g^{r'}(g^x)^{-1}
 
 Da Peggy jedoch die Reihenfolge nicht kennt, müsste sie bei einer unerwarteten Anfrage den diskreten Logarithmus errechnen, was ein NP-vollständiges Problem darstellt und nicht in trivialer Zeit gelöst werden kann.
 Aus dieser Tatsache ergibt sich pro Runde eine Wahrscheinlichkeit von 50%, dass Peggy den wert von x nicht kennt. Durch eine hohe anzahl an Runden lässt sich so faktisch ausschließen, dass Peggy den Wert von x nicht kennt.
@@ -314,55 +313,29 @@ Zero-knowledge proofs finden unter anderem Anwendung in der Kryptowährung Zcash
 ## Distributed Ledger vs. Datenbanken
 Autor: Tim Jastrzembski
 
-### Exkurs: Datenbank <a>[[GREE15]](#ref_gree15)</a> <a>[[BEGE18]](#ref_bege18)</a>
-Allgemein kann man eine Datenbank als eine organisierte Sammlung von elektronischen Daten interpretieren, welche von einem Datenbankmanagementsystem (DBMS) zentral verwaltet werden. 
-Dabei sollen hierbei viele Datensätze effizient, konsistent und dauerhaft verwaltet werden können. Zudem können Datenbanken logische Zusammenhänge zwischen den einzelnen Daten abbilden. 
-Beispielsweise können sie in Tabellen abgebildet werden, wobei jede Reihe eine Entität und jede Spalte ein Attribut, welches die Entität beschreibt, darstellt. 
-Zur Manipulation der Datenbanken sind Transaktionen notwendig. Dabei beinhaltet eine Transaktion ein oder mehrere Manipulationen der Datenbank (Datensatz anlegen, ändern oder löschen). 
-Bei der Ausführung der Transaktion wird sie auf ihre Richtigkeit überprüft und entweder als ganzes oder gar nicht ausgeführt (getreu dem ACID-(bei RDBs) bzw. dem BASE-Theorem (bei NoSQL-DBs) <a>[[TAI17]](#ref_tai17)</a> <a>[[CUSC18]](#ref_cusc18)</a> <a>[[WIKI18a]](#ref_wiki18a)</a>). Die Richtigkeit wird u.a. durch Regeln wie Unique Keys, Forein keys oder Check constraints. 
-Wichtig dabei ist, dass die Datenbank nach jeder Transaktion einen validen Zustand erreicht und entsprechend konsistente Daten beinhaltet.	
+### Exkurs: Datenbank
+Allgemein kann man eine Datenbank als eine organisierte Sammlung von elektronischen Daten interpretieren, welche von einem Datenbankmanagementsystem (DBMS) zentral verwaltet werden.
+Dabei sollen hierbei viele Datensätze effizient, konsistent und dauerhaft verwaltet werden können. Zudem können Datenbanken logische Zusammenhänge zwischen den einzelnen Daten abbilden.
+Beispielsweise können sie in Tabellen abgebildet werden, wobei jede Reihe eine Entität und jede Spalte ein Attribut, welches die Entität beschreibt, darstellt.
+Zur Manipulation der Datenbanken sind Transaktionen notwendig. Dabei beinhaltet eine Transaktion ein oder mehrere Manipulationen der Datenbank (Datensatz anlegen, ändern oder löschen).
+Bei der Ausführung der Transaktion wird sie auf ihre Richtigkeit überprüft und entweder als ganzes oder gar nicht ausgeführt (getreu dem ACID-(bei RDBs) bzw. dem BASE-Theorem (bei NoSQL-DBs) <a>[[WIKI18]](#ref_wiki18a)</a>). Die Richtigkeit wird u.a. durch Regeln wie Unique Keys, Forein keys oder Check constraints.
+Wichtig dabei ist, dass die Datenbank nach jeder Transaktion einen validen Zustand erreicht und entsprechend konsistente Daten beinhaltet.
+<a>[[GREE15]](#ref_gree15)</a> <a>[[BEGE18]](#ref_bege18)</a>
 
-### ACID Transaktionen <a>[[TAI17]](#ref_tai17)</a> <a>[[CUSC18]](#ref_cusc18)</a>
-Um Konsistenz zu gewährleisten, nutzen Relationelle Datenbanken (wie MySQL) Transaktionen, die dem ACID-Modell entsprechen:
-
-| Eigenschaft |   |
-| --- | --- |
-| **A**tomicity (Atomar) | Entweder wird die Transaktion als Ganzes (d.h. alle enthaltenen Operationen werden ausgeführt) oder gar nicht ausgeführt. |
-| **C**onsistency (Konsistenz) | Jede Transaktion überführt das System von einem gültigen Zustand zum nächsten gültigen Zustand. |
-| **I**solation | Gleichzeitige Transaktionen werden so ausgeführt, sodass das System den gleichen Zustand erreicht, als seien sie sequenziell ausgeführt worden. |
-| **D**urability (Langlebigkeit) | Jede terminierte Transaktion ist persistent, d.h. sie kann nicht rückgängig gemacht werden. Neue Transaktionen können ursprüngliche Operationen am System „rückgängig“ machen (z.B. eine Überweisung zurücküberweisen; dies ist jedoch eine eigene Operation und kein Storno der ursprünglichen Operation). |
-
-Trotz einer Ähnlichkeit in der Transaktionsabwicklung scheinen Distributed Ledgers Unterschiede aufzuweisen: 
-- Transaktionen können persistent und konsistent sein, sofern der Konsens nicht anders entscheidet und die Transaktion billigt.
-- Gleichzeitige Transaktionen können unterschiedlich ausgeführt werden. Die Reihenfolge der Transaktionen wird z.B. vom Gewinner-Miner entschieden, welcher variieren kann. Dies widerspricht der Philosophie der ACID bzgl. Konsistenz, da unterschiedliche Reihenfolgen unterschiedliche Zustände hervorrufen können.
-- DLTs bearbeiten die Transaktionen sequentiell und nicht parallel. 
-
-### BASE Systeme <a>[[TAI17]](#ref_tai17)</a> <a>[[CUSC18]](#ref_cusc18)</a>
-Um u.a. Verfügbarkeit zu gewährleisten, nutzen Verteilte Datenbanken meist das BASE-Modell (NoSQL): 
-
-| Eigenschaft |   |
-| --- | --- |
-| **B**asically **A**vailable (theoretisch verfügbar) | Die Verantwortung für die Daten ist verteilt, um u.a. einen totalen Systemausfall vorzubeugen. Bei Teilversagen sind nur die Daten nicht verfügbar, die von dem versagenden Knoten ausgehen. D.h. auch, dass das System einen Fehler zurückgeben kann, sofern auf Daten zugegriffen wird, die zu dem Zeitpunkt nicht verfügbar, inkonsistent oder verändert werden. |
-| **S**oft state (weicher Zustand) | Daten können sich über die Zeit ändern, obwohl keine Veränderungen vorgenommen werden. Daten können z.B. flüchtig gespeichert werden und eine Mindestlaufzeit haben, bevor sie gelöscht oder archiviert werden. |
-| **E**ventual consistency (vielleicht konsistent) | Das System ist konsistent, sofern keine weiteren Veränderungen vorgenommen werden und alle knoten denselben Stand haben. |
-
-Wenn man die DLTs mit BASE-System vergleicht, fallen diese Aspekte auf:
--	DLTs sind nicht nur theoretisch verfügbar, sondern sie sind es. 
--	DLTs haben keinen Soft State. Sie sind unveränderbar.
--	DLTs sind nicht nur vielleicht konsistent. Sie sind es immer.
-
-### Distributed Ledger Technologie (DLT) <a>[[METZ18]](#ref_metz18)</a>
+### Distributed Ledger Technologie (DLT)
 Blockchain basiert auf der Distributed Ledger Technologie, welche das Verarbeiten und Speichern von Daten ermöglicht.
-Sie kann auch als eine dezentrale Datenbank verstanden werden, da sie im Gegensatz zu herkömmlichen verteilten (zentralen) Datenbanken gemeinsame Zugriffsrechte für mehrere Netzwerkteilnehmer auf Datensätze erlaubt, was eine zentrale Instanz zur Datenverwaltung überflüssig macht. 
+Sie kann auch als eine dezentrale Datenbank verstanden werden, da sie im Gegensatz zu herkömmlichen verteilten (zentralen) Datenbanken gemeinsame Zugriffsrechte für mehrere Netzwerkteilnehmer auf Datensätze erlaubt, was eine zentrale Instanz zur Datenverwaltung überflüssig macht.
 Die Datenänderungen werden per Transaktion an die anderen Teilnehmer geschickt, wobei diese entscheiden können, ob die Transaktion für gültig erklärt wird oder nicht.  
 Bezüglich der Zugangsmöglichkeiten lassen sich die Ledgers folgend unterteilen:
+
+<a>[[METZ18]](#ref_metz18)</a>
 
 | Zugangsmöglichkeit |   |
 | --- | --- |
 | Unpermissioned Ledger | Diese Ledger sind am bekanntesten (z.B. durch Bitcoin). Sie sind prinzipiell für alle zugänglich und erfordern keine Authentifizierung. Entsprechend wird PoW als Konsensveriante eingesetzt, sodass kein Vertrauen zwischen den Teilnehmern notwendig ist. |
 | Permissioned Legder | Bei diesen Ledgern  müssen sich die Teilnehmer registriert sein und entsprechende Auflagen(z.B. bzgl. Vertrauen) erfüllen, damit sie an dem Konsens teilnehmen dürfen. Dadurch können PoS oder PBFT-Mechanismen eingesetzt werden, welche im Gegensatz zu PoW  Rechenkapazitäten sparen.|
 
-### SALT <a>[[TAI17]](#ref_tai17)</a> <a>[[CUSC18]](#ref_cusc18)</a>
+### SALT
 Das SALT-Modell beschreibt Eigenschaften für dezentrale Datenbanken für Transaktionen und das System, welche DLTs wie Blockchain u.a. befolgen:
 
 a. Transaktion-Kontext:
@@ -370,8 +343,8 @@ a. Transaktion-Kontext:
 | Eigenschaft |   |
 | --- | --- |
 | Sequential (Sequenziell) | Die Transaktionen werden sequentiell ausgeführt. Die Reihenfolge wird hierbei vom Gewinner-Miner bestimmt. |
-| Agreed (Vereinbart) | Ein Konsens bestimmt über die Gültigkeit der Daten und Transaktionen (siehe PoW, PoS). | 
-| Ledgered (Buchführung) | Alle genehmigten Transaktionen werden zeitlich in einem elektronischen Appendonly-Transaktionenbuch festgehalten und verifiziert. | 
+| Agreed (Vereinbart) | Ein Konsens bestimmt über die Gültigkeit der Daten und Transaktionen (siehe PoW, PoS). |
+| Ledgered (Buchführung) | Alle genehmigten Transaktionen werden zeitlich in einem elektronischen Appendonly-Transaktionenbuch festgehalten und verifiziert. |
 | Tamper-resistant (manipulationssicher) | Terminierte Transaktionen sind persistent und bräuchten eine signifikante Mehrheit des Konsens, um sie zu verändern. |
 
 b. Systemcontext:
@@ -383,17 +356,19 @@ b. Systemcontext:
 | Ledgered (Buchführung) | Alle Teilnehmer pflegen die Buchführung bzgl. derselben Daten. Damit die Buchführung konsistent bleibt, müssen sie sich auf eine Ordnung einigen. Da das finden einen Konsens kostspielig ist, werden mehrere Transaktionen in Blöcken zusammengefasst, damit man pro Konsensrunde mehrere Transaktionen validiert. |
 | Time-consensual (Zeitkonsens) | Es gibt ein (berechenbares) Zeitintervall zwischen der Entstehung der Blöcke. |  
 
+<a>[[TAI17]](#ref_tai17)</a> <a>[[CUSC18]](#ref_cusc18)</a>
+
 ### Abgrenzung zu Datenbanken
 
 Prinzipiell sind Distributed Ledger verteilte Datenbanken, welchen Nutzern, die kein richtiges Vertrauen ineinander haben, einen Konsens über den Inhalt und der Verwaltung der Datenbank ermöglichen. <a>[[BROW16]](#ref_brow16)</a> <a>[[COLA18]](#ref_cola18)</a>
-Im Gegensatz verwalten verteilte Datenbanken im herkömmlichen Sinne ihre Daten zentral und synchonisieren die Daten auf den verschiedenen Standorten periodisch. <a>[[ITWI18]](#ref_itwi18)</a> 
+Im Gegensatz verwalten verteilte Datenbanken im herkömmlichen Sinne ihre Daten zentral und synchonisieren die Daten auf den verschiedenen Standorten periodisch. <a>[[ITWI18]](#ref_itwi18)</a>
 
 | ![Verschiedene Typologien](./images/distributed-database.png) | ![Verschiedene Typologien](./images/decentralised-database.png) |
 | --- | --- |
 | verteilte Datenbank <a>[[BROW16]](#ref_brow16)</a> | distributed Ledger <a>[[BROW16]](#ref_brow16)</a> |
 
 Im Bezug auf die jeweiligen Datenbankschemen kann man DLT's und Datenbanken wie folgt abgrenzen:
- 
+
 | 										| ACID 	| BASE 	| SALT 	|
 | :--- 									| :---: | :---:	| :---: |
 | Atomar 								| X 	| 		| (x)<sup>1</sup>	|
@@ -406,53 +381,53 @@ Im Bezug auf die jeweiligen Datenbankschemen kann man DLT's und Datenbanken wie 
 | CAP <a>[[NELA18]](#ref_nela18)</a> 	| CA	| CP/AP	| CP/AP	|
 
  <sup>1</sup>: Jede Operation ist eine Transaktion in SALT. Jedoch gibt es *Stored procedures*.  
- <sup>2</sup>: Konsistenz hängt vom Konsens ab. 
+ <sup>2</sup>: Konsistenz hängt vom Konsens ab.
 
 ## Verteilte Systeme
 
 In diesem Kapitel soll definiert werden, was ein verteiltes System in Bezug auf die Blockchain ist und welche Probleme
-gelöst werden müssen, damit Vertrauen zwischen den einzelnen Nodes aufgebaut werden kann. Zudem sollen die gebräuchlichsten 
+gelöst werden müssen, damit Vertrauen zwischen den einzelnen Nodes aufgebaut werden kann. Zudem sollen die gebräuchlichsten
 Konsens-Algorithmen erläutert werden, welche zurzeit von den größten Blockchain-Netzwerken benutzt werden.
 
 ### Was ist ein verteiltes System
 Ein verteiltes System ist prinzipiell eine Ansammlung von Computern, welche untereinander Nachrichten austauschen
-können. Das Medium, über den dieser Austausch stattfindet, ist dabei unbedeutend. Heutzutage wird für den Nachrichtenaustausch 
+können. Das Medium, über den dieser Austausch stattfindet, ist dabei unbedeutend. Heutzutage wird für den Nachrichtenaustausch
 in den allermeisten Fällen das Internet genutzt, da hier Rechner auf der Welt miteinander kommunizieren können und
 die geschaffene Infrastruktur einen einfachen Zugang ermöglicht. Zudem wird ein verteiltes System darüber definiert, dass ein Benutzer das
-Systems als ein einziges System sieht, egal mit welcher Node beziehungsweise Computer im Systems er sich verbindet. 
+Systems als ein einziges System sieht, egal mit welcher Node beziehungsweise Computer im Systems er sich verbindet.
 
 Verteilte Systeme können verschiedene Typologien haben. Eine Topologie beschreibt, in welcher Weise die Nodes im System miteinander verbunden
-sind. 
+sind.
 ![Verschiedene Typologien](./images/NetzwerkTopologien.png)
 
-Beispielsweise kennt eine Node in einem vollvermaschten System jede andere Node und kann so auf direktem Wege miteinander kommunizieren. 
+Beispielsweise kennt eine Node in einem vollvermaschten System jede andere Node und kann so auf direktem Wege miteinander kommunizieren.
 Die direkte Kommunikation ist einer der Vorteile dieser Topologie. Wenn jedoch eine neue Node dem Netzwerk beitreten will, muss nicht nur
-die neue Node alle bereits im Netzwerk bestehenden Nodes kennenlernen, auch müssen die bereits bestehenden Nodes über den Betritt informiert 
+die neue Node alle bereits im Netzwerk bestehenden Nodes kennenlernen, auch müssen die bereits bestehenden Nodes über den Betritt informiert
 werden. Je nach größe des Netzwerkes und wie oft eine neue Node dem Netzwerk betritt kann dies zu einem Problem werden, wo das System nur noch
-damit beschäftigt ist die Liste der Nodes aktuell zu halten. 
+damit beschäftigt ist die Liste der Nodes aktuell zu halten.
 
 Bei den meisten Blockchain-Protokollen wird auf eine Abwandlung der vollvermaschten Topologie zurückgegriffen. Es kommt ein vermaschtes Netzwerk
-oder auch Peer-to-Peer (P2P) Netzwerk zum Einsatz. Dabei können neue Nodes wie bei einem vollvermaschten Netz von jeder anderen Node 
+oder auch Peer-to-Peer (P2P) Netzwerk zum Einsatz. Dabei können neue Nodes wie bei einem vollvermaschten Netz von jeder anderen Node
 hinzugefügt werden, allerdings können nicht alle Nodes eines Netzwerkes direkt miteinander kommunizieren. Stattdessen steht jede Node mit
 einer Handvoll anderer Nodes in Kontakt. Soll eine Nachricht zu einer Node gesendet werden, welche nicht im direkten Kontakt mit der Absendernode
-steht, so wird diese Nachricht vom Netzwerk selbst weitergeleitet, bis die Nachricht eine Node erreicht, welche in Kontakt mit der Empfängernode 
+steht, so wird diese Nachricht vom Netzwerk selbst weitergeleitet, bis die Nachricht eine Node erreicht, welche in Kontakt mit der Empfängernode
 steht.
 
 ### Die Blockchain
 Die Blockchain ist ein verteiltes Kontobuch (Ledger), in welchem jede Transaktion von jedem Nutzer verzeichnet ist. Eine bestimmte Anzahl an
 Transaktionen werden zu Blöcken zusammengefasst. Diese Blöcke werden miteinander verkettet. Dies bedeutet, dass der Hash eines Nachfolgerblockes
-im Header des Vorgängerblockes gespeichert wird. Über die Blockchain kann so die Reihenfolge 
-der Transaktionen gespeichert werden. In einem verteilten Blockchain System hält jede Node eine Kopie der Blockchain. Zudem kann jede Node 
+im Header des Vorgängerblockes gespeichert wird. Über die Blockchain kann so die Reihenfolge
+der Transaktionen gespeichert werden. In einem verteilten Blockchain System hält jede Node eine Kopie der Blockchain. Zudem kann jede Node
 Transaktionen eines Nutzers entgegennehmen und diese im Netzwerk bekannt machen. Das Problem, welches sich nun jeder Blockchain-Algorithmus lösen
-muss, ist, welche Node die gesammelten Transaktionen zu einem Block zusammenfassen und der Blockchain hinzufügen darf. Damit das Protokoll 
+muss, ist, welche Node die gesammelten Transaktionen zu einem Block zusammenfassen und der Blockchain hinzufügen darf. Damit das Protokoll
 funktioniert müssen alle Nodes im Netzwerk sich auf eine einzige Blockchain einigen. Hinzu kommt, dass Nodes dem Netzwerk frei betreten können,
 ohne das eine zentrale Stelle die Node überprüft hat. So kann keiner Node im Netzwerk vertraut werden. Es muss also ein Weg gefunden werden, der
-es dem Netzwerk erlaubt Blöcke von einer Node zur Kette hinzufügen zu lassen, obwohl die Absichten der hinzufügenden Node nicht bekannt sind. 
+es dem Netzwerk erlaubt Blöcke von einer Node zur Kette hinzufügen zu lassen, obwohl die Absichten der hinzufügenden Node nicht bekannt sind.
 Zudem muss geregelt werden was passiert, wenn es zu Unstimmigkeiten in der Blockchain kommt, wenn beispielsweise zwei Blöcke zur selben Zeit gefunden
 wurden und es zu einer gabelung (fork) in der Blockchain kommt. Bei einem fork würden zwei verschiedenen Blöcke am Ende der Kette stehen. Dadurch
-könnten Währungen doppelt ausgegeben werden, falls in den beiden letztens Blöcken Transaktionen von einem Konto zu zwei verschiedenen Empfängern 
+könnten Währungen doppelt ausgegeben werden, falls in den beiden letztens Blöcken Transaktionen von einem Konto zu zwei verschiedenen Empfängern
 verzeichnet sind. Die Aufgabe eines Konsens-Algorithmus ist es deshalb zu einer eindeutigen, gabelungsfreien Blockchain zu gelangen, auf welche
-sich alle Nodes im Netzwerk einigen können. 
+sich alle Nodes im Netzwerk einigen können.
 
 ### Konsens-Algorithmen
 Es gibt verschiedene Wege zu einem Konsens in einem verteilten System zu kommen. Viele Cryptowährungen unterscheiden sich alleine in ihrem
@@ -462,71 +437,71 @@ Konsens-Algorithmus und versuchen so ein Alleinstellungsmerkmal zu erlangen. Zu 
 * Proof-of-Stake
 * Practical Byzantine Fault Tolerance
 * Proof of Elapsed Time
-* Federated Byzantine Agreement 
+* Federated Byzantine Agreement
 
-Diese Algorithmen werden unteranderem von jeweils Bitcoin, Etherium, Ripple, InterLedger (Hyperledger) und Hyperledger Fabric verwendet. 
+Diese Algorithmen werden unteranderem von jeweils Bitcoin, Etherium, Ripple, InterLedger (Hyperledger) und Hyperledger Fabric verwendet.
 
 #### Proof-of-Work
 Wie bei allen Blockchain-Protokollen wird auch beim Proof-of-Work Transaktionen zu Blöcken zusammengefasst. Jede Node die eine Transaktion empfängt
 speichert diese zunächst in einem Cache und leitet sie an alle anderen Nodes im Netzwerk weiter. Liegen genug Transaktionen in einem Cache können
 diese zu einem Block zusammengefasst werden. Alle Nodes fassen Transaktionen in einem eigenen Block zusammen. Dies hat zur Folge, dass nicht alle Nodes
 die gleichen Transaktionen in ihrem Block aufgenommen haben, da Transaktionen beim verschicken zwischen Nodes verloren gegangen sein können oder es
-durch eine Verzögerung nicht in den aktuellen Block geschafft haben. 
+durch eine Verzögerung nicht in den aktuellen Block geschafft haben.
 
 Nachdem eine Node einen Block zusammengefasst hat, versucht sie einen Nonce zu finden, welcher, gehasht mit dem Blockhash, einen neuen Hashwert
-bildet. Dieser neu gebildete Hashwert muss allerdings eine bestimmte Anzahl von anführenden Nullen besitzen um vom Netzwerk als der rechtmäßige 
+bildet. Dieser neu gebildete Hashwert muss allerdings eine bestimmte Anzahl von anführenden Nullen besitzen um vom Netzwerk als der rechtmäßige
 Nachfolgerblock anerkannt zu werden. Die Anzahl der führenden Nullen des Hashes wird Schwierigkeit (Difficulty) genannt. Diese Schwierigkeit passt
 sich dynamisch an das Netzwerk an, sodass mit sich ändernder Rechenleistung der zeitliche Abstand der Blockerstellung gleichbleibend ist.
-Der eigentliche zeitliche Abstand ist je nach Implementierung des Proof-of-Work unterschiedlich. Im Falle von Bitcoin beträgt er 10 Minuten. 
+Der eigentliche zeitliche Abstand ist je nach Implementierung des Proof-of-Work unterschiedlich. Im Falle von Bitcoin beträgt er 10 Minuten.
 
 Der neu gefundene Block wird von der findenden Node direkt in die Kopie ihrer Blockchain eingefügt und anschließend an alle weiteren Nodes gesendet.
 Nodes die den neuen Block empfangen prüfen ihn auf seine Richtigkeit und fügen ihn dann zu ihrer eigenen Kopie der Blockchain hinzu. Sollte es in der
-eigenen Blockchain bereits einen Nachfolgerblock geben, weil zwei Nodes zur selben Zeit einen Block gefunden haben, werden zunächst beide Blöcke als Nachfolger 
-behandelt. Nodes können frei entscheiden welchen der beiden Nachfolgerblöcke sie als legitim ansehen. Wird allerdings ein neuer Block gefunden welcher die 
+eigenen Blockchain bereits einen Nachfolgerblock geben, weil zwei Nodes zur selben Zeit einen Block gefunden haben, werden zunächst beide Blöcke als Nachfolger
+behandelt. Nodes können frei entscheiden welchen der beiden Nachfolgerblöcke sie als legitim ansehen. Wird allerdings ein neuer Block gefunden welcher die
 Blockchain um einen Block verlängert, so wird nur der längste Teil der Blockchain als legitim angesehen und der andere Teil der Blockchain wird verlassen.
 Es kann vorkommen das eine Gabelung in der Kette zwei bis drei Blöcke erreicht, bevor ein Ast sich als legitim herrausstellt. Transaktionen, die nur
-auf dem abgeschnittenen Ast verzeichnet waren, werden somit ungültig. Aufgrund dessen sollte bei einer Transaktion gewartet werden bis mindestens sechs 
+auf dem abgeschnittenen Ast verzeichnet waren, werden somit ungültig. Aufgrund dessen sollte bei einer Transaktion gewartet werden bis mindestens sechs
 Blöcke nach der eigentlichen Transaktion angehängt worden sind.  
 
-Aufgrund der Tatsache das die Findung eines Blockes Rechenleistung benötigt, kann davon ausgegangen werden das keine einzelne Person alle Blocks zur 
+Aufgrund der Tatsache das die Findung eines Blockes Rechenleistung benötigt, kann davon ausgegangen werden das keine einzelne Person alle Blocks zur
 Kette hinzufügen kann. Da nur die längste Kette von allen Nodes als legitim angesehen wird, müsste eine Person alleine jeden einzelnen neuen Block
 finden, damit seine eigene Blockchain schneller wächst als die Blockchain an der das Rest des Netzwerkes arbeitet. Durch diesen Umstand wird die
-Dezentralisierung gewährleistet. Sollte allerdings eine Person oder Organisation mehr als 51% der Rechenleistung kontrollieren, könnte diese 
-Organisation den Verlauf der Blockchain manipulieren. <a>[[NAKA08]](#ref_naka08)</a> 
+Dezentralisierung gewährleistet. Sollte allerdings eine Person oder Organisation mehr als 51% der Rechenleistung kontrollieren, könnte diese
+Organisation den Verlauf der Blockchain manipulieren. <a>[[NAKA08]](#ref_naka08)</a>
 
 ### Proof-of-Stake
 Auch bei dem sogenannten Proof-of-Stake geht es darum einen Block mit Transaktionen zu finden, auf den sich das gesamte Netzwerk einigen kann.
 Anders als bei dem Proof-of-Work Algorithmus muss dazu allerdings kein Hashwert erraten werden. Beim Proof-of-Stake wird eine Node im Netzwerk
-zufällig ausgelost. Die ausgeloste Node darf dann einen neuen Block zur Blockchain hinzufügen. Zusätzlich erhält die ausgewählte Node eine 
+zufällig ausgelost. Die ausgeloste Node darf dann einen neuen Block zur Blockchain hinzufügen. Zusätzlich erhält die ausgewählte Node eine
 Belohnung (Blockreward) für das hinzufügen des Blockes. Die Chancen der Nodes auf eine Auswahl kann gesteigert werden, fall die Nodes einen
 Einsatz (Stake) besitzen. Je größer dabei die Anzahl der gehaltenen Coins ist, desto höher ist die Chance ausgewählt zu werden und den neuen Block
 zu stellen.
 
 Der Hintergedanke beim Proof-of-Stake ist der, das je größer das Investment in eine Cryptowährung ist, desto größer ist auch der Anreiz des
-Investors in die "Gesundheit" der Währung. Der Wert einer Cryptowährung ist über das Vertrauen der Anleger bestimmt. Sollten große 
+Investors in die "Gesundheit" der Währung. Der Wert einer Cryptowährung ist über das Vertrauen der Anleger bestimmt. Sollten große
 Investoren, die aufgrund ihres gehaltenen Vermögens häufig einen Block stellen, versuchen die Chain zu manipulieren, so würden sie beim
-Auffliegen von diesen manipulationen auf Grund des Vertrauensverlusts selber Geld verlieren. 
+Auffliegen von diesen manipulationen auf Grund des Vertrauensverlusts selber Geld verlieren.
 
 In der Praxis zeigt sich allerdings ein anders Bild. Der Proof-of-Stake zeigte sich anfällig für das "Nothing at Stake" Problem. Auch wenn
-Großinvestoren im Allgemeinfall einen ökonomischen Anreiz haben die Blockchain frei von forks zu halten, so gibt es keinen eingebauten 
-mechanischen Mechanismus der Miner davon abhält jeden Block zu validieren um an die Blockreward zu gelangen. <a>[[SIIM17]](#ref_siim17)</a> 
+Großinvestoren im Allgemeinfall einen ökonomischen Anreiz haben die Blockchain frei von forks zu halten, so gibt es keinen eingebauten
+mechanischen Mechanismus der Miner davon abhält jeden Block zu validieren um an die Blockreward zu gelangen. <a>[[SIIM17]](#ref_siim17)</a>
 
 ### Practical Byzantine Fault Tolerance
 Der Practical Byzabtibe Fault Tolerance (PBFT) ist der erste hier vorgestellte Konsens-Algorithmus welchem Nodes nicht frei beitreten können (permissioned).
 Während bei PoW und PoS jeder Computer im Netzwerk beim Finden eines neuen Blockes mithelfen kann, so gibt es beim PBFT ein zentrales Netzwerk an
 Nodes, welche die Entscheidung über einen neuen Block treffen. Diese Nodes wurden von einer zentralen Organisation oder Komitee bestimmt. Diese
-Nodes bilden ein voll vermaschtes Netzwerk und sind somit alle untereinander bekannt. 
+Nodes bilden ein voll vermaschtes Netzwerk und sind somit alle untereinander bekannt.
 
-Unter diesen zentralen Node wird periodisch eine Anführernode (Primary) gewählt. Die Auswahl des Primary erfolgt in der Regel zufällig. Nur der 
+Unter diesen zentralen Node wird periodisch eine Anführernode (Primary) gewählt. Die Auswahl des Primary erfolgt in der Regel zufällig. Nur der
 Primary darf neue Blöcke erstellen und den andern Nodes (Replicas) im zentralen Netzwerk als Vorschlag unterbreiten. Dabei wird der vorgeschlagene
 Block in drei Stufen vom zentralen Netzwerk überprüft: Pre-prepared, prepared und commited. In der Pre-prepared Phase wird der neue Block an alle
 Replicas gesendet. Der Block wird von allen anderen Replicas überprüft. Das Ergebnis dieser Überprüfung wird wiederum an alle anderen Replicas
 per Broadcast übermittelt. Auf diese Weise erhalten alle Replicas die Ergebnisse der anderen Replicas. Dies ist der prepared Schritt. Stimmen
 mindestens 2/3 alle Ergebnisse der Replicas überein, so wird der Block anerkannt. In diesem Fall broadcastet jede Node im Netzwerk, dass der
-neue Block angenommen wurde. Dies ist der Commit Schritt. Damit wird der Block sowohl beim Primary als auch bei den Replicas in die Blockchain 
-aufgenommen. 
+neue Block angenommen wurde. Dies ist der Commit Schritt. Damit wird der Block sowohl beim Primary als auch bei den Replicas in die Blockchain
+aufgenommen.
 
-Die Fault Tolerance im Namen des Algorithmus kommt daher, dass es auch zu einem Konsens kommt falls eine oder mehrere Node nicht richtig 
+Die Fault Tolerance im Namen des Algorithmus kommt daher, dass es auch zu einem Konsens kommt falls eine oder mehrere Node nicht richtig
 funktionieren. Dies kann durch einen "natürlichen" Computerfehler oder aber auch durch böswillige Absicht passieren. Über die Formel
 n = 3f+1 kann herausgefunden werden, wie viele fehlerhafte Nodes das System aushalten kann. Dabei ist n die Anzahl der gesamt Nodes und
 f die Anzahl der Fehlerhaften Nodes. In einem System mit 4 Nodes könnte also eine Node fehlerhaft sein. Über die 3 funktionieren Nodes kann
@@ -537,20 +512,20 @@ Der Proof-of-Elapsed-Time (PoET) ist ein von Intel entwickelter Konsens Algorith
 Ablaufzeit besitzt. Falls der Timer einer Node abgelaufen ist, darf diese Node einen Block zur Blockchain hinzufügen. Die Schwierigkeit die es
 zu überwinden gilt ist zum einen wie die Erstellung des Timers gehandhabt wird und zum anderen wie kontrolliert werden kann das die gewählte Zeit
 auch wirklich gewartet worden ist. Sollten diese Bedingungen nicht überprüft werden könnten Node einfach eine kurze Zeit als Timer wählen oder die
-Zeit schlicht nicht warten. 
+Zeit schlicht nicht warten.
 
 Um dem entgegenzuwirken stellt Intel in ihren Prozessoren ein spezielles Instruktionsset names Intel Software Guard Extensions (SGX) zur Verfügung.
 Mit Hilfe von SGX ist es möglich Code ausführen zu lassen. Nach Ablauf des Codes wird ein Zertifikat erstellt, welches nachweist das der Code ohne
 Veränderung von außen ausgeführt wurde. Die Erstellung des Timers wird deshalb von der SGX überwacht und ein neuer Block wird nur dann vom Netzwerk
-akzeptiert falls ein Zertifikat beigelegt wird was die korrekte Erstellung und Ablauf des Timers belegt. 
+akzeptiert falls ein Zertifikat beigelegt wird was die korrekte Erstellung und Ablauf des Timers belegt.
 
-Ein Problem mit dem PoEL ist, dass dieser momentan nur auf neueren CPUs von der Firma Intel ausgeführt werden kann. So werden alle anderen Node 
-aufgrund ihres Prozessors ausgeschlossen. Auch wenn andere Hersteller ihre CPU mit einem kompatiblen Instruktionsset ausrüsten bleibt der 
+Ein Problem mit dem PoEL ist, dass dieser momentan nur auf neueren CPUs von der Firma Intel ausgeführt werden kann. So werden alle anderen Node
+aufgrund ihres Prozessors ausgeschlossen. Auch wenn andere Hersteller ihre CPU mit einem kompatiblen Instruktionsset ausrüsten bleibt der
 Nachteil das ein Teil des Vertrauens nicht von dem Netzwerk selber aufgebaut wird, sondern von einer zentralen Stelle, in diesem Fall der
-CPU Hersteller, erbracht wird. Dieser Umstand sollte genau genommen von einem Konsens Algorithmus vermieden werden, da im Falle von PoET ein 
+CPU Hersteller, erbracht wird. Dieser Umstand sollte genau genommen von einem Konsens Algorithmus vermieden werden, da im Falle von PoET ein
 Potentieller Schwachpunkt direkt auf der Hand liegt, nämlich der Prozessor selbst. <a>[[RILE18]](#ref_rile18)</a>
 
-### Federated Byzantine Agreement 
+### Federated Byzantine Agreement
 Im Federated Byzantine Agreement (FBA) versucht das Netzwerk über ein Mehrheitsvotum einen nachfolgenden Block zu finden. Ein einfaches Mehrheitsvotum in einem dezentralen System bringt allerdings den Nachteil mit sich, dass  bei einem Netzwerk von vielen tausend Nodes ein gewaltiger Overhead an zu verschickenden Nachrichten entsteht. Um diesen Overhead zu verringern werden von den Nodes im Netzwerk Teilmengen gebildet. Bei der Erstellung einer Node muss deshalb vom Ersteller eine Liste mit bereits vorhandenen Nodes im Netzwerk angelegt werden. Des Weiteren müssen mindestens 40 Prozent der angegebenen Nodes auf Listen von bereits bestehenden Nodes stehen. Die Mindestanzahl an Nodes auf dieser Liste liegt bei 1000 Nodes, dies gewährleistet das alle Nodes im Netzwerk erreichbar sind. Diese Liste an Nodes sind nun Validatoren der neuen Node.
 
 Wie bei anderen Konsens Algorithmen auch werden zunächst alle empfangen Transaktionen von jeder Node zu einem Block zusammengefasst. Dieser Block wird anschließend alle Node auf der inital definierten Liste verschickt. Nun besitzt jede Node
@@ -568,7 +543,7 @@ Referenz Implementierung | Bitcoin | Peercoin | Hyperledger Fabric | Sawtooth | 
 
 ## Dezentrale Anwendungen
 
-Autor: Patrick Starzynski 
+Autor: Patrick Starzynski
 
 ### DApps
 
@@ -576,7 +551,7 @@ Autor: Patrick Starzynski
 Dezentrale Anwendungen (DApps) stellen eine Möglichkeit für die Umsetzung skalierbarer Applikationen durch die Blockchain-Technologie dar.
 Während konventionelle Anwendung maßgeblich durch einzelne Anbieter betrieben werden, werden DApps auf einer Vielzahl von Anwendern verteilt.
 Durch die Verteilung werden die Anwenderdaten nicht zentralisiert gespeichert und verwaltet, wodurch durch das Peer-to-Peer-Modell ein bspw. serverbedingter Ausfall
-verhindert werden kann. 
+verhindert werden kann.
 
 ![apps_vs_dapps](./images/appsvsdapps.jpg "Apps-vs-DApps")
 
@@ -587,18 +562,18 @@ Wohingegen bei DApps die Verbindung durch die ISPs zu den Anwendern untereinande
 
 
 Dabei muss eine dezentrale Anwendung vier grundlegende Kriterien erfüllen, <a>[[JOHN15]](#ref_john15)</a>:
-1. Die Anwendung muss quelloffen und autonom funktionsfähig sein. Zudem existiert keine zentrale Instanz, die die zukünftigen Entwicklungen der Anwendung diktiert. 
+1. Die Anwendung muss quelloffen und autonom funktionsfähig sein. Zudem existiert keine zentrale Instanz, die die zukünftigen Entwicklungen der Anwendung diktiert.
 Zukünftige Entwicklungen werden durch den Konsens der Anwender entschieden.
 2. Die Daten und Protokolle der Operationen müssen kryptografisch mittels einer dezentralen und
-öffentlichen Blockchain gespeichert werden. Somit wird ein zentraler Point-of-Failure ausgeschlossen. 
-So ist im Gegensatz zu konventioneller Anwendungen kein Angriff gegen eine zentrale Stelle möglich, da nur durch die Elimination aller Anwender ein Ausfall der Anwendung möglich ist. 
+öffentlichen Blockchain gespeichert werden. Somit wird ein zentraler Point-of-Failure ausgeschlossen.
+So ist im Gegensatz zu konventioneller Anwendungen kein Angriff gegen eine zentrale Stelle möglich, da nur durch die Elimination aller Anwender ein Ausfall der Anwendung möglich ist.
 3. Die Applikation muss kryptografische Token nutzen, die zum Zugang zur Anwendung genutzt werden. Dabei werden die Miner, die zur Tokengenerierung beigetragen haben entsprechend entlohnt.
 4. Die Anwendung muss die genutzten Token unter Berücksichtigung kryptografischer Algorithmen und Konsensverfahren, z.B. durch Proof of Work, generieren können.
 
-Durch das Einhalten dieser Kriterien wird eine Kontrolle durch ein einzelnes Gremium verhindert. 
+Durch das Einhalten dieser Kriterien wird eine Kontrolle durch ein einzelnes Gremium verhindert.
 
 #### Klassifizierung von DApps
-Zur Klassifizierung von dezentralen Anwendungen werden drei verschiedene Typen berücksichtigt, <a>[[JOHN15]](#ref_john15)</a>: 
+Zur Klassifizierung von dezentralen Anwendungen werden drei verschiedene Typen berücksichtigt, <a>[[JOHN15]](#ref_john15)</a>:
 1. **Type I** Anwendungen nutzen eine eigene Blockchain.
 2. **Type II** Anwendungen nutzen die Blockchain einer Type I Anwendung. Jedoch sind die Type II Anwendungen Protokolle, die Token zur Funktionalität nutzen.
 3. **Type III** Anwendungen nutzen die Protokolle einer Type II Anwendung. Dabei sind Type III Anwendungen ebenfalls Protokolle und nutzen ebenso Token zur Funktionalität.
@@ -616,9 +591,9 @@ Die Entwicklung einer dezentralen Anwendung wird üblicherweise in drei Teilschr
 Ursprünglich existiert keine Versionierung des World Wide Web, erst mit der Definition des Web 2.0 als Mitmach-Internet erfolgte die weitere Klassifizierung.
 So ist die Urform als Web 1.0, bzw. Dokumenten- oder Downloadinternet, zu bezeichnen. Das Web 1.0 besteht dabei aus vorwiegend statischen Inhalten, erst die Entwicklung zum Web 2.0
 ermöglichte es den Anwendern aktiv Inhalte hinzuzufügen und/oder zu editieren. Somit stellt das Web 2.0 eine Erweiterung des ursprünglichen World Wide Web dar. Wohingegen das Web 3.0, auch bekannt als Semantic Web,
-eine Erweiterung des Web 2.0 darstellt, mit dem Ziel maschinenlesbare Datenmodelle zu etablieren <a>[[STAP10]](#ref_stap10)</a>. 
+eine Erweiterung des Web 2.0 darstellt, mit dem Ziel maschinenlesbare Datenmodelle zu etablieren <a>[[STAP10]](#ref_stap10)</a>.
 
-Das Resource Description Framework (RDF), erlaubt es Inhalte einer Webseite mit zusätzlichen Informationen zu ergänzen. 
+Das Resource Description Framework (RDF), erlaubt es Inhalte einer Webseite mit zusätzlichen Informationen zu ergänzen.
 RDF wird dabei als Triple aus Subjekt, Prädikat und Objekt dargestellt, wobei ein Objekt auch als Property bezeichnet wird <a>[[WWWC04]](#ref_wwwc04)</a>.
 Ein RDF Triple besteht dabei aus den Komponenten:
 * Das Subjekt kann dabei eine RDF URI Referenz oder ein leerer Knoten des RDF-Graphen sein.
@@ -633,9 +608,9 @@ Abbildung entnommen aus <a>[[WWWC04]](#ref_wwwc04)</a>.
 
 
 So ist in der Abbildung des RDF-Graphens zu sehen, dass die korrespondierende Adresse der STAFFID in die logischen Bestandteile der Straße, des Staates, der Stadt und der Postleitzahl gegliedert ist.
-Wobei das Subjekt jedes Triple der leere Knoten, ein Prädikat der Bezeichner des Attributs und das Objekt der zugeordnete Wert ist. 
+Wobei das Subjekt jedes Triple der leere Knoten, ein Prädikat der Bezeichner des Attributs und das Objekt der zugeordnete Wert ist.
 
-Jedoch hat sich eine weitere Definition des Begriffs Web 3.0 im Zusammenhang mit der Blockchain-Technologie herauskristallisiert. 
+Jedoch hat sich eine weitere Definition des Begriffs Web 3.0 im Zusammenhang mit der Blockchain-Technologie herauskristallisiert.
 So haben sich in der Vergangenheit, begünstigt durch das Web 2.0 entsprechende Web-Services etabliert. Diese bewirkten im Gegensatz zum ursprünglichen Gedanken des Internets eine zunehmende Zentralisierung des Internets.
 Dabei muss zwischen einer zentralisierten, dezentralisierten und verteilten Systemarchitektur unterschieden werden.
 
@@ -648,7 +623,7 @@ Ebenso sind die entsprechenden Nutzerdaten gebündelt. Bei der verteilten System
 Beide Typen haben gemein, dass durch den Ausfall eines Knotens die Systemfunktionalität nicht gewährleistet ist.
 Beim dezentralen System, existiert eine Vielzahl von Knoten die voneinander unabhängig agieren können. Jedoch sind, bedingt durch die Definition einer dezentralen Anwendung, sämtliche Daten auf einer Blockchain abgebildet. So ist die Funktionalität einer Anwendung nicht von einem zentralen Knotenpunkt abhängig.
 
-Das dezentrale System spiegelt dabei die Grundlage für die Definition des Web 3.0 als dezentrales Internet wider. 
+Das dezentrale System spiegelt dabei die Grundlage für die Definition des Web 3.0 als dezentrales Internet wider.
 Damit ist gemeint, dass das Web 3.0 als Plattform für dezentrale Anwendung zu verstehen ist. Die Ethereum-Blockchain ist dabei als "back end" für ein dezentralisiertes und sicheres Internet konzipiert, so sind Kernfunktionalitäten wie bspw. das Domain Name System realisierbar.
 So ist eine Blockchain als Infrastruktur für dezentrale Anwendungen zu sehen.
 
@@ -668,7 +643,7 @@ Folglich ist eine parallele Entwicklung der Blockchain-Technologie und des Seman
 
 ## Literaturverzeichnis
 
-<a name="ref_baum14">[BAUM14]</a>: Baumann, Ulrike ; Franz, Elke ; Pfitzmann, Andreas: Kryptographische Systeme. Berlin: Springer Vieweg, 2014, ISBN: 978-3-642-45332-8 
+<a name="ref_baum14">[BAUM14]</a>: Baumann, Ulrike ; Franz, Elke ; Pfitzmann, Andreas: Kryptographische Systeme. Berlin: Springer Vieweg, 2014, ISBN: 978-3-642-45332-8
 
 <a name="ref_bege18">[BEGE18]</a>: Begerow, Markus: Datenbank – Was ist eine Datenbank?  URL: http://www.datenbanken-verstehen.de/datenbank-grundlagen/datenbank/ (abgerufen am 29.04.2018)
 
@@ -680,7 +655,7 @@ Folglich ist eine parallele Entwicklung der Blockchain-Technologie und des Seman
 
 <a name="ref_bsi18c">[BSI18c]</a>:  Bundesamt für Sicherheit in der Informationstechnik (BSI), BSI – Technische Richtlinie: Kryptographische Verfahren: Empfehlungen und Schlüssellängen. Kürzel: BSI TR-02102-1, Bonn, 2018
 
-<a name"ref_cast99">[CAST99]</a>: Castro, Miguel; Liskov, Barbara: Practical Byzantine Fault Tolerance URL:
+<a name="ref_cast99">[CAST99]</a>: Castro, Miguel; Liskov, Barbara: Practical Byzantine Fault Tolerance URL:
 http://pmg.csail.mit.edu/papers/osdi99.pdf
 
  <a name="ref_chau88">[CHAU88]</a>: Chaum D., Evertse JH., van de Graaf J. (1988) An Improved Protocol for Demonstrating Possession of Discrete Logarithms and Some Generalizations. In: Chaum D., Price W.L. (eds) Advances in Cryptology — EUROCRYPT’ 87. EUROCRYPT 1987. Lecture Notes in Computer Science, vol 304. Springer, Berlin, Heidelberg
@@ -689,7 +664,7 @@ http://pmg.csail.mit.edu/papers/osdi99.pdf
 
 <a name="ref_cout17">[COUT17]</a>:  Couteau, Geoffroy: Zero-Knowledge Proofs for Secure Computation. Cryptography and Security. PSL research University, 2017
 
-<a name="ref_cusc18">[CUSC18]</a Cusce, C.: SALT: A Descriptive Model For Blockchain. URL: https://medium.com/@collin.cusce/blockchain-salt-a-descriptive-model-b19c973fef5f (abgerufen am 14.05.2018)
+<a name="ref_cusc18">[CUSC18]</a>: Cusce, C.: SALT: A Descriptive Model For Blockchain. URL: https://medium.com/@collin.cusce/blockchain-salt-a-descriptive-model-b19c973fef5f (abgerufen am 14.05.2018)
 
 <a name="ref_docu18">[DOCU18]</a>:  DocuSign Inc.: What are digital signatures?, San Francisco, 2018, URL: https://www.docusign.com/how-it-works/electronic-signature/digital-signature/digital-signature-faq (abgerufen am 04.05.2018)
 
@@ -708,13 +683,15 @@ http://people.scs.carleton.ca/~maheshwa/courses/4109/Seminar11/ZKP%20Seminar.pdf
 
 <a name="ref_john15">[JOHN15]</a>: Johnston, David: The General Theory of Decentralized Applications, Dapps URL: https://github.com/DavidJohnstonCEO/DecentralizedApplications (abgerufen am 06.05.2018)
 
+<a name="ref_kiml18">[KIML18]</a>: Kim, Laskowski, Nan: A First Step in the Co-Evolution of Blockchain and Ontologies: Towards Engineering an Ontology of Governance at the Blockchain Protocol Level, CoRR, 2018
+
 <a name="ref_kuesters11">[KÜST11]</a>: Küsters, Ralf ; Wilke, Thomas: Moderne Kryptographie : Eine Einführung. 1. Aufl. Wiesbaden : Vieweg + Teubner, 2011, ISBN: 978-3-519-00509-4
 
 <a name="ref_metz18">[METZ18]</a>: Metzger, Jochen: Distributed Ledger Technologie (DLT)  URL: https://wirtschaftslexikon.gabler.de/definition/distributed-ledger-technologie-dlt-54410 (abgerufen am 29.04.2018)
 
-<a name "ref_naka08">[NAKA08]</a>: Nakamoto, Satoshi: Bitcoin: A Peer-to-Peer Electronic Cash System URL: https://bitcoin.org/bitcoin.pdf
+<a name="ref_naka08">[NAKA08]</a>: Nakamoto, Satoshi: Bitcoin: A Peer-to-Peer Electronic Cash System URL: https://bitcoin.org/bitcoin.pdf
 
-<a name="ref_nela18">[NELA18]</a Nelaturi, K.: Understanding Blockchain Tech – CAP Theorem. URL: http://www.mangoresearch.co/understanding-blockchain-tech-cap-theorem/ (abgerufen am 14.05.2018)
+<a name="ref_nela18">[NELA18]</a> Nelaturi, K.: Understanding Blockchain Tech – CAP Theorem. URL: http://www.mangoresearch.co/understanding-blockchain-tech-cap-theorem/ (abgerufen am 14.05.2018)
 
 <a name="ref_orcu17">[ORCU17]</a>: Orcutt, Mike. ["A mind-bending cryptographic trick promises to take blockchains mainstream"](https://www.technologyreview.com/s/609448/a-mind-bending-cryptographic-trick-promises-to-take-blockchains-mainstream). _MIT Technology Review_. Abgerufen am 10.05.2018.
 
@@ -751,7 +728,3 @@ https://courses.cs.ut.ee/MTAT.07.022/2017_fall/uploads/Main/janno-report-f17.pdf
  <a name="ref_wiki18c">[WIKI18c]</a>: Wikipedia: Zero-knowledge Proof, https://en.wikipedia.org/wiki/Zero-knowledge_proof (abgerufen am 10.05.2018)
 
 <a name="ref_wwwc04">[WWWC04]</a>: World Wide Web Consortium: RDF 1.1 Concepts and Abstract Syntax. URL: https://www.w3.org/TR/rdf-concepts/ (abgerufen am 11.05.2018)
-
-<a name="ref_kiml18">[KIML18]</a>: Kim, Laskowski, Nan: A First Step in the Co-Evolution of Blockchain and Ontologies: Towards Engineering an Ontology of Governance at the Blockchain Protocol Level, CoRR, 2018
-
-
