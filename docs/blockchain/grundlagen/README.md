@@ -4,9 +4,7 @@
 Autor: Lukas Stuckstette und Patrick Vogt
 
 Um die Funktionsweise einer Blockchain verstehen zu können, ist ein grundsätzliches Verständnis im Bereich der Kryptographie unerlässlich. Dieses Kapitel soll deshalb einen Überblick über die Grundlagen der Kryptographie schaffen.
-Hierzu werden zunächst einige grundlegende Begrifflichkeiten erläutert sowie Themenbereiche der Verschlüsselung und Signierung vorgestellt. Anschließend... 
-
-TODO Lukas
+Hierzu werden zunächst einige grundlegende Begrifflichkeiten erläutert sowie Themenbereiche der Verschlüsselung und Signierung vorgestellt. Anschließend folgt ein kurzer Exkurs in die Thematik von Zero knowledge Proofs.
 
 ### Einige wichtige Begriffe der Kryptographie
 Autor: Patrick Vogt
@@ -221,10 +219,85 @@ Schlüsseltransport (asymmetrische Verfahren):
 * EC Diffie-Hellman (ECKA-DH)
 
 
-### Zero knowledge Proofs 
-
+### Zero knowledge Proofs
 Autor: Lukas Stuckstette
 
+Ein zero-knowledge proof (im Folgenden ZKP), teilweise auch als zero-knowledge protocol bezeichnet, stellt eine Methode der Kryptographie dar, welche es einem Individuum ermöglicht einer zweiten Partei zu beweisen, dass es ein Geheimnis kennt/ eine Behauptung wahr ist - ohne dabei Informationen über das Geheimnis/die Behauptung preis zu geben. 
+ZKPs wurden erstmals 1985 von Shafi Goldwasser, Silvio Micali und Charles Rackoff in dem wissenschaftlichen Papier "The Knowledge Complexity of Interactive Proof-Systems" beschrieben.
+<a>[[EWAN11]](#ref_ewan11)</a>
+
+
+#### Abstraktes Beispiel 
+Anders als bei üblichen Beispielen in der Kryptographie wird bei ZKPs nicht von Alice und Bob gesprochen, sondern von Peggy (prover ~= Beweisender) und Victor (verifier = Verifizierer).
+Um zunächst ein grobes Verständnis für ZKPs zu erlangen, lohnt es sich einen Blick auf das wissenschaftliche Papier "How to Explain Zero-Knowledge Protocols to Your Children" von J.-J. Quisquater zu werfen. 
+Das Paper enthält Beispiele von ZKPs in form von Geschichten - im folgenden wir die Geschichte von Ali Babas Höhle erläutert:
+
+The Strange Cave of Ali Baba:
+
+Peggy (in der Abbildung lila) möchte Victor (in der Abbildung grün) beweisen, dass sie das Kennwort für eine geheime Tür kennt, welche Abschnitte A und B verbindet. Sie möchte jedoch nicht beim öffnen der Tür gesehen werden, da niemand die Öffnungsmethode bzw. das Kennwort sehen/mithören soll. Zu beginn der Geschichte steht also Victor am Ausgang der Höhle und Peggy wählt zufällig ob sie Gang A oder B betritt.
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Zkip_alibaba1.png" width="60%" alt="Bild: Victor wartet vor der Höhle. Peggy wählt Gang A oder B." />
+
+Abbildung entnommen aus <a>[[WIKI18c]](#ref_wiki18c)</a>
+
+Nun geht Victor ebenfalls in die Höhle und  verlangt, dass Peggy aus einem von ihm bestimmten Gang zu ihm kommt. Falls Peggy das Kennwort kennt, kann sie in jedem Fall aus dem gewünschten Gang zu ihm kommen. Kennt sie das Kennwort nicht, so müsste Sie statistisch gesehen in 50% der Fälle aus dem falschen Gang kommen.
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Zkip_alibaba2.png" width="60%" text="Bild: Victor wählt einen gewünschten Gang" />
+
+Abbildung entnommen aus <a>[[WIKI18c]](#ref_wiki18c)</a>
+
+Im Falle, dass Peggy nach n Druchläufen jedes mal auf der gewünschten Seite erscheint, kann sich Victor mit einer Wahrscheinlichkeit von  $1-2^{-n}$ sicher sein, dass Peggy das Geheimnis der Höhle kennt.
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Zkip_alibaba3.png" width="60%" text="Bild: Peggy kommt aus dem gewünschten Gang." />
+
+
+Abbildung entnommen aus <a>[[WIKI18c]](#ref_wiki18c)</a>
+
+Anderen Gegenüber würde der Beweis jedoch nicht standhalten, da sich Peggy und Victor abgesprochen haben könnten. Ebenfalls könnte Peggy Victor direkt Beweisen, dass sie das Geheimnis kennt, indem sie Victor an der Kreuzung zeigt in welchen Gang sie geht und anschließend eine Runde läuft. Jedoch kann sie Beobachtern gegenüber nicht mehr abstreiten das Geheimnis zu kennen.
+<a>[[QUIS90]](#ref_quis90)</a>
+
+#### Definition
+
+Formal muss ein zero-knowledge proof folgende Eigenschaften erfüllen:
+
+1. __Completeness__
+Falls die Behauptung wahr ist, so wird der Verifizierer, welcher sich an die Regeln des Protokolles hält, durch den Beweisenden von dieser Tatsache überzeugt.
+3. __Soundness__
+Falls die Behauptung falsch ist, so kann kein bösartiger Beweisender einen ehrlichen Verifizierer davon überzeugen, dass die Behauptung wahr ist.
+Per Definition erfüllt ein ZKP Soundness immer dann, wenn ein bösartiger Beweisender nicht in erwarteter polinomieller Zeit aus öffentlich verfügbaren Informationen auf das Geheimnis des ehrlichen Beweisenden schließen kann. Dies lässt Spielraum für den extrem unwahrscheinlichen Fall, dass ein Angreifer genau dies kann - zum Beispiel durch raten. In diesem Fall spricht man von einem soundness error.
+4. __Zero-knowledge__
+Falls die Behauptung wahr ist, gewinnt kein Verifizierer irgendwelche Informationen außer der Tatsache, dass die Behauptung wahr ist.
+
+<a>[[EWAN11]](#ref_ewan11)</a>
+
+#### Konkretes Protokoll-Beispiel am Beispiel vom diskreten Logarithmus
+Peggy möchte Victor Beweisen, dass sie den diskreten Logarithmus eines gegebenen Wertes kennt.
+In unserem Beispiel sei gegeben:
+- gegebener Wert y
+- große Primzahl p
+- Generator g (group-theory)
+- diskreter Logarithmus x so dass gilt g^x mod p = y
+
+In jeder Runde dieses runden-basierten Protokolls generiert Peggy eine Zufallszahl r, berechnet
+C = g^r mod p und sendet C an Victor. Nachdem Victor C erhalten hat, wählt er zufällig eine von
+zwei Anfragen:
+1. Victor verlangt das Senden von r
+2. Victor verlangt das Senden von (x+r)mod(p-1)
+
+Nachdem Victor Peggys Antwort erhalten hat, kann er je nach Anfrage die korrektheit der Antwort bestimmen:
+
+1. Falls Anfrage r : Ist g^r mod p gleich C?
+2. Falls Anfrage (x+r)mod(p-1) : Ist g^{(x+r)mod(p-1)}mod p gleich C?
+
+Falls Peggy den Wert von x kennt, kann sie in jedem Fall antworten. Falls sie den Wert nicht kennt, jedoch die genaue Reihenfolge der Anfragen von Victor wüsste, könnte sie passende Folgen von $C$s erzeugen, welche in sich konsistent wären:
+
+1. Bei Anfrage von r:  generiere r und sende C = g^r mod p
+2. Bei Anfrage von (x+r)mod(p-1):  generiere neues r' und sende C' = g^{r'}*(g^x)^{-1}
+
+Da Peggy jedoch die Reihenfolge nicht kennt, müsste sie bei einer unerwarteten Anfrage den diskreten Logarithmus errechnen, was ein NP-vollständiges Problem darstellt und nicht in trivialer Zeit gelöst werden kann.
+Aus dieser Tatsache ergibt sich pro Runde eine Wahrscheinlichkeit von 50%, dass Peggy den wert von x nicht kennt. Durch eine hohe anzahl an Runden lässt sich so faktisch ausschließen, dass Peggy den Wert von x nicht kennt.
+<a>[[CHAU88]](#ref_chau88)</a>
+
+#### Anwendung von  ZKPs in der Blockchain
+Zero-knowledge proofs finden unter anderem Anwendung in der Kryptowährung Zcash - hier werden Informationen bezüglich Sender, Empfänger und Betrag in Transaktionen verschleiert, da für die Validierung lediglich zero-knowledge proofs eingesetzt werden. Auch Etherum implementierte eine Unterstützung für ZKPs in Transaktionen.
+<a>[[ORCU17]](#ref_orcu17)</a>
 
 ## Distributed Ledger vs. Datenbanken
 Autor: Tim Jastrzembski
@@ -533,11 +606,18 @@ Folglich ist eine parallele Entwicklung der Blockchain-Technologie und des Seman
 <a name"ref_cast99">[CAST99]</a>: Castro, Miguel; Liskov, Barbara: Practical Byzantine Fault Tolerance URL:
 http://pmg.csail.mit.edu/papers/osdi99.pdf
 
+ <a name="ref_chau88">[CHAU88]</a>: Chaum D., Evertse JH., van de Graaf J. (1988) An Improved Protocol for Demonstrating Possession of Discrete Logarithms and Some Generalizations. In: Chaum D., Price W.L. (eds) Advances in Cryptology — EUROCRYPT’ 87. EUROCRYPT 1987. Lecture Notes in Computer Science, vol 304. Springer, Berlin, Heidelberg
+
 <a name="ref_cola18">[COLA18]</a>: Complexity Labs: Distributed Ledger  URL: https://www.youtube.com/watch?v=Cqk7PN8f8gM (abgerufen am 29.04.2018)
+
+<a name="ref_cout17">[COUT17]</a>:  Couteau, Geoffroy: Zero-Knowledge Proofs for Secure Computation. Cryptography and Security. PSL research University, 2017
 
 <a name="ref_docu18">[DOCU18]</a>:  DocuSign Inc.: What are digital signatures?, San Francisco, 2018, URL: https://www.docusign.com/how-it-works/electronic-signature/digital-signature/digital-signature-faq (abgerufen am 04.05.2018)
 
 <a name="ref_ethc16">[ETHC16]</a>: Ethereum community: Web 3: A platform for decentralized apps. URL: http://ethdocs.org/en/latest/introduction/web3.html (abgerufen am 11.05.2018)
+
+<a name="ref_ewan11">[EWAN11]</a>: Ewanick, Bill : Zero Knowledge Proofs. Carleton University, School of Computer Science, 2011
+http://people.scs.carleton.ca/~maheshwa/courses/4109/Seminar11/ZKP%20Seminar.pdf
 
 <a name="ref_goya15">[GOYA15]</a>: Goyal, Saurabh: Centralized vs Decentralized vs Distributed. URL: https://medium.com/@bbc4468/centralized-vs-decentralized-vs-distributed-41d92d463868 (abgerufen am 11.05.2018)
 
@@ -553,12 +633,15 @@ http://pmg.csail.mit.edu/papers/osdi99.pdf
 
 <a name="ref_metz18">[METZ18]</a>: Metzger, Jochen: Distributed Ledger Technologie (DLT)  URL: https://wirtschaftslexikon.gabler.de/definition/distributed-ledger-technologie-dlt-54410 (abgerufen am 29.04.2018)
 
-<a name "ref_naka08">[NAKA08]</a>: Nakamoto, Satoshi: Bitcoin: A Peer-to-Peer Electronic Cash System URL:
-https://bitcoin.org/bitcoin.pdf
+<a name "ref_naka08">[NAKA08]</a>: Nakamoto, Satoshi: Bitcoin: A Peer-to-Peer Electronic Cash System URL: https://bitcoin.org/bitcoin.pdf
+
+<a name="ref_orcu17">[ORCU17]</a>: Orcutt, Mike. ["A mind-bending cryptographic trick promises to take blockchains mainstream"](https://www.technologyreview.com/s/609448/a-mind-bending-cryptographic-trick-promises-to-take-blockchains-mainstream). _MIT Technology Review_. Abgerufen am 10.05.2018.
 
 <a name="ref_paar16">[PAAR16]</a>: Paar, Christof ; Pelzl, Jan: Kryptografie verständlich : Ein Lehrbuch für Studierende und Anwender. Berlin, Heidelberg : Springer Vieweg, 2016, ISBN: 978-3-662-49296-3
 
 <a name="ref_pfef17">[PFEF17]</a>: Pfeffer, Johannes: EthOn — introducing semantic Ethereum. URL: https://blockgeeks.com/what-is-semantic-ethereum/ (abgerufen am 12.05.2018)
+
+<a name="ref_quis90">[QUIS90]</a>: Quisquater JJ. et al. (1990) How to Explain Zero-Knowledge Protocols to Your Children. In: Brassard G. (eds) Advances in Cryptology — CRYPTO’ 89 Proceedings. CRYPTO 1989. Lecture Notes in Computer Science, vol 435. Springer, New York, NY
 
 <a name="ref_rile18">[RILE18]</a>: Rile, Kynan: Understanding Hyperledger Sawtooth — Proof of Elapsed Time URL:
 https://medium.com/kokster/understanding-hyperledger-sawtooth-proof-of-elapsed-time-e0c303577ec1 (Abgerufen 05.05.2018)
@@ -581,6 +664,8 @@ https://courses.cs.ut.ee/MTAT.07.022/2017_fall/uploads/Main/janno-report-f17.pdf
 <a name="ref_wiki18a">[WIKI18a]</a>: Wikipedia, ACID. URL: https://de.wikipedia.org/wiki/ACID (abgerufen am 29.04.2018)
 
 <a name="ref_wiki18b">[WIKI18b]</a>: Wikimedia: Message authentication code. URL: https://en.wikipedia.org/wiki/Message_authentication_code (abgerufen am 04.05.2018)
+
+ <a name="ref_wiki18c">[WIKI18c]</a>: Wikipedia: Zero-knowledge Proof, https://en.wikipedia.org/wiki/Zero-knowledge_proof (abgerufen am 10.05.2018)
 
 <a name="ref_wwwc04">[WWWC04]</a>: World Wide Web Consortium: RDF 1.1 Concepts and Abstract Syntax. URL: https://www.w3.org/TR/rdf-concepts/ (abgerufen am 11.05.2018)
 
