@@ -277,10 +277,35 @@ Smart Contracts (Solidity) auf Basis der Fabric Plattform ermöglicht. Beide
 Projekte befinden sich noch in der Inkubation.
 
 ### Tools
+Neben den Blockchain Plattformen, gehören auch diverse Tools rund um das Thema
+Distributed Ledger zum Hyperledger Projekt. So kann beispielsweise mit dem Tool
+*Caliper*, die Performance der Blockchain Plattform gemessen. Während diese
+Tools eher in die Kategorie Administration eingeordnet werden können, bietet
+folgendes Entwicklungswerkzeug Unterstützung bei der Entwicklung von Distributed
+Ledger Applikationen.
 
 #### Composer
+Das als Webapplikation ausgelegte Entwicklungswerkzeuge Composer, bietet die
+Möglichkeit Distributed Ledger Applikationen für das Fabric Framework zu
+entwickeln. Dabei werden die Funktionalitäten von Fabric gekapselt und dem
+Benutzer eine auf folgende Schablonen reduzierte Umgebung bereitgestellt.
 
-#### Cello
+* **Model File** Mit dieser Schablonen können Daten modelliert werden,
+  die im Distributed Ledger abgelegt werden sollen.
+
+* **Script File** Mittels Javascript kann mit dieser Schablone die Applikations-
+  und Business-Logik implementiert werden.
+
+* **Query File** Eine SQL ähnliche Abfrage Sprache, um unter Verwendung der
+  Models, Abfragen gegen den Distributed Ledger zu formulieren.
+
+* **Access Control File** Definiert welche Rollen und Benutzer Zugriff auf
+  welche Daten dieser Applikation im Distributed Ledger haben.
+
+Diese Schablonen werden im Anschluss in ein *Business Network Archiv* gebündelt
+und können als Chaincode in die Fabric Blockchain deployed werden. Zusätzlich
+kann aus dieser eine Client-Bibliothek generiert werden, um den Zugriff auf die
+Funktionen in dem Chaincode zu ermöglichen.
 
 ## Ethereum
 
