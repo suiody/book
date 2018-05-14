@@ -537,7 +537,7 @@ Die Entwicklung einer dezentralen Anwendung wird üblicherweise in drei Teilschr
 ### Web 3.0
 
 Ursprünglich existiert keine Versionierung des World Wide Web, erst mit der Definition des Web 2.0 als Mitmach-Internet erfolgte die weitere Klassifizierung.
-So ist die Urform als Web 1.0 bzw. Dokumenten- oder Downloadinternet zu bezeichnen. Das Web 1.0 besteht dabei aus vorwiegend statischen Inhalten, erst die Entwicklung zum Web 2.0
+So ist die Urform als Web 1.0, bzw. Dokumenten- oder Downloadinternet, zu bezeichnen. Das Web 1.0 besteht dabei aus vorwiegend statischen Inhalten, erst die Entwicklung zum Web 2.0
 ermöglichte es den Anwendern aktiv Inhalte hinzuzufügen und/oder zu editieren. Somit stellt das Web 2.0 eine Erweiterung des ursprünglichen World Wide Web dar. Wohingegen das Web 3.0, auch bekannt als Semantic Web,
 eine Erweiterung des Web 2.0 darstellt, mit dem Ziel maschinenlesbare Datenmodelle zu etablieren <a>[[STAP10]](#ref_stap10)</a>. 
 
@@ -556,7 +556,7 @@ Abbildung entnommen aus <a>[[WWWC04]](#ref_wwwc04)</a>.
 
 
 So ist in der Abbildung des RDF-Graphens zu sehen, dass die korrespondierende Adresse der STAFFID in die logischen Bestandteile der Straße, des Staates, der Stadt und der Postleitzahl gegliedert ist.
-Wobei das Subjekt jedes Triple der leere Knoten, ein Prädikat der Bezeichner des Attributs und das Objekt der zugeordnerte Wert ist. 
+Wobei das Subjekt jedes Triple der leere Knoten, ein Prädikat der Bezeichner des Attributs und das Objekt der zugeordnete Wert ist. 
 
 Jedoch hat sich eine weitere Definition des Begriffs Web 3.0 im Zusammenhang mit der Blockchain-Technologie herauskristallisiert. 
 So haben sich in der Vergangenheit, begünstigt durch das Web 2.0 entsprechende Web-Services etabliert. Diese bewirkten im Gegensatz zum ursprünglichen Gedanken des Internets eine zunehmende Zentralisierung des Internets.
@@ -567,7 +567,7 @@ Dabei muss zwischen einer zentralisierten, dezentralisierten und verteilten Syst
 Abbildung entnommen aus <a>[[GOYA15]](#ref_goya15)</a>.
 
 Die Zentralisierung ist der aktuelle Status quo vieler Webservices, so stellt ein zentraler Dienstleister ein Angebot für alle Nutzer des Systems zur Verfügung. Dies hat zur Folge, das ein einzelner Point-of-Failure existiert.
-Ebenso sind die entsprechenden Nutzerdaten gebündelt. Bei der verteilten Systemarchitektur, werden die Daten durch eine Vielzahl von Servern verwaltet und bearbeitet, jedoch wird dieses durch ein einzelnes Gremium, z.B. durch einen Konzern verwaltet und gesteuert.
+Ebenso sind die entsprechenden Nutzerdaten gebündelt. Bei der verteilten Systemarchitektur, werden die Daten durch eine Vielzahl von Servern verwaltet und bearbeitet. Jedoch wird dieses durch ein einzelnes Gremium, z.B. durch einen Konzern, verwaltet und gesteuert.
 Beide Typen haben gemein, dass durch den Ausfall eines Knotens die Systemfunktionalität nicht gewährleistet ist.
 Beim dezentralen System, existiert eine Vielzahl von Knoten die voneinander unabhängig agieren können. Jedoch sind, bedingt durch die Definition einer dezentralen Anwendung, sämtliche Daten auf einer Blockchain abgebildet. So ist die Funktionalität einer Anwendung nicht von einem zentralen Knotenpunkt abhängig.
 
@@ -583,7 +583,7 @@ Als Beispiel hat ein Blockchain Blöcke, diese wiederum haben Vorgänger als auc
 
 Abbildung entnommen aus <a>[[PFEF17]](#ref_pfef17)</a>.
 
-Folglich ist eine parallele Entwicklung der Blockchain-Technologie und des Semantic Webs vorstellbar, wodurch die Definition des Web 3.0 ergänzt zueinander sein kann.
+Folglich ist eine parallele Entwicklung der Blockchain-Technologie und des Semantic Webs vorstellbar, wodurch die Definitionen des Web 3.0 ergänzend zueinander sein können.
 
 
 
