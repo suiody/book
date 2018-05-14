@@ -9,7 +9,7 @@ Es gibt mehrere Definitionen, da die Entwicklung der Blockchain noch recht jung 
 Eine andere Definition ist, dass die Blockchain eine Datenbank ist in welcher Einträge chronologisch in Blöcken gruppiert und miteinander kryptografisch verknüpft werden. Wobei hier Blockchains von Distributed Ledgers abgegrenzt werden.  
 Die Blockchain-Verwaltungssysteme werden als verteilte Konsensussysteme bezeichnet, welche auf Kryptografie und P2P-Prinzipien aufbauen. So erreichen sie eine Verifikation des Systemsstatus im ganzen Netzwerk. Aus diesen Definitionen geht hervor, dass Blockchain-Systeme den verteilten Systemen angehören. <a>[[SCHL16]](#ref_Schl16)</a>
 
-In anderen Worten: Ein Blockchain-System ist eine sequenzielle Datenbank mit konstanten Datensätzen, welche in einem P2P-Netzwerk mithilfe von Crypto-Economics und Konsensusalgorithmen validiert und gespeichert werden.
+In anderen Worten: Eine Blockchain ist eine Datenstruktur von anhängbaren und unveränderbaren Transaktionsblöcken, die durch Konsensmechanismen dezentral in einem P2P-System durch Verfahren der Kryptografie validiert wird und in einer verteilten Datenbank persistiert wird.
 
 Der Aufbau einer Blockchain ist eine Blocksequenz in denen die komplette Transaktionshistorie festgehalten wird, wie zum Beispiel einem öffentlichen Konto. Jeder Block zeigt auf den Vorgänger die ganze Blockkette entlang bis auf den ersten Block einer Blockchain, den sogenannten "Genesisblock".   
 Er ist der erste und älteste Block der Blockchain. Als Ursprungsblock kann nur er alleine keinen sogenannten „parent block“, frei übersetzt Elternblock, haben. Jeder andere Block der Blockchain verweist jeweils auf den vorherigen Block. Die Blockchain ähnelt somit der Datenstruktur einer einfach verketteten Liste.  
