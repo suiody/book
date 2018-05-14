@@ -26,17 +26,17 @@ Bleibt erstmal temporär hier, ansonsten reicht die Sidebar Navigation
  * [Big Data Streaming Architekturen](/streaming-architectures/)
 
 ### Fullstack Development
- * Frontend
+ * [Frontend](/fullstack/frontend/)
    * FRP
    * React.js
- * Backend
+ * [Backend](/fullstack/backend/)
    * Node.js
 
 ### [AI - Machine learning](/ai-ml/)
   * [Ethik](/ethik/)
 
 ### [Embedded Computing](/embedded/)
-  * IoT
+  * [IoT](/iot/)
   * Softwarequalität
 
 ### [VR / AR](/vr-ar/)
