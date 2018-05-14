@@ -513,8 +513,44 @@ Insgesamt fällt auf, dass der Großteil der Blockchain-Technologien Probleme mi
 
 ### Ökonomische und gesellschaftliche Herausforderungen
 
-#### Soziale Implikationen
+#### Chancen und Risiken für die Gesellschaft
 Autor: Martin Teuber
+
+In diesem Kapitel wird die Auswirkung der Blockchain-Technologie auf die Gesellschaft näher betrachtet. Dazu werden in einem ersten Unterkapitel die Herkunft der Technologie und ihre derzeitige große Popularität beleuchtet. Darauf folgen zwei Unterkapitel, die jeweils positive und negative Szenarien für die Gesellschaft behandeln. Zum Abschluss wird im Unterkapitel Perspektive darauf eingegangen, dass es sich bei Blockchain grundsätzlich nur um Technologie handelt, welche Akteure bei dem Thema Blockchain besonders aktiv sind und womit in naher Zukunft zu rechnen ist. 
+
+##### Hyperbel
+Die Blockchain-Technologie ist Grundlage der Kryptografie-Währung Bitcoin, welche im Jahr 2008 durch Satoshi Nakamoto in einem Whitepaper [NAKA08] vorgeschlagen wurde. Bitcoin ist eine elektronische Währung, welche ohne das für Währungen übliche Fundament „Vertrauen“ auskommen soll, sodass Mittelsmänner, im speziellen Banken, zukünftig nicht mehr benötigt werden. Während bis heute nicht sicher ist wer oder welche Gruppe sich hinter dem Synonym Nakamoto verbirgt, so wird doch davon ausgegangen, dass sich Bitcoin aus der Cyberpunk-Bewegung von Computer-Experten heraus entwickelt hat. Diese gilt als kapitalismus-kritisch und ihr werden anarchistische Tendenzen unterstellt. Die Bewegung hat sich der Verteidigung der Meinungsfreiheit, dem Zugang zu Informationen und dem Recht auf Privatsphäre verschrieben, welche durch Technologie sowie Kryptografie geschützt und verbreitet werden sollen [BBVA17].
+
+Während das Thema Bitcoin in den Jahren 2008 und 2009 von der Presse noch nicht aufgegriffen worden ist, so gab es im Jahr 2010 erste negative Schlagzeilen, als sich Angreifer Zugriff auf Bitcoins im Wert von etwa 8,75 Mio. US-Dollar bei der Online-Börse Mt.Gox verschafften. Dies war der Anfang einer ganzen Reihe von Angriffen bei Bitcoin-Handelsplattformen und Bitcoin-Wallet Diebstählen bei Privatpersonen. Des Weiteren wurde Bitcoin schon früh als anonymes Zahlungsmittel im Darknet eingesetzt und wurde seither in einem Atemzug mit Themen wie Drogenhandel, Beschaffung illegaler Waffen und Kinderpornografie genannt. Wie Frau Maier ausführte, wurde diese negative Berichterstattung noch dadurch verstärkt, dass sich Journalisten anfangs nicht die Zeit nahmen, um das Thema umfassend zu recherchieren und sie die negativen Berichte ihrer Kollegen weitestgehend kopierten [BMBC18]. Seit dem Jahr 2012 ist jedoch ein starkes Wachstum bei der Zahl der Handelsplattformen und Akzeptanzstellen zu Verzeichnen. Die derzeitige große Beliebtheit von Digitalwährungen bei Spekulanten und Rap-Musikern zeigt zudem, dass Blockchain in alle Lebensbereiche vordringt und bereits in der Popkultur angekommen ist. Auch die Medienberichterstattung wandelte sich über die Zeit von dem negativen Image über die Aufklärung der Funktionsweise hin zu einem Medienhype im Jahr 2017, in welchem der Blockchain-Technologie attestiert wird nicht weniger zu sein als die industrielle Revolution des Internets.
+
+##### Utopie
+In besagtem Medienhype und auch in diversen Sachbüchern werden der Blockchain-Technologie regelmäßig grundlegende Veränderungen der Gesellschaft unterstellt [CAVI15][TATA16]. Dabei versprechen sich die verschiedenen Autoren unter anderem folgende Effekte:
+* Die Ermöglichung freier anonymer Wahlen und damit einhergehend die Demokratisierung der Welt.
+* Die Abschaffung von Bürokratie und staatlichen Behörden.
+* Die vollständige Transparenz der Politik und das Ende jeglicher Korruption.
+* Die vollständige Transparenz der Produktion und der Marktwirtschaft.
+* Die Digitalisierung der Industrie.
+* Die Abschaffung von Finanzinstituten und kostenlosen Geldtransfer.
+* Die Automatisierung der Marktwirtschaft durch die Nutzung von Smart Contracts.
+
+Die Erwartungen an diese Effekte sind dabei in der Regel sehr hoch und der Blockchain-Technologie wird dabei oft eine Zuversicht entgegengebracht, wie sie bei der deutschen Presse seit der Zeit kurz vor der großen Finanzkrise 2007 nicht mehr zu beobachten war. Jedoch wird oft damit argumentiert, dass sich die Blockchain-Technologie aus Ihrer verteilten Struktur heraus für die Lösung bestimmter Probleme gut eignet. Da die Technologie noch recht neu ist, sind konkrete Projekte zur Umsetzungen dieser Lösungen in der Regel gerade erst begonnen worden und befinden sich noch in der Anfangsphase.
+
+##### Dystopie
+Demgegenüber gibt es nur eine kleine Zahl an Veröffentlichungen, welche das Thema Blockchain überwiegend kritisch betrachten. Diese gehen jedoch gezielt auf Probleme ein, welche schwierig bis unmöglich zu lösen scheinen. Das Hauptproblem, welches sich dort abzeichnet, ist, dass Währungen ohne Vertrauen nicht möglich sind. Selbst unter der Prämisse, dass Software quelloffen ist und von jedem überprüft werden kann, ist dieses ab einer gewissen Komplexität selbst für Experten, wenn überhaupt nur noch schwer möglich. Daraus ergibt sich, dass dem Entwickler einer Software, welche Blockchain-Technologie einsetzt, vertraut werden muss. Die Machtverhältnisse verschieben sich also vom Vermittler im Finanzsystem hin zu den Entwicklern der Software [STIN18-1].
+
+Bei politischen Systemen hingegen kann man davon ausgehen, dass autokratischer Staaten und Diktaturen Wahlsysteme oder bürokratische Prozesse nach ihren eigenen Vorstellungen mit Software auf Basis von Blockchain-Technologie entwickeln werden. Damit ist davon auszugehen, dass auch die Manipulation dieser Systeme möglich sein wird und eine politische Revolution erst mal eher unwahrscheinlich würde, da eine neutrale übergeordnete Stelle fehlt [STIN18-2].
+
+Auch in der Marktwirtschaft gibt es einige Hürden. So ist zwar die Bezahlung von Waren über die Blockchain inhärent sicher. Der Lieferung der Waren muss jedoch vertraut werden, wofür wieder vertrauenswürdige Handelsplattformen als Vermittler benötigt würden. Auch ist der Absolutismus kritisch zu sehen, mit der Smart Contracts zur Ausführung kommen. Die Mediation von unterschiedlichen Auffassungen der Handelspartner würde bei einer einfachen Implementierung autokratisch durch die Blockchain-Software gelöst, was gegebenenfalls nicht für alle Parteien zufriedenstellend ist. Sofortige Zwangsversteigerung von Eigentum bei Verzug einer Ratenzahlung wäre da ein denkbares Szenario [STIN18-1].
+
+Des Weiteren besteht die Möglichkeit, dass sich innerhalb einer Blockchain Interessensgemeinschaften mit absoluter Mehrheit herausbilden. Diese haben dann die Möglichkeit einen Konsens vorzugeben und so die Interessen der Minderheiten zu ignorieren. Dieses zunächst theoretisch anmutende Szenario lässt sich bereits bei Bitcoin beobachten, wo sich Bitcoin-Miner zu großen Mining-Pools zusammenschließen. [BRENN18]
+
+##### Perspektive
+De facto handelt es sich bei Blockchain erst einmal nur um eine Technologie, die bezogen auf Politik und Gesellschaft neutral ist, auch wenn sie aus freiheitlichen Idealen heraus konzipiert wurde. Sinnvolle Einsatzmöglichkeiten für diese Technologie zu finden und diese so mit Software und Services so zu ergänzen, dass sie brauchbar und relevant werden, ist eine Aufgabe, welcher sich die Gesellschaft und die Informatik in den nächsten Jahren erst noch stellen muss. Ob sich Blockchain in vielen verschiedenen Bereichen durchsetzen kann, ist derzeit noch schwer absehbar.
+
+Zurzeit beschäftigen sich viele führende Unternehmen mit der Blockchain-Technologie. Etwa 75 der führenden Banken, darunter auch UBS, Deutsche Bank, J.P. Morgan, haben sich zusammengeschlossen und haben das Technologieunternehmen R3 CEV gegründet, welches sich der Entwicklung dezentraler Bankensysteme beschäftigt. Unter dem Hyperledger-Projekt haben sich dagegen über 100 Technologie-Unternehmen vereinigt mit Beteiligung von Firmen wie IBM, Accenture, Daimler, Cisco, Samsung. Auch Microsoft bietet bereits „Blockchain as a Service“ an. Dementsprechend werden die ersten angebotenen Services mit Blockchain-Technologie wohl in der Finanzwelt sowie den Bereichen Unternehmenssoftware und IT-Servicedienstleistungen zu finden sein [SCPÖ17].
+
+Des Weiteren lässt sich ein großes Interesse bei Investoren an Blockchain-Start-Ups beobachten. Diese nehmen sich oft kleinen Marktnischen an, für welche sich Blockchain gut zu eignen scheint. Beispiele hierfür sind Register und eGovernment-Systeme sowie Bezahldienste in Ländern mit schlechter Infrastruktur oder starken Repressionen gegen die Bevölkerung [CAVI15].
+
 
 #### Ökonomische Implikationen
 Autor: Mario Cichonczyk
@@ -700,3 +736,21 @@ Blockchain-Technologie
 <a name="ref_wilu13">[WILU13]</a>: Wilusz, Daniel ; Rykowski, Jarogniew: The Architecture of Coupon-Based, Semi-off-Line, Anonymous Micropayment System for Internet of Things, Technological Innovation for the Internet of Things, 2013, Springer Berlin Heidelberg, Berlin, Heidelberg, pp.125-132, ISBN: 978-3-642-37291-9
 
 <a name="ref_ZHEN17">[ZHEN17]</a>: Zheng, Zibin ; Xie, Shaoan ; Dai, Hongning ; Chen, Xiangping ; Wang, Huaimin : An Overview of Blockchain Technology: Architecture, Consensus, and Future Trends. Honolulu, HI, USA : IEEE International Congress on Big Data, 2017, ISBN: 978-1-5386-1996-4
+
+[STIN18-1] Don't believe the hype: There are no good uses for blockchain - Kai Stinchcombe
+
+[STIN18-2] Blockchain is not only crappy technology but a bad vision for the future - Kai Stinchcombe
+
+[BRENN18] Alles über Blockchains, Altcoins und Bitcoin - Friedemann Brenneis
+
+[SCPÖ17] Die Blockchain – Technologie-feld und wirtschaftliche Anwendungsbereiche - Johannes Scherk & Gerlinde Pöchhacker-Tröscher
+
+[NAKA08] Bitcoin P2P e-cash paper - Satoshi Nakamoto
+
+[BBVA17] From Alan Turing to cyberpunk: the history of blockchain – BBVA
+
+[CAVI15] Cryptocurrency : Wie virtuelles Geld unsere Gesellschaft verändert - Michael Casey & Paul Vigna
+
+[TATA16] Die Blockchain-Revolution: Wie die Technologie hinter Bitcoin nicht nur das Finanzsystem, sondern die ganze Welt verändert - Don Tapscott & Alex Tapscott
+
+[BMBC18] Wenn Technologie zum Hype wird: von Medien, Blockchains & Krypto - Sébastien Bonset, Astrid Maier, Friedemann Brenneis & Christian Clawien
