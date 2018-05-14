@@ -1,8 +1,7 @@
-# Cheat Sheet - Präsentation:
-
-[Click me](https://docs.google.com/presentation/d/1NIlEgz439n10PML5Zsk6VAiJYydIWHd1uk4vXjwuJYk/edit?usp=sharing)
 
 # Grundlagen
+
+[Click me](https://docs.google.com/presentation/d/1NIlEgz439n10PML5Zsk6VAiJYydIWHd1uk4vXjwuJYk/edit?usp=sharing)
 
 ## Kryptographie
 Autor: Lukas Stuckstette und Patrick Vogt
@@ -328,6 +327,7 @@ Blockchain basiert auf der Distributed Ledger Technologie, welche das Verarbeite
 Sie kann auch als eine dezentrale Datenbank verstanden werden, da sie im Gegensatz zu herkömmlichen verteilten (zentralen) Datenbanken gemeinsame Zugriffsrechte für mehrere Netzwerkteilnehmer auf Datensätze erlaubt, was eine zentrale Instanz zur Datenverwaltung überflüssig macht.
 Die Datenänderungen werden per Transaktion an die anderen Teilnehmer geschickt, wobei diese entscheiden können, ob die Transaktion für gültig erklärt wird oder nicht.  
 Bezüglich der Zugangsmöglichkeiten lassen sich die Ledgers folgend unterteilen:
+
 <a>[[METZ18]](#ref_metz18)</a>
 
 | Zugangsmöglichkeit |   |
@@ -335,7 +335,7 @@ Bezüglich der Zugangsmöglichkeiten lassen sich die Ledgers folgend unterteilen
 | Unpermissioned Ledger | Diese Ledger sind am bekanntesten (z.B. durch Bitcoin). Sie sind prinzipiell für alle zugänglich und erfordern keine Authentifizierung. Entsprechend wird PoW als Konsensveriante eingesetzt, sodass kein Vertrauen zwischen den Teilnehmern notwendig ist. |
 | Permissioned Legder | Bei diesen Ledgern  müssen sich die Teilnehmer registriert sein und entsprechende Auflagen(z.B. bzgl. Vertrauen) erfüllen, damit sie an dem Konsens teilnehmen dürfen. Dadurch können PoS oder PBFT-Mechanismen eingesetzt werden, welche im Gegensatz zu PoW  Rechenkapazitäten sparen.|
 
-### SALT <a>[[TAI17]](#ref_tai17)</a> <a>[[CUSC18]](#ref_cusc18)</a>
+### SALT
 Das SALT-Modell beschreibt Eigenschaften für dezentrale Datenbanken für Transaktionen und das System, welche DLTs wie Blockchain u.a. befolgen:
 
 a. Transaktion-Kontext:
@@ -343,8 +343,8 @@ a. Transaktion-Kontext:
 | Eigenschaft |   |
 | --- | --- |
 | Sequential (Sequenziell) | Die Transaktionen werden sequentiell ausgeführt. Die Reihenfolge wird hierbei vom Gewinner-Miner bestimmt. |
-| Agreed (Vereinbart) | Ein Konsens bestimmt über die Gültigkeit der Daten und Transaktionen (siehe PoW, PoS). | 
-| Ledgered (Buchführung) | Alle genehmigten Transaktionen werden zeitlich in einem elektronischen Appendonly-Transaktionenbuch festgehalten und verifiziert. | 
+| Agreed (Vereinbart) | Ein Konsens bestimmt über die Gültigkeit der Daten und Transaktionen (siehe PoW, PoS). |
+| Ledgered (Buchführung) | Alle genehmigten Transaktionen werden zeitlich in einem elektronischen Appendonly-Transaktionenbuch festgehalten und verifiziert. |
 | Tamper-resistant (manipulationssicher) | Terminierte Transaktionen sind persistent und bräuchten eine signifikante Mehrheit des Konsens, um sie zu verändern. |
 
 b. Systemcontext:
@@ -356,6 +356,8 @@ b. Systemcontext:
 | Ledgered (Buchführung) | Alle Teilnehmer pflegen die Buchführung bzgl. derselben Daten. Damit die Buchführung konsistent bleibt, müssen sie sich auf eine Ordnung einigen. Da das finden einen Konsens kostspielig ist, werden mehrere Transaktionen in Blöcken zusammengefasst, damit man pro Konsensrunde mehrere Transaktionen validiert. |
 | Time-consensual (Zeitkonsens) | Es gibt ein (berechenbares) Zeitintervall zwischen der Entstehung der Blöcke. |  
 
+<a>[[TAI17]](#ref_tai17)</a> <a>[[CUSC18]](#ref_cusc18)</a>
+
 ### Abgrenzung zu Datenbanken
 
 Prinzipiell sind Distributed Ledger verteilte Datenbanken, welchen Nutzern, die kein richtiges Vertrauen ineinander haben, einen Konsens über den Inhalt und der Verwaltung der Datenbank ermöglichen. <a>[[BROW16]](#ref_brow16)</a> <a>[[COLA18]](#ref_cola18)</a>
@@ -366,7 +368,7 @@ Im Gegensatz verwalten verteilte Datenbanken im herkömmlichen Sinne ihre Daten 
 | verteilte Datenbank <a>[[BROW16]](#ref_brow16)</a> | distributed Ledger <a>[[BROW16]](#ref_brow16)</a> |
 
 Im Bezug auf die jeweiligen Datenbankschemen kann man DLT's und Datenbanken wie folgt abgrenzen:
- 
+
 | 										| ACID 	| BASE 	| SALT 	|
 | :--- 									| :---: | :---:	| :---: |
 | Atomar 								| X 	| 		| (x)<sup>1</sup>	|
@@ -379,7 +381,7 @@ Im Bezug auf die jeweiligen Datenbankschemen kann man DLT's und Datenbanken wie 
 | CAP <a>[[NELA18]](#ref_nela18)</a> 	| CA	| CP/AP	| CP/AP	|
 
  <sup>1</sup>: Jede Operation ist eine Transaktion in SALT. Jedoch gibt es *Stored procedures*.  
- <sup>2</sup>: Konsistenz hängt vom Konsens ab. 
+ <sup>2</sup>: Konsistenz hängt vom Konsens ab.
 
 ## Verteilte Systeme
 
@@ -662,7 +664,7 @@ http://pmg.csail.mit.edu/papers/osdi99.pdf
 
 <a name="ref_cout17">[COUT17]</a>:  Couteau, Geoffroy: Zero-Knowledge Proofs for Secure Computation. Cryptography and Security. PSL research University, 2017
 
-<a name="ref_cusc18">[CUSC18]</a Cusce, C.: SALT: A Descriptive Model For Blockchain. URL: https://medium.com/@collin.cusce/blockchain-salt-a-descriptive-model-b19c973fef5f (abgerufen am 14.05.2018)
+<a name="ref_cusc18">[CUSC18]</a>: Cusce, C.: SALT: A Descriptive Model For Blockchain. URL: https://medium.com/@collin.cusce/blockchain-salt-a-descriptive-model-b19c973fef5f (abgerufen am 14.05.2018)
 
 <a name="ref_docu18">[DOCU18]</a>:  DocuSign Inc.: What are digital signatures?, San Francisco, 2018, URL: https://www.docusign.com/how-it-works/electronic-signature/digital-signature/digital-signature-faq (abgerufen am 04.05.2018)
 
@@ -689,7 +691,7 @@ http://people.scs.carleton.ca/~maheshwa/courses/4109/Seminar11/ZKP%20Seminar.pdf
 
 <a name="ref_naka08">[NAKA08]</a>: Nakamoto, Satoshi: Bitcoin: A Peer-to-Peer Electronic Cash System URL: https://bitcoin.org/bitcoin.pdf
 
-<a name="ref_nela18">[NELA18]</a Nelaturi, K.: Understanding Blockchain Tech – CAP Theorem. URL: http://www.mangoresearch.co/understanding-blockchain-tech-cap-theorem/ (abgerufen am 14.05.2018)
+<a name="ref_nela18">[NELA18]</a> Nelaturi, K.: Understanding Blockchain Tech – CAP Theorem. URL: http://www.mangoresearch.co/understanding-blockchain-tech-cap-theorem/ (abgerufen am 14.05.2018)
 
 <a name="ref_orcu17">[ORCU17]</a>: Orcutt, Mike. ["A mind-bending cryptographic trick promises to take blockchains mainstream"](https://www.technologyreview.com/s/609448/a-mind-bending-cryptographic-trick-promises-to-take-blockchains-mainstream). _MIT Technology Review_. Abgerufen am 10.05.2018.
 

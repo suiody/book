@@ -1,12 +1,5 @@
 # Blockchain Use Cases
 
-## Entscheidungsmodell 
-
-Autor: Niklas Röhling
-
-* Do you need a Blockchain? :  https://eprint.iacr.org/2017/375.pdf
-
-
 ## Smart Contracts
 
 Autor: Björn Böing
@@ -79,12 +72,12 @@ Ein Anwendungsfall für Blockchain Technologien abseits der weit verbreiteten Ei
 - Sollte ein Nachweis über eine erbrachte Leistung wie z.B. eine Urkunde zu einem Abschluss verloren gehen, ist es zeitaufwändig, diesen zu ersetzen, da die Bildungseinrichtung kontaktiert und ein neuer Nachweis ausgestellt werden muss.
 - Durch die fehlende Transparenz des Bildungssystems kann es zu Betrug kommen, bei dem nicht erbrachte Leistungen oder nicht vorhandene Abschlüsse vorgetäuscht werden. [[CHEN18]](#ref_chen18)
 
-Durch den Einsatz von Blockchain Technologien kann diesen Problemen entgegengewirkt werden. Durch die Verwendung eines einheitlichen Standarts innerhalb einer Blockchain ist es möglich, erbrachte Leistungen weltweit vergleichbar und übertragbar zu machen und so die administrativen und sprachlichen Hürden für den Austausch von Bildungseinrichtungen auf internationaler Ebene deutlich zu verringern. Im Bereich von Hochschulen würde es so z.B. Studierenden ermöglicht, während des Studiums einfach das Land zu wechseln, in dem Leistungen erbracht werden. [[TURK18]](#ref_turk18) 
+Durch den Einsatz von Blockchain Technologien kann diesen Problemen entgegengewirkt werden. Durch die Verwendung eines einheitlichen Standarts innerhalb einer Blockchain ist es möglich, erbrachte Leistungen weltweit vergleichbar und übertragbar zu machen und so die administrativen und sprachlichen Hürden für den Austausch von Bildungseinrichtungen auf internationaler Ebene deutlich zu verringern. Im Bereich von Hochschulen würde es so z.B. Studierenden ermöglicht, während des Studiums einfach das Land zu wechseln, in dem Leistungen erbracht werden. [[TURK18]](#ref_turk18)
 
 Durch die Transparenz und Unveränderbarkeit von Blockchains kann nachvollzogen werden, wann ein Teilnehmer eine Leistung erbracht hat. Hieraus ergeben sich im Hinblick auf Bildung die folgenden Vorteile:
 - Es ist möglich, Betrugsfälle einfacher aufzudecken, da z.B. gefälschte Abschlüsse nicht in der Blockchain enthalten sind und durch die Dezentralisierung eine Wiederspruchsfreiheit der meisten Knoten garantiert werden kann. [[CHEN18]](#ref_chen18)
 - Wenn in der Blockchain zusätzlich die Interaktion zwischen Lehrenden und Lernenden festgehalten wird, hat dies für beide Parteien den Vorteil, dass die Zusammenarbeit nachvollzogen werden kann. Dies ermöglicht einerseits den Lernfortschritt zu überprüfen, aber auch zu ermitteln, ob durch den Lehrenden ausreichend Unterstützung gegeben worden ist. [[CHEN18]](#ref_chen18)
-- Durch die öffentliche Einsehbarkeit der Blockchain wird es Arbeitgebern ermöglicht, den Wissensstand eines potenziellen neuen Mitarbeiters besser zu bewerten und so geeignete Personen zu finden. [[CHEN18]](#ref_chen18) [[TURK18]](#ref_turk18) 
+- Durch die öffentliche Einsehbarkeit der Blockchain wird es Arbeitgebern ermöglicht, den Wissensstand eines potenziellen neuen Mitarbeiters besser zu bewerten und so geeignete Personen zu finden. [[CHEN18]](#ref_chen18) [[TURK18]](#ref_turk18)
 
 Durch diese öffentliche Zugänglichkeit ergeben sich jedoch auch Probleme, da ein einfaches, öffentliches Blockchainsystem bedeuten würde, dass sensible, personenbezogene Daten einsehbar wären. Daher sollte bei einer Anwendung von Blockchain Technologien im Bereich der Bildung darauf geachtet werden, dass die Privatsphäre der Nutzer nicht beeinträchtigt wird.
 
@@ -123,7 +116,7 @@ Autor: Matthias Kersting
 
 ## Blockchain und KI
 
-Im Verlauf der letzten Jahre hat es in dem Bereich der Blockchaintechnologien eine immer schneller werdende Entwicklung gegeben, da nicht zuletzt durch die vierte industrielle Revolution Software in weiten Bereichen der Gesellschaft Anwendung findet und so immer mehr Ressourcen in die Erforschung von neuen Technologien investiert werden. 
+Im Verlauf der letzten Jahre hat es in dem Bereich der Blockchaintechnologien eine immer schneller werdende Entwicklung gegeben, da nicht zuletzt durch die vierte industrielle Revolution Software in weiten Bereichen der Gesellschaft Anwendung findet und so immer mehr Ressourcen in die Erforschung von neuen Technologien investiert werden.
 Die weite Verbreitung von Software sorgt dafür, dass sich immer mehr Menschen auf die korrekte Funktionsweise der Programme verlassen müssen. Dies ist auch bei Blockchaintechnologien der Fall und obwohl diese häufig als dezentralisiert bezeichnet werden, werden die zugrundeliegenden Programme, wie z.B. die Smart Contracts von Ethereum, dennoch von einigen wenigen Menschen entwickelt, wodurch ungewolltes Verhalten auftreten kann. [[MARW18]](#ref_marw18)
 
 In der Vergangenheit haben daher z.B. verschiedene Sicherheitslücken in Smart Contracts von Etherium Hackern mehrfach ermöglicht Schäden im mehrstelligen Millionenbereich (2016: 50 Mio. USD, 2017: 180 Mio. USD) zu verursachen. [[MARW18]](#ref_marw18)
