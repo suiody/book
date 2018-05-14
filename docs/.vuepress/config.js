@@ -1,4 +1,4 @@
-const base = '/book/'
+const base = process.env["SGSE_BUILD"] == 'local' ? '/' : '/book/'
 
 module.exports = {
   title: 'SGSE 18',

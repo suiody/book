@@ -26,4 +26,10 @@ npm install
 # start writing (hot reloading enabled)
 npm run dev
 
+# build static site
+npm run build
+
 ```
+
+#### Static build:
+Output of /dist still needs to be served by a node webserver ¯\_(ツ)_/¯
