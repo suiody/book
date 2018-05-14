@@ -239,18 +239,26 @@ Das Paper enthält Beispiele von ZKPs in form von Geschichten - im folgenden wir
 The Strange Cave of Ali Baba:
 
 Peggy (in der Abbildung lila) möchte Victor (in der Abbildung grün) beweisen, dass sie das Kennwort für eine geheime Tür kennt, welche Abschnitte A und B verbindet. Sie möchte jedoch nicht beim öffnen der Tür gesehen werden, da niemand die Öffnungsmethode bzw. das Kennwort sehen/mithören soll. Zu beginn der Geschichte steht also Victor am Ausgang der Höhle und Peggy wählt zufällig ob sie Gang A oder B betritt.
+
+<p align="center">
 <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Zkip_alibaba1.png" width="60%" alt="Bild: Victor wartet vor der Höhle. Peggy wählt Gang A oder B." />
+</p>
 
 Abbildung entnommen aus <a>[[WIKI18c]](#ref_wiki18c)</a>
 
 Nun geht Victor ebenfalls in die Höhle und  verlangt, dass Peggy aus einem von ihm bestimmten Gang zu ihm kommt. Falls Peggy das Kennwort kennt, kann sie in jedem Fall aus dem gewünschten Gang zu ihm kommen. Kennt sie das Kennwort nicht, so müsste Sie statistisch gesehen in 50% der Fälle aus dem falschen Gang kommen.
+
+<p align="center">
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Zkip_alibaba2.png" width="60%" text="Bild: Victor wählt einen gewünschten Gang" />
+</p>
 
 Abbildung entnommen aus <a>[[WIKI18c]](#ref_wiki18c)</a>
 
 Im Falle, dass Peggy nach n Druchläufen jedes mal auf der gewünschten Seite erscheint, kann sich Victor mit einer Wahrscheinlichkeit von  $1-2^{-n}$ sicher sein, dass Peggy das Geheimnis der Höhle kennt.
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Zkip_alibaba3.png" width="60%" text="Bild: Peggy kommt aus dem gewünschten Gang." />
 
+<p align="center">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Zkip_alibaba3.png" width="60%" text="Bild: Peggy kommt aus dem gewünschten Gang." />
+</p>
 
 Abbildung entnommen aus <a>[[WIKI18c]](#ref_wiki18c)</a>
 
