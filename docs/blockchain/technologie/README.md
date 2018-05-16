@@ -425,7 +425,7 @@ Für Peer-to-Peer-Systeme ist es essentiell, dass Daten redundant gespeichert we
 
 Falls das System scheitert Identitäten zu Entitäten zu mappen, kann eine Entität mehrere Identitäten vortäuschen und von dem System mehrmals Daten oder zusammenhängende Daten zugewiesen bekommen. Hierdurch wäre die Redundanz, als auch die Fragmentierung der Daten komprimiert. <a>[[DOUC02]](#ref_Douc02)</a>
 
-Dies könnte in einem Blockchain-Netzwerk dazu genutzt werden, um einen Nutzer von dem "ehrlichen" Netzwerk abzutrennen und so verhindern, dass Blöcke und Transaktionen von anderen Benutzern an das Opfer durchgestellt werden können.
+Dies könnte in einem Blockchain-Netzwerk dazu genutzt werden, um einen Nutzer von dem "ehrlichen" Netzwerk abzutrennen und so zu verhindern, dass Blöcke und Transaktionen von anderen Benutzern an das Opfer durchgestellt werden können.
 Daraufhin könnte der Angreifer beispielsweise nur noch von ihm erstellte Blöcke zu dem Opfer durchlassen und ihn so für Double-Spending Angriffe verwundbar machen.   
 
 ###### Lösungsansätze
@@ -435,8 +435,10 @@ Die zentralisierte Authorität validiert hierbei, dass eine Entität zu genau ei
 
 In der praktischen Anwendung lässt sich eine zentrale Identifizierungs-Authorität allerdings nur schwer umsetzen, da theoretisch jede Identität manuell überprüft werden müsste. Dies ist gerade bei Systemen mit einer großen Nutzeranzahl, wie es eine Blockchain meist ist, praktisch nicht umsetzbar. <a>[[BALA12]](#ref_Bala12)</a> Hinzu kommt auch, dass eine zentrale Authorität gegen den eigentlichen Dezentralisierungs-Gedanken der Blockchain verstößt.  
 
-Aufgrund des vielfach genutzten Proof-Of-Work-Systems in Blockchain-Netzwerken, können Sybil-Attacken in diesen allerdings sehr unwirtschaftlich gemacht und somit auch ohne Identifizierungs-Authorität effektiv verhindert werden. Einer Entität ist es im Blockchain-System zwar möglich mehrere Identitäten vorzugeben und somit auch einen Node von dem vertrauenswürdigen Netzwerk abzuschneiden, allerdings kann der Angreifer dem Opfer keine neuen Blöcke vortäuschen ohne einen Proof-Of-Work mit der aktuellen Schwierigkeit zu liefern. Um dies zu tun, bräuchte der Angreifer eine immense Rechenleistung und der Angriff käme eher einer 51%-Attacke nahe.   
+Aufgrund des vielfach genutzten Proof-Of-Work-Systems in Blockchain-Netzwerken, können Sybil-Attacken in diesen allerdings sehr unwirtschaftlich gemacht und somit auch ohne Identifizierungs-Authorität effektiv verhindert werden. Einer Entität ist es im Blockchain-System zwar möglich mehrere Identitäten vorzugeben und somit auch einen Node von dem vertrauenswürdigen Netzwerk abzuschneiden, allerdings kann der Angreifer dem Opfer keine neuen Blöcke vortäuschen ohne einen Proof-Of-Work mit der aktuellen Schwierigkeit zu liefern. Um dies zu tun, bräuchte der Angreifer eine immense Rechenleistung und der Angriff käme eher einer 51%-Attacke nahe, welche im nächsten Kapitel erklärt wird.   
 
+In einem Proof-Of-Stake-System sieht der "Schutzmechanismus" ein wenig anders aus.
+Um einen Sybil-Angriff zu starten, müssen alle erstellten Nodes über eine bestimmte Menge an Tokens verfügen, um als validierende Nodes in Frage zu kommen. Der Stake eines einzelnen Nodes muss demnach auf viele verschiedene Nodes aufgeteilt werden, was dazu führt, dass man zum Starten einer Attacke, bereits eine große Menge an Token besitzen muss, um eine große Anzahl an Nodes zu erstellen. Der theoretische Vorteil einer Vielzahl von Nodes mit derselben Stakegröße wie ein einzelner Node, ist gering, weshalb eine Sybil-Attacke hier nur einen geringen Vorteil liefert. Dazu kommt, dass die validierenden Nodes zufällig aus dem Netzwerk ausgewählt werden. Die Chance dass nur die angreifenden Nodes ausgewählt werden, ist also dementsprechend gering, außer man beherrscht den Großteil der Nodes, also auch den Großteil der Token im Netzwerk. Auch dies ähnelt stark einer 51 Prozent Attacke, da man den Großteil der Token benötigt. 
 ##### 51%-Attack
 
 ###### Definition
@@ -455,17 +457,17 @@ Da immer der längere Branch vom System als der "richtige" Branch angenommen wir
 
 ###### Lösungsansätze
 
-Durch den Trend der Mining-Pools kommt es häufig vor, dass diese den größten Anteil an Rechenkapazität in einem Blockchain-Netzwerk ausmachen. In der folgenden Abbildung kann der aktuelle Prozentanteil der einzelnen Pools im Bitcoin-Netzwerk eingesehen werden.
+Durch den Trend der Mining-Pools kommt es häufig vor, dass diese den größten Anteil an Rechenkapazität in einem Blockchain-Netzwerk ausmachen. In der folgenden Abbildung kann der aktuelle Prozentanteil der einzelnen Pools im Bitcoin-Netzwerk eingesehen werden. Hier wird erkenntlich, dass die aktuellen Pools weit unter 51 Prozent liegen.
 
 <img src="./images/miningpools2.png" width=“300”>
 
 Abbildung entnommen aus <a>[[BLCI18]](#ref_Blci18)</a>
 
-Nachdem im Juli 2014 der Mining-Pool Ghash.io mehr als 50 Prozent der Rechenkapazität erreichte, wurde ein Aufsichtskomitee ins Leben gerufen, welches überwacht, dass alle Mining-Pools unter 40 Prozent der Hashrate bleiben. <a>[[MEIN17]](#ref_Mein17)</a>
+Nachdem im Juli 2014 der Mining-Pool Ghash.io mehr als 50 Prozent der Rechenkapazität erreichte, wurde ein Aufsichtskomitee ins Leben gerufen, welches überwacht, dass alle Mining-Pools unter 40 Prozent der relativen Hashrate bleiben. <a>[[MEIN17]](#ref_Mein17)</a>
 
 Zusätzlich ist es nur schwer einen 51 Prozent Angriff tatsächlich wirtschaftlich zu gestalten. Das Aufrechterhalten der 51 Prozent kostet eine immense finanzielle Summe und sobald bekannt wird, dass ein Mining-Pool die Grenze überschritten hat, würden die meisten Benutzer mehr Bestätigungen für ihre Transaktionen anfordern, was die Dauer des Angriffs zwangsläufig verlängern und somit den Angriff noch unwirtschaftlicher machen würde.
 
-Trotz dessen stellt ein 51 Prozent Angriff, gerade für kleinere Blockchain-Netzwerke, eine reelle Gefahr dar. So wurden die auf Ethereum basierenden Blockchains Krypton und Shift im August 2016 angegriffen und deren Entwickler von den Angreifern erpresst. <a>[[INVO18]](#ref_Invo18)</a> Gerade zu den Anfangsphasen, in denen es leichter ist die 51 Prozent zu erreichen, sollte somit kontinuierlich auf die Aufteilung der Hashraten im Netzwerk geachtet werden.         
+Trotz dessen stellt ein 51 Prozent Angriff, gerade für kleinere Blockchain-Netzwerke, eine reelle Gefahr dar. So wurden die auf Ethereum basierenden Blockchains Krypton und Shift im August 2016 angegriffen und deren Entwickler von den Angreifern damit erpresst, dass sie substantiellen Schaden am System anrichten würden, falls sie nicht auf die Forderungen eingehen würden. <a>[[INVO18]](#ref_Invo18)</a> Gerade zu den Anfangsphasen, in denen es leichter ist die 51 Prozent zu erreichen, sollte somit kontinuierlich auf die Aufteilung der Hashraten im Netzwerk geachtet werden.         
 
 #### Skalierung (-sprobleme)
 Aufgrund eben dieses schnellen Wachstums und der aktuellen Popularität der Blockchain-Technologie, muss sich das Feld stark mit der Problematik der Skalierung auseinandersetzen.
@@ -479,7 +481,7 @@ Ein vollständiger Nutzer muss eine komplette Kopie der Blockchain speichern. Di
 
 Nur die wenigsten Nutzer möchten so eine große Menge an Speicherkapazität zur Verfügung stellen, weshalb der Großteil der Benutzer von lightweight Nodes ausgemacht wird. Leichtgewichtige Nutzer speichern lediglich die Block-Header und Informationen, die seine eigenen Transaktionen betreffen. Anhand dieser Daten kann der Nutzer ermitteln, ob seine Transaktion in einem Block aufgenommen wurde und wie viele Blöcke bereits angehängt wurden. Durch diese Methode braucht der Großteil der Nutzer des Bitcoin-Systems keine großen Mengen an Speicherkapazitäten zur Verfügung stellen.
 
-Diese Aufteilung von leichtgewichtigen und vollständigen Benutzern bringt allerdings auch Probleme mit sich. Die Anzahl der leichtgewichtigen Nutzer ist im Bitcoin-Netzwerk zurzeit geschätzt 13 mal größer, als die der vollständigen Nutzer. Beide dieser Werte steigen ungleichmäßig und die Anzahl der Full Nodes ist in den letzten Monaten sogar zurückgegangen. <a>[[MEIN17]](#ref_Mein17)</a><a>[[BITN18]](#ref_Bitn18)</a> Im Bitcoin-System bietet es keinen monetären Vorteil, sich als Full Node anzubieten, weshalb die meisten Full Nodes auch minende Nodes sind. Die minenden Nodes schließen sich, aufgrund wirtschaftlicher Vorteile, immer mehr zu sogenannten Mining-Pools zusammen, was an sich bereits ein Problem für die Dezentralisierung darstellt. Dadurch, dass die minenden Nodes auch den Großteil der Full Nodes ausmachen, geht der Trend immer mehr dahin, dass eine Instanz für sowohl das Mining neuer Blöcke, als auch die Validierung dieser Blöcke, zuständig ist.
+Diese Aufteilung von leichtgewichtigen und vollständigen Benutzern bringt allerdings auch Probleme mit sich. Die Anzahl der leichtgewichtigen Nutzer ist im Bitcoin-Netzwerk zurzeit geschätzt 13 mal größer, als die der vollständigen Nutzer. Beide dieser Werte steigen ungleichmäßig und die Anzahl der Full Nodes ist in den letzten Monaten sogar zurückgegangen. <a>[[MEIN17]](#ref_Mein17)</a><a>[[BITN18]](#ref_Bitn18)</a> Im Bitcoin-System bietet es keinen monetären Vorteil, sich als Full Node anzubieten, weshalb die meisten Full Nodes gleichzeitig auch minende Nodes sind. Die minenden Nodes schließen sich, aufgrund wirtschaftlicher Vorteile, immer mehr zu sogenannten Mining-Pools zusammen, was an sich bereits ein Problem für die Dezentralisierung darstellt. Dadurch, dass die minenden Nodes auch den Großteil der Full Nodes ausmachen, geht der Trend immer mehr dahin, dass eine Instanz für sowohl das Mining neuer Blöcke, als auch die Validierung dieser Blöcke, zuständig ist.
 
 Eine hohe Anzahl von nicht minenden Full Nodes ist somit wünschenswert, um Betrug durch die Mining-Pools zu verhindern und der Zentralisierung entgegen zu wirken.
 
@@ -504,9 +506,9 @@ Das Implementieren des Lightning Networks würde somit die Transaktionsmenge, in
 
 Auch Ethereum wird in Zukunft zur Skalierung auf eine Art des Lightning Networks setzen. Hinzu kommt allerdings, dass Ethereum auch "drastischere" Methoden in Erwägung zieht, um die Skalierbarkeit positiv zu beeinflussen.
 
-Eine dieser Methoden ist die Umstellung vom Proof-Of-Work- zu einem Proof-Of-Stake-System. Dies sorgt dafür, dass Blöcke durch den Besitz von Tokens und nicht mehr durch pure Rechenleistung, validiert werden. Durch diese Umstellung kann das Minen effizienter gestaltet werden, was dafür sorgt, dass das Minen und somit auch das gesamte System weniger Energie verbraucht, was ein großer Kritikpunkt an der Blockchain-Technologie ist. Als Konsequenz hieraus wäre das Minen von Blöcken lohnenswerter und würde neue Miner anlocken.     
+Eine dieser Methoden ist die Umstellung vom Proof-Of-Work- zu einem Proof-Of-Stake-System. Dies sorgt dafür, dass Blöcke durch den Besitz von Tokens und nicht mehr durch pure Rechenleistung, validiert werden. Durch diese Umstellung kann das Minen effizienter gestaltet werden, was dafür sorgt, dass das Minen und somit auch das gesamte System weniger Energie verbraucht, was einen großen Kritikpunkt an der Blockchain-Technologie darstellt. Als Konsequenz hieraus wäre das Minen von Blöcken lohnenswerter und würde auch neue Miner anlocken.     
 
-Als weiterer Ansatz zur Skalierung des Systems, gilt das "Sharding". Hierbei handelt es sich um eine Möglichkeit, Berechnungen zu parallelisieren und Transaktionen nur von einer Teilmenge des Systems (eines Shards), anstatt von allen Teilnehmern des Netzwerks, validieren zu lassen. Innerhalb der einzelnen Shards des Systems würden Transaktionen wie zuvor ablaufen, jedoch würden Shard übergreifende Transaktionen eine Problematik darstellen.
+Als weiterer Ansatz zur Skalierung des Systems, gilt das "Sharding". Hierbei handelt es sich um eine Möglichkeit, Berechnungen zu parallelisieren und Transaktionen nur von einer Teilmenge des Systems (eines Shards), anstatt von allen Teilnehmern des Netzwerks, validieren zu lassen. Innerhalb der einzelnen Shards des Systems würden Transaktionen wie zuvor ablaufen, jedoch würden Shard übergreifende Transaktionen eine neue Problematik darstellen.
 
 Insgesamt fällt auf, dass der Großteil der Blockchain-Technologien Probleme mit den Transaktionsmengen, sowie der kontinuierlich steigenden benötigten Speicherkapazität hat. Dies sind Probleme, die von der Natur der Blockchain herrühren und je nach Fokus der jeweiligen Anwendung, anders gelöst werden können beziehungsweise müssen.   
 
