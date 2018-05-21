@@ -987,6 +987,33 @@ render() {
 ```
 #### Serverseitiges Rendern
 
+Bei der Erstellung von Webanwendungen kann die Webseite prinzipiell auf verschiedenen Arten gerendert werden. 
+
+*Clientseitiges Rendern:*
+
+Der Browser lädt eine einfache HTML Datei, deren Inhalt durch JavaScript befüllt wird
+
+*Serverseitiges Rendern (SSR):*
+
+Der **Startinhalt** wird auf dem Server generiert, sodass der Browser die Daten als HTML-Seite laden kann. Updates werden jedoch weiterhin im Browser gehandhabt [[LASN18g]](#ref_lasn18).
+
+Stellt man sich die Frage, ob man serverseitiges Rendern verwenden sollte, kann [diese](https://www.javascriptstuff.com/server-side-render/) Seite hilfreich sein.
+
+Vorteile:
+* SEO (Search Engine Optimization) Verbesserung möglich (Google, Bing etc.)
+* In der Regel bessere clientseitige Performanz
+
+Nachteile:
+* Der Server wird stärker beansprucht, wodurch HTTP Antworten verzögert werden können
+* Die Größe der HTML-Datei steigt und diese braucht somit länger zum Downloaden (i.d.R. vernachlässigbar)
+* Die Komplexität der Anwendung nimmt zu
+
+Zur Vereinfachung von SSR in React-Applikationen, kann das Framework *[Next.js](https://nextjs.org/)* verwendet werden. Hierbei wird zudem ein automatisches Code-Splitting durchgeführt.
+
+
+Alternativ zu SSR kann auch [prerender](https://prerender.io/) verwendet werden.
+Hierbei handelt es sich um eine Middleware, die Crawlern eine vorgerenderte Version der Webseite für eine bessere SEO zurückliefert [[LASN18g]](#ref_lasn18). 
+
 ### Literaturverzeichnis
 
 <a name="ref_chan17">[CHAN17]</a>: Tsonev, Krasimir: React Patterns. URL: https://reactpatterns.com/ (abgerufen am 09.05.2018)
@@ -1023,6 +1050,9 @@ Facebook
 <a name="ref_labo18">[LABO18]</a>: Labori, Gant: The React State Museum. URL: https://hackernoon.com/the-react-state-museum-a278c726315
 (abgerufen am 12.05.2018)
 
+<a name="ref_lasn18">[LASN18]</a>: Lasn, Indrek: Next.js — React Server Side Rendering Done Right. URL: https://hackernoon.com/next-js-react-server-side-rendering-done-right-f9700078a3b6
+(abgerufen am 21.05.2018)
+
 <a name="ref_mobx18">[MOBX18]</a>: MobX: The gist of MobX. URL: https://mobx.js.org/intro/overview.html
 (abgerufen am 12.05.2018)
 
@@ -1035,7 +1065,7 @@ Facebook
 <a name="ref_reac18">[REAC18]</a>: React Loadable: A higher order component for loading components with promises. URL: https://github.com/jamiebuilds/react-loadable
 (abgerufen am 21.05.2018)
 
-<a name="ref_szcz18">[SZCZ18]</a>: Bartosz Szczeciński: What’s new in React 16.3(.0-alpha). URL: https://medium.com/@baphemot/whats-new-in-react-16-3-d2c9b7b6193b
+<a name="ref_szcz18">[SZCZ18]</a>: Szczeciński, Bartosz: What’s new in React 16.3(.0-alpha). URL: https://medium.com/@baphemot/whats-new-in-react-16-3-d2c9b7b6193b
 (abgerufen am 21.05.2018)
 
 <a name="ref_tson18">[TSON18]</a>: Tsonev, Krasimir: React in patterns. URL: https://legacy.gitbook.com/book/krasimir/react-in-patterns/details (abgerufen am 09.05.2018)
