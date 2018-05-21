@@ -4,34 +4,43 @@
 *Stand: Version 16.3.2*
 
 ***Warum funktionieren die Links mit VuePress nicht?***
-- [Einführung](#Einführung)
-  - [SPA / Progressive Web App](#SPA-/-Progressive-Web-App)
-  - [JSX](#JSX)
-- [Komponenten](#Komponenten)
-  - [Dumb Components & Smart Components](#Dumb-Components-&-Smart-Components)
-  - [Children](#Children)  
-  - [Rendern](#Rendern)
-  - [Bedingtes Rendern](#Bedingtes-Rendern)
-  - [Events](#Events)
-  - [Styling](#Styling)
-  - [Lifecycle](#Lifecycle)
-- [Patterns / Architektur](#Patterns-/-Architektur)
-  - [State management](#State-management)
-    - TODO
-  - [Komposition vs. Vererbung](#Komposition-vs.-Vererbung)
-  - [Higher Order Components (HOCs)](#Higher-Order-Components-(HOCs))
-  - [Flux](#Flux)
-- [Weitere React-Themen](#Weitere-React-Themen)
-  - [Virtuelles DOM & Reconciliation](#Virtuelles-DOM-&-Reconciliation)
-  - [Type checking/static types in JavaScript](#Type-checking/static-types-in-JavaScript)
-    - [PropTypes](#PropTypes)
-    - [Flow](#Flow)
-    - [Typescript](#Typescript)
-  - [Error Handling (Error Boundaries)](#Error-Handling-(Error-Boundaries))
-  - [Code-Splitting](#Code-Splitting)
-  - [Strict Mode](#Strict-Mode)
-  - [React Router](#React-Router)
-  - [Serverseitiges Rendern](#Serverseitiges-Rendern)
+- [Frontend](#frontend)
+  - [FRP](#frp)
+  - [React.js](#reactjs)
+    - [Einführung](#einführung)
+      - [SPA / Progressive Web App](#spa--progressive-web-app)
+      - [JSX](#jsx)
+      - [Komponenten](#komponenten)
+        - [Dumb Components & Smart Components](#dumb-components--smart-components)
+        - [Children](#children)
+        - [Rendern](#rendern)
+- [===================](#)
+        - [Bedingtes Rendern](#bedingtes-rendern)
+        - [Events](#events)
+        - [Styling](#styling)
+        - [Lifecycle](#lifecycle)
+    - [Patterns / Architektur](#patterns--architektur)
+      - [Flux](#flux)
+      - [State Management](#state-management)
+        - [setState](#setstate)
+        - [Context](#context)
+        - [MobX](#mobx)
+        - [Redux](#redux)
+        - [Auswahlhilfe](#auswahlhilfe)
+      - [Komposition vs. Vererbung](#komposition-vs-vererbung)
+      - [Higher Order Components (HOCs)](#higher-order-components-hocs)
+    - [Weitere React-Themen](#weitere-react-themen)
+      - [Virtuelles DOM & Reconciliation](#virtuelles-dom--reconciliation)
+      - [Type checking/static types in JavaScript](#type-checkingstatic-types-in-javascript)
+        - [PropTypes](#proptypes)
+        - [Flow](#flow)
+        - [Typescript](#typescript)
+      - [Error Handling (Error Boundaries)](#error-handling-error-boundaries)
+      - [Code-Splitting](#code-splitting)
+      - [Strict Mode](#strict-mode)
+      - [React Router](#react-router)
+      - [Serverseitiges Rendern](#serverseitiges-rendern)
+    - [Literaturverzeichnis](#literaturverzeichnis)
 
 ### Einführung
 #### SPA / Progressive Web App
@@ -829,11 +838,45 @@ PropTypes überprüft die Typen aus Gründen der Performance nur im Entwicklermo
 ##### Flow
 
 ##### Typescript
-Typescript ist eine von Microsoft entwickelte Programmiersprache. Da sie JavaScript erweitert und somit auch kompatibel zu JavaScript ist, lassen sich JavaScript Projekte i.d.R. recht einfach migrieren.
+TypeScript ist eine von Microsoft entwickelte open-source Programmiersprache. Die Sprache verfügt über vielerlei Bestandteile, die aus anderen Programmiersprachen bekannt sind. Hierzu gehören Generics, Vererbung, Klassen, Interfaces, Enumerationen und vieles mehr. Ein spezieller TypeScript-Compiler kompiliert den Softwarecode zu nativen JavaScript Code.
+Da die JavaScript-Sprache lediglich erweitert wird, ist herkömmlicher JavaScript Code, wodurch sich JavaScript Projekte i.d.R. recht einfach migrieren lassen. 
 
-TSLint
+In TypeScript erhält jede Funktion, Variable, Schnittstelle etc. einen Typ zugewiesen. Hierdurch können viele Fehlerquellen bereits zur Kompilierzeit festgestellt werden. Darüber hinaus bieten einige Tools weitere Hilfestellungen bei der Programmierung an (z.B. das automatische Erstellen von Methodenrümpfen, die für eine Implementierung eines Interfaces notwendig sind). 
 
-Schnellstart: [link](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter)
+Beispielhafte Umsetzung eines Timer Interfaces und deren Implementierung:
+
+```typescript
+interface TimerInterface {
+  setTimer(value: number): void;
+  startTimer(): void;
+  isRunning(): boolean;
+}
+
+/// Implementierung analog wie z.B. in Java
+class Timer implements TimerInterface {
+  setTimer(value: number): void {
+    // ...
+  }
+  startTimer(): void {
+    // ...
+  }
+  isRunning(): boolean {
+    // ...
+  }
+}
+```
+
+Eine weitere wichtige Erweiterung sind die Zugriffsmodifizierer (access modifiers), die eine bessere Kapselung von Klassenfunktionalität ermöglichen. Es werden die drei klassischen Modifier unterstützt:
+
+* public (*default*):  von überall aus erreichbar
+* private: nur innerhalb der Klasse erreichbar
+* protected: nur innerhalb der Klasse und über Vererbung erreichbar
+
+Das Typensystem kann jedoch auch bei Verwendung von TypeScript umgangen werden. Wird als Typ **any** angegeben, findet keine Überprüfung des Types statt.
+Um solche unsauberen Lösungen zu umgehen, kann z.B. das statische Code-Analyse Tool "TSLint" verwendet werden. Wird hier die Regel *no-any* gesetzt, wird eine entsprechende Warnung bzw. Fehler ausgegeben. Dieses Tool kann außerdem dabei helfen, Coderichtlinien einzuhalten.
+
+Einen schnellen Einstieg in die Entwicklung von React Anwendungen mit TypeScript und TSLint 
+erhält man [hier](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter).
 
 #### Error Handling (Error Boundaries)
 #### Code-Splitting
