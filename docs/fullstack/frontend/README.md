@@ -14,7 +14,6 @@
         - [Dumb Components & Smart Components](#dumb-components--smart-components)
         - [Children](#children)
         - [Rendern](#rendern)
-- [===================](#)
         - [Bedingtes Rendern](#bedingtes-rendern)
         - [Events](#events)
         - [Styling](#styling)
@@ -234,9 +233,9 @@ render() {
   );
 }
 ```
-===================
-TODO
-===================
+
+Um Komponenten letztendlich im Browser anzuzeigen, wird die Funktion *ReactDOM.render()* verwendet. Diese erhält als ersten Parameter die zu rendernde React Komponente und als zweiten Parameter das tatsächliche DOM-Element, an dessen Stelle die Komponente in den nativen DOM eingefügt worden soll:
+
 ```jsx
 ReactDOM.render(
   <AppComponent />,               // React Komponente
