@@ -786,14 +786,13 @@ Die so erstellte Komponente kann anschließend wie üblich verwendet werden:
 
 In diesem recht simplen Beispiel wird deutlich, dass so Logik und Anzeige besser getrennt werden können, wodurch die Wiederverwendbarkeit der einzelnen Teile verbessert wird. Die Anzeige kann so oftmals durch dump components realisiert werden. Es ist z.B. denkbar, dass eine HOC Daten aus dem Netz abruft und sie dann einer statuslosen "Anzeigekomponente" zur Verfügung stellt [[CHAN17]](#ref_chan17). Ebenso könnte eine HOC die Konfiguration einer anderen Komponente übernehmen. All das erleichtert zudem das Testen der Komponenten, da die Aufgaben strikter getrennt werden und so einfacher Mock-Komponenten erstellt werden können [[TSON18]](#ref_tson18).
 
-
-
-
 ### Weitere React-Themen
 #### Virtuelles DOM & Reconciliation
 https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e
 #### Type checking/static types in JavaScript
-...
+
+Standardmäßig ist JavaScript eine dynamisch typisierte Programmiersprache. Möchte man dennoch Type-Checking-Methodiken oder statische Typisierung in Javascript verwenden, bedarf es zusätzlicher Bibliotheken/Tools. Im folgenden werden in diesem Zusammenhang PropTypes, Flow und TypeScript vorgestellt.
+
 ##### PropTypes
 Durch das Importieren des Packets "prop-types" erhält man Zugriff auf das in React eingebaute Typechecking-Werkzeug *PropTypes*. Mithilfe von PropTypes kann überwacht werden, ob alle benötigten Properties einer Komponente übergeben wurde und ob der Typ des Übergabewertes korrekt ist.
 
