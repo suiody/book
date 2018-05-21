@@ -42,7 +42,12 @@
     - [Literaturverzeichnis](#literaturverzeichnis)
 
 ### Einführung
+
+TODO
+
 #### SPA / Progressive Web App
+
+TODO
 
 #### JSX
 JSX erweitert die Programmiersprache JavaScript, indem es eine XML/HTML-artige Struktur zur Programmierung der GUI-Elemente innerhalb des JavaScript Codes erlaubt. Damit aus einem JSX-Code standardmäßiges JavaScript wird, muss der Code übersetzt werden. Dieser Vorgang wird i.d.R. mithilfe des JavaScript-Compilers "Babel" durchgeführt. Streng genommen ist JSX kein zwingendes Muss bei der Verwendung von React, jedoch ist zu vermuten, dass die meisten Programmierer die JSX-Version dem compilierte JavaScript Äquivalent aufgrund der Übersichtlichkeit bevorzugen würden. Außerdem können so hilfreichere Tool-Unterstützungen (Warnungen, Fehler etc.) angezeigt werden [[FACE18a]](#ref_face18a).
@@ -99,6 +104,8 @@ Render-Ausgabe:
 ```
 
 #### Komponenten
+
+Bei der Entwicklung von Webanwendungen mit React spielen Komponenten eine zentrale Rolle. Im Folgenden werden einige Grundlagen der Komponentenentwicklung mit React vorgestellt.
 
 ##### Dumb Components & Smart Components
 Grundsätzlich unterscheidet man zwischen zwei Arten von Komponenten. Die sogenannten "dumb components" und die "smart components". Sie unterscheiden sich darin, dass dumb components über keinen Zustand (*state*) verfügen. Soll heißen, dass sie einmalig Eigenschaften zugewiesen bekommen (*properties*, im Folgenden auch *props* genannt) und auf Basis dieser Werte ihr Aussehen anpassen. Es ist darauf zu achten, dass Javascript standardmäßig über keine Typprüfung verfügt und somit auch die Verwendung der Properties ein sorgsames Vorgehen verlangt. Möglichkeiten zur statischen  werden im Kapitel "Type checking/static types in JavaScript" vorgestellt.
@@ -741,6 +748,9 @@ Ist die **Skalierbarkeit** wichtig?
     Redux verwenden
 
 #### Komposition vs. Vererbung
+
+TODO
+
 #### Higher Order Components (HOCs)
 Higher order components erweitern Komponenten, indem sie ihnen zusätzliche Funktionalitäten oder Properties zur Verfügung stellen (ähnlich wie beim Decorator Pattern) [[TSON18]](#ref_tson18). Möchte man beispielsweise bei jedem Mounting- und Rendervorgang von Komponenten ein Log-Nachricht ausgeben, so müsste man den gleichen Code an vielen Stellen des Projekts einbauen (in der componentDidMount- und der render-Methode der jeweiligen Komponente).
 Eine HOC kann hier Abhilfe schaffen:
@@ -788,6 +798,9 @@ In diesem recht simplen Beispiel wird deutlich, dass so Logik und Anzeige besser
 
 ### Weitere React-Themen
 #### Virtuelles DOM & Reconciliation
+
+TODO
+
 https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e
 #### Type checking/static types in JavaScript
 
@@ -835,6 +848,8 @@ PropTypes überprüft die Typen aus Gründen der Performance nur im Entwicklermo
 
 ##### Flow
 
+TODO
+
 ##### Typescript
 TypeScript ist eine von Microsoft entwickelte open-source Programmiersprache. Die Sprache verfügt über vielerlei Bestandteile, die aus anderen Programmiersprachen bekannt sind. Hierzu gehören Generics, Vererbung, Klassen, Interfaces, Enumerationen und vieles mehr. Ein spezieller TypeScript-Compiler kompiliert den Softwarecode zu nativen JavaScript Code.
 Da die JavaScript-Sprache lediglich erweitert wird, ist herkömmlicher JavaScript Code, wodurch sich JavaScript Projekte i.d.R. recht einfach migrieren lassen. 
@@ -877,7 +892,13 @@ Einen schnellen Einstieg in die Entwicklung von React Anwendungen mit TypeScript
 erhält man [hier](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter).
 
 #### Error Handling (Error Boundaries)
+
+TODO
+
 #### React Router
+
+TODO
+
 Hash Router ?
 #### Code-Splitting
 
