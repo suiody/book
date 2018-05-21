@@ -36,9 +36,9 @@
         - [Flow](#flow)
         - [Typescript](#typescript)
       - [Error Handling (Error Boundaries)](#error-handling-error-boundaries)
+      - [React Router](#react-router)
       - [Code-Splitting](#code-splitting)
       - [Strict Mode](#strict-mode)
-      - [React Router](#react-router)
       - [Serverseitiges Rendern](#serverseitiges-rendern)
     - [Literaturverzeichnis](#literaturverzeichnis)
 
@@ -879,9 +879,94 @@ Einen schnellen Einstieg in die Entwicklung von React Anwendungen mit TypeScript
 erhält man [hier](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter).
 
 #### Error Handling (Error Boundaries)
-#### Code-Splitting
-#### Strict Mode
 #### React Router
+Hash Router ?
+#### Code-Splitting
+
+Bei der Entwicklung von React Applikationen werden in der Regel eine Vielzahl an einzelnen Paketen verwendet. Tools wie Browserify oder Webpack bündeln die einzelnen Bestandteile zu einer großen Datei. Hierdurch kann eine Anwendung als Ganzes innerhalb einer Webseite inkludiert werden.
+
+Bei größeren Single Page Applications kann dies zu Problemen führen, da alle Daten geladen werden müssen, obwohl der Benutzer eventuell gar nicht alle Bereiche der Anwendung verwenden wird. Um diesem Problem aus dem Weg zu gehen, kann *Code-Splitting* eingesetzt werden.
+
+Code-Splitting ermöglicht es, die Bestandteile einer Webanwendung in verschiedene Bereiche aufzuteilen und diese erst bei Bedarf zu laden (quasi *lazy loading*).
+
+In React kann in Verbindung mit Webpack die dynamische *import()*-Syntax verwendet werden [[FACE18g]](#ref_face18g).
+
+Vorher:
+```javascript
+import { SubMenu } from './SubMenu';
+
+SubMenu.open();
+```
+
+Nachher:
+```javascript
+// Webpack führt hier ein Code-Splitting durch 
+import("./SubMenu").then(module => {
+  module.SubMenu.open();
+});
+```
+
+**Komponentenbasiertes Code-Splitting mit *React Loadable***
+
+Speziell für React kann auch die Bibliothek *React Loadable* verwendet werden. Sie bietet einen Wrapper für das Code-Splitting und bietet zudem z.B. die Möglichkeit während des Ladevorganges eine andere Komponente/Text anzuzeigen. Es handelt sich um eine HOC, die [Promises](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) für das Laden von Komponenten bereitstellt [[REAC18]](#ref_reac18).
+
+Vorher:
+```jsx
+import { SomeComponent } from './SomeComponent';
+
+const SomeContainer = () => (
+  <SomeComponent/>
+);
+```
+
+Nachher:
+```jsx
+import Loadable from 'react-loadable';
+
+const SomeLoadableComponent = Loadable({
+  // wird geladen, wenn die Komponente angefordert wird
+  loader: () => import('./SomeComponent'),
+  // wird so lange angezeigt, bis die Komponente geladen ist
+  loading: () => <div>Loading...</div>,
+  // zeige Ladetext erst nach 0,2 Sekunden an
+  delay: 200
+});
+
+const SomeContainer = () => (
+  <SomeLoadableComponent/>
+);
+```
+**Routenbasiertes Code-Splitting mit *React Loadable***
+
+React Loadable kann auch dazu genutzt werden, um ein routenbasiertes Code-Splitting durchzuführen. Hierbei erhält jede Route eine eigene Komponente, die als Loadable implementiert wird [[FACE18g]](#ref_face18g):
+
+```jsx
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Loadable from 'react-loadable';
+
+const Loading = () => <div>Loading...</div>;
+
+const Home = Loadable({
+  loader: () => import('./routes/Home'),
+  loading: Loading,
+});
+
+const About = Loadable({
+  loader: () => import('./routes/About'),
+  loading: Loading,
+});
+
+const App = () => (
+  <Router>
+    <Switch>
+      <Route exact path="/" component={Home}/>
+      <Route path="/about" component={About}/>
+    </Switch>
+  </Router>
+);
+```
+
+#### Strict Mode
 #### Serverseitiges Rendern
 
 ### Literaturverzeichnis
@@ -909,6 +994,9 @@ erhält man [hier](https://github.com/Microsoft/TypeScript-React-Starter#typescr
 <a name="ref_face18f">[FACE18f]</a>: Facebook Inc.: Context. URL: https://reactjs.org/docs/context.html#provider
 (abgerufen am 06.05.2018)
 
+<a name="ref_face18g">[FACE18g]</a>: Facebook Inc.: Code-Splitting. URL: https://reactjs.org/docs/code-splitting.html
+(abgerufen am 21.05.2018)
+
 <a name="ref_face14">[FACE14]</a>: 
 Facebook
 : Hacker Way: Rethinking Web App Development at Facebook. URL: https://www.youtube.com/watch?v=nYkdrAPrdcw&feature=youtu.be&t=568
@@ -925,6 +1013,9 @@ Facebook
 
 <a name="ref_redu18">[REDU18]</a>: Redux: Actions. URL: https://redux.js.org/basics/actions
 (abgerufen am 11.05.2018)
+
+<a name="ref_reac18">[REAC18]</a>: React Loadable: A higher order component for loading components with promises. URL: https://github.com/jamiebuilds/react-loadable
+(abgerufen am 21.05.2018)
 
 <a name="ref_tson18">[TSON18]</a>: Tsonev, Krasimir: React in patterns. URL: https://legacy.gitbook.com/book/krasimir/react-in-patterns/details (abgerufen am 09.05.2018)
 
