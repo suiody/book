@@ -967,6 +967,24 @@ const App = () => (
 ```
 
 #### Strict Mode
+Strict Mode stellt sicher, dass gewisse Best Practices eingehalten werden. Durch das Einfügen von *StrictMode* in den ReactDOM werden die Kinderelemente dieser Komponente auf verschiedene mögliche Probleme hin überprüft [[SZCZ18]](#ref_szcz18). Wird z.B. eine veraltete (deprecated) Lifecycle-Methode verwendet, erscheint eine Warnung der folgenden Art:
+
+ <a name="ref_unsafeLifecycleMethod"></a>![ref_lifecycles](./images/unsafelifecyclemethod.png "React Lifecycle Methoden")
+
+Implementierung:
+```jsx
+//...
+
+// Prüfe "ChildComponent"
+render() {
+  return (
+    <StrictMode>
+      <ChildComponent />
+    </StrictMode>
+  )
+}
+//...
+```
 #### Serverseitiges Rendern
 
 ### Literaturverzeichnis
@@ -1015,6 +1033,9 @@ Facebook
 (abgerufen am 11.05.2018)
 
 <a name="ref_reac18">[REAC18]</a>: React Loadable: A higher order component for loading components with promises. URL: https://github.com/jamiebuilds/react-loadable
+(abgerufen am 21.05.2018)
+
+<a name="ref_szcz18">[SZCZ18]</a>: Bartosz Szczeciński: What’s new in React 16.3(.0-alpha). URL: https://medium.com/@baphemot/whats-new-in-react-16-3-d2c9b7b6193b
 (abgerufen am 21.05.2018)
 
 <a name="ref_tson18">[TSON18]</a>: Tsonev, Krasimir: React in patterns. URL: https://legacy.gitbook.com/book/krasimir/react-in-patterns/details (abgerufen am 09.05.2018)
