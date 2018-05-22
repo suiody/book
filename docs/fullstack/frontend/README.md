@@ -12,14 +12,14 @@
       - [Progressive Web Apps](#progressive-web-apps)
       - [JSX](#jsx)
       - [Komponenten](#komponenten)
-        - [Dumb Components & Smart Components](#dumb-components--smart-components)
+        - [Dumb Components und Smart Components](#dumb-components-und-smart-components)
         - [Children](#children)
         - [Rendern](#rendern)
         - [Bedingtes Rendern](#bedingtes-rendern)
         - [Events](#events)
         - [Styling](#styling)
         - [Lifecycle](#lifecycle)
-    - [Patterns / Architektur](#patterns--architektur)
+    - [Patterns und Architektur](#patterns-und-architektur)
       - [Flux](#flux)
       - [State Management](#state-management)
         - [setState](#setstate)
@@ -30,8 +30,8 @@
       - [Komposition vs. Vererbung](#komposition-vs-vererbung)
       - [Higher Order Components (HOCs)](#higher-order-components-hocs)
     - [Weitere React-Themen](#weitere-react-themen)
-      - [Virtuelles DOM & Reconciliation](#virtuelles-dom--reconciliation)
-      - [Type checking/static types in JavaScript](#type-checkingstatic-types-in-javascript)
+      - [Virtuelles DOM und Reconciliation](#virtuelles-dom-und-reconciliation)
+      - [Type Checking und Static Types in JavaScript](#type-checking-und-static-types-in-javascript)
         - [PropTypes](#proptypes)
         - [Flow](#flow)
         - [Typescript](#typescript)
@@ -131,7 +131,7 @@ Render-Ausgabe:
 
 Bei der Entwicklung von Webanwendungen mit React spielen Komponenten eine zentrale Rolle. Im Folgenden werden einige Grundlagen der Komponentenentwicklung mit React vorgestellt.
 
-##### Dumb Components & Smart Components
+##### Dumb Components und Smart Components
 Grundsätzlich unterscheidet man zwischen zwei Arten von Komponenten. Die sogenannten "dumb components" und die "smart components". Sie unterscheiden sich darin, dass dumb components über keinen Zustand (*state*) verfügen. Soll heißen, dass sie einmalig Eigenschaften zugewiesen bekommen (*properties*, im Folgenden auch *props* genannt) und auf Basis dieser Werte ihr Aussehen anpassen. Es ist darauf zu achten, dass Javascript standardmäßig über keine Typprüfung verfügt und somit auch die Verwendung der Properties ein sorgsames Vorgehen verlangt. Möglichkeiten zur statischen  werden im Kapitel "Type checking/static types in JavaScript" vorgestellt.
 
 Das nachfolgende Beispiel zeigt eine beispielhafte dump component.
@@ -539,7 +539,7 @@ Bevor die Änderungen in den nativen DOM übertragen werden, wird die Methode **
 Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **componentWillUnmount()** aufgerufen. Sie dient zum Aufräumen von Timern, Netzwerkverbindungen etc.
 
 
-### Patterns / Architektur 
+### Patterns und Architektur 
 [[CHAN17]](#ref_chan17)
 #### Flux
 
@@ -821,12 +821,12 @@ Die so erstellte Komponente kann anschließend wie üblich verwendet werden:
 In diesem recht simplen Beispiel wird deutlich, dass so Logik und Anzeige besser getrennt werden können, wodurch die Wiederverwendbarkeit der einzelnen Teile verbessert wird. Die Anzeige kann so oftmals durch dump components realisiert werden. Es ist z.B. denkbar, dass eine HOC Daten aus dem Netz abruft und sie dann einer statuslosen "Anzeigekomponente" zur Verfügung stellt [[CHAN17]](#ref_chan17). Ebenso könnte eine HOC die Konfiguration einer anderen Komponente übernehmen. All das erleichtert zudem das Testen der Komponenten, da die Aufgaben strikter getrennt werden und so einfacher Mock-Komponenten erstellt werden können [[TSON18]](#ref_tson18).
 
 ### Weitere React-Themen
-#### Virtuelles DOM & Reconciliation
+#### Virtuelles DOM und Reconciliation
 
 TODO
 
 https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e
-#### Type checking/static types in JavaScript
+#### Type Checking und Static Types in JavaScript
 
 Standardmäßig ist JavaScript eine dynamisch typisierte Programmiersprache. Möchte man dennoch Type-Checking-Methodiken oder statische Typisierung in Javascript verwenden, bedarf es zusätzlicher Bibliotheken/Tools. Im folgenden werden in diesem Zusammenhang PropTypes, Flow und TypeScript vorgestellt.
 
