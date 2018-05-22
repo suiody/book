@@ -539,7 +539,7 @@ function someComponent() {
 ```
 ##### Lifecycle
 
-Der Lebenszyklus einer React Klassenkomponente besteht aus verschiedenen Schritten und Phasen, siehe nachfolgende Abbildung. Es existieren noch weitere Lifecycle-Methoden. Da diese jedoch als veraltet gelten und mit der Version 17 entfernt werden, werden diese im Folgenden außer Acht gelassen. Als Informationsquelle für diesen Abschnitt wird, sofern nicht anders angegeben, [[FACE18b]](#ref_face18b) verwendet.
+Der Lebenszyklus einer React Klassenkomponente besteht aus verschiedenen Schritten und Phasen, siehe nachfolgende Abbildung. Es existieren noch weitere Lifecycle-Methoden. Da diese jedoch als veraltet gelten und mit der Version 17 entfernt werden, werden diese im Folgenden außer Acht gelassen. Als Informationsquelle für diesen Abschnitt wird, sofern nicht anders angegeben [[FACE18b]](#ref_face18b) verwendet.
 
 <a name="ref_lifecycles"></a>![ref_lifecycles](./images/lifecycle_methods.png "React Lifecycle Methoden")
 
@@ -581,7 +581,7 @@ Der prinzipielle Architektur von Flux wird in der folgenden Abbildung dargestell
 
 Abbildung entnommen aus [[TSON18]](#ref_tson18)
 
-Das Pattern besteht aus 4 Bestandteilen, [[TSON18]](#ref_tson18):
+Das Pattern besteht aus 4 Bestandteilen [[TSON18]](#ref_tson18):
 
 **Action**
 
@@ -631,7 +631,7 @@ Um ein umständliches Weiterreichen der Statusinformationen in Form von Properti
 Das Verfahren verwendet einen "provider & consumer" Ansatz (Anbieter & Verbraucher).
 Die Provider verfügen über Daten, die von Consumern abonniert werden können. Letztere werden über Änderungen der abonnierten Daten informiert.
 
-Die Verwendung von Context ist recht simpel, [[FACE18f]](#ref_face18f):
+Die Verwendung von Context ist recht simpel [[FACE18f]](#ref_face18f):
 
 *Schritt 1: Kontext erzeugen*
 
@@ -663,7 +663,7 @@ const MyContext = React.createContext(defaultValue);
 ##### MobX 
 Eine weitere Möglichkeit des State Managements bietet die JavaScript Bibliothek *MobX*. Sie basiert auf auf Observer und Observables, die auch aus dem Observer Pattern bekannt sind.
 
-Das Verwenden dieser Bibliothek gestaltet sich ebenfalls recht einfach, [[MOBX18]](#ref_mobx18):
+Das Verwenden dieser Bibliothek gestaltet sich ebenfalls recht einfach [[MOBX18]](#ref_mobx18):
 
 *Schritt 1: Status definieren und als observable kennzeichnen*
 
@@ -858,7 +858,7 @@ Abbildung entnommen aus <a>[[OSMA18]](#ref_osma13)</a>
 
 Die "Shell" besteht aus wenigen HTML, CSS und JavaScript Bestandteilen, die die grobe App-Struktur definieren. Dieses Grundgerüst kann im Offline-Cache gespeichert werden, wodurch ein erneutes Laden der Anwendung schnell und ohne eine Netzwerkverbindung durchgeführt werden kann. Der benötigte Seiteninhalt wird anschließend aus dem Netzwerk geladen und dann in die Shell eingefügt.
 
-Single Page Applications können dieses Verfahren z.B. mithilfe von sogenannten "Service Workern" durchführen. Hierbei handelt es sich um Skripte, die vom Browser im Hintergrund ausgeführt werden, um beispielsweise Antworten auf Anfragen offline zu cachen [[GRUN18]](#ref_grun18), [[OSMA18]](#ref_osma18).
+Single Page Applications können dieses Verfahren z.B. mithilfe von sogenannten "Service Workern" durchführen. Hierbei handelt es sich um Skripte, die vom Browser im Hintergrund ausgeführt werden, um beispielsweise Antworten auf Anfragen offline zu cachen [[GRUN18]](#ref_grun18) [[OSMA18]](#ref_osma18).
 
 Besondern viel Sinn macht diese Art der Architektur, wenn eine Webanwendung entwickelt wird, dessen Navigationelemente / GUI gleichbleiben, sich der Inhalt jedoch variiert.  
 
