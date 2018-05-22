@@ -27,7 +27,7 @@
   - [Higher Order Components (HOCs)](#higher-order-components-hocs)
   - [App Shell Model](#app-shell-model)
 - [Weitere React-Themen](#weitere-react-themen)
-  - [Virtuelles DOM und Reconciliation](#virtuelles-dom-und-reconciliation)
+  - [Virtuelles DOM](#virtuelles-dom)
   - [Type Checking und Static Types in JavaScript](#type-checking-und-static-types-in-javascript)
     - [PropTypes](#proptypes)
     - [Flow](#flow)
@@ -862,11 +862,35 @@ Besondern viel Sinn macht diese Art der Architektur, wenn eine Webanwendung entw
 
 Den Abschluss des React Kapitels sollen fortgeschrittene Themen der Webentwicklung bilden. Angefangen wird mit der Thematik des virtuellen DOMs von React. Darauf folgt ein Überblick über Möglichkeiten des Type Checkings / Static Types in JavaScript. Die React-spezifischen Themen "Error Boundaries", "React Router" und "Strict Mode" sollen zudem einige fortgeschrittene React-Techniken vermitteln. Außerdem werden die Bereiche "Code-Splitting" und "serverseitiges Rendern" vorgestellt.
 
-#### Virtuelles DOM und Reconciliation
+#### Virtuelles DOM
 
-TODO
+Das Updaten von Elementen des nativen DOMs ist relativ ineffizient. aus diesem Grund verfügt React über ein virtuelles DOM. Statt Änderungen direkt im DOM zu rendern, wird bei Änderungen der alte virtuelle DOM mit dem neuen verglichen. Da diese als leichtgewichtige JavaScript Objekte in-memory gespeichert werden, sind dort Operationen deutlich schneller. Initial wird der virtuelle DOM mit der Funktion **ReactDOM.render(...)** erstellt.
 
-https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e
+Dieser Baum wird durch das Aufrufen von **setState()** komplett neu erstellt. Der neu erstellte Baum wird anschließend mit dem alten Baum verglichen. Um die minimale Anzahl von nötigen Modifikation zu finden lieft in O(n³). Um diesen Vorgang zu beschleunigen verwendet React eine Heuristik, die das Problem in O(n) lösen kann. Hierzu werden 2 Annahmen getroffen:
+
+**Annahme 1:**
+
+Zwei Elemente unterschiedlicher Typen erzeugen unterschiedliche DOM-Bäume. 
+Es wird eine Breitensuche durchgeführt, wobei jeweils die Typen der Elemente beider Bäume verglichen werden. 
+Unterscheiden sich diese, werden die Elemente samt aller Kinder als *dirty* markiert. Komponenten, die als dirty markiert wurden, werden anschließend neu gerendert.
+
+**Annahme 2:**
+
+Elemente können mit einem "key" als Identifier versehen werden. Angenommen man hat eine Liste von Elementen, die jeweils über einen solchen key verfügen, werden folgende Schritte durchgeführt [[HOPP17]](#ref_hopp17):
+
+Vergleiche alte Liste mit neuer Liste:
+
+* Durchlaufe alle Elemente
+  * key in alter, aber nicht in neuer Liste vorhanden?
+    * rufe **unmount** für die Komponente auf
+  * key in neuer, aber nicht in alter Liste vorhanden?
+    * rufe **mount** Komponente auf
+  * key in beiden Listen vorhanden?
+    * rufe **shouldComponentUpdate** auf, um zu entscheiden, was passieren soll
+
+
+Seit ca. 2 Jahren arbeitet das React Team an einer neuen Datenstruktur (React Fiber), die den aktuellen Algorithmus verbessern und ersetzen soll, siehe [link](https://gist.github.com/duivvv/2ba00d413b8ff7bc1fa5a2e51c61ba43).
+
 #### Type Checking und Static Types in JavaScript
 
 Standardmäßig ist JavaScript eine dynamisch typisierte Programmiersprache. Möchte man dennoch Type-Checking-Methodiken oder statische Typisierung in Javascript verwenden, bedarf es zusätzlicher Bibliotheken/Tools. Im folgenden werden in diesem Zusammenhang PropTypes, Flow und TypeScript vorgestellt.
@@ -1252,6 +1276,9 @@ Google Developers: Progressive Web App Checklist. URL: https://developers.google
 
 <a name="ref_grof18">[GROF18]</a>: 
 Groff, Sean: 2 Minutes to Learn React 16's componentDidCatch Lifecycle Method. URL: https://medium.com/@sgroff04/2-minutes-to-learn-react-16s-componentdidcatch-lifecycle-method-d1a69a1f753 (abgerufen am 22.05.2018)
+
+<a name="ref_HOPP17">[HOPP17]</a>: 
+Hopper, Grace: Tech Talk: What is the Virtual DOM?. URL: https://www.youtube.com/watch?v=d7pyEDqBDeE (abgerufen am 22.05.2018)
 
 <a name="ref_labo18">[LABO18]</a>: Labori, Gant: The React State Museum. URL: https://hackernoon.com/the-react-state-museum-a278c726315
 (abgerufen am 12.05.2018)
