@@ -618,9 +618,7 @@ Die Views dienen der Anzeige der Daten. Sie abonnieren Stores und können Action
 
 #### State Management
 
-Das Erstellen von dynamischen Webseiten bedarf...
-TODO
-...
+Das Erstellen von dynamischen Webseiten bedarf einer guten Strategie zur Verwaltung des Zustandes der Webseite. Im Folgenden werden einige Möglichkeiten des State Managements einer React-Anwendung vorgestellt.
 
 ##### setState
 
