@@ -41,7 +41,7 @@
 
 ### Grundlagen
 
-TODO
+Im folgenden soll ein Überblick über einige Grundlagen der Entwicklung von React-Applikationen geschaffen werden. Hierzu werden zunächst die Begriffe "Single Page Application" und "Progressive Web App" erläutert. Anschließend wird eine Einführung in das Programmieren von UIs mithilfe von "JSX" geboten sowie die Grundlagen der Komponentenentwicklung mit React erklärt.
 
 #### Single Page Applications
 
@@ -569,7 +569,9 @@ Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **
 Zusätzlich zu den hier vorgestellten Lifecycle-Methoden existiert auch noch die Methode componentDidCatch(error, errorInfo). Diese erzeugt aus der aktuellen Klasse eine *Error Boundary Klasse*, die JavaScript-Fehler innerhalb ihrer Kinderelemente fängt. Mehr dazu findet sich im Kapitel [Error Boundaries](#error-boundaries).
 
 ### Patterns und Architektur 
-[[CHAN17]](#ref_chan17)
+
+Dieses Kapitel soll einen Überblick über einige Themen der Bereiche Patterns und Architektur in Bezug auf React-relevante Themen schaffen. Hierzu wird zunächst das Architektur Pattern "Flux" vorgestellt. Danach werden verschiedene Methoden des State Managements sowie die Pattern "Higher Order Component" und das "App Shell Model"  vorgestellt.
+
 #### Flux
 
 Flux ist ein Architektur Pattern, das beim Erstellen von User Interfaces verwendet werden kann. Es wurde erstmal 2014 von Facebook vorgestellt. Facebook nutzt Flux intern für ihre React Projekte, da ihnen die bidirektionalen Verbindungen bei Verwendung eines MVC Patterns aufgrund des großen Umfangs ihrer Projekte Probleme bereiteten [[FACE14]](#ref_face14). 
@@ -857,6 +859,9 @@ Single Page Applications können dieses Verfahren z.B. mithilfe von sogenannten 
 Besondern viel Sinn macht diese Art der Architektur, wenn eine Webanwendung entwickelt wird, dessen Navigationelemente / GUI gleichbleiben, sich der Inhalt jedoch variiert.  
 
 ### Weitere React-Themen
+
+Den Abschluss des React Kapitels sollen fortgeschrittene Themen der Webentwicklung bilden. Angefangen wird mit der Thematik des virtuellen DOMs von React. Darauf folgt ein Überblick über Möglichkeiten des Type Checkings / Static Types in JavaScript. Die React-spezifischen Themen "Error Boundaries", "React Router" und "Strict Mode" sollen zudem einige fortgeschrittene React-Techniken vermitteln. Außerdem werden die Bereiche "Code-Splitting" und "serverseitiges Rendern" vorgestellt.
+
 #### Virtuelles DOM und Reconciliation
 
 TODO
