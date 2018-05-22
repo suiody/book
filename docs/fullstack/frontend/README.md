@@ -1207,7 +1207,7 @@ Der Browser lädt eine einfache HTML Datei, deren Inhalt durch JavaScript befül
 
 *Serverseitiges Rendern (SSR):*
 
-Der **Startinhalt** wird auf dem Server generiert, sodass der Browser die Daten als HTML-Seite laden kann. Updates werden jedoch weiterhin im Browser gehandhabt [[LASN18g]](#ref_lasn18).
+Der **Startinhalt** wird auf dem Server generiert, sodass der Browser die Daten als HTML-Seite laden kann. Updates werden jedoch weiterhin im Browser gehandhabt [[LASN18]](#ref_lasn18).
 
 Stellt man sich die Frage, ob man serverseitiges Rendern verwenden sollte, kann [diese](https://www.javascriptstuff.com/server-side-render/) Seite hilfreich sein.
 
@@ -1224,7 +1224,7 @@ Zur Vereinfachung von SSR in React-Applikationen, kann das Framework *[Next.js](
 
 
 Alternativ zu SSR kann auch [prerender](https://prerender.io/) verwendet werden.
-Hierbei handelt es sich um eine Middleware, die Crawlern eine vorgerenderte Version der Webseite für eine bessere SEO zurückliefert [[LASN18g]](#ref_lasn18). 
+Hierbei handelt es sich um eine Middleware, die Crawlern eine vorgerenderte Version der Webseite für eine bessere SEO zurückliefert [[LASN18]](#ref_lasn18). 
 
 ### Literaturverzeichnis
 
