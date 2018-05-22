@@ -1,41 +1,108 @@
 # Frontend
 ## FRP
 ## React.js
+*Autor: Patrick Vogt*
+
 *Stand: Version 16.3.2*
 
-***Warum funktionieren die Links mit VuePress nicht?***
-- [Einführung](#Einführung)
-  - [SPA / Progressive Web App](#SPA-/-Progressive-Web-App)
-  - [JSX](#JSX)
-- [Komponenten](#Komponenten)
-  - [Dumb Components & Smart Components](#Dumb-Components-&-Smart-Components)
-  - [Children](#Children)  
-  - [Rendern](#Rendern)
-  - [Bedingtes Rendern](#Bedingtes-Rendern)
-  - [Events](#Events)
-  - [Styling](#Styling)
-  - [Lifecycle](#Lifecycle)
-- [Patterns / Architektur](#Patterns-/-Architektur)
-  - [State management](#State-management)
-    - TODO
-  - [Komposition vs. Vererbung](#Komposition-vs.-Vererbung)
-  - [Higher Order Components (HOCs)](#Higher-Order-Components-(HOCs))
-  - [Flux](#Flux)
-- [Weitere React-Themen](#Weitere-React-Themen)
-  - [Virtuelles DOM & Reconciliation](#Virtuelles-DOM-&-Reconciliation)
-  - [Type checking/static types in JavaScript](#Type-checking/static-types-in-JavaScript)
-    - [PropTypes](#PropTypes)
-    - [Flow](#Flow)
-    - [Typescript](#Typescript)
-  - [Error Handling (Error Boundaries)](#Error-Handling-(Error-Boundaries))
-  - [Code-Splitting](#Code-Splitting)
-  - [Strict Mode](#Strict-Mode)
-  - [React Router](#React-Router)
-  - [Serverseitiges Rendern](#Serverseitiges-Rendern)
+- [Frontend](#frontend)
+  - [FRP](#frp)
+  - [React.js](#reactjs)
+    - [Einführung](#einführung)
+      - [Single Page Applications](#single-page-applications)
+      - [Progressive Web Apps](#progressive-web-apps)
+      - [JSX](#jsx)
+      - [Komponenten](#komponenten)
+        - [Dumb Components und Smart Components](#dumb-components-und-smart-components)
+        - [Children](#children)
+        - [Rendern](#rendern)
+        - [Bedingtes Rendern](#bedingtes-rendern)
+        - [Events](#events)
+        - [Styling](#styling)
+        - [Lifecycle](#lifecycle)
+    - [Patterns und Architektur](#patterns-und-architektur)
+      - [Flux](#flux)
+      - [State Management](#state-management)
+        - [setState](#setstate)
+        - [Context](#context)
+        - [MobX](#mobx)
+        - [Redux](#redux)
+        - [Auswahlhilfe](#auswahlhilfe)
+      - [Higher Order Components (HOCs)](#higher-order-components-hocs)
+      - [App Shell Model](#app-shell-model)
+    - [Weitere React-Themen](#weitere-react-themen)
+      - [Virtuelles DOM und Reconciliation](#virtuelles-dom-und-reconciliation)
+      - [Type Checking und Static Types in JavaScript](#type-checking-und-static-types-in-javascript)
+        - [PropTypes](#proptypes)
+        - [Flow](#flow)
+        - [Typescript](#typescript)
+      - [Error Handling (Error Boundaries)](#error-handling-error-boundaries)
+      - [React Router](#react-router)
+      - [Code-Splitting](#code-splitting)
+      - [Strict Mode](#strict-mode)
+      - [Serverseitiges Rendern](#serverseitiges-rendern)
+    - [Literaturverzeichnis](#literaturverzeichnis)
 
 ### Einführung
-#### SPA / Progressive Web App
 
+TODO
+
+#### Single Page Applications
+
+Webseiten bzw. Webanwendungen können auf unterschiedliche Arten umgesetzt werden. Eine Möglichkeit der Unterscheidung besteht darin, zwischen "traditionellen" Webseiten und Single Page Applications (SPAs) zu differenzieren.
+Eine Gegenüberstellung des traditionellen Lifecycles einer Webseite im Vergleich zu dem Lifycycle einer Single Page Application ist in folgender Abbildung zu sehen:
+
+![ref_traditional_vs_spa](./images/traditional_vs_spa.png "Lifecycles: Traditionelle Webseite vs. SPA")
+
+Abbildung entnommen aus <a>[[WASS13]](#ref_wass13)</a>
+
+In dieser Abbildung wird der grundsätzliche Unterschied beider Typen deutlich.
+
+Traditionell sendet der Client (Browser) eine initiale Anfrage an den Server, der wiederum mit einer HTML-Datei antwortet, die im Browser angezeigt wird. Wechselt der Benutzer die Seite (z.B. durch das Klicken eines Links), wird eine weitere Anfrage an den Server geschickt. Dieser sendet erneut den HTML-Inhalt der Webseite, woraufhin beim Client ein Neuladen der Seite durchgeführt wird.
+
+Bei Single Page Applications wird initial ebenfalls eine "normale" Anfrage an den Server versendet und von diesem ein (meist sehr kleiner) HTML-Inhalt zurückgeliefert. Von hier an unterscheidet sich der Lifecycle jedoch gegenüber dem herkömmlichen Ansatz. Es werden AJAX- (Asynchronous JavaScript and XML) statt HTML-Anfragen an den Server gesendet, woraufhin dieser typischerweise mit JSON Strings antwortet. Hierbei wird kein erneutes Laden der Webseite durchgeführt.
+
+Da die Webseiten nicht neu geladen werden müssen, bieten diese den Benutzern meist ein "flüssiger" Erlebnis. Zudem wird durch das Separieren der Daten (JSON) und der Anzeige (HTML) das Entwerfen von gut strukturierten Webanwendungen vereinfacht.
+Idealerweise kann das HTML-Markup ohne das Ändern der Logik angepasst werden.
+
+Bei einer reinen Single Page Application wird jegliche UI-Interaktion beim Client durch JavaScript und CSS durchgeführt, sodass der Server nach der anfänglichen Anfrage nur noch als eine Art "Service-Schicht" fungiert.
+
+Somit können sowohl Server als auch Client einfach augetauscht werden, sofern diese die entsprechende Schnittstelle bedienen 
+[[WASS13]](#ref_wass13).
+
+#### Progressive Web Apps
+
+Eine Progressive Web App (PWA) ist eine Webseite, die den Nutzern als herkömmliche (native) Anwendung erscheint. Die Webseiten zeichnen sich anhand folgender Merkmale aus:
+
+*Reliable*
+
+Wenn die Anwendungen vom Home-Screen gestartet werden, laden sie unabhängig vom Netzwerkstatus quasi sofort.
+
+*Fast*
+
+Allgemein schnelle Ladezeiten
+
+*Engaging*
+
+Sie sind ohne App Store installierbar, erscheinen, wie native Apps, als Vollbild-Anwendung und können Push Notifications versenden. 
+
+Zu den Vorteile von PWAs zählen unter anderem [[GOOG18a]](#ref_goog18a):
+
+* Als Webanwendung auf dem Home Screen seiner Nutzer verfügbar sein
+* Schnelleres initiales Laden (weniger Datenverkehr)
+* Nutzer verbringen meist längere Zeit auf Webseiten, die Web Push Notifications verwenden
+
+Zur Unterstützung beim Test von Progressive Web Apps, stellt Google eine [Checkliste und ein Tool](https://developers.google.com/web/progressive-web-apps/checklist) zur Verfügung, anhand derer eine Anwendung dahingehen geprüft werden kann, ob sie die Kriterien an eine PWA erfüllt [[GOOG18b]](#ref_goog18b).
+
+Zu den Kriterien gehören beispielsweise:
+
+* Seite wird über HTTPS geliefert
+* Seiten sind responsive (Tablets und Mobilgeräte)
+* Alle URLs laden offline
+* Seitenübergänge sind flüssig
+
+
+Eine Architekturart, die das Erstellen von PWAs erleichtern soll, findet sich im Kapitel [App Shell Model](#app-shell-model).
 #### JSX
 JSX erweitert die Programmiersprache JavaScript, indem es eine XML/HTML-artige Struktur zur Programmierung der GUI-Elemente innerhalb des JavaScript Codes erlaubt. Damit aus einem JSX-Code standardmäßiges JavaScript wird, muss der Code übersetzt werden. Dieser Vorgang wird i.d.R. mithilfe des JavaScript-Compilers "Babel" durchgeführt. Streng genommen ist JSX kein zwingendes Muss bei der Verwendung von React, jedoch ist zu vermuten, dass die meisten Programmierer die JSX-Version dem compilierte JavaScript Äquivalent aufgrund der Übersichtlichkeit bevorzugen würden. Außerdem können so hilfreichere Tool-Unterstützungen (Warnungen, Fehler etc.) angezeigt werden [[FACE18a]](#ref_face18a).
 
@@ -92,7 +159,9 @@ Render-Ausgabe:
 
 #### Komponenten
 
-##### Dumb Components & Smart Components
+Bei der Entwicklung von Webanwendungen mit React spielen Komponenten eine zentrale Rolle. Im Folgenden werden einige Grundlagen der Komponentenentwicklung mit React vorgestellt.
+
+##### Dumb Components und Smart Components
 Grundsätzlich unterscheidet man zwischen zwei Arten von Komponenten. Die sogenannten "dumb components" und die "smart components". Sie unterscheiden sich darin, dass dumb components über keinen Zustand (*state*) verfügen. Soll heißen, dass sie einmalig Eigenschaften zugewiesen bekommen (*properties*, im Folgenden auch *props* genannt) und auf Basis dieser Werte ihr Aussehen anpassen. Es ist darauf zu achten, dass Javascript standardmäßig über keine Typprüfung verfügt und somit auch die Verwendung der Properties ein sorgsames Vorgehen verlangt. Möglichkeiten zur statischen  werden im Kapitel "Type checking/static types in JavaScript" vorgestellt.
 
 Das nachfolgende Beispiel zeigt eine beispielhafte dump component.
@@ -225,9 +294,9 @@ render() {
   );
 }
 ```
-===================
-TODO
-===================
+
+Um Komponenten letztendlich im Browser anzuzeigen, wird die Funktion *ReactDOM.render()* verwendet. Diese erhält als ersten Parameter die zu rendernde React Komponente und als zweiten Parameter das tatsächliche DOM-Element, an dessen Stelle die Komponente in den nativen DOM eingefügt worden soll:
+
 ```jsx
 ReactDOM.render(
   <AppComponent />,               // React Komponente
@@ -471,7 +540,7 @@ function someComponent() {
 ```
 ##### Lifecycle
 
-Der Lebenszyklus einer React Klassenkomponente besteht aus verschiedenen Schritten und Phasen, siehe nachfolgende Abbildung. Es existieren noch weitere Lifecycle-Methoden. Da diese jedoch als veraltet gelten und mit der Version 17 entfernt werden, werden diese im Folgenden außer Acht gelassen. Als Informationsquelle für diesen Abschnitt wird, sofern nicht anders angegeben, [[FACE18b]](#ref_face18b) verwendet.
+Der Lebenszyklus einer React Klassenkomponente besteht aus verschiedenen Schritten und Phasen, siehe nachfolgende Abbildung. Es existieren noch weitere Lifecycle-Methoden. Da diese jedoch als veraltet gelten und mit der Version 17 entfernt werden, werden diese im Folgenden außer Acht gelassen. Als Informationsquelle für diesen Abschnitt wird, sofern nicht anders angegeben [[FACE18b]](#ref_face18b) verwendet.
 
 <a name="ref_lifecycles"></a>![ref_lifecycles](./images/lifecycle_methods.png "React Lifecycle Methoden")
 
@@ -500,7 +569,7 @@ Bevor die Änderungen in den nativen DOM übertragen werden, wird die Methode **
 Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **componentWillUnmount()** aufgerufen. Sie dient zum Aufräumen von Timern, Netzwerkverbindungen etc.
 
 
-### Patterns / Architektur 
+### Patterns und Architektur 
 [[CHAN17]](#ref_chan17)
 #### Flux
 
@@ -513,7 +582,7 @@ Der prinzipielle Architektur von Flux wird in der folgenden Abbildung dargestell
 
 Abbildung entnommen aus [[TSON18]](#ref_tson18)
 
-Das Pattern besteht aus 4 Bestandteilen, [[TSON18]](#ref_tson18):
+Das Pattern besteht aus 4 Bestandteilen [[TSON18]](#ref_tson18):
 
 **Action**
 
@@ -549,9 +618,7 @@ Die Views dienen der Anzeige der Daten. Sie abonnieren Stores und können Action
 
 #### State Management
 
-Das Erstellen von dynamischen Webseiten bedarf...
-TODO
-...
+Das Erstellen von dynamischen Webseiten bedarf einer guten Strategie zur Verwaltung des Zustandes der Webseite. Im Folgenden werden einige Möglichkeiten des State Managements einer React-Anwendung vorgestellt.
 
 ##### setState
 
@@ -563,7 +630,7 @@ Um ein umständliches Weiterreichen der Statusinformationen in Form von Properti
 Das Verfahren verwendet einen "provider & consumer" Ansatz (Anbieter & Verbraucher).
 Die Provider verfügen über Daten, die von Consumern abonniert werden können. Letztere werden über Änderungen der abonnierten Daten informiert.
 
-Die Verwendung von Context ist recht simpel, [[FACE18f]](#ref_face18f):
+Die Verwendung von Context ist recht simpel [[FACE18f]](#ref_face18f):
 
 *Schritt 1: Kontext erzeugen*
 
@@ -595,7 +662,7 @@ const MyContext = React.createContext(defaultValue);
 ##### MobX 
 Eine weitere Möglichkeit des State Managements bietet die JavaScript Bibliothek *MobX*. Sie basiert auf auf Observer und Observables, die auch aus dem Observer Pattern bekannt sind.
 
-Das Verwenden dieser Bibliothek gestaltet sich ebenfalls recht einfach, [[MOBX18]](#ref_mobx18):
+Das Verwenden dieser Bibliothek gestaltet sich ebenfalls recht einfach [[MOBX18]](#ref_mobx18):
 
 *Schritt 1: Status definieren und als observable kennzeichnen*
 
@@ -650,7 +717,7 @@ ReactDOM.render(<Counter counterState={counterState} />, document.body);
 ##### Redux
 Redux ist eine weitere JavaScript Bibliothek, die einen "Zustands-Container" (*state-container*) zur Hilfe bei der Verwaltung des Datenflusses einer Applikation bereitstellt. Die Architktur erinnert stark an die Flux Architektur, siehe nachfolgende Abbildung. Für die Verwendung von Redux mit React kann man die Bibliothek [react-redux](https://github.com/reactjs/react-redux) verwenden.
 
-<a name="ref_redux_achitecture"></a>![ref_redux_achitecture](./images/redux-architecture.jpg "Redux Architektur")
+![ref_redux_achitecture](./images/redux-architecture.jpg "Redux Architektur")
 
 Sie besteht aus vier Bestandteilen:
 
@@ -732,7 +799,6 @@ Ist die **Skalierbarkeit** wichtig?
 
     Redux verwenden
 
-#### Komposition vs. Vererbung
 #### Higher Order Components (HOCs)
 Higher order components erweitern Komponenten, indem sie ihnen zusätzliche Funktionalitäten oder Properties zur Verfügung stellen (ähnlich wie beim Decorator Pattern) [[TSON18]](#ref_tson18). Möchte man beispielsweise bei jedem Mounting- und Rendervorgang von Komponenten ein Log-Nachricht ausgeben, so müsste man den gleichen Code an vielen Stellen des Projekts einbauen (in der componentDidMount- und der render-Methode der jeweiligen Komponente).
 Eine HOC kann hier Abhilfe schaffen:
@@ -778,14 +844,29 @@ Die so erstellte Komponente kann anschließend wie üblich verwendet werden:
 
 In diesem recht simplen Beispiel wird deutlich, dass so Logik und Anzeige besser getrennt werden können, wodurch die Wiederverwendbarkeit der einzelnen Teile verbessert wird. Die Anzeige kann so oftmals durch dump components realisiert werden. Es ist z.B. denkbar, dass eine HOC Daten aus dem Netz abruft und sie dann einer statuslosen "Anzeigekomponente" zur Verfügung stellt [[CHAN17]](#ref_chan17). Ebenso könnte eine HOC die Konfiguration einer anderen Komponente übernehmen. All das erleichtert zudem das Testen der Komponenten, da die Aufgaben strikter getrennt werden und so einfacher Mock-Komponenten erstellt werden können [[TSON18]](#ref_tson18).
 
+#### App Shell Model
 
+App shell (oder application shell) ist eine Architektur, die das Erstellen von zuverlässigen und sofort ladenden Progressive Web Apps ermöglicht (ähnlich wie bei nativen Apps). 
+Die folgende Abbildung zeigt den grundsätzlichen App-Aufbau.
+![ref_app_shell_model](./images/appshell_model.png "App Shell Model Architektur")
+Abbildung entnommen aus <a>[[OSMA18]](#ref_osma13)</a>
 
+Die "Shell" besteht aus wenigen HTML, CSS und JavaScript Bestandteilen, die die grobe App-Struktur definieren. Dieses Grundgerüst kann im Offline-Cache gespeichert werden, wodurch ein erneutes Laden der Anwendung schnell und ohne eine Netzwerkverbindung durchgeführt werden kann. Der benötigte Seiteninhalt wird anschließend aus dem Netzwerk geladen und dann in die Shell eingefügt.
+
+Single Page Applications können dieses Verfahren z.B. mithilfe von sogenannten "Service Workern" durchführen. Hierbei handelt es sich um Skripte, die vom Browser im Hintergrund ausgeführt werden, um beispielsweise Antworten auf Anfragen offline zu cachen [[GRUN18]](#ref_grun18) [[OSMA18]](#ref_osma18).
+
+Besondern viel Sinn macht diese Art der Architektur, wenn eine Webanwendung entwickelt wird, dessen Navigationelemente / GUI gleichbleiben, sich der Inhalt jedoch variiert.  
 
 ### Weitere React-Themen
-#### Virtuelles DOM & Reconciliation
+#### Virtuelles DOM und Reconciliation
+
+TODO
+
 https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e
-#### Type checking/static types in JavaScript
-...
+#### Type Checking und Static Types in JavaScript
+
+Standardmäßig ist JavaScript eine dynamisch typisierte Programmiersprache. Möchte man dennoch Type-Checking-Methodiken oder statische Typisierung in Javascript verwenden, bedarf es zusätzlicher Bibliotheken/Tools. Im folgenden werden in diesem Zusammenhang PropTypes, Flow und TypeScript vorgestellt.
+
 ##### PropTypes
 Durch das Importieren des Packets "prop-types" erhält man Zugriff auf das in React eingebaute Typechecking-Werkzeug *PropTypes*. Mithilfe von PropTypes kann überwacht werden, ob alle benötigten Properties einer Komponente übergeben wurde und ob der Typ des Übergabewertes korrekt ist.
 
@@ -828,18 +909,190 @@ PropTypes überprüft die Typen aus Gründen der Performance nur im Entwicklermo
 
 ##### Flow
 
+TODO
+
 ##### Typescript
-Typescript ist eine von Microsoft entwickelte Programmiersprache. Da sie JavaScript erweitert und somit auch kompatibel zu JavaScript ist, lassen sich JavaScript Projekte i.d.R. recht einfach migrieren.
+TypeScript ist eine von Microsoft entwickelte open-source Programmiersprache. Die Sprache verfügt über vielerlei Bestandteile, die aus anderen Programmiersprachen bekannt sind. Hierzu gehören Generics, Vererbung, Klassen, Interfaces, Enumerationen und vieles mehr. Ein spezieller TypeScript-Compiler kompiliert den Softwarecode zu nativen JavaScript Code.
+Da die JavaScript-Sprache lediglich erweitert wird, ist herkömmlicher JavaScript Code, wodurch sich JavaScript Projekte i.d.R. recht einfach migrieren lassen. 
 
-TSLint
+In TypeScript erhält jede Funktion, Variable, Schnittstelle etc. einen Typ zugewiesen. Hierdurch können viele Fehlerquellen bereits zur Kompilierzeit festgestellt werden. Darüber hinaus bieten einige Tools weitere Hilfestellungen bei der Programmierung an (z.B. das automatische Erstellen von Methodenrümpfen, die für eine Implementierung eines Interfaces notwendig sind). 
 
-Schnellstart: [link](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter)
+Beispielhafte Umsetzung eines Timer Interfaces und deren Implementierung:
+
+```typescript
+interface TimerInterface {
+  setTimer(value: number): void;
+  startTimer(): void;
+  isRunning(): boolean;
+}
+
+/// Implementierung analog wie z.B. in Java
+class Timer implements TimerInterface {
+  setTimer(value: number): void {
+    // ...
+  }
+  startTimer(): void {
+    // ...
+  }
+  isRunning(): boolean {
+    // ...
+  }
+}
+```
+
+Eine weitere wichtige Erweiterung sind die Zugriffsmodifizierer (access modifiers), die eine bessere Kapselung von Klassenfunktionalität ermöglichen. Es werden die drei klassischen Modifier unterstützt:
+
+* public (*default*):  von überall aus erreichbar
+* private: nur innerhalb der Klasse erreichbar
+* protected: nur innerhalb der Klasse und über Vererbung erreichbar
+
+Das Typensystem kann jedoch auch bei Verwendung von TypeScript umgangen werden. Wird als Typ **any** angegeben, findet keine Überprüfung des Types statt.
+Um solche unsauberen Lösungen zu umgehen, kann z.B. das statische Code-Analyse Tool "TSLint" verwendet werden. Wird hier die Regel *no-any* gesetzt, wird eine entsprechende Warnung bzw. Fehler ausgegeben. Dieses Tool kann außerdem dabei helfen, Coderichtlinien einzuhalten.
+
+Einen schnellen Einstieg in die Entwicklung von React Anwendungen mit TypeScript und TSLint 
+erhält man [hier](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter).
 
 #### Error Handling (Error Boundaries)
-#### Code-Splitting
-#### Strict Mode
+
+TODO
+
 #### React Router
+
+TODO
+
+Hash Router ?
+#### Code-Splitting
+
+Bei der Entwicklung von React Applikationen werden in der Regel eine Vielzahl an einzelnen Paketen verwendet. Tools wie Browserify oder Webpack bündeln die einzelnen Bestandteile zu einer großen Datei. Hierdurch kann eine Anwendung als Ganzes innerhalb einer Webseite inkludiert werden.
+
+Bei größeren Single Page Applications kann dies zu Problemen führen, da alle Daten geladen werden müssen, obwohl der Benutzer eventuell gar nicht alle Bereiche der Anwendung verwenden wird. Um diesem Problem aus dem Weg zu gehen, kann *Code-Splitting* eingesetzt werden.
+
+Code-Splitting ermöglicht es, die Bestandteile einer Webanwendung in verschiedene Bereiche aufzuteilen und diese erst bei Bedarf zu laden (quasi *lazy loading*).
+
+In React kann in Verbindung mit Webpack die dynamische *import()*-Syntax verwendet werden [[FACE18g]](#ref_face18g).
+
+Vorher:
+```javascript
+import { SubMenu } from './SubMenu';
+
+SubMenu.open();
+```
+
+Nachher:
+```javascript
+// Webpack führt hier ein Code-Splitting durch 
+import("./SubMenu").then(module => {
+  module.SubMenu.open();
+});
+```
+
+**Komponentenbasiertes Code-Splitting mit *React Loadable***
+
+Speziell für React kann auch die Bibliothek *React Loadable* verwendet werden. Sie bietet einen Wrapper für das Code-Splitting und bietet zudem z.B. die Möglichkeit während des Ladevorganges eine andere Komponente/Text anzuzeigen. Es handelt sich um eine HOC, die [Promises](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) für das Laden von Komponenten bereitstellt [[REAC18]](#ref_reac18).
+
+Vorher:
+```jsx
+import { SomeComponent } from './SomeComponent';
+
+const SomeContainer = () => (
+  <SomeComponent/>
+);
+```
+
+Nachher:
+```jsx
+import Loadable from 'react-loadable';
+
+const SomeLoadableComponent = Loadable({
+  // wird geladen, wenn die Komponente angefordert wird
+  loader: () => import('./SomeComponent'),
+  // wird so lange angezeigt, bis die Komponente geladen ist
+  loading: () => <div>Loading...</div>,
+  // zeige Ladetext erst nach 0,2 Sekunden an
+  delay: 200
+});
+
+const SomeContainer = () => (
+  <SomeLoadableComponent/>
+);
+```
+**Routenbasiertes Code-Splitting mit *React Loadable***
+
+React Loadable kann auch dazu genutzt werden, um ein routenbasiertes Code-Splitting durchzuführen. Hierbei erhält jede Route eine eigene Komponente, die als Loadable implementiert wird [[FACE18g]](#ref_face18g):
+
+```jsx
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Loadable from 'react-loadable';
+
+const Loading = () => <div>Loading...</div>;
+
+const Home = Loadable({
+  loader: () => import('./routes/Home'),
+  loading: Loading,
+});
+
+const About = Loadable({
+  loader: () => import('./routes/About'),
+  loading: Loading,
+});
+
+const App = () => (
+  <Router>
+    <Switch>
+      <Route exact path="/" component={Home}/>
+      <Route path="/about" component={About}/>
+    </Switch>
+  </Router>
+);
+```
+
+#### Strict Mode
+Strict Mode stellt sicher, dass gewisse Best Practices eingehalten werden. Durch das Einfügen von *StrictMode* in den ReactDOM werden die Kinderelemente dieser Komponente auf verschiedene mögliche Probleme hin überprüft [[SZCZ18]](#ref_szcz18). Wird z.B. eine veraltete (deprecated) Lifecycle-Methode verwendet, erscheint eine Warnung der folgenden Art:
+
+ <a name="ref_unsafeLifecycleMethod"></a>![ref_lifecycles](./images/unsafelifecyclemethod.png "React Lifecycle Methoden")
+
+Implementierung:
+```jsx
+//...
+
+// Prüfe "ChildComponent"
+render() {
+  return (
+    <StrictMode>
+      <ChildComponent />
+    </StrictMode>
+  )
+}
+//...
+```
 #### Serverseitiges Rendern
+
+Bei der Erstellung von Webanwendungen kann die Webseite prinzipiell auf verschiedenen Arten gerendert werden. 
+
+*Clientseitiges Rendern:*
+
+Der Browser lädt eine einfache HTML Datei, deren Inhalt durch JavaScript befüllt wird
+
+*Serverseitiges Rendern (SSR):*
+
+Der **Startinhalt** wird auf dem Server generiert, sodass der Browser die Daten als HTML-Seite laden kann. Updates werden jedoch weiterhin im Browser gehandhabt [[LASN18g]](#ref_lasn18).
+
+Stellt man sich die Frage, ob man serverseitiges Rendern verwenden sollte, kann [diese](https://www.javascriptstuff.com/server-side-render/) Seite hilfreich sein.
+
+Vorteile:
+* SEO (Search Engine Optimization) Verbesserung möglich (Google, Bing etc.)
+* In der Regel bessere clientseitige Performanz
+
+Nachteile:
+* Der Server wird stärker beansprucht, wodurch HTTP Antworten verzögert werden können
+* Die Größe der HTML-Datei steigt und diese braucht somit länger zum Downloaden (i.d.R. vernachlässigbar)
+* Die Komplexität der Anwendung nimmt zu
+
+Zur Vereinfachung von SSR in React-Applikationen, kann das Framework *[Next.js](https://nextjs.org/)* verwendet werden. Hierbei wird zudem ein automatisches Code-Splitting durchgeführt.
+
+
+Alternativ zu SSR kann auch [prerender](https://prerender.io/) verwendet werden.
+Hierbei handelt es sich um eine Middleware, die Crawlern eine vorgerenderte Version der Webseite für eine bessere SEO zurückliefert [[LASN18g]](#ref_lasn18). 
 
 ### Literaturverzeichnis
 
@@ -847,6 +1100,11 @@ Schnellstart: [link](https://github.com/Microsoft/TypeScript-React-Starter#types
 
 <a name="ref_maj18">[MAJ18]</a>: Maj, Wojciech: Interactive React lifecycle methods diagram. URL: https://github.com/wojtekmaj/react-lifecycle-methods-diagram
 (abgerufen am 05.05.2018)
+
+<a name="ref_face14">[FACE14]</a>: 
+Facebook
+: Hacker Way: Rethinking Web App Development at Facebook. URL: https://www.youtube.com/watch?v=nYkdrAPrdcw&feature=youtu.be&t=568
+(abgerufen am 11.05.2018)
 
 <a name="ref_face18a">[FACE18a]</a>: Facebook Inc.: Introducing JSX. URL: https://reactjs.org/docs/introducing-jsx.html
 (abgerufen am 05.05.2018)
@@ -866,13 +1124,27 @@ Schnellstart: [link](https://github.com/Microsoft/TypeScript-React-Starter#types
 <a name="ref_face18f">[FACE18f]</a>: Facebook Inc.: Context. URL: https://reactjs.org/docs/context.html#provider
 (abgerufen am 06.05.2018)
 
-<a name="ref_face14">[FACE14]</a>: 
-Facebook
-: Hacker Way: Rethinking Web App Development at Facebook. URL: https://www.youtube.com/watch?v=nYkdrAPrdcw&feature=youtu.be&t=568
-(abgerufen am 11.05.2018)
+<a name="ref_face18g">[FACE18g]</a>: Facebook Inc.: Code-Splitting. URL: https://reactjs.org/docs/code-splitting.html
+(abgerufen am 21.05.2018)
+
+
+<a name="ref_gaun18">[GAUN18]</a>: 
+Gaunt, Matt: Service Workers: an Introduction. URL: https://developers.google.com/web/fundamentals/primers/service-workers/
+(abgerufen am 22.05.2018)
+
+<a name="ref_goog18a">[GOOG18a]</a>: 
+Google Developers: Progressive Web Apps. URL: https://developers.google.com/web/progressive-web-apps/
+(abgerufen am 22.05.2018)
+
+<a name="ref_goog18b">[GOOG18b]</a>: 
+Google Developers: Progressive Web App Checklist. URL: https://developers.google.com/web/progressive-web-apps/checklist
+(abgerufen am 22.05.2018)
 
 <a name="ref_labo18">[LABO18]</a>: Labori, Gant: The React State Museum. URL: https://hackernoon.com/the-react-state-museum-a278c726315
 (abgerufen am 12.05.2018)
+
+<a name="ref_lasn18">[LASN18]</a>: Lasn, Indrek: Next.js — React Server Side Rendering Done Right. URL: https://hackernoon.com/next-js-react-server-side-rendering-done-right-f9700078a3b6
+(abgerufen am 21.05.2018)
 
 <a name="ref_mobx18">[MOBX18]</a>: MobX: The gist of MobX. URL: https://mobx.js.org/intro/overview.html
 (abgerufen am 12.05.2018)
@@ -880,9 +1152,21 @@ Facebook
 <a name="ref_mozi18">[MOZI18]</a>: Mozilla and individual contributors: Arrow functions. URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 (abgerufen am 06.05.2018)
 
+<a name="ref_osma18">[OSMA18]</a>: Osmani, Addy: The App Shell Model. URL: https://developers.google.com/web/fundamentals/architecture/app-shell
+(abgerufen am 22.05.2018)
+
 <a name="ref_redu18">[REDU18]</a>: Redux: Actions. URL: https://redux.js.org/basics/actions
 (abgerufen am 11.05.2018)
 
+<a name="ref_reac18">[REAC18]</a>: React Loadable: A higher order component for loading components with promises. URL: https://github.com/jamiebuilds/react-loadable
+(abgerufen am 21.05.2018)
+
+<a name="ref_szcz18">[SZCZ18]</a>: Szczeciński, Bartosz: What’s new in React 16.3(.0-alpha). URL: https://medium.com/@baphemot/whats-new-in-react-16-3-d2c9b7b6193b
+(abgerufen am 21.05.2018)
+
 <a name="ref_tson18">[TSON18]</a>: Tsonev, Krasimir: React in patterns. URL: https://legacy.gitbook.com/book/krasimir/react-in-patterns/details (abgerufen am 09.05.2018)
+
+<a name="ref_wass16">[WASS13]</a>: Wasson, Mike: ASP.NET - Single-Page Applications: Build Modern, Responsive Web Apps with ASP.NET. URL: https://msdn.microsoft.com/en-us/magazine/dn463786.aspx
+(abgerufen am 22.05.2018)
 
 <a name="ref_zeig16">[ZEIG16]</a>: Zeigermann, Oliver ; Hartmann, Nils: React : Die praktische Einführung in React, React Router und Redux. 1. Aufl. s.l. : dpunkt, 2016 
