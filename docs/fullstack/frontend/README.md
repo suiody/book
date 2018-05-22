@@ -4,46 +4,42 @@
 *Autor: Patrick Vogt*
 
 *Stand: Version 16.3.2*
+- [Grundlagen](#grundlagen)
+  - [Single Page Applications](#single-page-applications)
+  - [Progressive Web Apps](#progressive-web-apps)
+  - [JSX](#jsx)
+  - [Komponenten](#komponenten)
+    - [Dumb Components und Smart Components](#dumb-components-und-smart-components)
+    - [Children](#children)
+    - [Rendern](#rendern)
+    - [Bedingtes Rendern](#bedingtes-rendern)
+    - [Events](#events)
+    - [Styling](#styling)
+    - [Lifecycle](#lifecycle)
+- [Patterns und Architektur](#patterns-und-architektur)
+  - [Flux](#flux)
+  - [State Management](#state-management)
+    - [setState](#setstate)
+    - [Context](#context)
+    - [MobX](#mobx)
+    - [Redux](#redux)
+    - [Auswahlhilfe](#auswahlhilfe)
+  - [Higher Order Components (HOCs)](#higher-order-components-hocs)
+  - [App Shell Model](#app-shell-model)
+- [Weitere React-Themen](#weitere-react-themen)
+  - [Virtuelles DOM und Reconciliation](#virtuelles-dom-und-reconciliation)
+  - [Type Checking und Static Types in JavaScript](#type-checking-und-static-types-in-javascript)
+    - [PropTypes](#proptypes)
+    - [Flow](#flow)
+    - [Typescript](#typescript)
+  - [Error Handling (Error Boundaries)](#error-handling-error-boundaries)
+  - [React Router](#react-router)
+  - [Code-Splitting](#code-splitting)
+  - [Strict Mode](#strict-mode)
+  - [Serverseitiges Rendern](#serverseitiges-rendern)
+- [Literaturverzeichnis](#literaturverzeichnis)
 
-- [Frontend](#frontend)
-  - [FRP](#frp)
-  - [React.js](#reactjs)
-    - [Einführung](#einführung)
-      - [Single Page Applications](#single-page-applications)
-      - [Progressive Web Apps](#progressive-web-apps)
-      - [JSX](#jsx)
-      - [Komponenten](#komponenten)
-        - [Dumb Components und Smart Components](#dumb-components-und-smart-components)
-        - [Children](#children)
-        - [Rendern](#rendern)
-        - [Bedingtes Rendern](#bedingtes-rendern)
-        - [Events](#events)
-        - [Styling](#styling)
-        - [Lifecycle](#lifecycle)
-    - [Patterns und Architektur](#patterns-und-architektur)
-      - [Flux](#flux)
-      - [State Management](#state-management)
-        - [setState](#setstate)
-        - [Context](#context)
-        - [MobX](#mobx)
-        - [Redux](#redux)
-        - [Auswahlhilfe](#auswahlhilfe)
-      - [Higher Order Components (HOCs)](#higher-order-components-hocs)
-      - [App Shell Model](#app-shell-model)
-    - [Weitere React-Themen](#weitere-react-themen)
-      - [Virtuelles DOM und Reconciliation](#virtuelles-dom-und-reconciliation)
-      - [Type Checking und Static Types in JavaScript](#type-checking-und-static-types-in-javascript)
-        - [PropTypes](#proptypes)
-        - [Flow](#flow)
-        - [Typescript](#typescript)
-      - [Error Handling (Error Boundaries)](#error-handling-error-boundaries)
-      - [React Router](#react-router)
-      - [Code-Splitting](#code-splitting)
-      - [Strict Mode](#strict-mode)
-      - [Serverseitiges Rendern](#serverseitiges-rendern)
-    - [Literaturverzeichnis](#literaturverzeichnis)
-
-### Einführung
+### Grundlagen
 
 TODO
 
@@ -54,7 +50,7 @@ Eine Gegenüberstellung des traditionellen Lifecycles einer Webseite im Vergleic
 
 ![ref_traditional_vs_spa](./images/traditional_vs_spa.png "Lifecycles: Traditionelle Webseite vs. SPA")
 
-Abbildung entnommen aus <a>[[WASS13]](#ref_wass13)</a>
+Abbildung entnommen aus [[WASS13]](#ref_wass13)
 
 In dieser Abbildung wird der grundsätzliche Unterschied beider Typen deutlich.
 
@@ -1047,15 +1043,16 @@ const App = () => (
 ```
 
 #### Strict Mode
-Strict Mode stellt sicher, dass gewisse Best Practices eingehalten werden. Durch das Einfügen von *StrictMode* in den ReactDOM werden die Kinderelemente dieser Komponente auf verschiedene mögliche Probleme hin überprüft [[SZCZ18]](#ref_szcz18). Wird z.B. eine veraltete (deprecated) Lifecycle-Methode verwendet, erscheint eine Warnung der folgenden Art:
+Strict Mode stellt sicher, dass gewisse Best Practices eingehalten werden. Durch das Einfügen von *StrictMode* in den ReactDOM werden die Kinderelemente dieser Komponente auf verschiedene mögliche Probleme hin überprüft [[SZCZ18]](#ref_szcz18). Wird beispielsweise eine veraltete (deprecated) Lifecycle-Methode verwendet, erscheint eine Warnung der folgenden Art:
 
  <a name="ref_unsafeLifecycleMethod"></a>![ref_lifecycles](./images/unsafelifecyclemethod.png "React Lifecycle Methoden")
 
+Abbildung entnommen aus [[SZCZ18]](#ref_szcz18)
+
 Implementierung:
 ```jsx
-//...
-
-// Prüfe "ChildComponent"
+// ...
+// Versetze "ChildComponent" in den strict mode
 render() {
   return (
     <StrictMode>
@@ -1063,7 +1060,7 @@ render() {
     </StrictMode>
   )
 }
-//...
+// ...
 ```
 #### Serverseitiges Rendern
 
@@ -1166,7 +1163,7 @@ Google Developers: Progressive Web App Checklist. URL: https://developers.google
 
 <a name="ref_tson18">[TSON18]</a>: Tsonev, Krasimir: React in patterns. URL: https://legacy.gitbook.com/book/krasimir/react-in-patterns/details (abgerufen am 09.05.2018)
 
-<a name="ref_wass16">[WASS13]</a>: Wasson, Mike: ASP.NET - Single-Page Applications: Build Modern, Responsive Web Apps with ASP.NET. URL: https://msdn.microsoft.com/en-us/magazine/dn463786.aspx
+<a name="ref_wass13">[WASS13]</a>: Wasson, Mike: ASP.NET - Single-Page Applications: Build Modern, Responsive Web Apps with ASP.NET. URL: https://msdn.microsoft.com/en-us/magazine/dn463786.aspx
 (abgerufen am 22.05.2018)
 
 <a name="ref_zeig16">[ZEIG16]</a>: Zeigermann, Oliver ; Hartmann, Nils: React : Die praktische Einführung in React, React Router und Redux. 1. Aufl. s.l. : dpunkt, 2016 
