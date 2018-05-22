@@ -27,12 +27,12 @@
   - [Higher Order Components (HOCs)](#higher-order-components-hocs)
   - [App Shell Model](#app-shell-model)
 - [Weitere React-Themen](#weitere-react-themen)
-  - [Virtuelles DOM und Reconciliation](#virtuelles-dom-und-reconciliation)
+  - [Virtuelles DOM](#virtuelles-dom)
   - [Type Checking und Static Types in JavaScript](#type-checking-und-static-types-in-javascript)
     - [PropTypes](#proptypes)
     - [Flow](#flow)
     - [Typescript](#typescript)
-  - [Error Handling (Error Boundaries)](#error-handling-error-boundaries)
+  - [Error Boundaries](#error-boundaries)
   - [React Router](#react-router)
   - [Code-Splitting](#code-splitting)
   - [Strict Mode](#strict-mode)
@@ -41,7 +41,7 @@
 
 ### Grundlagen
 
-TODO
+Im folgenden soll ein Überblick über einige Grundlagen der Entwicklung von React-Applikationen geschaffen werden. Hierzu werden zunächst die Begriffe "Single Page Application" und "Progressive Web App" erläutert. Anschließend wird eine Einführung in das Programmieren von UIs mithilfe von "JSX" geboten sowie die Grundlagen der Komponentenentwicklung mit React erklärt.
 
 #### Single Page Applications
 
@@ -565,8 +565,13 @@ Bevor die Änderungen in den nativen DOM übertragen werden, wird die Methode **
 Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **componentWillUnmount()** aufgerufen. Sie dient zum Aufräumen von Timern, Netzwerkverbindungen etc.
 
 
+**Abschlussbemerkung**
+Zusätzlich zu den hier vorgestellten Lifecycle-Methoden existiert auch noch die Methode componentDidCatch(error, errorInfo). Diese erzeugt aus der aktuellen Klasse eine *Error Boundary Klasse*, die JavaScript-Fehler innerhalb ihrer Kinderelemente fängt. Mehr dazu findet sich im Kapitel [Error Boundaries](#error-boundaries).
+
 ### Patterns und Architektur 
-[[CHAN17]](#ref_chan17)
+
+Dieses Kapitel soll einen Überblick über einige Themen der Bereiche Patterns und Architektur in Bezug auf React-relevante Themen schaffen. Hierzu wird zunächst das Architektur Pattern "Flux" vorgestellt. Danach werden verschiedene Methoden des State Managements sowie die Pattern "Higher Order Component" und das "App Shell Model"  vorgestellt.
+
 #### Flux
 
 Flux ist ein Architektur Pattern, das beim Erstellen von User Interfaces verwendet werden kann. Es wurde erstmal 2014 von Facebook vorgestellt. Facebook nutzt Flux intern für ihre React Projekte, da ihnen die bidirektionalen Verbindungen bei Verwendung eines MVC Patterns aufgrund des großen Umfangs ihrer Projekte Probleme bereiteten [[FACE14]](#ref_face14). 
@@ -849,16 +854,43 @@ Abbildung entnommen aus <a>[[OSMA18]](#ref_osma13)</a>
 
 Die "Shell" besteht aus wenigen HTML, CSS und JavaScript Bestandteilen, die die grobe App-Struktur definieren. Dieses Grundgerüst kann im Offline-Cache gespeichert werden, wodurch ein erneutes Laden der Anwendung schnell und ohne eine Netzwerkverbindung durchgeführt werden kann. Der benötigte Seiteninhalt wird anschließend aus dem Netzwerk geladen und dann in die Shell eingefügt.
 
-Single Page Applications können dieses Verfahren z.B. mithilfe von sogenannten "Service Workern" durchführen. Hierbei handelt es sich um Skripte, die vom Browser im Hintergrund ausgeführt werden, um beispielsweise Antworten auf Anfragen offline zu cachen [[GRUN18]](#ref_grun18) [[OSMA18]](#ref_osma18).
+Single Page Applications können dieses Verfahren z.B. mithilfe von sogenannten "Service Workern" durchführen. Hierbei handelt es sich um Skripte, die vom Browser im Hintergrund ausgeführt werden, um beispielsweise Antworten auf Anfragen offline zu cachen [[GRUN18]](#ref_grun18), [[OSMA18]](#ref_osma18).
 
 Besondern viel Sinn macht diese Art der Architektur, wenn eine Webanwendung entwickelt wird, dessen Navigationelemente / GUI gleichbleiben, sich der Inhalt jedoch variiert.  
 
 ### Weitere React-Themen
-#### Virtuelles DOM und Reconciliation
 
-TODO
+Den Abschluss des React Kapitels sollen fortgeschrittene Themen der Webentwicklung bilden. Angefangen wird mit der Thematik des virtuellen DOMs von React. Darauf folgt ein Überblick über Möglichkeiten des Type Checkings / Static Types in JavaScript. Die React-spezifischen Themen "Error Boundaries", "React Router" und "Strict Mode" sollen zudem einige fortgeschrittene React-Techniken vermitteln. Außerdem werden die Bereiche "Code-Splitting" und "serverseitiges Rendern" vorgestellt.
 
-https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e
+#### Virtuelles DOM
+
+Das Updaten von Elementen des nativen DOMs ist relativ ineffizient. aus diesem Grund verfügt React über ein virtuelles DOM. Statt Änderungen direkt im DOM zu rendern, wird bei Änderungen der alte virtuelle DOM mit dem neuen verglichen. Da diese als leichtgewichtige JavaScript Objekte in-memory gespeichert werden, sind dort Operationen deutlich schneller. Initial wird der virtuelle DOM mit der Funktion **ReactDOM.render(...)** erstellt.
+
+Dieser Baum wird durch das Aufrufen von **setState()** komplett neu erstellt. Der neu erstellte Baum wird anschließend mit dem alten Baum verglichen. Um die minimale Anzahl von nötigen Modifikation zu finden lieft in O(n³). Um diesen Vorgang zu beschleunigen verwendet React eine Heuristik, die das Problem in O(n) lösen kann. Hierzu werden 2 Annahmen getroffen:
+
+**Annahme 1:**
+
+Zwei Elemente unterschiedlicher Typen erzeugen unterschiedliche DOM-Bäume. 
+Es wird eine Breitensuche durchgeführt, wobei jeweils die Typen der Elemente beider Bäume verglichen werden. 
+Unterscheiden sich diese, werden die Elemente samt aller Kinder als *dirty* markiert. Komponenten, die als dirty markiert wurden, werden anschließend neu gerendert.
+
+**Annahme 2:**
+
+Elemente können mit einem "key" als Identifier versehen werden. Angenommen man hat eine Liste von Elementen, die jeweils über einen solchen key verfügen, werden folgende Schritte durchgeführt [[HOPP17]](#ref_hopp17):
+
+Vergleiche alte Liste mit neuer Liste:
+
+* Durchlaufe alle Elemente
+  * key in alter, aber nicht in neuer Liste vorhanden?
+    * rufe **unmount** für die Komponente auf
+  * key in neuer, aber nicht in alter Liste vorhanden?
+    * rufe **mount** Komponente auf
+  * key in beiden Listen vorhanden?
+    * rufe **shouldComponentUpdate** auf, um zu entscheiden, was passieren soll
+
+
+Seit ca. 2 Jahren arbeitet das React Team an einer neuen Datenstruktur (React Fiber), die den aktuellen Algorithmus verbessern und ersetzen soll, siehe [link](https://gist.github.com/duivvv/2ba00d413b8ff7bc1fa5a2e51c61ba43).
+
 #### Type Checking und Static Types in JavaScript
 
 Standardmäßig ist JavaScript eine dynamisch typisierte Programmiersprache. Möchte man dennoch Type-Checking-Methodiken oder statische Typisierung in Javascript verwenden, bedarf es zusätzlicher Bibliotheken/Tools. Im folgenden werden in diesem Zusammenhang PropTypes, Flow und TypeScript vorgestellt.
@@ -905,11 +937,57 @@ PropTypes überprüft die Typen aus Gründen der Performance nur im Entwicklermo
 
 ##### Flow
 
-TODO
+Flow ist ein Static Type Checker für JavaScript Applikationen. Es kann dazu genutzt werden, PropTypes zu ersetzen. Darüber hinaus können mit Flow jedoch nicht nur die Properties, sondern z.B. auch von Typen von Parametern und Rückgabewerten überprüft werden [[CLAR17]](#ref_clar17). 
+
+Damit eine Datei von flow überprüft wird, muss sie foldermaßen markiert werden:
+
+```javascript
+// @flow
+```
+Der im letzten Kapitel vorgestellte PropTypes Code kann beispielsweise wie folgt mithilfe von flow ersetzt werden:
+
+```jsx
+// @flow
+type Props = {
+  title: string,         // zwingend notwendig
+  children?: React.Node, // optional
+};
+
+class Header extends React.Component<Props> {
+  render() {
+    return (
+      <div>
+        <h1>{this.props.title}</h1>
+        {this.props.children}
+      </div>
+    );
+  }
+}
+```
+
+Überprüfung von Parametern:
+```javascript
+// @flow
+function myLoggerFunction(text: string): void {
+  console.log(text)
+}
+
+myLoggerFunction(2); // Fehler
+```
+
+Flow analysiert den Quellcode auch ohne das explizite angeben von Typen:
+```javascript
+// @flow
+function add(var1, var2) {
+  return var1 + var2; // Fehler
+}
+
+const a = add("1", "100");
+```
 
 ##### Typescript
 TypeScript ist eine von Microsoft entwickelte open-source Programmiersprache. Die Sprache verfügt über vielerlei Bestandteile, die aus anderen Programmiersprachen bekannt sind. Hierzu gehören Generics, Vererbung, Klassen, Interfaces, Enumerationen und vieles mehr. Ein spezieller TypeScript-Compiler kompiliert den Softwarecode zu nativen JavaScript Code.
-Da die JavaScript-Sprache lediglich erweitert wird, ist herkömmlicher JavaScript Code, wodurch sich JavaScript Projekte i.d.R. recht einfach migrieren lassen. 
+Da die JavaScript-Sprache lediglich erweitert wird, ist herkömmlicher JavaScript Code zu TypeScript kompatibel, wodurch sich JavaScript Projekte i.d.R. recht einfach migrieren lassen. 
 
 In TypeScript erhält jede Funktion, Variable, Schnittstelle etc. einen Typ zugewiesen. Hierdurch können viele Fehlerquellen bereits zur Kompilierzeit festgestellt werden. Darüber hinaus bieten einige Tools weitere Hilfestellungen bei der Programmierung an (z.B. das automatische Erstellen von Methodenrümpfen, die für eine Implementierung eines Interfaces notwendig sind). 
 
@@ -918,7 +996,9 @@ Beispielhafte Umsetzung eines Timer Interfaces und deren Implementierung:
 ```typescript
 interface TimerInterface {
   setTimer(value: number): void;
-  startTimer(): void;
+  start(): void;
+  stop(): void;
+  onElapsed(): void;
   isRunning(): boolean;
 }
 
@@ -927,7 +1007,13 @@ class Timer implements TimerInterface {
   setTimer(value: number): void {
     // ...
   }
-  startTimer(): void {
+  start(): void {
+    // ...
+  }
+  stop(): void {
+    // ...
+  }
+  onElapsed(): void {
     // ...
   }
   isRunning(): boolean {
@@ -948,15 +1034,64 @@ Um solche unsauberen Lösungen zu umgehen, kann z.B. das statische Code-Analyse 
 Einen schnellen Einstieg in die Entwicklung von React Anwendungen mit TypeScript und TSLint 
 erhält man [hier](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter).
 
-#### Error Handling (Error Boundaries)
+#### Error Boundaries
 
-TODO
+Error Boundaries (dt. Fehlergrenzen) dienen dem Einfangen von JavaScript Fehlern innerhalb der Kindelemente. Diese Fehler können anschließend protokolliert werden es können alternative GUI-Element angezeigt werden, wenn Kind-Komponenten abstürzen. Die Fehler werden während des Renderns, in anderen Lifecycle Methoden und auch innerhalb von Konstruktoren aufgefangen.
+
+Um aus einer Komponente eine error boundary Klasse zu machen, muss lediglich die folgende Lifecycle Methode implementiert werden:
+
+```javascript
+componentDidCatch(error, errorInfo) {}
+```
+
+Die Methode erhält zwei Parameter:
+
+* **error**: Der geworfene Fehler
+* **errorInfo**: Objekt, das für Stacktrace Informationen eine Variable mit dem Namen "componentStack" bereithält
+
+
+**Pro:**
+
+* Folgt der deklarativen Natur von React (*was* soll passieren, statt *wie*)
+* Error boundary Klassen können einfach wiederverwendet werden
+* Verhät sich wie zu erwarten: Fehler werden zur nächst höheren error boundary Klasse weitergeleitet
+
+**Contra:**
+
+* ¯\\_(ツ)_/¯   ;)
+
+In diesem [Beispiel](https://codepen.io/sgroff04/pen/dVbgJy) wird eine mögliche Realisierung implementiert [[GROF18]](#ref_grof18).
 
 #### React Router
 
-TODO
+Mit React werden hauptsächlich Single Page Applications erstellt. Aus diesem Grund ist die Webseite nicht darauf angewiesen für ihre Unterseiten verschiedene URLs zu verwenden. Solche URLs erlauben es jedoch dem Benutzer die bestimmten Seiten als Lesezeichen abzuspeichern und die Vorwärts- und Rückwärts-Pfeile des Browsers für die Navigation zu verwenden.
 
-Hash Router ?
+Damit Komponenten einer SPA trotzdem in verschiedene URL-Bereiche aufgeteilt werden können, kann bei React der *react-router* verwendet werden.
+
+```jsx
+// ...
+
+const DisplayText = ({ match }) => (
+  <div>
+    {match.params.text}
+  </div>
+);
+
+ReactDOM.render((
+  <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/Display/:text" component={DisplayText} />
+        <Route component={Default} />
+      </Switch>
+    </BrowserRouter>
+), document.getElementById('root'))
+```
+
+In diesem Beispiel würde ein Aufruf von "*URL*/" die Komponente *Home* aufrufen, wohingegen "*URL*/Display/Hallo" den Wert *Hallo* als Parameter *text* and die Komponente *DisplayText* übergeben würde. In allen anderen Aufrufen der URL würde die Komponente *Default* aufgerufen werden. Die Routen lassen sich auch Verschachteln, woraufhin tiefergelegene Komponenten entsprechend als *Children* an die darüberliegende Komponente übergeben werden. Dieser Routing-Vorgang wird aufgrund der BrowserRouter-Komponente dynamisch ausgeführt, d.h. er wird zur Laufzeit vorgenommen [[SCHE17]](#ref_sche17).
+
+Für statische SPAs, bei denen der Server nur statische Dateien liefern kann, kann der *HashRouter* anstelle von *BrowserRouter* verwendet werden. Der HashRouter verwendet den Hash einer URL (window.location.hash) zur Unterteilung. Es wird also nach einem Hash (#) in der URL gesucht, und der Text dahinter als Parameter verwendet [[TECH17]](#ref_tech17).
+
 #### Code-Splitting
 
 Bei der Entwicklung von React Applikationen werden in der Regel eine Vielzahl an einzelnen Paketen verwendet. Tools wie Browserify oder Webpack bündeln die einzelnen Bestandteile zu einer großen Datei. Hierdurch kann eine Anwendung als Ganzes innerhalb einer Webseite inkludiert werden.
@@ -1095,6 +1230,8 @@ Hierbei handelt es sich um eine Middleware, die Crawlern eine vorgerenderte Vers
 
 <a name="ref_chan17">[CHAN17]</a>: Tsonev, Krasimir: React Patterns. URL: https://reactpatterns.com/ (abgerufen am 09.05.2018)
 
+<a name="ref_clar17">[CLAR17]</a>: Clark, Tyler: Quick Reference: React with Flow. URL: https://medium.com/@tylerwclark/quick-reference-react-with-flow-b404e5cd5d0e (abgerufen am 05.05.2018)
+
 <a name="ref_maj18">[MAJ18]</a>: Maj, Wojciech: Interactive React lifecycle methods diagram. URL: https://github.com/wojtekmaj/react-lifecycle-methods-diagram
 (abgerufen am 05.05.2018)
 
@@ -1137,6 +1274,12 @@ Google Developers: Progressive Web Apps. URL: https://developers.google.com/web/
 Google Developers: Progressive Web App Checklist. URL: https://developers.google.com/web/progressive-web-apps/checklist
 (abgerufen am 22.05.2018)
 
+<a name="ref_grof18">[GROF18]</a>: 
+Groff, Sean: 2 Minutes to Learn React 16's componentDidCatch Lifecycle Method. URL: https://medium.com/@sgroff04/2-minutes-to-learn-react-16s-componentdidcatch-lifecycle-method-d1a69a1f753 (abgerufen am 22.05.2018)
+
+<a name="ref_HOPP17">[HOPP17]</a>: 
+Hopper, Grace: Tech Talk: What is the Virtual DOM?. URL: https://www.youtube.com/watch?v=d7pyEDqBDeE (abgerufen am 22.05.2018)
+
 <a name="ref_labo18">[LABO18]</a>: Labori, Gant: The React State Museum. URL: https://hackernoon.com/the-react-state-museum-a278c726315
 (abgerufen am 12.05.2018)
 
@@ -1155,11 +1298,14 @@ Google Developers: Progressive Web App Checklist. URL: https://developers.google
 <a name="ref_redu18">[REDU18]</a>: Redux: Actions. URL: https://redux.js.org/basics/actions
 (abgerufen am 11.05.2018)
 
-<a name="ref_reac18">[REAC18]</a>: React Loadable: A higher order component for loading components with promises. URL: https://github.com/jamiebuilds/react-loadable
+<a name="ref_reac18">[REAC18]</a>: React Loadable: A higher order component for loading components with promises. URL: https://github.com/jamiebuilds/react-loadable (abgerufen am 21.05.2018)
+
+<a name="ref_sche17">[SCHE17]</a>: Scherman, Paul : A Simple React Router v4 Tutorial. URL: https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
 (abgerufen am 21.05.2018)
 
-<a name="ref_szcz18">[SZCZ18]</a>: Szczeciński, Bartosz: What’s new in React 16.3(.0-alpha). URL: https://medium.com/@baphemot/whats-new-in-react-16-3-d2c9b7b6193b
-(abgerufen am 21.05.2018)
+<a name="ref_szcz18">[SZCZ18]</a>: Szczeciński, Bartosz: What’s new in React 16.3(.0-alpha). URL: https://medium.com/@baphemot/whats-new-in-react-16-3-d2c9b7b6193b (abgerufen am 21.05.2018)
+
+<a name="ref_tech17">[TECH17]</a>: Techiediaries: React Router DOM v4 Tutorial (with Examples). URL: https://legacy.gitbook.com/book/krasimir/react-in-patterns/details (abgerufen am 22.05.2018)
 
 <a name="ref_tson18">[TSON18]</a>: Tsonev, Krasimir: React in patterns. URL: https://legacy.gitbook.com/book/krasimir/react-in-patterns/details (abgerufen am 09.05.2018)
 
