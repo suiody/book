@@ -1051,9 +1051,8 @@ Abbildung entnommen aus [[SZCZ18]](#ref_szcz18)
 
 Implementierung:
 ```jsx
-//...
-
-// Prüfe "ChildComponent"
+// ...
+// Versetze "ChildComponent" in den strict mode
 render() {
   return (
     <StrictMode>
@@ -1061,7 +1060,7 @@ render() {
     </StrictMode>
   )
 }
-//...
+// ...
 ```
 #### Serverseitiges Rendern
 
