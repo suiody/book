@@ -54,7 +54,7 @@ Eine Gegenüberstellung des traditionellen Lifecycles einer Webseite im Vergleic
 
 ![ref_traditional_vs_spa](./images/traditional_vs_spa.png "Lifecycles: Traditionelle Webseite vs. SPA")
 
-Abbildung entnommen aus <a>[[WASS13]](#ref_wass13)</a>
+Abbildung entnommen aus [[WASS13]](#ref_wass13)
 
 In dieser Abbildung wird der grundsätzliche Unterschied beider Typen deutlich.
 
@@ -1047,9 +1047,11 @@ const App = () => (
 ```
 
 #### Strict Mode
-Strict Mode stellt sicher, dass gewisse Best Practices eingehalten werden. Durch das Einfügen von *StrictMode* in den ReactDOM werden die Kinderelemente dieser Komponente auf verschiedene mögliche Probleme hin überprüft [[SZCZ18]](#ref_szcz18). Wird z.B. eine veraltete (deprecated) Lifecycle-Methode verwendet, erscheint eine Warnung der folgenden Art:
+Strict Mode stellt sicher, dass gewisse Best Practices eingehalten werden. Durch das Einfügen von *StrictMode* in den ReactDOM werden die Kinderelemente dieser Komponente auf verschiedene mögliche Probleme hin überprüft [[SZCZ18]](#ref_szcz18). Wird beispielsweise eine veraltete (deprecated) Lifecycle-Methode verwendet, erscheint eine Warnung der folgenden Art:
 
  <a name="ref_unsafeLifecycleMethod"></a>![ref_lifecycles](./images/unsafelifecyclemethod.png "React Lifecycle Methoden")
+
+Abbildung entnommen aus [[SZCZ18]](#ref_szcz18)
 
 Implementierung:
 ```jsx
@@ -1166,7 +1168,7 @@ Google Developers: Progressive Web App Checklist. URL: https://developers.google
 
 <a name="ref_tson18">[TSON18]</a>: Tsonev, Krasimir: React in patterns. URL: https://legacy.gitbook.com/book/krasimir/react-in-patterns/details (abgerufen am 09.05.2018)
 
-<a name="ref_wass16">[WASS13]</a>: Wasson, Mike: ASP.NET - Single-Page Applications: Build Modern, Responsive Web Apps with ASP.NET. URL: https://msdn.microsoft.com/en-us/magazine/dn463786.aspx
+<a name="ref_wass13">[WASS13]</a>: Wasson, Mike: ASP.NET - Single-Page Applications: Build Modern, Responsive Web Apps with ASP.NET. URL: https://msdn.microsoft.com/en-us/magazine/dn463786.aspx
 (abgerufen am 22.05.2018)
 
 <a name="ref_zeig16">[ZEIG16]</a>: Zeigermann, Oliver ; Hartmann, Nils: React : Die praktische Einführung in React, React Router und Redux. 1. Aufl. s.l. : dpunkt, 2016 
