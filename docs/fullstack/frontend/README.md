@@ -989,9 +989,34 @@ In diesem [Beispiel](https://codepen.io/sgroff04/pen/dVbgJy) wird eine mögliche
 
 #### React Router
 
-TODO
+Mit React werden hauptsächlich Single Page Applications erstellt. Aus diesem Grund ist die Webseite nicht darauf angewiesen für ihre Unterseiten verschiedene URLs zu verwenden. Solche URLs erlauben es jedoch dem Benutzer die bestimmten Seiten als Lesezeichen abzuspeichern und die Vorwärts- und Rückwärts-Pfeile des Browsers für die Navigation zu verwenden.
 
-Hash Router ?
+Damit Komponenten einer SPA trotzdem in verschiedene URL-Bereiche aufgeteilt werden können, kann bei React der *react-router* verwendet werden.
+
+```jsx
+// ...
+
+const DisplayText = ({ match }) => (
+  <div>
+    {match.params.text}
+  </div>
+);
+
+ReactDOM.render((
+  <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/Display/:text" component={DisplayText} />
+        <Route component={Default} />
+      </Switch>
+    </BrowserRouter>
+), document.getElementById('root'))
+```
+
+In diesem Beispiel würde ein Aufruf von "*URL*/" die Komponente *Home* aufrufen, wohingegen "*URL*/Display/Hallo" den Wert *Hallo* als Parameter *text* and die Komponente *DisplayText* übergeben würde. In allen anderen Aufrufen der URL würde die Komponente *Default* aufgerufen werden. Die Routen lassen sich auch Verschachteln, woraufhin tiefergelegene Komponenten entsprechend als *Children* an die darüberliegende Komponente übergeben werden. Dieser Routing-Vorgang wird aufgrund der BrowserRouter-Komponente dynamisch ausgeführt, d.h. er wird zur Laufzeit vorgenommen [[SCHE17]](#ref_sche17).
+
+Für statische SPAs, bei denen der Server nur statische Dateien liefern kann, kann der *HashRouter* anstelle von *BrowserRouter* verwendet werden. Der HashRouter verwendet den Hash einer URL (window.location.hash) zur Unterteilung. Es wird also nach einem Hash (#) in der URL gesucht, und der Text dahinter als Parameter verwendet [[TECH17]](#ref_tech17).
+
 #### Code-Splitting
 
 Bei der Entwicklung von React Applikationen werden in der Regel eine Vielzahl an einzelnen Paketen verwendet. Tools wie Browserify oder Webpack bündeln die einzelnen Bestandteile zu einer großen Datei. Hierdurch kann eine Anwendung als Ganzes innerhalb einer Webseite inkludiert werden.
@@ -1193,11 +1218,14 @@ Groff, Sean: 2 Minutes to Learn React 16's componentDidCatch Lifecycle Method. U
 <a name="ref_redu18">[REDU18]</a>: Redux: Actions. URL: https://redux.js.org/basics/actions
 (abgerufen am 11.05.2018)
 
-<a name="ref_reac18">[REAC18]</a>: React Loadable: A higher order component for loading components with promises. URL: https://github.com/jamiebuilds/react-loadable
+<a name="ref_reac18">[REAC18]</a>: React Loadable: A higher order component for loading components with promises. URL: https://github.com/jamiebuilds/react-loadable (abgerufen am 21.05.2018)
+
+<a name="ref_sche17">[SCHE17]</a>: Scherman, Paul : A Simple React Router v4 Tutorial. URL: https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
 (abgerufen am 21.05.2018)
 
-<a name="ref_szcz18">[SZCZ18]</a>: Szczeciński, Bartosz: What’s new in React 16.3(.0-alpha). URL: https://medium.com/@baphemot/whats-new-in-react-16-3-d2c9b7b6193b
-(abgerufen am 21.05.2018)
+<a name="ref_szcz18">[SZCZ18]</a>: Szczeciński, Bartosz: What’s new in React 16.3(.0-alpha). URL: https://medium.com/@baphemot/whats-new-in-react-16-3-d2c9b7b6193b (abgerufen am 21.05.2018)
+
+<a name="ref_tech17">[TECH17]</a>: Techiediaries: React Router DOM v4 Tutorial (with Examples). URL: https://legacy.gitbook.com/book/krasimir/react-in-patterns/details (abgerufen am 22.05.2018)
 
 <a name="ref_tson18">[TSON18]</a>: Tsonev, Krasimir: React in patterns. URL: https://legacy.gitbook.com/book/krasimir/react-in-patterns/details (abgerufen am 09.05.2018)
 
