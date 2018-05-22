@@ -3,7 +3,6 @@
 ## React.js
 *Stand: Version 16.3.2*
 
-***Warum funktionieren die Links mit VuePress nicht?***
 - [Frontend](#frontend)
   - [FRP](#frp)
   - [React.js](#reactjs)
