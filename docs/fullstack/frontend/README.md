@@ -852,7 +852,7 @@ Abbildung entnommen aus <a>[[OSMA18]](#ref_osma13)</a>
 
 Die "Shell" besteht aus wenigen HTML, CSS und JavaScript Bestandteilen, die die grobe App-Struktur definieren. Dieses Grundgerüst kann im Offline-Cache gespeichert werden, wodurch ein erneutes Laden der Anwendung schnell und ohne eine Netzwerkverbindung durchgeführt werden kann. Der benötigte Seiteninhalt wird anschließend aus dem Netzwerk geladen und dann in die Shell eingefügt.
 
-Single Page Applications können dieses Verfahren z.B. mithilfe von sogenannten "Service Workern" durchführen. Hierbei handelt es sich um Skripte, die vom Browser im Hintergrund ausgeführt werden, um beispielsweise Antworten auf Anfragen offline zu cachen [[GRUN18]](#ref_grun18) [[OSMA18]](#ref_osma18).
+Single Page Applications können dieses Verfahren z.B. mithilfe von sogenannten "Service Workern" durchführen. Hierbei handelt es sich um Skripte, die vom Browser im Hintergrund ausgeführt werden, um beispielsweise Antworten auf Anfragen offline zu cachen [[GRUN18]](#ref_grun18), [[OSMA18]](#ref_osma18).
 
 Besondern viel Sinn macht diese Art der Architektur, wenn eine Webanwendung entwickelt wird, dessen Navigationelemente / GUI gleichbleiben, sich der Inhalt jedoch variiert.  
 
@@ -908,7 +908,53 @@ PropTypes überprüft die Typen aus Gründen der Performance nur im Entwicklermo
 
 ##### Flow
 
-TODO
+Flow ist ein Static Type Checker für JavaScript Applikationen. Es kann dazu genutzt werden, PropTypes zu ersetzen. Darüber hinaus können mit Flow jedoch nicht nur die Properties, sondern z.B. auch von Typen von Parametern und Rückgabewerten überprüft werden [[CLAR17]](#ref_clar17). 
+
+Damit eine Datei von flow überprüft wird, muss sie foldermaßen markiert werden:
+
+```javascript
+// @flow
+```
+Der im letzten Kapitel vorgestellte PropTypes Code kann beispielsweise wie folgt mithilfe von flow ersetzt werden:
+
+```jsx
+// @flow
+type Props = {
+  title: string,         // zwingend notwendig
+  children?: React.Node, // optional
+};
+
+class Header extends React.Component<Props> {
+  render() {
+    return (
+      <div>
+        <h1>{this.props.title}</h1>
+        {this.props.children}
+      </div>
+    );
+  }
+}
+```
+
+Überprüfung von Parametern:
+```javascript
+// @flow
+function myLoggerFunction(text: string): void {
+  console.log(text)
+}
+
+myLoggerFunction(2); // Fehler
+```
+
+Flow analysiert den Quellcode auch ohne das explizite angeben von Typen:
+```javascript
+// @flow
+function add(var1, var2) {
+  return var1 + var2; // Fehler
+}
+
+const a = add("1", "100");
+```
 
 ##### Typescript
 TypeScript ist eine von Microsoft entwickelte open-source Programmiersprache. Die Sprache verfügt über vielerlei Bestandteile, die aus anderen Programmiersprachen bekannt sind. Hierzu gehören Generics, Vererbung, Klassen, Interfaces, Enumerationen und vieles mehr. Ein spezieller TypeScript-Compiler kompiliert den Softwarecode zu nativen JavaScript Code.
@@ -1154,6 +1200,8 @@ Hierbei handelt es sich um eine Middleware, die Crawlern eine vorgerenderte Vers
 ### Literaturverzeichnis
 
 <a name="ref_chan17">[CHAN17]</a>: Tsonev, Krasimir: React Patterns. URL: https://reactpatterns.com/ (abgerufen am 09.05.2018)
+
+<a name="ref_clar17">[CLAR17]</a>: Clark, Tyler: Quick Reference: React with Flow. URL: https://medium.com/@tylerwclark/quick-reference-react-with-flow-b404e5cd5d0e (abgerufen am 05.05.2018)
 
 <a name="ref_maj18">[MAJ18]</a>: Maj, Wojciech: Interactive React lifecycle methods diagram. URL: https://github.com/wojtekmaj/react-lifecycle-methods-diagram
 (abgerufen am 05.05.2018)
