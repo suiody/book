@@ -8,7 +8,8 @@
   - [FRP](#frp)
   - [React.js](#reactjs)
     - [Einführung](#einführung)
-      - [SPA / Progressive Web App](#spa--progressive-web-app)
+      - [Single Page Applications](#single-page-applications)
+      - [Progressive Web Apps](#progressive-web-apps)
       - [JSX](#jsx)
       - [Komponenten](#komponenten)
         - [Dumb Components & Smart Components](#dumb-components--smart-components)
@@ -45,7 +46,30 @@
 
 TODO
 
-#### SPA / Progressive Web App
+#### Single Page Applications
+
+Webseiten bzw. Webanwendungen können auf unterschiedliche Arten umgesetzt werden. Eine Möglichkeit der Unterscheidung besteht darin, zwischen "traditionellen" Webseiten und Single Page Applications (SPAs) zu differenzieren.
+Eine Gegenüberstellung des traditionellen Lifecycles einer Webseite im Vergleich zu dem Lifycycle einer Single Page Application ist in folgender Abbildung zu sehen:
+
+![ref_traditional_vs_spa](./images/traditional_vs_spa.png "Lifecycles: Traditionelle Webseite vs. SPA")
+
+Abbildung entnommen aus <a>[[WASS13]](#ref_wass13)</a>
+
+In dieser Abbildung wird der grundsätzliche Unterschied beider Typen deutlich.
+
+Traditionell sendet der Client (Browser) eine initiale Anfrage an den Server, der wiederum mit einer HTML-Datei antwortet, die im Browser angezeigt wird. Wechselt der Benutzer die Seite (z.B. durch das Klicken eines Links), wird eine weitere Anfrage an den Server geschickt. Dieser sendet erneut den HTML-Inhalt der Webseite, woraufhin beim Client ein Neuladen der Seite durchgeführt wird.
+
+Bei Single Page Applications wird initial ebenfalls eine "normale" Anfrage an den Server versendet und von diesem ein (meist sehr kleiner) HTML-Inhalt zurückgeliefert. Von hier an unterscheidet sich der Lifecycle jedoch gegenüber dem herkömmlichen Ansatz. Es werden AJAX- (Asynchronous JavaScript and XML) statt HTML-Anfragen an den Server gesendet, woraufhin dieser typischerweise mit JSON Strings antwortet. Hierbei wird kein erneutes Laden der Webseite durchgeführt.
+
+Da die Webseiten nicht neu geladen werden müssen, bieten diese den Benutzern meist ein "flüssiger" Erlebnis. Zudem wird durch das Separieren der Daten (JSON) und der Anzeige (HTML) das Entwerfen von gut strukturierten Webanwendungen vereinfacht.
+Idealerweise kann das HTML-Markup ohne das Ändern der Logik angepasst werden.
+
+Bei einer reinen Single Page Application wird jegliche UI-Interaktion beim Client durch JavaScript und CSS durchgeführt, sodass der Server nach der anfänglichen Anfrage nur noch als eine Art "Service-Schicht" fungiert.
+
+Somit können sowohl Server als auch Client einfach augetauscht werden, sofern diese die entsprechende Schnittstelle bedienen 
+[[WASS13]](#ref_wass13).
+
+#### Progressive Web Apps
 
 TODO
 
@@ -1088,5 +1112,8 @@ Facebook
 (abgerufen am 21.05.2018)
 
 <a name="ref_tson18">[TSON18]</a>: Tsonev, Krasimir: React in patterns. URL: https://legacy.gitbook.com/book/krasimir/react-in-patterns/details (abgerufen am 09.05.2018)
+
+<a name="ref_wass16">[WASS13]</a>: Wasson, Mike: ASP.NET - Single-Page Applications: Build Modern, Responsive Web Apps with ASP.NET. URL: https://msdn.microsoft.com/en-us/magazine/dn463786.aspx
+(abgerufen am 22.05.2018)
 
 <a name="ref_zeig16">[ZEIG16]</a>: Zeigermann, Oliver ; Hartmann, Nils: React : Die praktische Einführung in React, React Router und Redux. 1. Aufl. s.l. : dpunkt, 2016 
