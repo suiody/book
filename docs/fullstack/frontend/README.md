@@ -919,6 +919,8 @@ Beispielhafte Umsetzung eines Timer Interfaces und deren Implementierung:
 interface TimerInterface {
   setTimer(value: number): void;
   startTimer(): void;
+  stopTimer(): void;
+  onElapsed(): void;
   isRunning(): boolean;
 }
 
@@ -928,6 +930,12 @@ class Timer implements TimerInterface {
     // ...
   }
   startTimer(): void {
+    // ...
+  }
+  stopTimer(): void {
+    // ...
+  }
+  onElapsed(): void {
     // ...
   }
   isRunning(): boolean {
