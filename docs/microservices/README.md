@@ -2,14 +2,40 @@
 
 >Ein Microservice ist ein leichtgewichtiger autonomer Dienst, der eine einzige Aufgabe erfüllt und mit anderen ähnlichen Diensten über eine gut definierte Schnittstelle kollaboriert. <a>[[NAMI14]](#ref_Nami14)</a>
 
+## Charakteristiken einer Microservice-Architektur
+
+Es gibt keine formale Definition dieses Architekturstils. Allerdings gibt es gemeinsame Charakteristiken, welche von vielen Microservices geteilt werden. <a>[[LEWI14]](#ref_Lewi14)</a>
+
+### Komponentisierung via Services
+
+Normalerweise wird unter einem Komponenten der Teil einer Software verstanden, welches unabhängig von Anderen veränderbar ist. Microservices bezeichnen einzelne Services, aber auch Bibliotheken, als Komponenten. Eine Bibliothek ist eine eingebundene Komponente und wird durch Funktionsaufrufe aus dem Speicher aufgerufen. Ein Service hingegen wird durch Remote Calls bzw. Web Requests aufgerufen.
+Der Vorteil eines Service gegenüber einer Bibliothek liegt in der Unabhängigkeit des Ersten. Ein einziger Prozess kann aus mehreren Bibliotheken bestehen und wäre eine davon verändert, müsste die gesamte Applikation neu aufgesetzt werden. Eine Aufteilung in Services wirkt dem entgegen, weil meistens nur der jeweilige Service geändert werden muss. Desweiteren bringt eine solche Aufsplittung sauber definierte Komponentenschnittstellen mit sich. Das bedeutet, dass einzelne Softwarekomponenten besser voneinander getrennt sind. <a>[[LEWI14]](#ref_Lewi14)</a>
+
+### Aufbau um Business Capabilities
+
+### Service als Product
+
+### Smart endpoints and dumb pipes
+
+### Dezentralisierung
+
+### Dezentralisiertes Datenmanagement
+
+### Infrastructure Automation
+
+### Design for failure
+
+### Evolutionäres Design
+
+
 Es ist eine Variante der serviceorientierten Architektur (SOA)
 Hinzufügen oder Abschalten eines Dienstes sollte keine Auswirkungen auf die Arbeit andere Dienste haben.
 
-Bild 1 zeigt einen möglichen Aufbau von Microservices. Jedem Dienst entspricht eine Funktionalität. Einige Dienste haben eigene Datenbanken, andere greifen auf eine gemeinsame Datenbank zu.
+Abbildung _Architektur_ zeigt einen möglichen Aufbau von Microservices. Jedem Dienst entspricht eine Funktionalität. Einige Dienste haben eigene Datenbanken, andere greifen auf eine gemeinsame Datenbank zu.
 
-![Bild 1: Architektur](./images/architecture.png)
+![Architektur](./images/architecture.png)
 
-_Architektur_, Abbildung aus <a>[[MIRI17]](#ref_Miri17)</a>
+_Microservice Aufbau, Abbildung aus <a>[[MIRI17]](#ref_Miri17)</a>
 
 Vorraussetzungen für Microservices sind:
 1. Request/Response calls mit willkürlich strukturierten Daten
@@ -51,7 +77,14 @@ Monolithischen Anwendungen werden als ein Ganzes entwickelt. Sie bestehen oft au
 - Serverseitige Applikation
 - Datenbank
 
-Die serverseitige Applikation ist ein solches Monolith, weil sie für HTTP-Anfragen zuständig ist, Zugriffe auf die Datenbank steuert und mit dem Browser interagiert. Eine Änderung im System führt zu einer neuen Version.<a>[[LEWI14]](#ref_Lewi14)</a>
+Eine serverseitige Applikation ist ein solches Monolith, weil sie für HTTP-Anfragen zuständig ist, Zugriffe auf die Datenbank steuert und mit dem Browser interagiert. Eine Änderung im System führt zu einer neuen Version der ganzen Software. Die ganze Logik konzentriert sich in einer ausführbaren Datei. Es ist ein natürlich Weg zu entwickeln. Optimierung kan mithilfe eines Load Balancer erfolgen, damit mehrere Instanzen der Applikation nebenbei laufen können.
+Allerdings kann schwierig werden eine solche Anwendung auf Dauer zu entwickeln. Es erfordert viel Aufwand ständige Änderungen und Korrekturen zu implementieren, denn bei einem Monolith muss jedes Mal das ganze System neu erstellt werden. Desweiteren ist es aufwändig die Modularität der Software aufrecht zu erhalten, ohne das intern ungewollte Abhängigkeiten zwischen den Modulen entstehen. Auch eine Skalierung des ganzen Systems erfordert viel mehr Ressourcen, als eines einzelnen Moduls. <a>[[LEWI14]](#ref_Lewi14)</a>
+
+Eine schematischer Aufteilung einer monolithischen Anwendung in Microservices kann in der nächsten Abbildung betrachtet werden.
+
+![Microservices vs Monolith](./images/microservices_vs_monolith.png)
+
+_Microservices vs Monolith_, Eigene Darstellung
 
 Jedes einzelnes Microservice kann in komplett anderer Programmiersprache geschrieben sein. Im Gegensatz dazu kann eine monolithische Architektur zwar mehrere Dienste oder Komponenten enthalten - sie bilden aber trotzdem ein Ganzes.<a>[[NAMI14]](#ref_Nami14)</a>
 
@@ -79,6 +112,11 @@ Jedes einzelnes Microservice kann in komplett anderer Programmiersprache geschri
 - Größerer Speicherbedarf, weil jeder Dienst eigenen Platz beansprucht
 - Testen ist komplizierter, da die Dienste verteilt sind
 
+- Remote Calls verbrauchen mehr Ressourcen als In-Prozess Calls
+- Prozessgrenzen machen Verteilung der Kompetenzen schwieriger
+
+http://microservices.io/patterns/microservices.html
+
 
 ## Bounded Context
 
@@ -104,7 +142,12 @@ Bounded Context gehört zu Domain-driven Design (DDD)
 
 ## Serverless
 
-Function as a service
+__Function as a service__
+
+Eine Architektur, welche auf Drittanbieter angewiesen ist.
+
+https://martinfowler.com/articles/serverless.html
+https://thepowerofserverless.info/
 
 
 ## Quellen
