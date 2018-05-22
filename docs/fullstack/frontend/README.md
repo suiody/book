@@ -8,7 +8,7 @@
 - [Frontend](#frontend)
   - [FRP](#frp)
   - [React.js](#reactjs)
-    - [Einführung](#einführung)
+    - [Grundlagen](#grundlagen)
       - [Single Page Applications](#single-page-applications)
       - [Progressive Web Apps](#progressive-web-apps)
       - [JSX](#jsx)
@@ -43,7 +43,7 @@
       - [Serverseitiges Rendern](#serverseitiges-rendern)
     - [Literaturverzeichnis](#literaturverzeichnis)
 
-### Einführung
+### Grundlagen
 
 TODO
 
