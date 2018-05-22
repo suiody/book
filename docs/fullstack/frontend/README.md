@@ -1,6 +1,8 @@
 # Frontend
 ## FRP
 ## React.js
+*Autor: Patrick Vogt*
+
 *Stand: Version 16.3.2*
 
 - [Frontend](#frontend)
@@ -26,7 +28,6 @@
         - [MobX](#mobx)
         - [Redux](#redux)
         - [Auswahlhilfe](#auswahlhilfe)
-      - [Komposition vs. Vererbung](#komposition-vs-vererbung)
       - [Higher Order Components (HOCs)](#higher-order-components-hocs)
       - [App Shell Model](#app-shell-model)
     - [Weitere React-Themen](#weitere-react-themen)
@@ -799,10 +800,6 @@ Steht die **Einfachheit** im Vordergrund?
 Ist die **Skalierbarkeit** wichtig?
 
     Redux verwenden
-
-#### Komposition vs. Vererbung
-
-TODO
 
 #### Higher Order Components (HOCs)
 Higher order components erweitern Komponenten, indem sie ihnen zusätzliche Funktionalitäten oder Properties zur Verfügung stellen (ähnlich wie beim Decorator Pattern) [[TSON18]](#ref_tson18). Möchte man beispielsweise bei jedem Mounting- und Rendervorgang von Komponenten ein Log-Nachricht ausgeben, so müsste man den gleichen Code an vielen Stellen des Projekts einbauen (in der componentDidMount- und der render-Methode der jeweiligen Komponente).
