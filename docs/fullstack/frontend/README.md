@@ -32,7 +32,7 @@
     - [PropTypes](#proptypes)
     - [Flow](#flow)
     - [Typescript](#typescript)
-  - [Error Handling (Error Boundaries)](#error-handling-error-boundaries)
+  - [Error Boundaries](#error-boundaries)
   - [React Router](#react-router)
   - [Code-Splitting](#code-splitting)
   - [Strict Mode](#strict-mode)
@@ -565,6 +565,9 @@ Bevor die Änderungen in den nativen DOM übertragen werden, wird die Methode **
 Unmittelbar bevor eine Methode unmountet und zerstört wird, wird die Methode **componentWillUnmount()** aufgerufen. Sie dient zum Aufräumen von Timern, Netzwerkverbindungen etc.
 
 
+**Abschlussbemerkung**
+Zusätzlich zu den hier vorgestellten Lifecycle-Methoden existiert auch noch die Methode componentDidCatch(error, errorInfo). Diese erzeugt aus der aktuellen Klasse eine *Error Boundary Klasse*, die JavaScript-Fehler innerhalb ihrer Kinderelemente fängt. Mehr dazu findet sich im Kapitel [Error Boundaries](#error-boundaries).
+
 ### Patterns und Architektur 
 [[CHAN17]](#ref_chan17)
 #### Flux
@@ -918,8 +921,8 @@ Beispielhafte Umsetzung eines Timer Interfaces und deren Implementierung:
 ```typescript
 interface TimerInterface {
   setTimer(value: number): void;
-  startTimer(): void;
-  stopTimer(): void;
+  start(): void;
+  stop(): void;
   onElapsed(): void;
   isRunning(): boolean;
 }
@@ -929,10 +932,10 @@ class Timer implements TimerInterface {
   setTimer(value: number): void {
     // ...
   }
-  startTimer(): void {
+  start(): void {
     // ...
   }
-  stopTimer(): void {
+  stop(): void {
     // ...
   }
   onElapsed(): void {
@@ -956,9 +959,33 @@ Um solche unsauberen Lösungen zu umgehen, kann z.B. das statische Code-Analyse 
 Einen schnellen Einstieg in die Entwicklung von React Anwendungen mit TypeScript und TSLint 
 erhält man [hier](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter).
 
-#### Error Handling (Error Boundaries)
+#### Error Boundaries
 
-TODO
+Error Boundaries (dt. Fehlergrenzen) dienen dem Einfangen von JavaScript Fehlern innerhalb der Kindelemente. Diese Fehler können anschließend protokolliert werden es können alternative GUI-Element angezeigt werden, wenn Kind-Komponenten abstürzen. Die Fehler werden während des Renderns, in anderen Lifecycle Methoden und auch innerhalb von Konstruktoren aufgefangen.
+
+Um aus einer Komponente eine error boundary Klasse zu machen, muss lediglich die folgende Lifecycle Methode implementiert werden:
+
+```javascript
+componentDidCatch(error, errorInfo) {}
+```
+
+Die Methode erhält zwei Parameter:
+
+* **error**: Der geworfene Fehler
+* **errorInfo**: Objekt, das für Stacktrace Informationen eine Variable mit dem Namen "componentStack" bereithält
+
+
+**Pro:**
+
+* Folgt der deklarativen Natur von React (*was* soll passieren, statt *wie*)
+* Error boundary Klassen können einfach wiederverwendet werden
+* Verhät sich wie zu erwarten: Fehler werden zur nächst höheren error boundary Klasse weitergeleitet
+
+**Contra:**
+
+* ¯\\_(ツ)_/¯   ;)
+
+In diesem [Beispiel](https://codepen.io/sgroff04/pen/dVbgJy) wird eine mögliche Realisierung implementiert [[GROF18]](#ref_grof18).
 
 #### React Router
 
@@ -1144,6 +1171,9 @@ Google Developers: Progressive Web Apps. URL: https://developers.google.com/web/
 <a name="ref_goog18b">[GOOG18b]</a>: 
 Google Developers: Progressive Web App Checklist. URL: https://developers.google.com/web/progressive-web-apps/checklist
 (abgerufen am 22.05.2018)
+
+<a name="ref_grof18">[GROF18]</a>: 
+Groff, Sean: 2 Minutes to Learn React 16's componentDidCatch Lifecycle Method. URL: https://medium.com/@sgroff04/2-minutes-to-learn-react-16s-componentdidcatch-lifecycle-method-d1a69a1f753 (abgerufen am 22.05.2018)
 
 <a name="ref_labo18">[LABO18]</a>: Labori, Gant: The React State Museum. URL: https://hackernoon.com/the-react-state-museum-a278c726315
 (abgerufen am 12.05.2018)
