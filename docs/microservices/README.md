@@ -13,13 +13,34 @@ Der Vorteil eines Service gegenüber einer Bibliothek liegt in der Unabhängigke
 
 ### Aufbau um Business Capabilities
 
-### Service als Product
+Microservices sollten rund um die Business Capabilities der Organization aufgebaut werden, ganz nach dem Gesetz von Conway. Das Gesetz von Conway besagt, dass die Struktur eines Systems die Kommunikationsstruktur der umsetzenden Organisation nachbildet. Es wird ein breites Feld von Software abgedeckt, wie GUI, Datenbanken, Schnittstellen. Das wiederum bedeutet, dass es cross-functional Teams sein müssen, um all die Bedingungen zu erfüllen. <a>[[LEWI14]](#ref_Lewi14)</a>
+
+Die nächste Abbildung stellt dar, wie Microservices sich den Business Capabilities einer organisation anpassen.
+
+![Cross-functional](./images/cross_functional_teams.png)
+
+_Microservices und Business Capabilities_, Abbildung entnommen aus <a>[[LEWI14]](#ref_Lewi14)</a>
+
+### Service als Produkt
+
+Software sollte nicht als ein Projekt, sonder vielmals als ein Produkt gesehen werden. Das bedeutet, dass ein Entwicklungsteam während des gesamten Lebenszyklus sich darum kümmert. Auf diese Weise hat diese Team den Feedback, wie sich die Software in realen Arbeitsbedingungen verhält und hat einen engeren Kontakt zu den Benutzern. Das kreiert eine engere Bindung an das eigene Produkt. <a>[[LEWI14]](#ref_Lewi14)</a>
+
+![Entwicklung des Produkts](./images/entwicklung_produkt.png)
+
+_Betreuung während des Lebenslaufs_, eigene Abbildung
 
 ### Smart endpoints and dumb pipes
 
-### Dezentralisierung
+Die Applikationen der Microservices sollten abgekoppelt und zusammenhängend wie möglich sein. Im Sinne von empfangen einer Anfrage, deren Bearbeitung und senden der Antwort. Die Protokolle hingegen sollten hingegen unkompliziert sein. Einer der meistgenutzten Protokolle ist HTTP. Das erlaubt die Infrastruktur des Webs zu nutzen, um Ressourcen zu sparen.
+Eine andere populäre Möglichkeit ist es lightweight message bus zu nutzen, wo die Infrastruktur nur als Router von Nachrichten fungiert (dumb pipes).
+
+### Dezentralisierte Steuerung
+
+Consumer-Driven Contracts ist ein Verfahren welches ermöglicht für den jeweiligen Konsumenten den Service anzupassen, ohne das andere Konsumenten davon betroffen werden. So wird eine exakte Umsetzung von Kundenwünschen erreicht.
 
 ### Dezentralisiertes Datenmanagement
+
+
 
 ### Infrastructure Automation
 
