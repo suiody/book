@@ -49,18 +49,18 @@ Die nächste Abbildung vergleicht ein monolithisches System mit Webservices in B
 
 _Dezentralisierte Datenbanken_, Abbildung entnommen aus <a>[[LEWI14]](#ref_Lewi14)</a>
 
-https://codeburst.io/ddd-strategic-patterns-how-to-define-bounded-contexts-2dc70927976e
-
 ### Infrastructure Automation
 
-Testautomatisierung und Ansätze wie Continuous Delivery helfen in der Entwicklung von stabiler und hochwertiger Software.
+Testautomatisierung und Ansätze wie Continuous Integration und Continuous Delivery helfen bei der Entwicklung von stabiler und hochwertiger Software. <a>[[LEWI14]](#ref_Lewi14)</a>
 
 ### Design for failure
 
+Ein Service ist nicht gegen Ausfälle und Fehler geschützt, deshalb sollte er immer gegen mögliche Fehlerfälle ausgiebig getestet werden. Da allerdings nicht alle möglichen Probleme abgedeckt und vorhergesehen werden können, kommt Monitoring zum Einsatz. Relevanten Metriken und weitere wichtige Information über den Softwarestatus erlauben es rechtzeitig Fehler zu beheben. <a>[[LEWI14]](#ref_Lewi14)</a>
+
 ### Evolutionäres Design
 
-Es ist eine Variante der serviceorientierten Architektur (SOA)
-Hinzufügen oder Abschalten eines Dienstes sollte keine Auswirkungen auf die Arbeit andere Dienste haben.
+Eine Software sollte so designt werden, dass statt es bei größeren Änderungen zu verwerfen, sie weiterentwickelt werden kann. Die wichtigsten Eigenschaften eines Komponenten sind Austauschbarkeit und Erweiterungsfähigkeit - wie kann eine Komponente überarbeitet werden, ohne dass andere Komponenten davon betroffen sind. Oftmals wird ein Service verworfen anstatt auf lange Sicht überarbeitet zu werden. Manchmal macht es Sinn mehrere Dienste zu gruppieren, falls diese immer wieder Abhängigkeiten während Änderungen zeigen. 
+
 
 Abbildung _Architektur_ zeigt einen möglichen Aufbau von Microservices. Jedem Dienst entspricht eine Funktionalität. Einige Dienste haben eigene Datenbanken, andere greifen auf eine gemeinsame Datenbank zu.
 
