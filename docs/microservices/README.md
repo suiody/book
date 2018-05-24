@@ -31,23 +31,33 @@ _Betreuung während des Lebenslaufs_, eigene Abbildung
 
 ### Smart endpoints and dumb pipes
 
-Die Applikationen der Microservices sollten abgekoppelt und zusammenhängend wie möglich sein. Im Sinne von empfangen einer Anfrage, deren Bearbeitung und senden der Antwort. Die Protokolle hingegen sollten hingegen unkompliziert sein. Einer der meistgenutzten Protokolle ist HTTP. Das erlaubt die Infrastruktur des Webs zu nutzen, um Ressourcen zu sparen.
-Eine andere populäre Möglichkeit ist es lightweight message bus zu nutzen, wo die Infrastruktur nur als Router von Nachrichten fungiert (dumb pipes).
+Die Applikationen der Microservices sollten abgekoppelt und zusammenhängend wie möglich sein. Im Sinne von empfangen einer Anfrage, deren Bearbeitung und senden einer Antwort. Die Protokolle hingegen sollten hingegen unkompliziert sein. Einer der meistgenutzten Protokolle ist HTTP. Das erlaubt die Infrastruktur des Webs zu nutzen, um Ressourcen zu sparen.
+Eine andere populäre Möglichkeit ist es lightweight message bus zu nutzen, wo die Infrastruktur nur als Router von Nachrichten fungiert (dumb pipes). <a>[[LEWI14]](#ref_Lewi14)</a>
 
-### Dezentralisierte Steuerung
+### Dezentralisierte Führung
 
-Consumer-Driven Contracts ist ein Verfahren welches ermöglicht für den jeweiligen Konsumenten den Service anzupassen, ohne das andere Konsumenten davon betroffen werden. So wird eine exakte Umsetzung von Kundenwünschen erreicht.
+Dezentralisierte Führung ist ein Konzept welches aus mehreren Ansätzen besteht. Eines davon erlaubt den einzelnen Entwicklerteams ihre Stärken in verschiedenen Technologien anzuwenden und zusammen ein leistungsfähiges Produkt zu entwickeln, anstatt ihnen einen technologischen Standard aufzuzwingen. Das heißt, dass unter anderem jeder einzelner Service in der dafür am besten passenden Programmiersprache geschrieben werden kann, aber nicht unbedingt muss. Die Entscheidung liegt auf der Ebene der Entwickler, was nicht bedeutet, dass es überhaupt keine Richtlinien gibt.
+Einen weiterer Ansatz der dezentralisierten Führung bringt die Amazon Herangehensweise zur Geltung: "You build it, you run it!". Damit ist gemeint, dass ein Entwicklungsteam nicht nur die eigentliche Entwicklung übernimmt, sondern auch die Installation, die Überwachung und die Steuerung dieses Produktes im Einsatz. Das geht weg von dem üblichen Konzept "Entwickeln und vergessen", wo nach der Entwicklung andere Gruppen sich darum kümmern. <a>[[LEWI14]](#ref_Lewi14)</a>, <a>[[PECK17]](#ref_Peck17)</a>
 
 ### Dezentralisiertes Datenmanagement
 
+Die Dezentralisierung bei Microservices betrifft auch die Datenbanken. Es wird bevorzugt pro Service eine Datenbank zu haben, seien es nur unterschiedliche Datenbank-Instanzen oder komplett unterschiedliche Datenbanktechnologien. <a>[[LEWI14]](#ref_Lewi14)</a>
 
+Die nächste Abbildung vergleicht ein monolithisches System mit Webservices in Bezug auf die Datenbanken.
+
+![Dezentralisierte Datenbanken](./images/decentralised_data.png)
+
+_Dezentralisierte Datenbanken_, Abbildung entnommen aus <a>[[LEWI14]](#ref_Lewi14)</a>
+
+https://codeburst.io/ddd-strategic-patterns-how-to-define-bounded-contexts-2dc70927976e
 
 ### Infrastructure Automation
+
+Testautomatisierung und Ansätze wie Continuous Delivery helfen in der Entwicklung von stabiler und hochwertiger Software.
 
 ### Design for failure
 
 ### Evolutionäres Design
-
 
 Es ist eine Variante der serviceorientierten Architektur (SOA)
 Hinzufügen oder Abschalten eines Dienstes sollte keine Auswirkungen auf die Arbeit andere Dienste haben.
@@ -139,10 +149,6 @@ Jedes einzelnes Microservice kann in komplett anderer Programmiersprache geschri
 http://microservices.io/patterns/microservices.html
 
 
-## Bounded Context
-
-Bounded Context gehört zu Domain-driven Design (DDD)
-
 ## Humane Registries
 
 
@@ -177,11 +183,11 @@ https://thepowerofserverless.info/
 
 <a name="ref_Miri17">[MIRI17]</a>: Miri, Ima: Microservices vs. SOA, 04.01.2017, URL: https://dzone.com/articles/microservices-vs-soa-2
 
-<a name="ref_Lewi14">[LEWI14]</a>: Lewis James; Fowler, Martin: Microservices, a definition of this new architectural term, 25.03.2014, https://martinfowler.com/articles/microservices.html (letzter Zugriff: 29.04.2018)
+<a name="ref_Lewi14">[LEWI14]</a>: Lewis James; Fowler, Martin: Microservices, a definition of this new architectural term, 25.03.2014, https://martinfowler.com/articles/microservices.html (letzter Zugriff: 24.05.2018)
 
 <a name="ref_Nami14">[NAMI14]</a>: Namiot, Dmitry; Sneps-Sneppe, Manfred: On Micro-services Architecture, International Journal of Open Information Technologies ISSN: 2307-8162 vol. 2, no. 9, 2014,
 https://cyberleninka.ru/article/v/on-micro-services-architecture (letzter Zugriff: 26.04.2018)
 
-<a name="ref_Newm15">[NEWM15]</a>: Newman, Sam: Building Microservices: Designing Fine-Grained Systems, O'Reilly Media, Inc., 02.02.2015
+<a name="ref_Peck17">[PECK17]</a>: Peck, Nathan: Microservice Principles: Decentralized Governance, 05.09.2017, https://medium.com/@nathankpeck/microservice-principles-decentralized-governance-4cdbde2ff6ca
 
 <a name="ref_Rich17">[RICH17]</a>: Richardson, Chris: Pattern: Microservice Architecture, 2017, http://microservices.io/patterns/microservices.html (letzter Zugriff: 26.04.2018)
