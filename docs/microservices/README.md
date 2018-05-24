@@ -121,20 +121,31 @@ Jedes einzelnes Microservice kann in komplett anderer Programmiersprache geschri
 
 ### Vorteile
 
-<a>[[NAMI14]](#ref_Nami14)</a>
 - übersichtlicher Code, weil je Dienst, deswegen einfacher neuer Entwickler reinzubringen
 - Modifizierbarkeit, muss nicht die gesamte Architektur verändert werden
 - Macht kontinuierliche Entwicklung einfacher
+<a>[[LEWI14]](#ref_Lewi14)</a>
 
 - Erhöhte Einsatzfähigkeit
 - Unabhängigkeit in der Entwicklung pro Dienst
 - Kürzere Entwicklungszeiten
 - Resistenz
 - Erleichterte Umsetzung innovativer Lösungen
+<a>[[NAMI14]](#ref_Nami14)</a>
+
+- Besser testbarkeit - kleine Services sind einfacher zu testen
+- bessere Einsatzfähigkeit - Services sind unabhängiger
+- "Zwei Pizzen" Teams - mehrere autonome Gruppen pro Service
+- Service ist relativ klein gehalten wegen Einfachheit, schnellerer Entwicklung und größerer Produktivität
+- Bessere Fehlereingrenzung
+- Unabhängigkeit und Stabilität - andere Services arbeiten weiter
+-  Technologie-unabhängig, Vorteile von neuen Technologien und Sprachen, hohe Modifizierbarkeit
+<a>[[RICH17]](#ref_Rich17)</a>
+
+http://microservices.io/patterns/microservices.html
 
 ### Nachteile
 
-<a>[[NAMI14]](#ref_Nami14)</a>
 - Viele Remote Calls
 - Bis zu einer bestimmten Größe, schwieriger zu entwickeln, da Partitionierung
 - Schwerer aufzusetzen als eine monolithische Struktur (größter Nachteil)
@@ -142,52 +153,68 @@ Jedes einzelnes Microservice kann in komplett anderer Programmiersprache geschri
 - Zusätzliche Komplexität, weil ein System in unterschiedliche Dienste partitioniert werden soll
 - Größerer Speicherbedarf, weil jeder Dienst eigenen Platz beansprucht
 - Testen ist komplizierter, da die Dienste verteilt sind
+<a>[[NAMI14]](#ref_Nami14)</a>
 
 - Remote Calls verbrauchen mehr Ressourcen als In-Prozess Calls
 - Prozessgrenzen machen Verteilung der Kompetenzen schwieriger
+<a>[[LEWI14]](#ref_Lewi14)</a>
+
+- mehr Komplexität
+- 
+<a>[[RICH17]](#ref_Rich17)</a>
 
 http://microservices.io/patterns/microservices.html
 
 
 ## Humane Registries
 
-
-## Continuous Delivery
+https://martinfowler.com/bliki/HumaneRegistry.html
+https://de.wikipedia.org/wiki/Humane_Registry
 
 
 ## Microservices Varianten
 
-
 ### Developer Anarchy
 
+https://itnext.io/what-is-developer-anarchy-and-how-is-it-different-from-agile-software-development-6e212d6b8dfb
+https://martinjeeblog.com/2012/11/20/what-is-programmer-anarchy-and-does-it-have-a-future/
 
-### REST-Schnittstellen für Microservices
+### REST in Microservices
 
+https://capgemini.github.io/architecture/is-rest-best-microservices/
+https://dzone.com/articles/5-best-practices-for-rest-based-microservices
 
 ### Self-contained Systems
 
+?
+
+https://www.elastic.io/breaking-down-monolith-microservices-and-self-contained-systems/
 
 ## Serverless
 
-__Function as a service__
-
 Eine Architektur, welche auf Drittanbieter angewiesen ist.
+
+- Cloud Function, Function as a service, Drittanbieter für Server, Datenbank auf dem Server, günstig, einfacher aufzusetzen
 
 https://martinfowler.com/articles/serverless.html
 https://thepowerofserverless.info/
 
 
+## Microservice as frontends
+
+https://medium.com/@tomsoderlund/micro-frontends-a-microservice-approach-to-front-end-web-development-f325ebdadc16
+
 ## Quellen
 
-<a name="ref_Chen18">[CHEN18]</a>: Chen, Lianping: Microservices: Architecting for Continuous Delivery and DevOps, IEEE International Conference on Software Architecture, 2018
+<a name="ref_Chen18">[CHEN18]</a>: Chen, Lianping: Microservices: Architecting for Continuous Delivery and DevOps, IEEE International Conference on Software Architecture, 2018, URL: https://www.researchgate.net/publication/323944215_Microservices_Architecting_for_Continuous_Delivery_and_DevOps
 
 <a name="ref_Miri17">[MIRI17]</a>: Miri, Ima: Microservices vs. SOA, 04.01.2017, URL: https://dzone.com/articles/microservices-vs-soa-2
 
-<a name="ref_Lewi14">[LEWI14]</a>: Lewis James; Fowler, Martin: Microservices, a definition of this new architectural term, 25.03.2014, https://martinfowler.com/articles/microservices.html (letzter Zugriff: 24.05.2018)
+<a name="ref_Lewi14">[LEWI14]</a>: Lewis James; Fowler, Martin: Microservices, a definition of this new architectural term, 25.03.2014, URL: https://martinfowler.com/articles/microservices.html (letzter Zugriff: 24.05.2018)
 
 <a name="ref_Nami14">[NAMI14]</a>: Namiot, Dmitry; Sneps-Sneppe, Manfred: On Micro-services Architecture, International Journal of Open Information Technologies ISSN: 2307-8162 vol. 2, no. 9, 2014,
-https://cyberleninka.ru/article/v/on-micro-services-architecture (letzter Zugriff: 26.04.2018)
+URL: https://cyberleninka.ru/article/v/on-micro-services-architecture (letzter Zugriff: 26.04.2018)
 
-<a name="ref_Peck17">[PECK17]</a>: Peck, Nathan: Microservice Principles: Decentralized Governance, 05.09.2017, https://medium.com/@nathankpeck/microservice-principles-decentralized-governance-4cdbde2ff6ca
+<a name="ref_Peck17">[PECK17]</a>: Peck, Nathan: Microservice Principles: Decentralized Governance, 05.09.2017, URL: https://medium.com/@nathankpeck/microservice-principles-decentralized-governance-4cdbde2ff6ca
 
-<a name="ref_Rich17">[RICH17]</a>: Richardson, Chris: Pattern: Microservice Architecture, 2017, http://microservices.io/patterns/microservices.html (letzter Zugriff: 26.04.2018)
+<a name="ref_Rich17">[RICH17]</a>: Richardson, Chris: Pattern: Microservice Architecture, 2017, URL: http://microservices.io/patterns/microservices.html (letzter Zugriff: 26.04.2018)
