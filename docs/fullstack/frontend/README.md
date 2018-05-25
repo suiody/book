@@ -46,7 +46,7 @@ Im folgenden soll ein Überblick über einige Grundlagen der Entwicklung von Rea
 #### Single Page Applications
 
 Webseiten bzw. Webanwendungen können auf unterschiedliche Arten umgesetzt werden. Eine Möglichkeit der Unterscheidung besteht darin, zwischen "traditionellen" Webseiten und Single Page Applications (SPAs) zu differenzieren.
-Eine Gegenüberstellung des traditionellen Lifecycles einer Webseite im Vergleich zu dem Lifycycle einer Single Page Application ist in folgender Abbildung zu sehen:
+Eine Gegenüberstellung des traditionellen Lifecycles einer Webseite im Vergleich zu dem Lifycycle einer Single Page Application ist in folgender Abbildung zu erkennen:
 
 ![ref_traditional_vs_spa](./images/traditional_vs_spa.png "Lifecycles: Traditionelle Webseite vs. SPA")
 
