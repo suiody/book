@@ -52,18 +52,17 @@ Eine Gegenüberstellung des traditionellen Lifecycles einer Webseite im Vergleic
 
 Abbildung entnommen aus [[WASS13]](#ref_wass13)
 
-In dieser Abbildung wird der grundsätzliche Unterschied beider Typen deutlich.
+In der Abbildung wird der grundsätzliche Unterschied beider Typen deutlich.
 
 Traditionell sendet der Client (Browser) eine initiale Anfrage an den Server, der wiederum mit einer HTML-Datei antwortet, die im Browser angezeigt wird. Wechselt der Benutzer die Seite (z.B. durch das Klicken eines Links), wird eine weitere Anfrage an den Server geschickt. Dieser sendet erneut den HTML-Inhalt der Webseite, woraufhin beim Client ein Neuladen der Seite durchgeführt wird.
 
 Bei Single Page Applications wird initial ebenfalls eine "normale" Anfrage an den Server versendet und von diesem ein (meist sehr kleiner) HTML-Inhalt zurückgeliefert. Von hier an unterscheidet sich der Lifecycle jedoch gegenüber dem herkömmlichen Ansatz. Es werden AJAX- (Asynchronous JavaScript and XML) statt HTML-Anfragen an den Server gesendet, woraufhin dieser typischerweise mit JSON Strings antwortet. Hierbei wird kein erneutes Laden der Webseite durchgeführt.
 
-Da die Webseiten nicht neu geladen werden müssen, bieten diese den Benutzern meist ein "flüssiger" Erlebnis. Zudem wird durch das Separieren der Daten (JSON) und der Anzeige (HTML) das Entwerfen von gut strukturierten Webanwendungen vereinfacht.
+Da die Webseiten nicht neu geladen werden müssen, bieten diese den Benutzern meist ein "flüssigeres" Erlebnis. Zudem wird durch das Separieren der Daten (JSON) und der Anzeige (HTML) das Entwerfen von gut strukturierten Webanwendungen vereinfacht.
 Idealerweise kann das HTML-Markup ohne das Ändern der Logik angepasst werden.
 
-Bei einer reinen Single Page Application wird jegliche UI-Interaktion beim Client durch JavaScript und CSS durchgeführt, sodass der Server nach der anfänglichen Anfrage nur noch als eine Art "Service-Schicht" fungiert.
-
-Somit können sowohl Server als auch Client einfach augetauscht werden, sofern diese die entsprechende Schnittstelle bedienen 
+Bei einer reinen Single Page Application wird jegliche UI-Interaktion beim Client durch JavaScript und CSS durchgeführt, sodass der Server nach der anfänglichen Anfrage nur noch als eine Art "Service-Schicht" fungiert. 
+Somit können sowohl Server als auch Client einfach augetauscht werden, sofern die neuen Module die entsprechende Schnittstelle bedienen 
 [[WASS13]](#ref_wass13).
 
 #### Progressive Web Apps
@@ -72,7 +71,7 @@ Eine Progressive Web App (PWA) ist eine Webseite, die den Nutzern als herkömmli
 
 *Reliable*
 
-Wenn die Anwendungen vom Home-Screen gestartet werden, laden sie unabhängig vom Netzwerkstatus quasi sofort.
+Wenn die Anwendungen vom Home-Screen gestartet werden, laden sie (unabhängig vom Netzwerkstatus) quasi sofort.
 
 *Fast*
 
@@ -80,11 +79,11 @@ Allgemein schnelle Ladezeiten
 
 *Engaging*
 
-Sie sind ohne App Store installierbar, erscheinen, wie native Apps, als Vollbild-Anwendung und können Push Notifications versenden. 
+Sie sind ohne App Store installierbar, erscheinen (wie native Apps) als Vollbild-Anwendung und können Push Notifications versenden. 
 
 Zu den Vorteile von PWAs zählen unter anderem [[GOOG18a]](#ref_goog18a):
 
-* Als Webanwendung auf dem Home Screen seiner Nutzer verfügbar sein
+* Als Webanwendung auf dem Home Screen der Nutzer verfügbar
 * Schnelleres initiales Laden (weniger Datenverkehr)
 * Nutzer verbringen meist längere Zeit auf Webseiten, die Web Push Notifications verwenden
 
@@ -93,14 +92,15 @@ Zur Unterstützung beim Test von Progressive Web Apps, stellt Google eine [Check
 Zu den Kriterien gehören beispielsweise:
 
 * Seite wird über HTTPS geliefert
-* Seiten sind responsive (Tablets und Mobilgeräte)
+* Seiten sind responsive (für Tablets und Mobilgeräte)
 * Alle URLs laden offline
 * Seitenübergänge sind flüssig
 
 
-Eine Architekturart, die das Erstellen von PWAs erleichtern soll, findet sich im Kapitel [App Shell Model](#app-shell-model).
+Eine Architekturart, die das Erstellen von PWAs erleichtern soll, wird im Kapitel [App Shell Model](#app-shell-model) vorgestellt.
+
 #### JSX
-JSX erweitert die Programmiersprache JavaScript, indem es eine XML/HTML-artige Struktur zur Programmierung der GUI-Elemente innerhalb des JavaScript Codes erlaubt. Damit aus einem JSX-Code standardmäßiges JavaScript wird, muss der Code übersetzt werden. Dieser Vorgang wird i.d.R. mithilfe des JavaScript-Compilers "Babel" durchgeführt. Streng genommen ist JSX kein zwingendes Muss bei der Verwendung von React, jedoch ist zu vermuten, dass die meisten Programmierer die JSX-Version dem compilierte JavaScript Äquivalent aufgrund der Übersichtlichkeit bevorzugen würden. Außerdem können so hilfreichere Tool-Unterstützungen (Warnungen, Fehler etc.) angezeigt werden [[FACE18a]](#ref_face18a).
+JSX erweitert die Programmiersprache JavaScript, indem es eine XML/HTML-artige Struktur zur Programmierung der GUI-Elemente innerhalb des JavaScript Codes erlaubt. Damit aus einem JSX-Code standardmäßiges JavaScript wird, muss der Code übersetzt werden. Dieser Vorgang wird i.d.R. mithilfe des JavaScript-Compilers "Babel" durchgeführt. Streng genommen ist JSX kein zwingendes Muss bei der Verwendung von React, jedoch ist zu vermuten, dass die meisten Programmierer die JSX-Version dem compilierte JavaScript Äquivalent aufgrund der Übersichtlichkeit bevorzugen. Außerdem können so hilfreichere Tool-Unterstützungen (Warnungen, Fehler etc.) angezeigt werden [[FACE18a]](#ref_face18a).
 
 Als Beispiel soll folgender JSX-Code dienen:
 
@@ -116,6 +116,8 @@ function render() {
     );
 };
 ```
+Mit HTML vertraute Personen sollten sich denken können, was der JSX-Code repräsentiert. Es wird ein div-Container erzeugt, der die Überschriften "Master Informatik" (h1-Element), "Campus Minden" (h2-Element), "Modulname:" (h3-Element) sowie ein Text-Eingabefeld enthält. Das Eingabefeld hat den Namen "moduleNameInput" und erhält beim Erzeugen der Komponente den Eingabefokus.
+
 Dieser Code wird von Babel folgendermaßen übersetzt:
 
 ```javascript
@@ -127,7 +129,7 @@ function render() {
              React.createElement("input", {
                  type: "text", 
                  autofocus: true, 
-                 name: "moduleName"
+                 name: "moduleNameInput"
              })
     );
 };
@@ -135,7 +137,7 @@ function render() {
 
 *Das Beispiel lässt sich [hier](https://babeljs.io/repl/#?babili=false&browsers=&build=&builtIns=false&code_lz=GYVwdgxgLglg9mABAJwKZgCauQCgJSIDeAUAJBpQjJI7GL0OkA8GMAbgHx0M_1MAWARg4BZAIYBnKNkQBJMMDjIAtmNgBrJgHohXXrwEAmDgGExygA4gJiETEzpt_Y9319-AZlFwMIADZg5qgAXE5erm5M9lZQiFAAnhaoALwARNIAHlCpiGIgUHCKENaIgcopqco-_qgAckE5WnqM2qycEXgA3MQAvt3EQA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=6.26.0&envVersion=) online ansehen und bearbeiten.*
 
-Da es sich bei den JSX-Elementen um JavaScript-Objekte handelt, können die Elemente auch beispielsweise Variablen zugewiesen werden:
+Da es sich bei den JSX-Elementen um JavaScript-Objekte handelt, können diese auch Variablen zugewiesen werden:
 
 ```jsx
 const header = <h1>Das ist eine Überschrift</h1>;  
@@ -147,60 +149,73 @@ Des Weiteren lässt sich auch weiterer JavaScript Code direkt als sogenannte "Ex
 const items = ["book", "pen"];
 const itemCounter = <div>Anzahl an Items: {items.length}</div>;
 
-===============================================================
-Render-Ausgabe:
-    Anzahl an Items: 2
-===============================================================
+// ===============================================================
+// Render-Ausgabe:
+//     Anzahl an Items: 2
+// ===============================================================
 ```
 
 #### Komponenten
 
-Bei der Entwicklung von Webanwendungen mit React spielen Komponenten eine zentrale Rolle. Im Folgenden werden einige Grundlagen der Komponentenentwicklung mit React vorgestellt.
+Bei der Entwicklung von Webanwendungen mit React spielen Komponenten eine zentrale Rolle. Im Folgenden werden deshalb einige Grundlagen der Komponentenentwicklung mit React vorgestellt.
 
 ##### Dumb Components und Smart Components
-Grundsätzlich unterscheidet man zwischen zwei Arten von Komponenten. Die sogenannten "dumb components" und die "smart components". Sie unterscheiden sich darin, dass dumb components über keinen Zustand (*state*) verfügen. Soll heißen, dass sie einmalig Eigenschaften zugewiesen bekommen (*properties*, im Folgenden auch *props* genannt) und auf Basis dieser Werte ihr Aussehen anpassen. Es ist darauf zu achten, dass Javascript standardmäßig über keine Typprüfung verfügt und somit auch die Verwendung der Properties ein sorgsames Vorgehen verlangt. Möglichkeiten zur statischen  werden im Kapitel "Type checking/static types in JavaScript" vorgestellt.
+Grundsätzlich unterscheidet man zwischen zwei Arten von Komponenten. Die sogenannten "dumb components" und die "smart components". 
+
+**Dump Components**
+
+Dump components verfügen über keinen Zustand (*state*). Soll heißen, dass sie einmalig Eigenschaften zugewiesen bekommen (*properties*, im Folgenden auch *props* genannt) und auf Basis dieser Werte ihr Aussehen anpassen. 
+
+*Anmerkung:* Es ist darauf zu achten, dass JavaScript standardmäßig über keine Typprüfung verfügt und somit auch die Verwendung der Properties ein sorgsames Vorgehen verlangt. Möglichkeiten der statischen Typprüfung werden im Kapitel "Type checking/static types in JavaScript" vorgestellt.
 
 Das nachfolgende Beispiel zeigt eine beispielhafte dump component.
 
 ```jsx
 const Header = (props) => {
   return (
-  <div>
-    { props.title }
-  </div>
+    <div>
+      { props.title }
+    </div>
   )
 }
 ```
 
- Sie wird in der Variable "Header" als Arrow Function gespeichert. Die Funktion erhält als Parameter die Properties. Es handelt sich hierbei immer um ein Objekt, das die übergebenen Eigenschaften in Form von Key-Value Paaren bereitstellt. In diesem Fall wird der Wert des Schlüssels "title" innerhalb eines div-Containers angezeigt.  
+ Die Komponente wird in der Variable "Header" als Arrow Function gespeichert. Die Funktion erhält die Properties in From eines JavaScript Objekt als Parameter. Die übergebenen Eigenschaften werden dort als Key-Value Paare bereitgestellt. Im obrigen Beispiel wird der Wert des Schlüssels "title" innerhalb eines div-Containers angezeigt.  
 
- Die Props werden im JSX als Attribut angelegt: 
+ Die Properties werden im JSX als Attribut angelegt: 
 
  ```jsx
- /// props = {
+<Header title="Informatik Minden" />
+
+ /// Das hierzu gehörige Objekt sieht folgendermaßen aus:
+ /// const props = {
  ///   title: "Informatik Minden"
  /// }
-<Header title="Informatik Minden" />
  ```
 
-Smart components verfügen hingegen über einen *Status*. Hierbei handelt es sich ebenfalls um ein Objekt, das aus Key-Value Paaren besteht. Besonders ist hierbei jedoch, dass sich der Status innerhalb des Lebenszyklus der Komponente ändern kann. 
+**Smart Components**
 
-Smart components werden in Form Klassen realisiert und erhalten die Properties über ihren Konstruktor. Die folgende Komponente stellt einen Zähler dar, der als Property einen Startwert (*startValue*) erhält und bei Betätigung des Buttons den Zähler um eins erhöht. Dieser Zähler wird als Statusvariable (*this.state.count*) realisiert und wird mithilfe der Rendermethode (dazu im nächsten Kapitel mehr) angezeigt. 
+Im Gegensazu zu dumb components verfügen smart components über einen Status (*state*). Hierbei handelt es sich wie bei den Properties um ein Objekt, das aus Key-Value Paaren besteht. Besonders ist hierbei jedoch, dass sich der Status innerhalb des Lebenszyklus der Komponente ändern kann. 
+
+Smart components werden in Form von Klassen realisiert. Ihre Properties erhalten sie dabei als Parameter ihres Konstruktors. Die folgende Komponente stellt einen Zähler dar, der als Property einen Startwert (*startValue*) erhält und bei Betätigung des Buttons den Zähler um eins erhöht. Dieser Zähler wird als Statusvariable (*this.state.count*) realisiert und mithilfe der Rendermethode angezeigt (die Rendermethode wird im Kapitel [Rendern](#rendern) genauer betrachtet). 
 
 ```jsx
 class Counter extends React.Component {
   constructor(props) {
+    // Aufruf des Konstructors von React.Component
     super(props);
     // der Startwert des Zählers muss als Property übergeben werden
     this.state = {count: props.startValue};
     // diese Bindung wird später erklärt; bitte erst einmal ignorieren
     this.increment = this.increment.bind(this);
   }
+  // Zähler-Status um 1 erhöhen
   increment() {
     this.setState({
       count: this.state.count + 1
     })
   }
+  // Wird automatisch aufgerufen, wenn die Komponente gerendert werden soll
   render() {
     return (
       <div>
@@ -212,14 +227,14 @@ class Counter extends React.Component {
 }
 ```
 
-Bei der Verwendung des Status ist zu beachten, dass Werte von Statusvariablen mit der asynchronen Methode *setState()* geändert werden müssen. Weitere Details zur Verwendung von setState() und alternative Möglichkeiten zum Verwalten des Zustands der Komponenten werden im Kapitel "State Management" beschrieben. Diese Methode erhält ein Objekt mit den Key-Value Paaren, die geändert werden sollen. Auf diese Art und Weise wird die Anzeige direkt nach dem Ändern eines Statuswerts aktualisiert. 
-Weitere Informationen zum "Lifecycle" von smart components finden sich im gleichnamigen Kapitel.
+Bei der Verwendung des Status ist zu beachten, dass Werte von Statusvariablen mit der asynchronen Methode *setState()* geändert werden müssen. Die Methode erhält ein Objekt mit den Key-Value Paaren, die geändert werden sollen. Auf diese Art und Weise wird die Anzeige direkt nach dem Ändern eines Statuswerts aktualisiert. Weitere Details zur Verwendung von setState() und alternative Möglichkeiten zum Verwalten des Zustands der Komponenten werden im Kapitel [State Management](#state-management) beschrieben. Informationen zum Lifecycle von smart components finden sich im gleichnamigen [Kapitel](#lifecycle).
 
 
 ##### Children
 
-Die vorherigen Beispiele haben bereits gezeigt, dass die Oberfläche aus hierarchisch Strukturierten Elementen besteht. Innerhalb von Komponenten, kann auf die direkten Vorfahren (*children*) zugegriffen werden.
+Die vorherigen Beispiele haben bereits gezeigt, dass die grafische Oberfläche von React-Anwendungen aus hierarchisch strukturierten Elementen besteht. Innerhalb von Komponenten kann auf deren direkte Nachfahren (*children*) zugegriffen werden.
 
+Eine Liste von Items kann beispielswiese wie folgt realisiert werden:
 ```jsx
 const List = (props) => {
   return (
@@ -232,7 +247,8 @@ const List = (props) => {
   )
 }
 ```
-Aufruf:
+Dieser Komponente können im Aufruf beliebig viele Kind-Elemente hinzugefügt werden:
+
 ```jsx
   <List>
     <li>Item 1</li>
@@ -249,9 +265,10 @@ Aufruf:
 ```
 ##### Rendern
 
-Die Methode *render* ist - wie ihr Name bereits vermuten lässt - die Rendermethode eines React-Elements. Sie wird aufgerufen, wenn die Komponente im Browser dargestellt werden soll (siehe Lifecycle Kapitel). Als Rückgabewert erhält sie genau **ein** React Element. 
+Die Methode *render* ist - wie ihr Name bereits vermuten lässt - die Rendermethode eines React-Elements. Sie wird aufgerufen, wenn die Komponente im Browser dargestellt werden soll (siehe [Lifecycle](#lifecycle) Kapitel). Als Rückgabewert erhält sie genau **ein** React Element. 
 Ist es erforderlich, dass mehrere Elemente zurückgegeben werden, müssen diese in einem Container (z.B. *div*) gebündelt werden. 
 
+Beispiel:
 ```jsx
 render() {
   return (
@@ -278,7 +295,7 @@ render() {
   );
 }
 
-// oder die neue Schreibweise mit <> und </>
+// Oder mit der neuen Schreibweise: <> und </>
 // (wird noch nicht von allen Tools unterstützt)
 render() {
   return (
@@ -291,7 +308,7 @@ render() {
 }
 ```
 
-Um Komponenten letztendlich im Browser anzuzeigen, wird die Funktion *ReactDOM.render()* verwendet. Diese erhält als ersten Parameter die zu rendernde React Komponente und als zweiten Parameter das tatsächliche DOM-Element, an dessen Stelle die Komponente in den nativen DOM eingefügt worden soll:
+Um Komponenten letztendlich im Browser anzuzeigen, wird die Funktion *ReactDOM.render()* verwendet. Diese erhält als ersten Parameter die zu rendernde React Komponente und als zweiten Parameter das tatsächliche DOM-Element, an dessen Position die Komponente in den nativen DOM eingefügt worden soll:
 
 ```jsx
 ReactDOM.render(
@@ -301,7 +318,7 @@ ReactDOM.render(
 
 ```
 ##### Bedingtes Rendern
-Aufgrund des in JSX - also Javascript - eingebetteten Codes für das Rendern von Komponenten, kann ein bedingtes Rendern relativ einfach eingebaut werden. Im folgenden Beispiel wird, abhängig vom Zustand der Komponente, entweder ein Button "Start"- oder ein "Stopp"-Button angezeigt. 
+Aufgrund des in JSX - also JavaScript - eingebetteten Codes für das Rendern von Komponenten, kann ein bedingtes Rendern relativ einfach eingebaut werden. Im folgenden Beispiel wird, abhängig vom Zustand der Komponente, entweder ein "Start"- oder ein "Stopp"-Button angezeigt. 
 
 ```jsx
 class StartStopButton extends React.Component {
@@ -324,12 +341,12 @@ class StartStopButton extends React.Component {
     return (
       this.state.isRunning 
       ?
-        // wird gerendert, wenn this.state.isRunning true ist
+        // wird gerendert, falls this.state.isRunning true ist
         <button onClick={this.stop}>
           Stopp
         </button>
       :
-        // wird gerendert, wenn this.state.isRunning false ist
+        // wird gerendert, falls this.state.isRunning false ist
         <button onClick={this.start}>
           Start
         </button>
@@ -338,14 +355,14 @@ class StartStopButton extends React.Component {
 }
 ```
 
-Statt des hier verwendeten Konditionaloperator (... ? ... : ...) kann auch z.B. ein if-Konstrukt verwendet werden. In diesem Fall darf die entsprechende Logik jedoch nicht "inline" in das return-Statement, sondern muss als extra Code davor. 
+Statt des hier verwendeten Konditionaloperator (... ? ... : ...) kann auch z.B. ein if-Konstrukt verwendet werden. In diesem Fall darf die entsprechende Logik jedoch nicht "inline" in das return-Statement eingebaut werden, sondern muss als separater Code davor eingefügt werden. 
 
 Beispiel: 
 
 ```jsx
-//...
+// ...
 render() {
-    let button; // Rückgabewert, kann natürlich auch als Expression in einen JSX-Code eingebaut werden
+    let button; // Rückgabewert, erhält im Folgenden das anzuzeigende Element
     if (this.state.isRunning) {
       button = (
         <button onClick={this.stop}>
@@ -367,7 +384,7 @@ render() {
 
 ##### Events
 
-*Innerhalb dieses Abschnittes wird eine beispielhafte Komponente betrachtet, die aus einem Button besteht, der bei Aktivierung (Betätigung der Schaltfläche) eine Funktion mit dem Namen "start" aufruft.*
+*Im Folgenden wird eine beispielhafte Komponente betrachtet, die aus einem Button besteht, der bei Aktivierung (Betätigung der Schaltfläche) eine Funktion mit dem Namen "start" aufruft.*
 
 Die Verwendung von UI-Komponenten erfordert oftmals eine ereignisbasierte Interaktion mit den einzelnen Elementen. Bei React Elementen werden die Events ähnlich wie bei herkömmlichen DOM Elementen gehandhabt.
 
@@ -387,10 +404,10 @@ JSX:
 
 In diesem Beispiel sind prinzipiell zwei Unterschiede zu erkennen:
 
-1. die Eventnamen entsprechen den herkömmlichen Bezeichnungen in *camelCase* Schreibweise
-2. die verbundenen Event-Handler werden als Expression (siehe JSX Kapitel) eingebunden
+1. Die Eventnamen entsprechen den herkömmlichen Bezeichnungen in *camelCase* Schreibweise
+2. Die verbundenen Event-Handler werden als Expression (siehe [JSX](#jsx) Kapitel) eingebunden
 
-Meistens werden die Event-Handler innerhalb einer Klassenkomponente in Form von Klassenmethoden realisiert. In diesem Fall muss sichergestellt werden, dass die Klassenmethode an die Klasse gebunden ("bound") wird und somit in deren Kontext enthalten ist. Da dies in JavaScript standardmäßig nicht der Fall ist, bedarf es einer manuellen Bindung.
+Meistens werden die Event-Handler innerhalb einer Klassenkomponente in Form von Klassenmethoden realisiert. In diesem Fall muss sichergestellt werden, dass die Klassenmethode an die Klasse gebunden wird ("bound") und somit in deren Kontext enthalten ist. Da dies in JavaScript standardmäßig nicht der Fall ist, bedarf es einer manuellen Bindung.
 
 React bietet hierfür verschiedene Möglichkeiten [[FACE18c]](#ref_face18c).
 
@@ -465,12 +482,13 @@ class StartButton extends React.Component {
 }
 ```
 
-Callback-Methoden können ebenfalls Parameter mitgegeben werden [[FACE18c]](#ref_face18c):
+Den Callback-Methoden können ebenfalls Parameter mitgegeben werden [[FACE18c]](#ref_face18c):
 
 ```jsx
 const someValue = 1;
 // ...
 <button onClick={(e) => this.start(someValue, e)}>Start</button>
+// oder
 <button onClick={this.start.bind(this, someValue)}>Start</button>
 ```
 
