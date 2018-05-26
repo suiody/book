@@ -2,6 +2,12 @@
 
 >Ein Microservice ist ein leichtgewichtiger autonomer Dienst, der eine einzige Aufgabe erfüllt und mit anderen ähnlichen Diensten über eine gut definierte Schnittstelle kollaboriert. <a>[[NAMI14]](#ref_Nami14)</a>
 
+Die Abbildung _Architektur_ zeigt einen möglichen Aufbau von Microservices. Jedem Dienst entspricht eine Funktionalität. Einige Dienste haben eigene Datenbanken, andere greifen auf eine gemeinsame Datenbank zu.
+
+![Architektur](./images/architecture.png)
+
+_Architektur_, Abbildung aus <a>[[MIRI17]](#ref_Miri17)</a>
+
 ## Charakteristiken einer Microservice-Architektur
 
 Es gibt keine formale Definition dieses Architekturstils. Allerdings gibt es gemeinsame Charakteristiken, welche von vielen Microservices geteilt werden. <a>[[LEWI14]](#ref_Lewi14)</a>
@@ -15,7 +21,7 @@ Der Vorteil eines Service gegenüber einer Bibliothek liegt in der Unabhängigke
 
 Microservices sollten rund um die Business Capabilities der Organization aufgebaut werden, ganz nach dem Gesetz von Conway. Das Gesetz von Conway besagt, dass die Struktur eines Systems die Kommunikationsstruktur der umsetzenden Organisation nachbildet. Es wird ein breites Feld von Software abgedeckt, wie GUI, Datenbanken, Schnittstellen. Das wiederum bedeutet, dass es cross-functional Teams sein müssen, um all die Bedingungen zu erfüllen. <a>[[LEWI14]](#ref_Lewi14)</a>
 
-Die nächste Abbildung stellt dar, wie Microservices sich den Business Capabilities einer organisation anpassen.
+Die nächste Abbildung stellt dar, wie Microservices sich den Business Capabilities einer Organisation anpassen.
 
 ![Cross-functional](./images/cross_functional_teams.png)
 
@@ -59,16 +65,9 @@ Ein Service ist nicht gegen Ausfälle und Fehler geschützt, deshalb sollte er i
 
 ### Evolutionäres Design
 
-Eine Software sollte so designt werden, dass statt es bei größeren Änderungen zu verwerfen, sie weiterentwickelt werden kann. Die wichtigsten Eigenschaften eines Komponenten sind Austauschbarkeit und Erweiterungsfähigkeit - wie kann eine Komponente überarbeitet werden, ohne dass andere Komponenten davon betroffen sind. Oftmals wird ein Service verworfen anstatt auf lange Sicht überarbeitet zu werden. Manchmal macht es Sinn mehrere Dienste zu gruppieren, falls diese immer wieder Abhängigkeiten während Änderungen zeigen. 
+Eine Software sollte so designt werden, dass statt es bei größeren Änderungen zu verwerfen, sie weiterentwickelt werden kann. Die wichtigsten Eigenschaften eines Komponenten sind Austauschbarkeit und Erweiterungsfähigkeit - wie kann eine Komponente überarbeitet werden, ohne dass andere Komponenten davon betroffen sind. Oftmals wird ein Service verworfen anstatt auf lange Sicht überarbeitet zu werden. Manchmal macht es Sinn mehrere Dienste zu gruppieren, falls diese immer wieder Abhängigkeiten während Änderungen zeigen. <a>[[LEWI14]](#ref_Lewi14)</a>
 
-
-Abbildung _Architektur_ zeigt einen möglichen Aufbau von Microservices. Jedem Dienst entspricht eine Funktionalität. Einige Dienste haben eigene Datenbanken, andere greifen auf eine gemeinsame Datenbank zu.
-
-![Architektur](./images/architecture.png)
-
-_Microservice Aufbau, Abbildung aus <a>[[MIRI17]](#ref_Miri17)</a>
-
-Vorraussetzungen für Microservices sind:
+Zusammengefasst sind die Vorraussetzungen für Microservices: <a>[[NAMI14]](#ref_Nami14)</a>
 1. Request/Response calls mit willkürlich strukturierten Daten
 2. Asynchrone Events in Echtzeit
 3. Bidirektionale Requests und Responses
@@ -159,18 +158,20 @@ http://microservices.io/patterns/microservices.html
 - Prozessgrenzen machen Verteilung der Kompetenzen schwieriger
 <a>[[LEWI14]](#ref_Lewi14)</a>
 
-- mehr Komplexität
-- 
+- mehr Komplexität da verteilte Systeme, managen und einsetzen
+- Testen wird aufwendiger
+- Die Kommmunikation zwischen den Services muss gerwährleistet sein
+- UseCases können über mehrere Services gehen
+- Größerer Speicherbedarf
+-
 <a>[[RICH17]](#ref_Rich17)</a>
 
 http://microservices.io/patterns/microservices.html
-
 
 ## Humane Registries
 
 https://martinfowler.com/bliki/HumaneRegistry.html
 https://de.wikipedia.org/wiki/Humane_Registry
-
 
 ## Microservices Varianten
 
@@ -203,6 +204,29 @@ https://thepowerofserverless.info/
 ## Microservice as frontends
 
 https://medium.com/@tomsoderlund/micro-frontends-a-microservice-approach-to-front-end-web-development-f325ebdadc16
+
+## Einsatz
+
+- Schwierig zu entscheiden wann einzusetzen
+- Probleme tauchen mittelfristig auf
+- wenn schnelle Lösungen gefragt sind, nicht sehr populär, da langsamer wegen komplizierten Struktur
+- im Nachhinein funktionelle Dekomposition, schwierig Verworrenheit wieder aufzubröseln
+
+Wie aufteilen?
+- Dekomponierung nach Business Capabilities
+- Dekomponierung nach Domain-Driven Design
+- Aufteilung nach UseCase oder Verb, wenn Service für Aktionen zuständig sind
+- Aufteilung nach Nomen oder Ressourcen, wenn Service für Operationen an Ressourcen zuständig ist
+- Ein Service sollte ein Set an Verantwortlichkeiten haben, Single Responsibility Principle
+- Eine Aufgabe pro Service
+<a>[[RICH17]](#ref_Rich17)</a>
+
+- Netflix, Amazon, EBay evolutionierten von Monolith bis Microservices Architektur 
+- Netflix 30% des Internetverkehr, 1 Milliarde Aufrufe, 800 verschiedenen Geräten
+- Amazon hat bis zu 150 Services für die Webseite
+- Ebay hat mehrere Applikationen und kam von Monolith-Architektur
+
+<a>[[RICH17]](#ref_Rich17)</a>
 
 ## Quellen
 
