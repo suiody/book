@@ -901,25 +901,25 @@ Besondern viel Sinn macht diese Art der Architektur, wenn eine Webanwendung entw
 
 ### Weitere React-Themen
 
-Den Abschluss des React Kapitels sollen fortgeschrittene Themen der WebentwickFlung bilden. Angefangen wird mit der Thematik des virtuellen DOMs von React. Darauf folgt ein Überblick über Möglichkeiten des Type Checkings / Static Types in JavaScript. Die React-spezifischen Themen "Error Boundaries", "React Router" und "Strict Mode" sollen zudem einige fortgeschrittene React-Techniken vermitteln. Außerdem werden die Bereiche "Code-Splitting" und "serverseitiges Rendern" vorgestellt.
+Den Abschluss des React Kapitels sollen fortgeschrittene Themen der Webentwicklung bilden. Angefangen wird mit der Thematik des virtuellen DOMs von React. Darauf folgt ein Überblick über Möglichkeiten des Type Checkings / Static Types in JavaScript. Die React-spezifischen Themen "Error Boundaries", "React Router" und "Strict Mode" sollen zudem einige fortgeschrittene React-Techniken vermitteln. Außerdem werden die Bereiche "Code-Splitting" und "serverseitiges Rendern" vorgestellt.
 
 #### Virtuelles DOM
 
-Das Updaten von Elementen des nativen DOMs ist relativ ineffizient. aus diesem Grund verfügt React über ein virtuelles DOM. Statt Änderungen direkt im DOM zu rendern, wird bei Änderungen der alte virtuelle DOM mit dem neuen verglichen. Da diese als leichtgewichtige JavaScript Objekte in-memory gespeichert werden, sind dort Operationen deutlich schneller. Initial wird der virtuelle DOM mit der Funktion **ReactDOM.render(...)** erstellt.
+Da das Updaten von Elementen des nativen DOMs relativ ineffizient ist, verfügt React über ein virtuelles DOM. Statt Änderungen direkt im DOM zu rendern, wird der alte virtuelle DOM mit dem aus den Änderungen resultierenden DOM verglichen. Hierbei handelt es sich um leichtgewichtige JavaScript Objekte, die in-memory gespeichert werden, sodass dort Operationen deutlich schneller durchgeführt werden können. Initial wird der virtuelle DOM mit der Funktion **ReactDOM.render()** erstellt.
 
-Dieser Baum wird durch das Aufrufen von **setState()** komplett neu erstellt. Der neu erstellte Baum wird anschließend mit dem alten Baum verglichen. Um die minimale Anzahl von nötigen Modifikation zu finden lieft in O(n³). Um diesen Vorgang zu beschleunigen verwendet React eine Heuristik, die das Problem in O(n) lösen kann. Hierzu werden 2 Annahmen getroffen:
+Der Objektbaum wird durch das Aufrufen von **setState()** jeweils komplett neu erstellt und verglichen. Algorithmen, die die minimale Anzahl von nötigen Modifikation bestimmen, liegen bestenfalls in O(n³). Um diesen Vorgang zu beschleunigen, verwendet React eine Heuristik, die das Problem in O(n) lösen kann. Hierzu werden 2 Annahmen getroffen:
 
 **Annahme 1:**
 
 Zwei Elemente unterschiedlicher Typen erzeugen unterschiedliche DOM-Bäume. 
-Es wird eine Breitensuche durchgeführt, wobei jeweils die Typen der Elemente beider Bäume verglichen werden. 
+Es wird eine Breitensuche (ebenenweises Durchlaufen des Baums) durchgeführt, wobei jeweils die Typen der Elemente beider Bäume verglichen werden. 
 Unterscheiden sich diese, werden die Elemente samt aller Kinder als *dirty* markiert. Komponenten, die als dirty markiert wurden, werden anschließend neu gerendert.
 
 **Annahme 2:**
 
-Elemente können mit einem "key" als Identifier versehen werden. Angenommen man hat eine Liste von Elementen, die jeweils über einen solchen key verfügen, werden folgende Schritte durchgeführt [[HOPP17]](#ref_hopp17):
+Elemente können mit einem "key" als Identifier versehen werden. Bei einer Liste von Elementen mit solchen keys werden folgende Schritte durchgeführt [[HOPP17]](#ref_hopp17):
 
-Vergleiche alte Liste mit neuer Liste:
+Vergleiche die alte Liste mit der neuen Liste:
 
 * Durchlaufe alle Elemente
   * key in alter, aber nicht in neuer Liste vorhanden?
@@ -929,17 +929,18 @@ Vergleiche alte Liste mit neuer Liste:
   * key in beiden Listen vorhanden?
     * rufe **shouldComponentUpdate** auf, um zu entscheiden, was passieren soll
 
+*Anmerkung:*
 
-Seit ca. 2 Jahren arbeitet das React Team an einer neuen Datenstruktur (React Fiber), die den aktuellen Algorithmus verbessern und ersetzen soll, siehe [link](https://gist.github.com/duivvv/2ba00d413b8ff7bc1fa5a2e51c61ba43).
+Seit ca. 2 Jahren arbeitet das React Team zudem an einer neuen Datenstruktur (React Fiber), die den aktuellen Algorithmus verbessern und ersetzen soll, siehe [link](https://gist.github.com/duivvv/2ba00d413b8ff7bc1fa5a2e51c61ba43).
 
 #### Type Checking und Static Types in JavaScript
 
 Standardmäßig ist JavaScript eine dynamisch typisierte Programmiersprache. Möchte man dennoch Type-Checking-Methodiken oder statische Typisierung in Javascript verwenden, bedarf es zusätzlicher Bibliotheken/Tools. Im folgenden werden in diesem Zusammenhang PropTypes, Flow und TypeScript vorgestellt.
 
 ##### PropTypes
-Durch das Importieren des Packets "prop-types" erhält man Zugriff auf das in React eingebaute Typechecking-Werkzeug *PropTypes*. Mithilfe von PropTypes kann überwacht werden, ob alle benötigten Properties einer Komponente übergeben wurde und ob der Typ des Übergabewertes korrekt ist.
+Durch das Importieren des Packets "prop-types" erhält man Zugriff auf das in React eingebaute Typechecking-Werkzeug *PropTypes*. Mithilfe von PropTypes kann überwacht werden, ob alle benötigten Properties einer Komponente übergeben wurden und ob der Typ des Übergabewertes korrekt ist.
 
-Im folgenden Beispiel werden zwei Strings als Props festgelegt. Hierzu wird der Komponente eine Variable mit dem Namen *propTypes* zugewiesen.
+Im folgenden Beispiel werden zwei Strings als Props festgelegt. Hierzu wird der Komponenten eine Variable mit dem Namen *propTypes* zugewiesen.
 Innerhalb dieser Variable werden die Properties und deren Typen definiert. Das Anfügen von *isRequired* führt dazu, dass die Property zwingend einem Wert des angegebenen Typs zugewiesen werden muss.
 Ist dies nicht der Fall, erscheint eine entsprechende Fehlermeldung in der Konsole des verwendeten Browsers.
 
@@ -978,9 +979,9 @@ PropTypes überprüft die Typen aus Gründen der Performance nur im Entwicklermo
 
 ##### Flow
 
-Flow ist ein Static Type Checker für JavaScript Applikationen. Es kann dazu genutzt werden, PropTypes zu ersetzen. Darüber hinaus können mit Flow jedoch nicht nur die Properties, sondern z.B. auch von Typen von Parametern und Rückgabewerten überprüft werden [[CLAR17]](#ref_clar17). 
+Flow ist ein Static Type Checker für JavaScript Applikationen. Er zum Ersetzen von PropTypes genutzt werden. Darüber hinaus können mit Flow jedoch nicht nur die Properties, sondern auch z.B. die Typen von Parametern und Rückgabewerten überprüft werden [[CLAR17]](#ref_clar17). 
 
-Damit eine Datei von flow überprüft wird, muss sie foldermaßen markiert werden:
+Damit eine Datei von flow überprüft wird, muss sie folgendermaßen markiert werden:
 
 ```javascript
 // @flow
@@ -1016,7 +1017,7 @@ function myLoggerFunction(text: string): void {
 myLoggerFunction(2); // Fehler
 ```
 
-Flow analysiert den Quellcode auch ohne das explizite angeben von Typen:
+Flow analysiert den Quellcode auch ohne das explizite Angeben von Typen:
 ```javascript
 // @flow
 function add(var1, var2) {
@@ -1069,7 +1070,7 @@ Eine weitere wichtige Erweiterung sind die Zugriffsmodifizierer (access modifier
 * private: nur innerhalb der Klasse erreichbar
 * protected: nur innerhalb der Klasse und über Vererbung erreichbar
 
-Das Typensystem kann jedoch auch bei Verwendung von TypeScript umgangen werden. Wird als Typ **any** angegeben, findet keine Überprüfung des Types statt.
+Das Typensystem kann jedoch auch bei Verwendung von TypeScript umgangen werden. Wird als Typ **any** angegeben, findet keine Überprüfung des Typs statt.
 Um solche unsauberen Lösungen zu umgehen, kann z.B. das statische Code-Analyse Tool "TSLint" verwendet werden. Wird hier die Regel *no-any* gesetzt, wird eine entsprechende Warnung bzw. Fehler ausgegeben. Dieses Tool kann außerdem dabei helfen, Coderichtlinien einzuhalten.
 
 Einen schnellen Einstieg in die Entwicklung von React Anwendungen mit TypeScript und TSLint 
@@ -1077,7 +1078,7 @@ erhält man [hier](https://github.com/Microsoft/TypeScript-React-Starter#typescr
 
 #### Error Boundaries
 
-Error Boundaries (dt. Fehlergrenzen) dienen dem Einfangen von JavaScript Fehlern innerhalb der Kindelemente. Diese Fehler können anschließend protokolliert werden es können alternative GUI-Element angezeigt werden, wenn Kind-Komponenten abstürzen. Die Fehler werden während des Renderns, in anderen Lifecycle Methoden und auch innerhalb von Konstruktoren aufgefangen.
+Error Boundaries (dt. Fehlergrenzen) dienen dem Einfangen von JavaScript Fehlern innerhalb der Kindelemente. Diese Fehler können anschließend protokolliert werden oder alternative GUI-Element angezeigt werden, wenn Kind-Komponenten abstürzen. Die Fehler werden während des Renderns, in anderen Lifecycle Methoden und auch innerhalb von Konstruktoren aufgefangen.
 
 Um aus einer Komponente eine error boundary Klasse zu machen, muss lediglich die folgende Lifecycle Methode implementiert werden:
 
@@ -1095,17 +1096,17 @@ Die Methode erhält zwei Parameter:
 
 * Folgt der deklarativen Natur von React (*was* soll passieren, statt *wie*)
 * Error boundary Klassen können einfach wiederverwendet werden
-* Verhät sich wie zu erwarten: Fehler werden zur nächst höheren error boundary Klasse weitergeleitet
+* Verhält sich wie zu erwarten: Fehler werden zur nächst höheren error boundary Klasse weitergeleitet
 
 **Contra:**
 
 * ¯\\_(ツ)_/¯   ;)
 
-In diesem [Beispiel](https://codepen.io/sgroff04/pen/dVbgJy) wird eine mögliche Realisierung implementiert [[GROF18]](#ref_grof18).
+In [diesem](https://codepen.io/sgroff04/pen/dVbgJy) Beispiel wird eine mögliche Realisierung implementiert [[GROF18]](#ref_grof18).
 
 #### React Router
 
-Mit React werden hauptsächlich Single Page Applications erstellt. Aus diesem Grund ist die Webseite nicht darauf angewiesen für ihre Unterseiten verschiedene URLs zu verwenden. Solche URLs erlauben es jedoch dem Benutzer die bestimmten Seiten als Lesezeichen abzuspeichern und die Vorwärts- und Rückwärts-Pfeile des Browsers für die Navigation zu verwenden.
+Mit React werden hauptsächlich Single Page Applications erstellt. Aus diesem Grund ist die Webseite nicht darauf angewiesen für ihre Unterseiten verschiedene URLs zu verwenden. Solche URLs erlauben es dem Benutzer jedoch die bestimmten Seiten als Lesezeichen abzuspeichern und die Vorwärts- und Rückwärts-Pfeile des Browsers für die Navigation zu verwenden.
 
 Damit Komponenten einer SPA trotzdem in verschiedene URL-Bereiche aufgeteilt werden können, kann bei React der *react-router* verwendet werden.
 
@@ -1131,7 +1132,7 @@ ReactDOM.render((
 
 In diesem Beispiel würde ein Aufruf von "*URL*/" die Komponente *Home* aufrufen, wohingegen "*URL*/Display/Hallo" den Wert *Hallo* als Parameter *text* and die Komponente *DisplayText* übergeben würde. In allen anderen Aufrufen der URL würde die Komponente *Default* aufgerufen werden. Die Routen lassen sich auch Verschachteln, woraufhin tiefergelegene Komponenten entsprechend als *Children* an die darüberliegende Komponente übergeben werden. Dieser Routing-Vorgang wird aufgrund der BrowserRouter-Komponente dynamisch ausgeführt, d.h. er wird zur Laufzeit vorgenommen [[SCHE17]](#ref_sche17).
 
-Für statische SPAs, bei denen der Server nur statische Dateien liefern kann, kann der *HashRouter* anstelle von *BrowserRouter* verwendet werden. Der HashRouter verwendet den Hash einer URL (window.location.hash) zur Unterteilung. Es wird also nach einem Hash (#) in der URL gesucht, und der Text dahinter als Parameter verwendet [[TECH17]](#ref_tech17).
+Für statische SPAs, bei denen der Server nur statische Dateien liefern kann, kann der *HashRouter* anstelle von *BrowserRouter* verwendet werden. Der HashRouter verwendet den Hash einer URL (window.location.hash) zur Unterteilung. Es wird also nach einem Hash (#) in der URL gesucht und der Text dahinter als Parameter verwendet [[TECH17]](#ref_tech17).
 
 #### Code-Splitting
 
@@ -1141,16 +1142,16 @@ Bei größeren Single Page Applications kann dies zu Problemen führen, da alle 
 
 Code-Splitting ermöglicht es, die Bestandteile einer Webanwendung in verschiedene Bereiche aufzuteilen und diese erst bei Bedarf zu laden (quasi *lazy loading*).
 
-In React kann in Verbindung mit Webpack die dynamische *import()*-Syntax verwendet werden [[FACE18g]](#ref_face18g).
+In React kann hierzu in Verbindung mit Webpack die dynamische *import()*-Syntax verwendet werden [[FACE18g]](#ref_face18g).
 
-Vorher:
+Ohne Code-Splitting:
 ```javascript
 import { SubMenu } from './SubMenu';
 
 SubMenu.open();
 ```
 
-Nachher:
+Mit Code-Splitting:
 ```javascript
 // Webpack führt hier ein Code-Splitting durch 
 import("./SubMenu").then(module => {
@@ -1160,9 +1161,9 @@ import("./SubMenu").then(module => {
 
 **Komponentenbasiertes Code-Splitting mit *React Loadable***
 
-Speziell für React kann auch die Bibliothek *React Loadable* verwendet werden. Sie bietet einen Wrapper für das Code-Splitting und bietet zudem z.B. die Möglichkeit während des Ladevorganges eine andere Komponente/Text anzuzeigen. Es handelt sich um eine HOC, die [Promises](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) für das Laden von Komponenten bereitstellt [[REAC18]](#ref_reac18).
+Speziell für React kann auch die Bibliothek *React Loadable* verwendet werden. Sie bietet einen Wrapper für das Code-Splitting und bietet zudem z.B. die Möglichkeit, während des Ladevorganges eine andere Komponente/Text anzuzeigen. Es handelt sich um eine HOC, die [Promises](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) für das Laden von Komponenten bereitstellt [[REAC18]](#ref_reac18).
 
-Vorher:
+Ohne Code-Splitting:
 ```jsx
 import { SomeComponent } from './SomeComponent';
 
@@ -1171,7 +1172,7 @@ const SomeContainer = () => (
 );
 ```
 
-Nachher:
+Mit Code-Splitting:
 ```jsx
 import Loadable from 'react-loadable';
 
@@ -1254,7 +1255,7 @@ Stellt man sich die Frage, ob man serverseitiges Rendern verwenden sollte, kann 
 
 Vorteile:
 * SEO (Search Engine Optimization) Verbesserung möglich (Google, Bing etc.)
-* In der Regel bessere clientseitige Performanz
+* In der Regel bessere clientseitige Performance
 
 Nachteile:
 * Der Server wird stärker beansprucht, wodurch HTTP Antworten verzögert werden können
