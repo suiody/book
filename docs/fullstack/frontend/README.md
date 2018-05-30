@@ -717,7 +717,9 @@ var counterState = observable({
 ```jsx
 import {observer} from 'mobx-react';
 
-// ESnext Decorator, siehe MobX Doku für ES5 / ES6 Alternativen
+// ESnext Decorator
+// Syntax ohne Decorator:
+// "export observer(CounterView)" am Ende der Datei
 @observer
 class CounterView extends React.Component {
     constructor(props) {
@@ -742,7 +744,9 @@ class CounterView extends React.Component {
 
 *Schritt 3: Status modifizieren*
 ```javascript
-counterState.increment = action(function reset() {
+import {action} from 'mobx';
+
+counterState.increment = action(() => {
     counterState.value += 1;
 });
 ```
@@ -750,7 +754,7 @@ counterState.increment = action(function reset() {
 *Schritt 4: Komponente und Status verbinden*
 ```jsx
 // "counterState" wird als normale Property verwendet 
-ReactDOM.render(<Counter counterState={counterState} />, document.body);
+ReactDOM.render(<Counter counterState={this.props.counterState} />, document.body);
 ```
 
 ##### Redux
